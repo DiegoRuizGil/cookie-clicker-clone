@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.Assertions;
 
 namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
@@ -16,6 +17,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         
         public Building(int baseCPS)
         {
+            Assert.IsTrue(baseCPS >= 0);
+            
             _baseCPS = baseCPS;
             _quantity = 1;
         }

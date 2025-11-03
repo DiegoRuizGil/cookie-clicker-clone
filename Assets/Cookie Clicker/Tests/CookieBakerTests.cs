@@ -15,5 +15,17 @@ namespace Cookie_Clicker.Tests
             
             Assert.That(baker.TotalCookies, Is.EqualTo(0));
         }
+
+        [Test]
+        public void AddBuilding_BoostProduction()
+        {
+            var baker = new CookieBaker();
+            var building = new Building(10);
+
+            building.Quantity++;
+            baker.buildings.Add(building);
+            
+            Assert.That(baker.Production, Is.EqualTo(10));
+        }
     }
 }

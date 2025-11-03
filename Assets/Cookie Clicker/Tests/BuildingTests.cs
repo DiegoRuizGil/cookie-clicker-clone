@@ -12,5 +12,16 @@ namespace Cookie_Clicker.Tests
             
             Assert.That(building.Production, Is.EqualTo(0));
         }
+
+        [Test]
+        public void BoostProduction_ByIncreasingBuildingQuantity()
+        {
+            var cps = 1;
+            var building = new Building(cps);
+
+            building.Quantity++;
+            
+            Assert.That(building.Production, Is.EqualTo(cps));
+        }
     }
 }

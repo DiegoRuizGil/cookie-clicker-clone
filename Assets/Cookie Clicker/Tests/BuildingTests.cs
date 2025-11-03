@@ -10,18 +10,18 @@ namespace Cookie_Clicker.Tests
         {
             var building = new Building(1);
             
-            Assert.That(building.Production, Is.EqualTo(0));
+            Assert.That(building.Production, Is.EqualTo(1));
         }
 
         [Test]
         public void BoostProduction_ByIncreasingBuildingQuantity()
         {
-            var cps = 1;
+            var cps = 2;
             var building = new Building(cps);
 
             building.Quantity++;
             
-            Assert.That(building.Production, Is.EqualTo(cps));
+            Assert.That(building.Production, Is.EqualTo(cps * 2));
         }
     }
 }

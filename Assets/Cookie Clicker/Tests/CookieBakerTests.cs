@@ -22,7 +22,6 @@ namespace Cookie_Clicker.Tests
             var baker = new CookieBaker();
             var building = new Building(10);
 
-            building.Quantity++;
             baker.buildings.Add(building);
             
             Assert.That(baker.Production, Is.EqualTo(10));

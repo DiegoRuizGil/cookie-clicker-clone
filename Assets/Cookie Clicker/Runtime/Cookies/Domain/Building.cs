@@ -17,6 +17,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public Building(int baseCPS)
         {
             _baseCPS = baseCPS;
+            _quantity = 1;
         }
     }
 }

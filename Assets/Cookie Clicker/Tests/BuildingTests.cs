@@ -8,7 +8,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void EmptyCase()
         {
-            var building = new Building(1);
+            var building = new Building("cursor", 1);
             
             Assert.That(building.Production, Is.EqualTo(1));
         }
@@ -17,7 +17,7 @@ namespace Cookie_Clicker.Tests
         public void BoostProduction_ByIncreasingBuildingQuantity()
         {
             var cps = 2;
-            var building = new Building(cps);
+            var building = new Building("cursor", cps);
 
             building.Quantity++;
             

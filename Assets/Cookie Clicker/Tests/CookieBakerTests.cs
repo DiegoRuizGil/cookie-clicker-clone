@@ -20,7 +20,7 @@ namespace Cookie_Clicker.Tests
         public void AddBuilding_BoostProduction()
         {
             var baker = new CookieBaker(0);
-            var building = new Building(10);
+            var building = new Building("cursor", 10);
 
             baker.buildings.Add(building);
             
@@ -31,7 +31,7 @@ namespace Cookie_Clicker.Tests
         public void PassTime_ProduceCookies()
         {
             var baker = new CookieBaker(0);
-            var building = new Building(10);
+            var building = new Building("cursor", 10);
             
             baker.buildings.Add(building);
             baker.PassTime(TimeSpan.FromSeconds(1));

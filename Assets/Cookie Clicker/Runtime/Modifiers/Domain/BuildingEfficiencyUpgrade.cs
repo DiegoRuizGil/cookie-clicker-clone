@@ -17,7 +17,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         {
             var building = baker.buildings.Find(b => b.Name == _buildingName);
             if (building != null)
-                building.cpsMultiplier *= _multiplier;
+                building.cps.AddEfficiency(_multiplier);
         }
     }
 }

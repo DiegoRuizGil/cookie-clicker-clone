@@ -28,5 +28,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         }
         
         public void Tap() => TotalCookies += _cookiesPerTap;
+        
+        public Building FindBuilding(string name) => buildings.Find(b => b.Name == name);
     }
 }

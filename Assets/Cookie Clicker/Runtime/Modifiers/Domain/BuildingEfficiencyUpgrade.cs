@@ -15,7 +15,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         
         public void Apply(CookieBaker baker)
         {
-            var building = baker.buildings.Find(b => b.Name == _buildingName);
+            var building = baker.FindBuilding(_buildingName);
             if (building != null)
                 building.cps.AddEfficiency(_multiplier);
         }

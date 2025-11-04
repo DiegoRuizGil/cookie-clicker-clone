@@ -6,12 +6,13 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
     public class Building
     {
         public string Name { get; }
-        public int Production => _baseCPS * _quantity;
+        public int Production => (int) (_baseCPS * _quantity * cpsMultiplier);
         public int Quantity
         {
             get => _quantity;
             set => _quantity = Math.Max(value, 0);
         }
+        public float cpsMultiplier = 1.0f;
 
         private readonly int _baseCPS;
         private int _quantity;

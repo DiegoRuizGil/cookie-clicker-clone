@@ -45,5 +45,20 @@ namespace Cookie_Clicker.Tests
             Assert.That(baker.Production, Is.EqualTo(20));
             Assert.That(baker.CookiePerTap, Is.EqualTo(20));
         }
+
+        [Test]
+        public void TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied()
+        {
+            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
+            var baker = new CookieBaker(10);
+            var grandma = new Building("grandma", 10);
+            var farm = new Building("farm", 100);
+            baker.buildings.AddRange(new [] { grandma, farm });
+            
+            upgrade.Apply(baker);
+            
+            Assert.That(grandma.Production, Is.EqualTo(10));
+            Assert.That(farm.Production, Is.EqualTo(100));
+        }
     }
 }

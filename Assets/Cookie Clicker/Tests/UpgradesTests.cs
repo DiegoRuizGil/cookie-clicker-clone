@@ -60,5 +60,20 @@ namespace Cookie_Clicker.Tests
             Assert.That(grandma.Production, Is.EqualTo(10));
             Assert.That(farm.Production, Is.EqualTo(100));
         }
+
+        [Test]
+        public void ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied()
+        {
+            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
+            var baker = new CookieBaker(10);
+            var grandma = new Building("grandma", 10) { Quantity = 2 };
+            var farm = new Building("farm", 100);
+            baker.buildings.AddRange(new [] { grandma, farm });
+            
+            upgrade.Apply(baker);
+            
+            Assert.That(grandma.Production, Is.EqualTo(40));
+            Assert.That(farm.Production, Is.EqualTo(101));
+        }
     }
 }

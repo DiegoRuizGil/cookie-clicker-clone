@@ -29,7 +29,11 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
 
             if (building == null || grandma == null) return;
 
-            _previousGrandmaAmount = grandma.Quantity;
+            if (currentGrandmaAmount >= _grandmaCount)
+            {
+                grandma.cps.AddEfficiency(_grandmaEfficiencyMultiplier);
+                building.cps.AddMultiplier(_buildingMultiplier);
+            }
         }
     }
 }

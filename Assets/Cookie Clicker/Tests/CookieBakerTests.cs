@@ -26,5 +26,17 @@ namespace Cookie_Clicker.Tests
             
             Assert.That(baker.Production, Is.EqualTo(10));
         }
+
+        [Test]
+        public void PassTime_ProduceCookies()
+        {
+            var baker = new CookieBaker();
+            var building = new Building(10);
+            
+            baker.buildings.Add(building);
+            baker.PassTime(TimeSpan.FromSeconds(1));
+            
+            Assert.That(baker.TotalCookies, Is.EqualTo(10));
+        }
     }
 }

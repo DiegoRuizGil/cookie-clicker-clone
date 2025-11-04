@@ -14,10 +14,5 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         {
             TotalCookies += (int)(Production * delta.TotalSeconds);
         }
-
-        public int GetProduction()
-        {
-            return buildings.Sum(building => building.Production);
-        }
     }
 }

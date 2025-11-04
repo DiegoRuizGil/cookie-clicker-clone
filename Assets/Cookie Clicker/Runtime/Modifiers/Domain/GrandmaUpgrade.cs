@@ -32,8 +32,15 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             if (currentGrandmaAmount >= _grandmaCount)
             {
                 grandma.cps.AddEfficiency(_grandmaEfficiencyMultiplier);
-                building.cps.AddMultiplier(_buildingMultiplier);
+                UpgradeBuilding(building, currentGrandmaAmount);
             }
+        }
+
+        private void UpgradeBuilding(Building building, int currentGrandmaAmount)
+        {
+            var grandmaGroups = currentGrandmaAmount / _grandmaCount;
+            for (int i = 0; i < grandmaGroups; i++)
+                building.cps.AddMultiplier(_buildingMultiplier);
         }
     }
 }

@@ -18,5 +18,18 @@ namespace Cookie_Clicker.Tests
             
             Assert.That(baker.Production, Is.EqualTo(20));
         }
+
+        [Test]
+        public void ApplyGlobalProductionUpgrade()
+        {
+            var upgrade = new GlobalProductionUpgrade(0.01f);
+            var baker = new CookieBaker(10);
+            var building = new Building("cursor", 100);
+            baker.buildings.Add(building);
+            
+            upgrade.Apply(baker);
+            
+            Assert.That(baker.Production, Is.EqualTo(101));
+        }
     }
 }

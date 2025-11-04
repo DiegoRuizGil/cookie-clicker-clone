@@ -13,9 +13,9 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             _multiplier = multiplier;
         }
         
-        public void Apply(CookieBaker cookieBaker)
+        public void Apply(CookieBaker baker)
         {
-            var building = cookieBaker.buildings.Find(b => b.Name == _buildingName);
+            var building = baker.buildings.Find(b => b.Name == _buildingName);
             if (building != null)
                 building.cpsMultiplier *= _multiplier;
         }

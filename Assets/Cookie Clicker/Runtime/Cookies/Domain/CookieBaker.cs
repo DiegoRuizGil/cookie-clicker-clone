@@ -24,7 +24,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         
         public void PassTime(TimeSpan delta)
         {
-            TotalCookies += (int)(Production * delta.TotalSeconds);
+            TotalCookies += (int) Math.Floor(Production * delta.TotalSeconds);
         }
         
         public void Tap() => TotalCookies += _cookiesPerTap;

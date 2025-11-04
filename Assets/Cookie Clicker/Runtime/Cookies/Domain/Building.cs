@@ -6,7 +6,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
     public class Building
     {
         public string Name { get; }
-        public int Production => (int) (_baseCPS * _quantity * cpsMultiplier);
+        public float Production => _baseCPS * _quantity * cpsMultiplier;
         public int Quantity
         {
             get => _quantity;
@@ -14,10 +14,10 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         }
         public float cpsMultiplier = 1.0f;
 
-        private readonly int _baseCPS;
+        private readonly float _baseCPS;
         private int _quantity;
         
-        public Building(string name, int baseCPS)
+        public Building(string name, float baseCPS)
         {
             Assert.IsTrue(baseCPS >= 0);
 

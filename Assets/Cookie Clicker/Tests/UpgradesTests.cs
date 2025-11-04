@@ -31,5 +31,19 @@ namespace Cookie_Clicker.Tests
             
             Assert.That(baker.Production, Is.EqualTo(101));
         }
+
+        [Test]
+        public void ApplyTappingCursorUpgrade()
+        {
+            var upgrade = new TappingCursorUpgrade("cursor", 2.0f);
+            var baker = new CookieBaker(10);
+            var building = new Building("cursor", 10);
+            baker.buildings.Add(building);
+            
+            upgrade.Apply(baker);
+            
+            Assert.That(baker.Production, Is.EqualTo(20));
+            Assert.That(baker.CookiePerTap, Is.EqualTo(20));
+        }
     }
 }

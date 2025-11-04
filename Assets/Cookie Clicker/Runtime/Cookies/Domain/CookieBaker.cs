@@ -9,17 +9,19 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
     {
         public readonly List<Building> buildings = new List<Building>();
         public float Production => buildings.Sum(b => b.Production) * productionMultiplier;
+        public float CookiePerTap => _baseCookiesPerTap * tapMultiplier;
         public int TotalCookies { get; private set; }
 
         public float productionMultiplier = 1f;
+        public float tapMultiplier = 1f;
         
-        private readonly int _cookiesPerTap;
+        private readonly int _baseCookiesPerTap;
         
-        public CookieBaker(int cookiesPerTap)
+        public CookieBaker(int baseCookiesPerTap)
         {
-            Assert.IsTrue(cookiesPerTap >= 0);
+            Assert.IsTrue(baseCookiesPerTap >= 0);
             
-            _cookiesPerTap = cookiesPerTap;
+            _baseCookiesPerTap = baseCookiesPerTap;
         }
         
         public void PassTime(TimeSpan delta)
@@ -27,7 +29,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             TotalCookies += (int) Math.Floor(Production * delta.TotalSeconds);
         }
         
-        public void Tap() => TotalCookies += _cookiesPerTap;
+        public void Tap() => TotalCookies += (int) CookiePerTap;
         
         public Building FindBuilding(string name) => buildings.Find(b => b.Name == name);
     }

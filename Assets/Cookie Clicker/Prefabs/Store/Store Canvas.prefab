@@ -90,11 +90,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6474aeb4f34e7bbe17718b535b4f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buildingButtonPrefab: {fileID: 3359554229883081975, guid: 16d4324c9a1abf54292a07c7ffd2ac2d, type: 3}
-  _buildingConfigs:
+  buildingButtonPrefab: {fileID: 3359554229883081975, guid: 16d4324c9a1abf54292a07c7ffd2ac2d, type: 3}
+  bakerBehaviour: {fileID: 0}
+  buildingConfigs:
   - {fileID: 11400000, guid: fc290f51cd6041e449521839ac381f87, type: 2}
-  - {fileID: 11400000, guid: 24e13721e0764884dbaf694b35e9b02c, type: 2}
   - {fileID: 11400000, guid: 850a1ae33ef4ce64db948fde6bb4c55d, type: 2}
+  - {fileID: 11400000, guid: 24e13721e0764884dbaf694b35e9b02c, type: 2}
 --- !u!1 &8290022697911922110
 GameObject:
   m_ObjectHideFlags: 0

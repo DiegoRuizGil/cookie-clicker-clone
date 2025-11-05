@@ -9,6 +9,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         [SerializeField] private ClickableCookie cookie;
         [SerializeField] private StatsVisualizer statsVisualizer;
 
+        public CookieBaker Baker => _baker;
         private readonly CookieBaker _baker = new CookieBaker();
 
         private void Update()

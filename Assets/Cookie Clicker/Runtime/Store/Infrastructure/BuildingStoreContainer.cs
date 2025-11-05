@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEngine;
 
@@ -7,16 +7,17 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure
 {
     public class BuildingStoreContainer : MonoBehaviour
     {
-        [SerializeField] private BuildingButton _buildingButtonPrefab;
+        [SerializeField] private BuildingButton buildingButtonPrefab;
+        [SerializeField] private BakerBehaviour bakerBehaviour;
 
-        [SerializeField] private List<BuildingConfig> _buildingConfigs;
+        [SerializeField] private List<BuildingConfig> buildingConfigs;
 
-        private void Awake()
+        private void Start()
         {
-            foreach (var buildingConfig in _buildingConfigs)
+            foreach (var buildingConfig in buildingConfigs)
             {
-                var button = Instantiate(_buildingButtonPrefab, transform);
-                button.Init(buildingConfig, null);
+                var button = Instantiate(buildingButtonPrefab, transform);
+                button.Init(buildingConfig, bakerBehaviour.Baker);
             }
         }
     }

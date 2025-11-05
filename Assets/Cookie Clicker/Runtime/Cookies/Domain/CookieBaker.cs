@@ -8,14 +8,11 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
     {
         public readonly List<Building> buildings = new List<Building>();
         public float Production => buildings.Sum(b => b.Production) * (1 + ProductionMultiplier);
-        public float CookiePerTap => BaseCookiesPerTap * tapEfficiency + (Production * tapMultiplier);
+        public float CookiePerTap => tapping.Base * tapping.Efficiency + (Production * tapping.Multiplier);
         public int TotalCookies { get; private set; }
 
         public Percentage ProductionMultiplier { get; set; } = Percentage.Zero();
-        public float tapEfficiency = 1f;
-        public float tapMultiplier = 0f;
-
-        private const int BaseCookiesPerTap = 1;
+        public readonly ProductionStat tapping = new ProductionStat(1);
 
         public void PassTime(TimeSpan delta)
         {

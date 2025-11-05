@@ -5,12 +5,12 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
     public class TappingCursorUpgrade : IUpgrade
     {
         private readonly string _cursorName;
-        private readonly float _multiplier;
+        private readonly float _efficiencyMultiplier;
         
-        public TappingCursorUpgrade(string cursorName, float multiplier)
+        public TappingCursorUpgrade(string cursorName, float efficiencyMultiplier)
         {
             _cursorName = cursorName;
-            _multiplier = multiplier;
+            _efficiencyMultiplier = efficiencyMultiplier;
         }
         
         public void Apply(CookieBaker baker)
@@ -18,8 +18,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             var cursor = baker.FindBuilding(_cursorName);
             if (cursor != null)
             {
-                baker.tapEfficiency *= _multiplier;
-                cursor.cps.AddEfficiency(_multiplier);
+                baker.tapping.AddEfficiency(_efficiencyMultiplier);
+                cursor.cps.AddEfficiency(_efficiencyMultiplier);
             }
         }
     }

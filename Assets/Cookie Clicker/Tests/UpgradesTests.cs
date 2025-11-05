@@ -127,7 +127,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyTappingUpgrade()
         {
-            var upgrade = new TappingUpgrade(0.01f);
+            var upgrade = new TappingUpgrade(Percentage.FromPercentage(1f));
             var baker = new CookieBaker();
             var building = new Building("cursor", 100);
             baker.buildings.Add(building);
@@ -140,7 +140,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyTappingUpgrade_WithZeroCPS()
         {
-            var upgrade = new TappingUpgrade(0.01f);
+            var upgrade = new TappingUpgrade(Percentage.FromPercentage(1f));
             var baker = new CookieBaker();
             
             upgrade.Apply(baker);

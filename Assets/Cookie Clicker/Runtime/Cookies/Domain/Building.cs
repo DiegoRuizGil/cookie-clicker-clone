@@ -13,7 +13,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             set => _quantity = Math.Max(value, 0);
         }
         
-        public readonly CPS cps;
+        public readonly ProductionStat cps;
 
         private int _quantity;
 
@@ -24,7 +24,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
 
             Name = name;
             _quantity = 1;
-            cps = new CPS(baseCPS);
+            cps = new ProductionStat(baseCPS);
         }
     }
 }

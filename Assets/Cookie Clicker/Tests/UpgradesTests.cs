@@ -49,7 +49,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
+            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = new Building("grandma", 10);
             var farm = new Building("farm", 100);
@@ -64,7 +64,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
+            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = new Building("grandma", 10) { Quantity = 2 };
             var farm = new Building("farm", 100);
@@ -79,7 +79,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
+            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = new Building("grandma", 10) { Quantity = 6 };
             var farm = new Building("farm", 100);
@@ -94,7 +94,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
+            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = new Building("grandma", 10) { Quantity = 7 };
             var farm = new Building("farm", 100);
@@ -109,7 +109,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void UpdateUpgrade_WhenAddingMoreGrandmas()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
+            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = new Building("grandma", 10) { Quantity = 3 };
             var farm = new Building("farm", 100);

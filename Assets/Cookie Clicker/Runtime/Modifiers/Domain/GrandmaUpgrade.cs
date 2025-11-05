@@ -8,13 +8,13 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         private readonly string _grandmaName;
         private readonly string _buildingName;
         private readonly float _grandmaEfficiencyMultiplier;
-        private readonly float _buildingMultiplier;
+        private readonly Percentage _buildingMultiplier;
         private readonly int _grandmaGroupSize;
 
         private int _previousGrandmaAmount;
         private bool _grandmasUpgraded;
         
-        public GrandmaUpgrade(string grandmaName, string buildingName, float grandmaEfficiencyMultiplier, float buildingMultiplier, int grandmaGroupSize)
+        public GrandmaUpgrade(string grandmaName, string buildingName, float grandmaEfficiencyMultiplier, Percentage buildingMultiplier, int grandmaGroupSize)
         {
             _grandmaName = grandmaName;
             _buildingName = buildingName;
@@ -53,7 +53,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         private void UpgradeBuilding(Building building, int grandmaGroups)
         {
             for (int i = 0; i < grandmaGroups; i++)
-                building.cps.AddMultiplier(Percentage.FromFraction(_buildingMultiplier));
+                building.cps.AddMultiplier(_buildingMultiplier);
         }
         
         private int GetGrandmaGroups(int currentGrandmaAmount)

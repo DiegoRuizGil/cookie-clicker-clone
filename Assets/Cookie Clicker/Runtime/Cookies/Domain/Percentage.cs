@@ -1,6 +1,8 @@
-﻿namespace Cookie_Clicker.Runtime.Cookies.Domain
+﻿using System;
+
+namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
-    public struct Percentage
+    public struct Percentage : IEquatable<Percentage>
     {
         private readonly float _value;
 
@@ -21,7 +23,10 @@
         public static Percentage operator -(Percentage a, Percentage b) => new Percentage(a._value - b._value);
         public static Percentage operator *(Percentage a, float scalar) => new Percentage(a._value * scalar);
         public static Percentage operator /(Percentage a, float scalar) => new Percentage(a._value / scalar);
-        
+
+        public bool Equals(Percentage other) => _value.Equals(other._value);
+        public override bool Equals(object obj) => obj is Percentage other && Equals(other);
+        public override int GetHashCode() => _value.GetHashCode();
         public override string ToString() => $"{AsPercentage:0.##}%";
     }
 }

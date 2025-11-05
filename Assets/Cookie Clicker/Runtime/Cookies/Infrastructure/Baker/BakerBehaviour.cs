@@ -36,7 +36,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         private void DebugAddCursorBuilding()
         {
             var cursor = new Building("cursor", 2);
-            _baker.buildings.Add(cursor);
+            _baker.AddBuilding(cursor);
         }
     }
 }

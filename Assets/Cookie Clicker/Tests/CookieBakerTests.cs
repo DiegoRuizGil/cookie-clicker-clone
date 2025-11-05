@@ -22,7 +22,7 @@ namespace Cookie_Clicker.Tests
             var baker = new CookieBaker();
             var building = new Building("cursor", 10);
 
-            baker.buildings.Add(building);
+            baker.AddBuilding(building);
             
             Assert.That(baker.Production, Is.EqualTo(10));
         }
@@ -33,7 +33,7 @@ namespace Cookie_Clicker.Tests
             var baker = new CookieBaker();
             var building = new Building("cursor", 10);
             
-            baker.buildings.Add(building);
+            baker.AddBuilding(building);
             baker.PassTime(TimeSpan.FromSeconds(1));
             
             Assert.That(baker.TotalCookies, Is.EqualTo(10));

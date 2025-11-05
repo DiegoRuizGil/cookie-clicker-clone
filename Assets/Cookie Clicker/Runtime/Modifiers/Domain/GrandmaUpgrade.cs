@@ -53,7 +53,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         private void UpgradeBuilding(Building building, int grandmaGroups)
         {
             for (int i = 0; i < grandmaGroups; i++)
-                building.cps.AddMultiplier(_buildingMultiplier);
+                building.cps.AddMultiplier(Percentage.FromFraction(_buildingMultiplier));
         }
         
         private int GetGrandmaGroups(int currentGrandmaAmount)

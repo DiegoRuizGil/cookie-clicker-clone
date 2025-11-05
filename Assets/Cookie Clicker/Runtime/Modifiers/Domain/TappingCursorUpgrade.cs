@@ -18,7 +18,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             var cursor = baker.FindBuilding(_cursorName);
             if (cursor != null)
             {
-                baker.tapMultiplier *= _multiplier;
+                baker.tapEfficiency *= _multiplier;
                 cursor.cps.AddEfficiency(_multiplier);
             }
         }

@@ -123,5 +123,18 @@ namespace Cookie_Clicker.Tests
             Assert.That(grandma.Production, Is.EqualTo(80));
             Assert.That(farm.Production, Is.EqualTo(102));
         }
+
+        [Test]
+        public void ApplyTappingUpgrade()
+        {
+            var upgrade = new TappingUpgrade(0.01f);
+            var baker = new CookieBaker();
+            var building = new Building("cursor", 100);
+            baker.buildings.Add(building);
+            
+            upgrade.Apply(baker);
+            
+            Assert.That(baker.CookiePerTap, Is.EqualTo(2f));
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace Cookie_Clicker.Tests
 
             baker.Tap();
             
-            Assert.That(baker.TotalCookies, Is.EqualTo(10));
+            Assert.That(baker.TotalCookies, Is.EqualTo(1));
         }
     }
 }

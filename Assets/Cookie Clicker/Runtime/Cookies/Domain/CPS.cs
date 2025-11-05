@@ -2,7 +2,7 @@
 {
     public class CPS
     {
-        public float Value => _base * _efficiency + _multiplier.AppliedTo(_base * _efficiency);
+        public float Value => _base * _efficiency * (1 + _multiplier);
         
         private readonly float _base;
         private float _efficiency;

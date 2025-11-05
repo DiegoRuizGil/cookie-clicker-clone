@@ -9,6 +9,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings
         [SerializeField] private BuildingID _buildingID;
         [SerializeField] private float baseCPS;
 
+        public Building Building => _building;
+        
         private Building _building;
 
         public void Init()

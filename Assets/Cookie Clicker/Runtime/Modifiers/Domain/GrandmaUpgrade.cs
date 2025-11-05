@@ -29,7 +29,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         {
             var grandma = baker.FindBuilding(_grandmaName);
             var building = baker.FindBuilding(_buildingName);
-            var currentGrandmaAmount = grandma?.Quantity ?? 0;
+            var currentGrandmaAmount = grandma?.Amount ?? 0;
 
             if (building == null || grandma == null) return;
             

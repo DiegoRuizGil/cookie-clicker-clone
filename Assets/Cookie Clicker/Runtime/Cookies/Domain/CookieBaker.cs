@@ -30,7 +30,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             Assert.IsTrue(amount > 0);
             
             buildings.TryAdd(buildingToAdd.name, buildingToAdd);
-            buildingToAdd.Quantity += amount;
+            buildingToAdd.Amount += amount;
         }
     }
 }

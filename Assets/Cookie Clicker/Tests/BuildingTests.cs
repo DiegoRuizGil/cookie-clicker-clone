@@ -19,7 +19,7 @@ namespace Cookie_Clicker.Tests
             var cps = 2;
             var building = new Building("cursor", cps);
 
-            building.Quantity += 2;
+            building.Amount += 2;
             
             Assert.That(building.Production, Is.EqualTo(cps * 2));
         }

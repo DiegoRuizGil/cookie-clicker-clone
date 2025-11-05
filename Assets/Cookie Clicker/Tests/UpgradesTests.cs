@@ -136,5 +136,16 @@ namespace Cookie_Clicker.Tests
             
             Assert.That(baker.CookiePerTap, Is.EqualTo(2f));
         }
+
+        [Test]
+        public void ApplyTappingUpgrade_WithZeroCPS()
+        {
+            var upgrade = new TappingUpgrade(0.01f);
+            var baker = new CookieBaker();
+            
+            upgrade.Apply(baker);
+            
+            Assert.That(baker.CookiePerTap, Is.EqualTo(1f));
+        }
     }
 }

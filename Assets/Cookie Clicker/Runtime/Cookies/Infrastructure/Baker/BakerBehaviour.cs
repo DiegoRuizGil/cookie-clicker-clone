@@ -16,13 +16,27 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             statsVisualizer.UpdateStats(_baker);
         }
 
+        private void Update()
+        {
+            _baker.PassTime(TimeSpan.FromSeconds(Time.deltaTime));
+            statsVisualizer.UpdateStats(_baker);
+            
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                DebugAddCursorBuilding();
+        }
+
         private void OnEnable() => cookie.OnClick += Tap;
         private void OnDisable() => cookie.OnClick -= Tap;
 
         private void Tap()
         {
             _baker.Tap();
-            statsVisualizer.UpdateStats(_baker);
+        }
+
+        private void DebugAddCursorBuilding()
+        {
+            var cursor = new Building("cursor", 2);
+            _baker.buildings.Add(cursor);
         }
     }
 }

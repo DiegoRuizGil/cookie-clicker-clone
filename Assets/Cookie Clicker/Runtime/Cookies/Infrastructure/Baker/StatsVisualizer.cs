@@ -11,8 +11,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 
         public void UpdateStats(CookieBaker baker)
         {
-            totalCookiesText.text = $"{baker.TotalCookies} COOKIES";
-            cpsText.text = $"per seconds: {baker.Production}";
+            totalCookiesText.text = baker.TotalCookies.ToString("# 'COOKIES'");
+            cpsText.text = baker.Production.ToString("'per second:' #");
         }
     }
 }

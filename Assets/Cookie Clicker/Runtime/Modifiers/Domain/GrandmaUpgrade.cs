@@ -1,4 +1,5 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+﻿using System;
+using Cookie_Clicker.Runtime.Cookies.Domain;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
@@ -8,17 +9,20 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         private readonly string _buildingName;
         private readonly float _grandmaEfficiencyMultiplier;
         private readonly float _buildingMultiplier;
-        private readonly int _grandmaCount;
+        private readonly int _grandmaGroupSize;
 
         private int _previousGrandmaAmount;
+        private bool _grandmasUpgraded;
         
-        public GrandmaUpgrade(string grandmaName, string buildingName, float grandmaEfficiencyMultiplier, float buildingMultiplier, int grandmaCount)
+        public GrandmaUpgrade(string grandmaName, string buildingName, float grandmaEfficiencyMultiplier, float buildingMultiplier, int grandmaGroupSize)
         {
             _grandmaName = grandmaName;
             _buildingName = buildingName;
             _grandmaEfficiencyMultiplier = grandmaEfficiencyMultiplier;
             _buildingMultiplier = buildingMultiplier;
-            _grandmaCount = grandmaCount;
+            _grandmaGroupSize = grandmaGroupSize;
+
+            _grandmasUpgraded = false;
         }
         
         public void Apply(CookieBaker baker)
@@ -28,19 +32,34 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             var currentGrandmaAmount = grandma?.Quantity ?? 0;
 
             if (building == null || grandma == null) return;
-
-            if (currentGrandmaAmount >= _grandmaCount)
-            {
-                grandma.cps.AddEfficiency(_grandmaEfficiencyMultiplier);
-                UpgradeBuilding(building, currentGrandmaAmount);
-            }
+            
+            var grandmaGroups = GetGrandmaGroups(currentGrandmaAmount);
+            if (grandmaGroups < 1) return;
+            
+            TryUpgradeGrandma(grandma);
+            UpgradeBuilding(building, grandmaGroups);
+            
+            _previousGrandmaAmount = currentGrandmaAmount;
         }
 
-        private void UpgradeBuilding(Building building, int currentGrandmaAmount)
+        private void TryUpgradeGrandma(Building grandma)
         {
-            var grandmaGroups = currentGrandmaAmount / _grandmaCount;
+            if (_grandmasUpgraded) return;
+
+            grandma.cps.AddEfficiency(_grandmaEfficiencyMultiplier);
+            _grandmasUpgraded = true;
+        }
+
+        private void UpgradeBuilding(Building building, int grandmaGroups)
+        {
             for (int i = 0; i < grandmaGroups; i++)
                 building.cps.AddMultiplier(_buildingMultiplier);
+        }
+        
+        private int GetGrandmaGroups(int currentGrandmaAmount)
+        {
+            var remainingGrandmas = _previousGrandmaAmount - ((_previousGrandmaAmount / _grandmaGroupSize) * _grandmaGroupSize);
+            return (currentGrandmaAmount - _previousGrandmaAmount + remainingGrandmas) / _grandmaGroupSize;
         }
     }
 }

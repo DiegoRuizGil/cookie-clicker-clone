@@ -16,6 +16,11 @@
         public static Percentage FromPercentage(float percentage) => new Percentage(percentage / 100f);
         
         public float AppliedTo(float baseValue) => baseValue * _value;
+
+        public static Percentage operator +(Percentage a, Percentage b) => new Percentage(a._value + b._value);
+        public static Percentage operator -(Percentage a, Percentage b) => new Percentage(a._value - b._value);
+        public static Percentage operator *(Percentage a, float scalar) => new Percentage(a._value * scalar);
+        public static Percentage operator /(Percentage a, float scalar) => new Percentage(a._value / scalar);
         
         public override string ToString() => $"{AsPercentage:0.##}%";
     }

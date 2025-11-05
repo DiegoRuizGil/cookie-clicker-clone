@@ -25,19 +25,12 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         
         public Building FindBuilding(string name) => buildings.GetValueOrDefault(name);
 
-        public void AddBuilding(Building buildingToAdd)
+        public void AddBuilding(Building buildingToAdd, int amount = 1)
         {
-            if (buildings.TryGetValue(buildingToAdd.Name, out var building))
-                building.Quantity++;
-            else
-                buildings[buildingToAdd.Name] = buildingToAdd;
-        }
-
-        public void AddBuildings(params Building[] buildingsToAdd)
-        {
-            Assert.IsTrue(buildingsToAdd.Length > 0);
-            foreach (var building in buildingsToAdd)
-                AddBuilding(building);
+            Assert.IsTrue(amount > 0);
+            
+            buildings.TryAdd(buildingToAdd.name, buildingToAdd);
+            buildingToAdd.Quantity += amount;
         }
     }
 }

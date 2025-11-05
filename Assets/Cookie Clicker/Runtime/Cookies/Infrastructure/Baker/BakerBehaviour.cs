@@ -11,11 +11,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 
         private readonly CookieBaker _baker = new CookieBaker();
 
-        private void Start()
-        {
-            statsVisualizer.UpdateStats(_baker);
-        }
-
         private void Update()
         {
             _baker.PassTime(TimeSpan.FromSeconds(Time.deltaTime));

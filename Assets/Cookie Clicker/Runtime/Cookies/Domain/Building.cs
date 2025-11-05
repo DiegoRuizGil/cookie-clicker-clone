@@ -5,7 +5,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
     public class Building
     {
-        public string Name { get; }
         public float Production => cps.Value * Quantity;
         public int Quantity
         {
@@ -13,6 +12,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             set => _quantity = Math.Max(value, 0);
         }
         
+        public readonly string name;
         public readonly ProductionStat cps;
 
         private int _quantity;
@@ -22,8 +22,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         {
             Assert.IsTrue(baseCPS >= 0);
 
-            Name = name;
-            _quantity = 1;
+            this.name = name;
+            _quantity = 0;
             cps = new ProductionStat(baseCPS);
         }
     }

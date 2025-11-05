@@ -10,7 +10,7 @@ namespace Cookie_Clicker.Tests
         {
             var building = new Building("cursor", 1);
             
-            Assert.That(building.Production, Is.EqualTo(1));
+            Assert.That(building.Production, Is.EqualTo(0));
         }
 
         [Test]
@@ -19,7 +19,7 @@ namespace Cookie_Clicker.Tests
             var cps = 2;
             var building = new Building("cursor", cps);
 
-            building.Quantity++;
+            building.Quantity += 2;
             
             Assert.That(building.Production, Is.EqualTo(cps * 2));
         }

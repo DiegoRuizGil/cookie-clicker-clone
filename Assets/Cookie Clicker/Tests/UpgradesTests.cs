@@ -10,7 +10,7 @@ namespace Cookie_Clicker.Tests
         public void ApplyBuildingEfficiencyUpgrade()
         {
             var upgrade = new BuildingEfficiencyUpgrade("cursor", 2.0f);
-            var baker = new CookieBaker(10);
+            var baker = new CookieBaker();
             var building = new Building("cursor", 10);
             baker.buildings.Add(building);
             
@@ -23,7 +23,7 @@ namespace Cookie_Clicker.Tests
         public void ApplyGlobalProductionUpgrade()
         {
             var upgrade = new GlobalProductionUpgrade(0.01f);
-            var baker = new CookieBaker(10);
+            var baker = new CookieBaker();
             var building = new Building("cursor", 100);
             baker.buildings.Add(building);
             
@@ -36,21 +36,21 @@ namespace Cookie_Clicker.Tests
         public void ApplyTappingCursorUpgrade()
         {
             var upgrade = new TappingCursorUpgrade("cursor", 2.0f);
-            var baker = new CookieBaker(10);
+            var baker = new CookieBaker();
             var building = new Building("cursor", 10);
             baker.buildings.Add(building);
             
             upgrade.Apply(baker);
             
             Assert.That(baker.Production, Is.EqualTo(20));
-            Assert.That(baker.CookiePerTap, Is.EqualTo(20));
+            Assert.That(baker.CookiePerTap, Is.EqualTo(2));
         }
 
         [Test]
         public void TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied()
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
-            var baker = new CookieBaker(10);
+            var baker = new CookieBaker();
             var grandma = new Building("grandma", 10);
             var farm = new Building("farm", 100);
             baker.buildings.AddRange(new [] { grandma, farm });
@@ -65,7 +65,7 @@ namespace Cookie_Clicker.Tests
         public void ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied()
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
-            var baker = new CookieBaker(10);
+            var baker = new CookieBaker();
             var grandma = new Building("grandma", 10) { Quantity = 2 };
             var farm = new Building("farm", 100);
             baker.buildings.AddRange(new [] { grandma, farm });
@@ -80,7 +80,7 @@ namespace Cookie_Clicker.Tests
         public void ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes()
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
-            var baker = new CookieBaker(10);
+            var baker = new CookieBaker();
             var grandma = new Building("grandma", 10) { Quantity = 6 };
             var farm = new Building("farm", 100);
             baker.buildings.AddRange(new [] { grandma, farm });
@@ -95,7 +95,7 @@ namespace Cookie_Clicker.Tests
         public void ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes()
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
-            var baker = new CookieBaker(10);
+            var baker = new CookieBaker();
             var grandma = new Building("grandma", 10) { Quantity = 7 };
             var farm = new Building("farm", 100);
             baker.buildings.AddRange(new [] { grandma, farm });
@@ -110,7 +110,7 @@ namespace Cookie_Clicker.Tests
         public void UpdateUpgrade_WhenAddingMoreGrandmas()
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, 0.01f, 2);
-            var baker = new CookieBaker(10);
+            var baker = new CookieBaker();
             var grandma = new Building("grandma", 10) { Quantity = 3 };
             var farm = new Building("farm", 100);
             baker.buildings.AddRange(new [] { grandma, farm });

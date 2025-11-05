@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.Assertions;
 
 namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
@@ -9,21 +8,14 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
     {
         public readonly List<Building> buildings = new List<Building>();
         public float Production => buildings.Sum(b => b.Production) * productionMultiplier;
-        public float CookiePerTap => _baseCookiesPerTap * tapMultiplier;
+        public float CookiePerTap => BaseCookiesPerTap * tapMultiplier;
         public int TotalCookies { get; private set; }
 
         public float productionMultiplier = 1f;
         public float tapMultiplier = 1f;
-        
-        private readonly int _baseCookiesPerTap;
-        
-        public CookieBaker(int baseCookiesPerTap)
-        {
-            Assert.IsTrue(baseCookiesPerTap >= 0);
-            
-            _baseCookiesPerTap = baseCookiesPerTap;
-        }
-        
+
+        private const int BaseCookiesPerTap = 1;
+
         public void PassTime(TimeSpan delta)
         {
             TotalCookies += (int) Math.Floor(Production * delta.TotalSeconds);

@@ -9,7 +9,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void EmptyCase()
         {
-            var baker = new CookieBaker(0);
+            var baker = new CookieBaker();
 
             baker.PassTime(TimeSpan.FromSeconds(1));
             
@@ -19,7 +19,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void AddBuilding_BoostProduction()
         {
-            var baker = new CookieBaker(0);
+            var baker = new CookieBaker();
             var building = new Building("cursor", 10);
 
             baker.buildings.Add(building);
@@ -30,7 +30,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void PassTime_ProduceCookies()
         {
-            var baker = new CookieBaker(0);
+            var baker = new CookieBaker();
             var building = new Building("cursor", 10);
             
             baker.buildings.Add(building);
@@ -42,7 +42,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ProduceCookiesByTapping()
         {
-            var baker = new CookieBaker(10);
+            var baker = new CookieBaker();
 
             baker.Tap();
             

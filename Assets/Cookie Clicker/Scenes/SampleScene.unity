@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookie: {fileID: 132671097}
+  statsVisualizer: {fileID: 717914770}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +800,7 @@ GameObject:
   - component: {fileID: 717914767}
   - component: {fileID: 717914769}
   - component: {fileID: 717914768}
+  - component: {fileID: 717914770}
   m_Layer: 5
   m_Name: Stats
   m_TagString: Untagged
@@ -867,6 +869,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &717914770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717914766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87836750c194dc095e66692935cfd09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalCookiesText: {fileID: 356495641}
+  cpsText: {fileID: 564905129}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

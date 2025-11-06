@@ -2,12 +2,12 @@
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
-    public class BuildingEfficiencyUpgrade : IUpgrade
+    public class EfficiencyUpgrade : IUpgrade
     {
         private readonly string _buildingName;
         private readonly float _multiplier;
         
-        public BuildingEfficiencyUpgrade(string buildingName, float multiplier)
+        public EfficiencyUpgrade(string buildingName, float multiplier)
         {
             _buildingName = buildingName;
             _multiplier = multiplier;

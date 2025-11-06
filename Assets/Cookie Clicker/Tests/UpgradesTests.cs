@@ -9,7 +9,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyBuildingEfficiencyUpgrade()
         {
-            var upgrade = new BuildingEfficiencyUpgrade("cursor", 2.0f);
+            var upgrade = new EfficiencyUpgrade("cursor", 2.0f);
             var baker = new CookieBaker();
             var building = new Building("cursor", 10);
             baker.AddBuilding(building);

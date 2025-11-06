@@ -12,7 +12,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
         
         public override void Init()
         {
-            Upgrade = new BuildingEfficiencyUpgrade(buildingID.buildingName, efficiencyMult);
+            Upgrade = new EfficiencyUpgrade(buildingID.buildingName, efficiencyMult);
         }
     }
 }

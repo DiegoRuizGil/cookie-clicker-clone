@@ -1,3 +1,4 @@
 ﻿{
-  "name": "CookieClicker.Modifiers.Infrastructure"
+  "name": "CookieClicker.Modifiers.Infrastructure",
+  "references":[ "GUID:90e6765a77254a1b8f6c7cb6fba54213", "GUID:65d717f380bc483a9e535d67ecfed1aa", "GUID:473763cd4a10462194e45ae4ed2e4474" ]
 }

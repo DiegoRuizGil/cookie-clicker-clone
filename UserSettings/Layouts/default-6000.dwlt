@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Test Runner
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 17
+  controlID: 12773
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 18
+  controlID: 12774
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 19
+  controlID: 12775
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -193,11 +193,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1280
-    height: 511
+    height: 494
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 20
+  controlID: 12776
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -216,8 +216,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 657
-    height: 511
+    width: 682
+    height: 494
   m_MinSize: {x: 201, y: 226}
   m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 17}
@@ -226,7 +226,7 @@ MonoBehaviour:
   - {fileID: 18}
   - {fileID: 19}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,10 +242,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 657
+    x: 682
     y: 0
-    width: 623
-    height: 511
+    width: 598
+    height: 494
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 16}
@@ -271,13 +271,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 511
+    y: 494
     width: 1280
-    height: 422
+    height: 439
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 92
+  controlID: 12869
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -297,7 +297,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 747
-    height: 422
+    height: 439
   m_MinSize: {x: 101, y: 126}
   m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 20}
@@ -324,7 +324,7 @@ MonoBehaviour:
     x: 747
     y: 0
     width: 533
-    height: 422
+    height: 439
   m_MinSize: {x: 232, y: 276}
   m_MaxSize: {x: 10002, y: 10026}
   m_ActualView: {fileID: 22}
@@ -349,7 +349,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1280
     y: 0
-    width: 302
+    width: 264
     height: 933
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
@@ -368,23 +368,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1582
+    x: 1544
     y: 0
-    width: 338
+    width: 376
     height: 933
-  m_MinSize: {x: 101, y: 126}
+  m_MinSize: {x: 276, y: 76}
   m_MaxSize: {x: 4001, y: 4026}
-  m_ActualView: {fileID: 25}
+  m_ActualView: {fileID: 24}
   m_Panes:
   - {fileID: 24}
   - {fileID: 25}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -406,10 +406,10 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 658
+    x: 683
     y: 24
-    width: 621
-    height: 485
+    width: 596
+    height: 468
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 1
+    m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
@@ -463,23 +463,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 621
-      height: 464
-    m_Scale: {x: 0.3234375, y: 0.3234375}
-    m_Translation: {x: 310.49997, y: 232}
+      width: 596
+      height: 447
+    m_Scale: {x: 0.31041667, y: 0.31041667}
+    m_Translation: {x: 298, y: 223.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -959.9999
-      y: -717.2947
-      width: 1919.9999
-      height: 1434.5894
+      x: -960
+      y: -720
+      width: 1920
+      height: 1440
     m_MinimalGUI: 1
-  m_defaultScale: 0.3234375
-  m_LastWindowPixelSize: {x: 621, y: 485}
+  m_defaultScale: 0.31041667
+  m_LastWindowPixelSize: {x: 596, y: 468}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -509,8 +509,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 24
-    width: 656
-    height: 485
+    width: 681
+    height: 468
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1031,15 +1031,15 @@ MonoBehaviour:
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 0
   m_SceneLighting: 1
-  m_2DMode: 0
+  m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0}
+    m_Target: {x: 1637.7251, y: 948.30756, z: -1.3424667}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: 1637.7251, y: 948.30756, z: -1.3424667}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1067,17 +1067,17 @@ MonoBehaviour:
       m_Size: {x: 0, y: 0}
     yGrid:
       m_Fade:
-        m_Target: 1
+        m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 0.5, y: 0.5}
     zGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 0.5, y: 0.5}
@@ -1085,17 +1085,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 204.96185
     speed: 2
-    m_Value: 10
+    m_Value: 204.96185
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -1147,9 +1147,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: -1001
-    width: 1278
-    height: 455
+    y: 79
+    width: 656
+    height: 485
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1238,7 +1238,7 @@ MonoBehaviour:
     x: 0
     y: 24
     width: 746
-    height: 396
+    height: 413
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1288,7 +1288,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 51894
+  m_LastSelectedObjectID: -92312
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1313,7 +1313,7 @@ MonoBehaviour:
     x: 748
     y: 24
     width: 531
-    height: 396
+    height: 413
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1353,7 +1353,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: ca250000
     m_LastClickedID: 9674
-    m_ExpandedIDs: 0000000028a800002aa800002ca80000
+    m_ExpandedIDs: 000000004eab000050ab000052ab000054ab000056ab000058ab00005aab00005cab00005eab0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1382,7 +1382,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000028a800002aa800002ca80000
+    m_ExpandedIDs: 000000004eab000050ab000052ab000054ab000056ab000058ab00005aab00005cab00005eab0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1399,7 +1399,7 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
-      m_ClientGUIView: {fileID: 15}
+      m_ClientGUIView: {fileID: 9}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1463,7 +1463,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1281
     y: 24
-    width: 300
+    width: 262
     height: 907
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1481,7 +1481,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b281ffff3683ffff2c87ffff228bffff188fffff0e93ffff7299ffff689dffff5ea1ffff54a5ffff4aa9ffff3cb2ffff52b6ffff48baffff3ebeffff7ec9ffff74cdffff1cd1ffffa4d4ffff28d6ffffacd7ffff30d9ffff26ddffff86e8ffff0aeaffff8eebffff12edffff08f1ffff8cf2ffff12f4ffff20fbffff
+      m_ExpandedIDs: 506dfeff6897feff2298feff40abfeff16acfeffa8adfeffbab1feffccb5feffdeb9fefff0bdfeff02c2feff90c8feff98defeff6edffeff5a29ffffe04fffffb255ffff6260ffff3261ffff006ffffff672ffffec76ffffe27affff6681ffff5c85ffffe086ffff548bffff4a8fffffae95ffffa499ffff76a2ffff6ca6ffff62aaffff58aeffff6eb2ffff64b6ffff5abaffff50beffffb4c4ffffaac8ffff10d1ffff06d5ffff6adbffff60dfffff56e3ffff4ce7ffff42ebffff38efffffbcf0ffff40f2ffffc6f3ffff20fbffff48bd000088bd000076c20000b6c20000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1498,7 +1498,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 9}
+        m_ClientGUIView: {fileID: 14}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1527,9 +1527,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1582
-    y: 79
-    width: 337
+    x: 1545
+    y: 24
+    width: 375
     height: 907
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1545,7 +1545,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: 265
+    m_CachedPref: -265
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
@@ -1577,8 +1577,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Test Runner\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1583
-    y: 24
+    x: 1582
+    y: 79
     width: 337
     height: 907
   m_SerializedDataModeController:
@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_TestListGUIs:
   - m_Window: {fileID: 25}
     runProgress:
-      RunGuid: 7195a61f-e1a6-4c97-abd0-705b6b2c613f
+      RunGuid: 8bee53e3-441e-4b37-981c-b2f24023a6c7
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -1646,6 +1646,9 @@ MonoBehaviour:
           - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
           - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
           - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
+          - Cookie_Clicker.Tests.UpgradesTests.UpdateUpgrade_WhenAddingMoreGrandmas
+          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade
+          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade_WithZeroCPS
           groupNames: []
           categoryNames: []
           assemblyNames:
@@ -1661,16 +1664,16 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 1.0000001
+      Progress: 0.99999976
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:
-    - id: 1024
+    - id: 1000
       uniqueId: '[cookie_clicker][suite]'
       name: cookie_clicker
       fullName: cookie_clicker
       resultStatus: 1
-      duration: 0.0079591
+      duration: 0.024891801
       messages: 
       output: 
       stacktrace: 
@@ -1681,12 +1684,12 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
-    - id: 1017
+    - id: 1022
       uniqueId: '[Tests.dll][suite]'
       name: Tests.dll
       fullName: C:/Unity/Projects/cookie_clicker/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.0079591
+      duration: 0.024891801
       messages: 
       output: 
       stacktrace: 
@@ -1695,14 +1698,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1030
+      parentId: 1000
       parentUniqueId: '[cookie_clicker][suite]'
-    - id: 1018
+    - id: 1023
       uniqueId: 'Tests.dll/[Cookie_Clicker][suite]'
       name: Cookie_Clicker
       fullName: Cookie_Clicker
       resultStatus: 1
-      duration: 0.0079591
+      duration: 0.024891801
       messages: 
       output: 
       stacktrace: 
@@ -1711,14 +1714,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1017
+      parentId: 1022
       parentUniqueId: '[Tests.dll][suite]'
-    - id: 1019
+    - id: 1024
       uniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
       name: Tests
       fullName: Cookie_Clicker.Tests
       resultStatus: 1
-      duration: 0.0079591
+      duration: 0.024891801
       messages: 
       output: 
       stacktrace: 
@@ -1727,14 +1730,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1018
+      parentId: 1023
       parentUniqueId: 'Tests.dll/[Cookie_Clicker][suite]'
     - id: 1001
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.BuildingTests][suite]'
       name: BuildingTests
       fullName: Cookie_Clicker.Tests.BuildingTests
       resultStatus: 1
-      duration: 0.0008315
+      duration: 0.0170753
       messages: 
       output: 
       stacktrace: 
@@ -1743,14 +1746,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1019
+      parentId: 1024
       parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
     - id: 1003
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/BuildingTests/[Tests][Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity]'
       name: BoostProduction_ByIncreasingBuildingQuantity
       fullName: Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
       resultStatus: 1
-      duration: 0.0003425
+      duration: 0.0168873
       messages: 
       output: 
       stacktrace: 
@@ -1767,7 +1770,7 @@ MonoBehaviour:
       name: EmptyCase
       fullName: Cookie_Clicker.Tests.BuildingTests.EmptyCase
       resultStatus: 1
-      duration: 0.000489
+      duration: 0.000188
       messages: 
       output: 
       stacktrace: 
@@ -1784,7 +1787,7 @@ MonoBehaviour:
       name: CookieBakerTests
       fullName: Cookie_Clicker.Tests.CookieBakerTests
       resultStatus: 1
-      duration: 0.0033035
+      duration: 0.0023769
       messages: 
       output: 
       stacktrace: 
@@ -1793,14 +1796,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1019
+      parentId: 1024
       parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
     - id: 1006
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/CookieBakerTests/[Tests][Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction]'
       name: AddBuilding_BoostProduction
       fullName: Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
       resultStatus: 1
-      duration: 0.0015241
+      duration: 0.0010875
       messages: 
       output: 
       stacktrace: 
@@ -1817,7 +1820,7 @@ MonoBehaviour:
       name: EmptyCase
       fullName: Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
       resultStatus: 1
-      duration: 0.0011047
+      duration: 0.0007541
       messages: 
       output: 
       stacktrace: 
@@ -1834,7 +1837,7 @@ MonoBehaviour:
       name: PassTime_ProduceCookies
       fullName: Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
       resultStatus: 1
-      duration: 0.0003442
+      duration: 0.0002145
       messages: 
       output: 
       stacktrace: 
@@ -1851,7 +1854,7 @@ MonoBehaviour:
       name: ProduceCookiesByTapping
       fullName: Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
       resultStatus: 1
-      duration: 0.0003305
+      duration: 0.0003208
       messages: 
       output: 
       stacktrace: 
@@ -1864,11 +1867,11 @@ MonoBehaviour:
       parentId: 1004
       parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.CookieBakerTests][suite]'
     - id: 1009
-      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.UpgradesTests][suite]'
-      name: UpgradesTests
-      fullName: Cookie_Clicker.Tests.UpgradesTests
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.PercentageTests][suite]'
+      name: PercentageTests
+      fullName: Cookie_Clicker.Tests.PercentageTests
       resultStatus: 1
-      duration: 0.0038241001
+      duration: 0.0002994
       messages: 
       output: 
       stacktrace: 
@@ -1877,14 +1880,47 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1019
+      parentId: 1024
+      parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
+    - id: 1010
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/PercentageTests/[Tests][Cookie_Clicker.Tests.PercentageTests.ApplyPercentage]'
+      name: ApplyPercentage
+      fullName: Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
+      resultStatus: 1
+      duration: 0.0002994
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.PercentageTests][suite]'
+    - id: 1011
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.UpgradesTests][suite]'
+      name: UpgradesTests
+      fullName: Cookie_Clicker.Tests.UpgradesTests
+      resultStatus: 1
+      duration: 0.0051402003
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1024
       parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
     - id: 1010
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/UpgradesTests/[Tests][Cookie_Clicker.Tests.UpgradesTests.ApplyBuildingEfficiencyUpgrade]'
       name: ApplyBuildingEfficiencyUpgrade
       fullName: Cookie_Clicker.Tests.UpgradesTests.ApplyBuildingEfficiencyUpgrade
       resultStatus: 1
-      duration: 0.0006321
+      duration: 0.0010739
       messages: 
       output: 
       stacktrace: 
@@ -1901,7 +1937,7 @@ MonoBehaviour:
       name: ApplyGlobalProductionUpgrade
       fullName: Cookie_Clicker.Tests.UpgradesTests.ApplyGlobalProductionUpgrade
       resultStatus: 1
-      duration: 0.0004053
+      duration: 0.000508
       messages: 
       output: 
       stacktrace: 
@@ -1918,7 +1954,7 @@ MonoBehaviour:
       name: ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
       fullName: Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
       resultStatus: 1
-      duration: 0.0001141
+      duration: 0.0009703
       messages: 
       output: 
       stacktrace: 
@@ -1935,7 +1971,7 @@ MonoBehaviour:
       name: ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
       fullName: Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
       resultStatus: 1
-      duration: 0.0003811
+      duration: 0.0002756
       messages: 
       output: 
       stacktrace: 
@@ -1952,7 +1988,7 @@ MonoBehaviour:
       name: ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
       fullName: Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
       resultStatus: 1
-      duration: 0.0006377
+      duration: 0.0003006
       messages: 
       output: 
       stacktrace: 
@@ -1969,7 +2005,41 @@ MonoBehaviour:
       name: ApplyTappingCursorUpgrade
       fullName: Cookie_Clicker.Tests.UpgradesTests.ApplyTappingCursorUpgrade
       resultStatus: 1
-      duration: 0.0010567
+      duration: 0.0005675
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.UpgradesTests][suite]'
+    - id: 1018
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/UpgradesTests/[Tests][Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade]'
+      name: ApplyTappingUpgrade
+      fullName: Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade
+      resultStatus: 1
+      duration: 0.0003832
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.UpgradesTests][suite]'
+    - id: 1019
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/UpgradesTests/[Tests][Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade_WithZeroCPS]'
+      name: ApplyTappingUpgrade_WithZeroCPS
+      fullName: Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade_WithZeroCPS
+      resultStatus: 1
+      duration: 0.0002864
       messages: 
       output: 
       stacktrace: 
@@ -1986,7 +2056,7 @@ MonoBehaviour:
       name: TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
       fullName: Cookie_Clicker.Tests.UpgradesTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
       resultStatus: 1
-      duration: 0.0005971
+      duration: 0.0003465
       messages: 
       output: 
       stacktrace: 
@@ -1998,13 +2068,30 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1009
       parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.UpgradesTests][suite]'
-    m_ResultText: ApplyGlobalProductionUpgrade (0,000s)
+    - id: 1017
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/UpgradesTests/[Tests][Cookie_Clicker.Tests.UpgradesTests.UpdateUpgrade_WhenAddingMoreGrandmas]'
+      name: UpdateUpgrade_WhenAddingMoreGrandmas
+      fullName: Cookie_Clicker.Tests.UpgradesTests.UpdateUpgrade_WhenAddingMoreGrandmas
+      resultStatus: 1
+      duration: 0.0004282
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1009
+      parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.UpgradesTests][suite]'
+    m_ResultText: cookie_clicker (17 tests) (0,025s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9ace7931
-      m_LastClickedID: 830066330
-      m_ExpandedIDs: e557abf7c40c25ffbe0232377f39a645ced0154bc0228363ffffff7f
+      m_SelectedIDs: be023237
+      m_LastClickedID: 926024382
+      m_ExpandedIDs: 847cc090e557abf7c40c25fff734d124be02323704c9ce3a7f39a645ced0154bc0228363ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2034,7 +2121,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 25}
     runProgress:
-      RunGuid: 7195a61f-e1a6-4c97-abd0-705b6b2c613f
+      RunGuid: 8bee53e3-441e-4b37-981c-b2f24023a6c7
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -2060,6 +2147,9 @@ MonoBehaviour:
           - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
           - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
           - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
+          - Cookie_Clicker.Tests.UpgradesTests.UpdateUpgrade_WhenAddingMoreGrandmas
+          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade
+          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade_WithZeroCPS
           groupNames: []
           categoryNames: []
           assemblyNames:
@@ -2075,7 +2165,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 1.0000001
+      Progress: 0.99999976
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:
@@ -2131,7 +2221,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 25}
     runProgress:
-      RunGuid: 7195a61f-e1a6-4c97-abd0-705b6b2c613f
+      RunGuid: 8bee53e3-441e-4b37-981c-b2f24023a6c7
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -2157,6 +2247,9 @@ MonoBehaviour:
           - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
           - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
           - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
+          - Cookie_Clicker.Tests.UpgradesTests.UpdateUpgrade_WhenAddingMoreGrandmas
+          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade
+          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade_WithZeroCPS
           groupNames: []
           categoryNames: []
           assemblyNames:
@@ -2172,7 +2265,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 1.0000001
+      Progress: 0.99999976
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:

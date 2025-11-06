@@ -1,5 +1,4 @@
-﻿using System;
-using Cookie_Clicker.Runtime.Cookies.Domain;
+﻿using Cookie_Clicker.Runtime.Cookies.Domain;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {

@@ -16,9 +16,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         {
             _baker.PassTime(TimeSpan.FromSeconds(Time.deltaTime));
             statsVisualizer.UpdateStats(_baker);
-            
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-                DebugAddCursorBuilding();
         }
 
         private void OnEnable() => cookie.OnClick += Tap;
@@ -27,12 +24,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         private void Tap()
         {
             _baker.Tap();
-        }
-
-        private void DebugAddCursorBuilding()
-        {
-            var cursor = new Building("cursor", 2);
-            _baker.AddBuilding(cursor);
         }
     }
 }

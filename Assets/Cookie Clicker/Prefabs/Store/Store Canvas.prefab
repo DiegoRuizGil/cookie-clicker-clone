@@ -94,8 +94,8 @@ MonoBehaviour:
   bakerBehaviour: {fileID: 0}
   buildingConfigs:
   - {fileID: 11400000, guid: fc290f51cd6041e449521839ac381f87, type: 2}
-  - {fileID: 11400000, guid: 850a1ae33ef4ce64db948fde6bb4c55d, type: 2}
   - {fileID: 11400000, guid: 24e13721e0764884dbaf694b35e9b02c, type: 2}
+  - {fileID: 11400000, guid: 850a1ae33ef4ce64db948fde6bb4c55d, type: 2}
 --- !u!1 &8290022697911922110
 GameObject:
   m_ObjectHideFlags: 0

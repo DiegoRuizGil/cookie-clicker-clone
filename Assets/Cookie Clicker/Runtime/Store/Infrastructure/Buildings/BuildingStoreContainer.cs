@@ -3,7 +3,7 @@ using Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEngine;
 
-namespace Cookie_Clicker.Runtime.Store.Infrastructure
+namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
 {
     public class BuildingStoreContainer : MonoBehaviour
     {
@@ -14,11 +14,11 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure
 
         private void Start()
         {
-            foreach (var buildingConfig in buildingConfigs)
-            {
-                var button = Instantiate(buildingButtonPrefab, transform);
-                button.Init(buildingConfig, bakerBehaviour.Baker);
-            }
+            // foreach (var buildingConfig in buildingConfigs)
+            // {
+            //     var button = Instantiate(buildingButtonPrefab, transform);
+            //     button.Init(buildingConfig, bakerBehaviour.Baker);
+            // }
         }
     }
 }

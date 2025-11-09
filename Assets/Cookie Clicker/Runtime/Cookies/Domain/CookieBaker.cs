@@ -23,6 +23,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         
         public Building FindBuilding(string name) => buildings.GetValueOrDefault(name);
         public int OwnedBuildingsOf(string name) => buildings.TryGetValue(name, out var building) ? building.Amount : 0;
+        public List<Building> GetBuildings() => buildings.Values.ToList();
 
         public void AddBuilding(Building buildingToAdd, int amount = 1)
         {

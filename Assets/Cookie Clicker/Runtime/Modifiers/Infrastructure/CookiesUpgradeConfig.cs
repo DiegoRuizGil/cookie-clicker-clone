@@ -5,13 +5,13 @@ using UnityEngine;
 namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 {
     [CreateAssetMenu(menuName = "Upgrades/Global Production")]
-    public class GlobalProductionUpgradeConfig : BaseUpgradeConfig
+    public class CookiesUpgradeConfig : BaseUpgradeConfig
     {
         [SerializeField, Range(0, 1)] private float multiplier = 0.2f;
         
         public override void Init()
         {
-            Upgrade = new GlobalProductionUpgrade(Percentage.FromFraction(multiplier));
+            Upgrade = new CookiesUpgrade(Percentage.FromFraction(multiplier));
         }
     }
 }

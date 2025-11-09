@@ -22,7 +22,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyGlobalProductionUpgrade()
         {
-            var upgrade = new GlobalProductionUpgrade(Percentage.FromPercentage(1f));
+            var upgrade = new CookiesUpgrade(Percentage.FromPercentage(1f));
             var baker = new CookieBaker();
             var building = new Building("cursor", 100);
             baker.AddBuilding(building);

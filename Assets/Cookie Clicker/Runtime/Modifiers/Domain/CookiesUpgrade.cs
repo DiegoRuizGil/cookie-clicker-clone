@@ -2,11 +2,11 @@
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
-    public class GlobalProductionUpgrade : IUpgrade
+    public class CookiesUpgrade : IUpgrade
     {
         private readonly Percentage _multiplier;
         
-        public GlobalProductionUpgrade(Percentage multiplier)
+        public CookiesUpgrade(Percentage multiplier)
         {
             _multiplier = multiplier;
         }

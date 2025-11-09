@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1996158135908918500}
   - component: {fileID: 7077104818160838250}
   - component: {fileID: 81368255349402491}
-  - component: {fileID: 1229802601948465997}
+  - component: {fileID: 5261099465800083067}
   m_Layer: 5
   m_Name: Buildings Container
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1229802601948465997
+--- !u!114 &5261099465800083067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,15 +87,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 922705700993675603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee6474aeb4f34e7bbe17718b535b4f2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 57b6691648a8439986380b44e8d76c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buildingButtonPrefab: {fileID: 3359554229883081975, guid: 16d4324c9a1abf54292a07c7ffd2ac2d, type: 3}
-  bakerBehaviour: {fileID: 0}
-  buildingConfigs:
-  - {fileID: 11400000, guid: fc290f51cd6041e449521839ac381f87, type: 2}
-  - {fileID: 11400000, guid: 24e13721e0764884dbaf694b35e9b02c, type: 2}
-  - {fileID: 11400000, guid: 850a1ae33ef4ce64db948fde6bb4c55d, type: 2}
 --- !u!1 &8290022697911922110
 GameObject:
   m_ObjectHideFlags: 0

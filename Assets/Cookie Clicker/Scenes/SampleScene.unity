@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &198299170 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 486786575873653137, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
-  m_PrefabInstance: {fileID: 5289644288067839403}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83a86fa69fa349a2810e689bae48783c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,24 +505,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2007216130 stripped
+--- !u!1 &1456343769
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 922705700993675603, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
-  m_PrefabInstance: {fileID: 2342688684682530155}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2007216134
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1456343771}
+  - component: {fileID: 1456343770}
+  m_Layer: 0
+  m_Name: Bakery
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1456343770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007216130}
+  m_GameObject: {fileID: 1456343769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a86fa69fa349a2810e689bae48783c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeView:
+    obj: {fileID: 2007216134}
+  cookieView:
+    obj: {fileID: 2028626380}
+  buildingConfigs: []
+--- !u!4 &1456343771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456343769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2007216134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5261099465800083067, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
+  m_PrefabInstance: {fileID: 2342688684682530155}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57b6691648a8439986380b44e8d76c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingButtonPrefab: {fileID: 3359554229883081975, guid: 16d4324c9a1abf54292a07c7ffd2ac2d, type: 3}
+--- !u!114 &2028626380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4280817513999947892, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
+  m_PrefabInstance: {fileID: 5289644288067839403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6559bcb7c8a47eb95444a8aefd8777b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2342688684682530155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -542,18 +584,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1229802601948465997, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
-      propertyPath: bakerBehaviour
-      value: 
-      objectReference: {fileID: 198299170}
-    - target: {fileID: 1996158135908918500, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996158135908918500, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2303022920411992740, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -638,14 +668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Store Canvas
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1229802601948465997, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 922705700993675603, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2007216134}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
 --- !u!1001 &5289644288067839403
 PrefabInstance:
@@ -655,26 +681,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 486786575873653137, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
-      propertyPath: storeView.obj
-      value: 
-      objectReference: {fileID: 2007216134}
-    - target: {fileID: 486786575873653137, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
-      propertyPath: buildingConfigs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 486786575873653137, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
-      propertyPath: 'buildingConfigs.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: fc290f51cd6041e449521839ac381f87, type: 2}
-    - target: {fileID: 486786575873653137, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
-      propertyPath: 'buildingConfigs.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 24e13721e0764884dbaf694b35e9b02c, type: 2}
-    - target: {fileID: 486786575873653137, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
-      propertyPath: 'buildingConfigs.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 850a1ae33ef4ce64db948fde6bb4c55d, type: 2}
     - target: {fileID: 4089857537279079692, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -811,6 +817,7 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 1456343771}
   - {fileID: 5289644288067839403}
   - {fileID: 2342688684682530155}
   - {fileID: 952903766}

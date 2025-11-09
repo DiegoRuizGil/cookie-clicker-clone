@@ -2,8 +2,8 @@
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
-    public interface IUpgrade
+    public abstract class Upgrade
     {
-        void Apply(CookieBaker baker);
+        public abstract void Apply(CookieBaker baker);
     }
 }

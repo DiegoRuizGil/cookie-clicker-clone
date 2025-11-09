@@ -2,7 +2,7 @@
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
-    public class EfficiencyUpgrade : IUpgrade
+    public class EfficiencyUpgrade : Upgrade
     {
         private readonly string _buildingName;
         private readonly float _multiplier;
@@ -13,7 +13,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             _multiplier = multiplier;
         }
         
-        public void Apply(CookieBaker baker)
+        public override void Apply(CookieBaker baker)
         {
             var building = baker.FindBuilding(_buildingName);
             if (building != null)

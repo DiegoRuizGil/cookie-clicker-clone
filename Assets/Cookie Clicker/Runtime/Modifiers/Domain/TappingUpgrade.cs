@@ -2,7 +2,7 @@
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
-    public class TappingUpgrade : IUpgrade
+    public class TappingUpgrade : Upgrade
     {
         private readonly Percentage _multiplier;
         
@@ -11,6 +11,6 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             _multiplier = multiplier;
         }
         
-        public void Apply(CookieBaker baker) => baker.tapping.AddMultiplier(_multiplier);
+        public override void Apply(CookieBaker baker) => baker.tapping.AddMultiplier(_multiplier);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
-    public class TappingCursorUpgrade : IUpgrade
+    public class TappingCursorUpgrade : Upgrade
     {
         private readonly string _cursorName;
         private readonly float _efficiencyMultiplier;
@@ -13,7 +13,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             _efficiencyMultiplier = efficiencyMultiplier;
         }
         
-        public void Apply(CookieBaker baker)
+        public override void Apply(CookieBaker baker)
         {
             var cursor = baker.FindBuilding(_cursorName);
             if (cursor != null)

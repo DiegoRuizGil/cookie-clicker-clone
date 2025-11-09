@@ -2,7 +2,7 @@
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
-    public class GrandmaUpgrade : IUpgrade
+    public class GrandmaUpgrade : Upgrade
     {
         private readonly string _grandmaName;
         private readonly string _buildingName;
@@ -24,7 +24,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             _grandmasUpgraded = false;
         }
         
-        public void Apply(CookieBaker baker)
+        public override void Apply(CookieBaker baker)
         {
             var grandma = baker.FindBuilding(_grandmaName);
             var building = baker.FindBuilding(_buildingName);

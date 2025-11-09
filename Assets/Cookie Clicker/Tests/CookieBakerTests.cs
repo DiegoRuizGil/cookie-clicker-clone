@@ -11,7 +11,7 @@ namespace Cookie_Clicker.Tests
         {
             var baker = new CookieBaker();
 
-            baker.PassTime(TimeSpan.FromSeconds(1));
+            baker.Bake(TimeSpan.FromSeconds(1));
             
             Assert.That(baker.TotalCookies, Is.EqualTo(0));
         }
@@ -34,7 +34,7 @@ namespace Cookie_Clicker.Tests
             var building = new Building("cursor", 10);
             
             baker.AddBuilding(building);
-            baker.PassTime(TimeSpan.FromSeconds(1));
+            baker.Bake(TimeSpan.FromSeconds(1));
             
             Assert.That(baker.TotalCookies, Is.EqualTo(10));
         }

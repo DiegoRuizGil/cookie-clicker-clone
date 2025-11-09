@@ -14,7 +14,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 
         private void Update()
         {
-            _baker.PassTime(TimeSpan.FromSeconds(Time.deltaTime));
+            _baker.Bake(TimeSpan.FromSeconds(Time.deltaTime));
             statsVisualizer.UpdateStats(_baker);
         }
 

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621ebe26618d432392bb8ea854bd25c3, type: 3}
   m_Name: Farm
   m_EditorClassIdentifier: 
-  _buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
+  buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
   baseCPS: 10
+  baseCost: 5

@@ -9,6 +9,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
     public class BuildingButton : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI nameText;
+        [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private TextMeshProUGUI amountText;
 
         private Building _building;
@@ -39,6 +40,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         public void UpdateTexts()
         {
             nameText.text = _building.name;
+            costText.text = _building.CostOf(1).ToString("#");
             amountText.text = _building.Amount.ToString();
         }
     }

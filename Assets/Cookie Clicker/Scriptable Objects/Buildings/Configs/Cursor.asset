@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621ebe26618d432392bb8ea854bd25c3, type: 3}
   m_Name: Cursor
   m_EditorClassIdentifier: 
-  _buildingID: {fileID: 11400000, guid: 5c2e1d3485cfbb74cb58e1c14f35dc04, type: 2}
+  buildingID: {fileID: 11400000, guid: 5c2e1d3485cfbb74cb58e1c14f35dc04, type: 2}
   baseCPS: 1
+  baseCost: 5

@@ -6,9 +6,10 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings
     [CreateAssetMenu(menuName = "Building/Config")]
     public class BuildingConfig : ScriptableObject
     {
-        [SerializeField] private BuildingID _buildingID;
+        [SerializeField] private BuildingID buildingID;
         [SerializeField] private float baseCPS;
+        [SerializeField, Min(0)] private int baseCost = 5;
 
-        public Building Build() => new Building(_buildingID.buildingName, baseCPS);
+        public Building Build() => new Building(buildingID.buildingName, baseCPS, baseCost);
     }
 }

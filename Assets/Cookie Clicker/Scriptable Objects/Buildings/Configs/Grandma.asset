@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621ebe26618d432392bb8ea854bd25c3, type: 3}
   m_Name: Grandma
   m_EditorClassIdentifier: 
-  _buildingID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
+  buildingID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
   baseCPS: 5
+  baseCost: 5

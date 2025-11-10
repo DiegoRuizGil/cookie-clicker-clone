@@ -23,8 +23,10 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         private void Start()
         {
             RegisterListeners();
+            
             buyModeButton.Select();
             amount1Button.Select();
+            UpdateMode(BuildingUpdateRequest.Mode.Buy, 1);
         }
 
         private void RegisterListeners()

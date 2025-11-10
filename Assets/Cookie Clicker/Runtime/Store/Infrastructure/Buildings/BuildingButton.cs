@@ -38,7 +38,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         public void UpdateTexts()
         {
             nameText.text = _building.name;
-            costText.text = _building.CostOf(1).ToString("#");
+            costText.text = _building.CostOf(_groupAmount).ToString($"'{_groupAmount}x' #");
             amountText.text = _building.Amount.ToString();
         }
 

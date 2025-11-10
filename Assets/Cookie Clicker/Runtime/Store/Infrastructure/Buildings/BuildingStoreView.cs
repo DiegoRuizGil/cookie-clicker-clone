@@ -44,7 +44,10 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         {
             Debug.Log($"Store mode: {mode}, {groupAmount}");
             foreach (var button in _buttons)
+            {
                 button.ChangeMode(mode, groupAmount);
+                button.UpdateTexts();
+            }
         }
     }
 }

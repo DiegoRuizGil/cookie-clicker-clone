@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEngine;
@@ -17,10 +18,9 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         private void Awake()
         {
             var baker = new CookieBaker();
-            foreach (var config in buildingConfigs)
-                baker.AddBuilding(config.Build());
+            baker.SetInitialBuildings(buildingConfigs.Select(config => config.Build()).ToList());
 
-            _controller = new CookieBakerController(baker, storeView.GetInstance(), cookieView.GetInstance());
+            _controller = new CookieBakerController(baker, storeView.Instance, cookieView.Instance);
         }
 
         private void Update()

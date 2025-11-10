@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8518248565639906681}
   - component: {fileID: 7209581597800817206}
   - component: {fileID: 2721302415165756076}
-  - component: {fileID: 7960444017701027715}
   m_Layer: 5
   m_Name: Stats
   m_TagString: Untagged
@@ -80,20 +79,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &7960444017701027715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564102583671948047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87836750c194dc095e66692935cfd09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalCookiesText: {fileID: 7094703600893062029}
-  cpsText: {fileID: 5868654223216113668}
 --- !u!1 &3649984955394979641
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +233,7 @@ GameObject:
   - component: {fileID: 939452941810146945}
   - component: {fileID: 4144403255116748470}
   m_Layer: 5
-  m_Name: Baker Canvas
+  m_Name: Cookie Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

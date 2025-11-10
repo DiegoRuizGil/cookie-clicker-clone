@@ -17,7 +17,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public readonly ProductionStat tapping = new ProductionStat(1);
         
         private readonly Dictionary<string, Building> buildings = new  Dictionary<string, Building>();
-
+        
         public void Bake(TimeSpan delta) => BakedCookies += Production * (float) delta.TotalSeconds;
         public void Tap() => HandMadeCookies += (int) CookiePerTap;
         
@@ -31,6 +31,12 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             
             buildings.TryAdd(buildingToAdd.name, buildingToAdd);
             buildingToAdd.Amount += amount;
+        }
+
+        public void SetInitialBuildings(List<Building> initialBuildings)
+        {
+            foreach (var building in initialBuildings)
+                buildings[building.name] = building;
         }
     }
 }

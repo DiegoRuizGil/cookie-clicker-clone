@@ -66,7 +66,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         {
             _mode = mode;
             _groupAmount = groupAmount;
-            OnUpdated.Invoke(mode, _groupAmount);
+            OnUpdated.Invoke(_mode, _groupAmount);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         private int _amount;
         private int _baseCost;
         private const float CostIncrease = 1.15f;
+        private const float RefoundRate = 0.25f;
 
         public Building(string name, float baseCPS, int baseCost = 0)
         {
@@ -32,6 +33,11 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public float CostOf(int amountToBuy)
         {
             return _baseCost * (MathF.Pow(CostIncrease, amountToBuy) - 1) / (CostIncrease - 1) * MathF.Pow(CostIncrease, _amount);
+        }
+
+        public float RefoundOf(int amountToSell)
+        {
+            return _baseCost * RefoundRate * (MathF.Pow(CostIncrease, amountToSell) - 1) / (CostIncrease - 1) * MathF.Pow(CostIncrease, Math.Max(_amount - amountToSell, 0));
         }
     }
 }

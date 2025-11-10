@@ -13,8 +13,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         [SerializeField] private TextMeshProUGUI amountText;
 
         private Building _building;
-        private BuildingUpdateRequest.Mode _currentMode = BuildingUpdateRequest.Mode.Buy;
-        private int _groupAmount = 1;
+        private BuildingUpdateRequest.Mode _currentMode;
+        private int _groupAmount;
         
         public event Action<BuildingUpdateRequest> OnButtonPressed = delegate { } ;
 
@@ -38,7 +38,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         public void UpdateTexts()
         {
             nameText.text = _building.name;
-            costText.text = _building.CostOf(_groupAmount).ToString($"'{_groupAmount}x' #");
+            costText.text = GetCostText();
             amountText.text = _building.Amount.ToString();
         }
 
@@ -57,6 +57,18 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
                 mode = _currentMode
             };
             OnButtonPressed.Invoke(request);
+        }
+
+        private string GetCostText()
+        {
+            var amount = _currentMode switch
+            {
+                BuildingUpdateRequest.Mode.Buy => _building.CostOf(_groupAmount),
+                BuildingUpdateRequest.Mode.Sell => _building.RefoundOf(_groupAmount),
+                _ => 0f
+            };
+
+            return amount.ToString($"'{_groupAmount}x' #");
         }
     }
 }

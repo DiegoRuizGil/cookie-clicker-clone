@@ -13,16 +13,14 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         [SerializeField] private TextMeshProUGUI amountText;
 
         private Building _building;
+        private BuildingUpdateRequest.Mode _currentMode = BuildingUpdateRequest.Mode.Buy;
+        private int _groupAmount = 1;
         
-        public event Action<BuildingBuyRequest> OnButtonPressed = delegate { } ;
+        public event Action<BuildingUpdateRequest> OnButtonPressed = delegate { } ;
 
         private void Awake()
         {
-            GetComponent<Button>().onClick.AddListener(() =>
-            {
-                var request = new BuildingBuyRequest { building = _building, amount = 1 };
-                OnButtonPressed.Invoke(request);
-            });
+            GetComponent<Button>().onClick.AddListener(OnClick);
         }
 
         private void Start()
@@ -35,13 +33,30 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             _building = building;
         }
 
-        public void RegisterListener(Action<BuildingBuyRequest> callback) => OnButtonPressed += callback;
+        public void RegisterListener(Action<BuildingUpdateRequest> callback) => OnButtonPressed += callback;
 
         public void UpdateTexts()
         {
             nameText.text = _building.name;
             costText.text = _building.CostOf(1).ToString("#");
             amountText.text = _building.Amount.ToString();
+        }
+
+        public void ChangeMode(BuildingUpdateRequest.Mode mode, int groupAmount)
+        {
+            _currentMode = mode;
+            _groupAmount = groupAmount;
+        }
+
+        private void OnClick()
+        {
+            var request = new BuildingUpdateRequest
+            {
+                building = _building,
+                amount = _groupAmount,
+                mode = _currentMode
+            };
+            OnButtonPressed.Invoke(request);
         }
     }
 }

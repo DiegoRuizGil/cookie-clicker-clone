@@ -2,10 +2,13 @@
 
 namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
-    public struct BuildingBuyRequest
+    public struct BuildingUpdateRequest
     {
+        public enum Mode { Buy, Sell }
+        
         public Building building;
         public int amount;
+        public Mode mode;
     }
     
     public class CookieBakerController
@@ -33,7 +36,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         private void ConnectStoreView()
         {
             _storeView.Setup(_baker.GetBuildings());
-            _storeView.RegisterListener(BuyBuilding);
+            _storeView.RegisterListener(UpdateBuilding);
             _storeView.UpdateButtons();
         }
         
@@ -43,9 +46,17 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             _cookieView.RegisterListener(() => _baker.Tap());
         }
 
-        private void BuyBuilding(BuildingBuyRequest request)
+        private void UpdateBuilding(BuildingUpdateRequest request)
         {
-            _baker.AddBuilding(request.building, request.amount);
+            switch (request.mode)
+            {
+                case BuildingUpdateRequest.Mode.Buy:
+                    _baker.AddBuilding(request.building, request.amount);
+                    break;
+                case BuildingUpdateRequest.Mode.Sell:
+                    _baker.RemoveBuilding(request.building.name, request.amount);
+                    break;
+            }
             _storeView.UpdateButtons();
         }
     }

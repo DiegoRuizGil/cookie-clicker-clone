@@ -7,10 +7,16 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
 {
     public class BuildingStoreView : MonoBehaviour, IBuildingStoreView
     {
+        [SerializeField] private BuildingModeSelector modeSelector;
         [SerializeField] private BuildingButton buildingButtonPrefab;
         
         private readonly List<BuildingButton> _buttons = new List<BuildingButton>();
-        
+
+        private void Awake()
+        {
+            modeSelector.OnUpdated += ChangeMode;
+        }
+
         public void Setup(List<Building> buildings)
         {
             foreach (var building in buildings)
@@ -22,7 +28,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             }
         }
 
-        public void RegisterListener(Action<BuildingBuyRequest> callback)
+        public void RegisterListener(Action<BuildingUpdateRequest> callback)
         {
             foreach (var button in _buttons)
                 button.RegisterListener(callback);
@@ -32,6 +38,13 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         {
             foreach (var button in _buttons)
                 button.UpdateTexts();
+        }
+
+        private void ChangeMode(BuildingUpdateRequest.Mode mode, int groupAmount)
+        {
+            Debug.Log($"Store mode: {mode}, {groupAmount}");
+            foreach (var button in _buttons)
+                button.ChangeMode(mode, groupAmount);
         }
     }
 }

@@ -33,6 +33,14 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             buildingToAdd.Amount += amount;
         }
 
+        public void RemoveBuilding(string buildingName, int amount = 1)
+        {
+            Assert.IsTrue(amount > 0);
+
+            if (buildings.TryGetValue(buildingName, out var building))
+                building.Amount -= amount;
+        }
+
         public void SetInitialBuildings(List<Building> initialBuildings)
         {
             foreach (var building in initialBuildings)

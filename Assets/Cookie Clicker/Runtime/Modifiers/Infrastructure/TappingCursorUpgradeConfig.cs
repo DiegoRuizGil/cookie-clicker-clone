@@ -1,5 +1,6 @@
 ﻿using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
+using Cookie_Clicker.Runtime.Modifiers.Domain.Unlock_Conditions;
 using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
@@ -7,12 +8,21 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
     [CreateAssetMenu(menuName = "Upgrades/Tappnig and Cursor")]
     public class TappingCursorUpgradeConfig : BaseUpgradeConfig
     {
+        [Header("Upgrade Settings")]
         [SerializeField] private BuildingID cursorID;
         [SerializeField] private float efficiencyMultiplier = 2;
         
-        public override void Init()
+        [Header("Unlock Condition Settings")]
+        [SerializeField] private int cursorCountToUnlock;
+
+        public override Upgrade Get()
         {
-            Upgrade = new TappingCursorUpgrade(cursorID.buildingName, efficiencyMultiplier);
+            var upgrade = new TappingCursorUpgrade(cursorID.buildingName, efficiencyMultiplier);
+            var condition = new BuildingCountCondition(cursorID.buildingName, cursorCountToUnlock);
+            
+            upgrade.AddUnlockCondition(condition);
+
+            return upgrade;
         }
     }
 }

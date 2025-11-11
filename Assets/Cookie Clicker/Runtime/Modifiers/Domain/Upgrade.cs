@@ -13,6 +13,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         public abstract void Apply(CookieBaker baker);
 
         public void AddUnlockCondition(IUnlockCondition condition) => _unlockConditions.Add(condition);
+        public void AddUnlockConditions(IList<IUnlockCondition> conditions) => _unlockConditions.AddRange(conditions);
         public bool CanUnlock(CookieBaker baker) => _unlockConditions.All(condition => condition.IsMet(baker)) && !IsUnlocked;
         public void Unlock() => IsUnlocked = true;
     }

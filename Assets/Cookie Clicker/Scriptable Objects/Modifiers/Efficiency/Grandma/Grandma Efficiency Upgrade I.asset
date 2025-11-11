@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd33f5af43ee4fe7b6acbe69203b3c3f, type: 3}
-  m_Name: Grandma Efficiency Upgrade
+  m_Name: Grandma Efficiency Upgrade I
   m_EditorClassIdentifier: 
   buildingID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
   efficiencyMult: 2
+  buildingCountToUnlock: 1

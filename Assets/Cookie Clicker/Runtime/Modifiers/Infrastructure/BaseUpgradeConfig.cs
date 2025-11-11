@@ -6,10 +6,6 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 {
     public abstract class BaseUpgradeConfig : ScriptableObject
     {
-        protected Upgrade Upgrade;
-        
-        public abstract void Init();
-        
-        public void Apply(CookieBaker baker) => Upgrade.Apply(baker);
+        public abstract Upgrade Get();
     }
 }

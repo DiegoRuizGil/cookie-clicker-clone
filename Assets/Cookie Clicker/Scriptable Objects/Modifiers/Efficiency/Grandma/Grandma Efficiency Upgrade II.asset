@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c10227d9e8f4118b71c796779b00a02, type: 3}
-  m_Name: Tapping Upgrade III
+  m_Script: {fileID: 11500000, guid: dd33f5af43ee4fe7b6acbe69203b3c3f, type: 3}
+  m_Name: Grandma Efficiency Upgrade II
   m_EditorClassIdentifier: 
-  multiplier: 0.01
+  buildingID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
+  efficiencyMult: 2
+  buildingCountToUnlock: 5

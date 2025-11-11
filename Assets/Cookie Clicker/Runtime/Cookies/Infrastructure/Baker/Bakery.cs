@@ -18,7 +18,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         private void Awake()
         {
             var baker = new CookieBaker();
-            baker.SetInitialBuildings(buildingConfigs.Select(config => config.Build()).ToList());
+            baker.SetInitialBuildings(buildingConfigs.Select(config => config.Get()).ToList());
 
             _controller = new CookieBakerController(baker, storeView.Instance, cookieView.Instance);
         }

@@ -9,6 +9,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public Building building;
         public int amount;
         public Mode mode;
+        public float cost;
     }
     
     public class CookieBakerController
@@ -29,7 +30,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
 
         public void Update(TimeSpan delta)
         {
-            _cookieView.UpdateStats(_baker.TotalCookies, _baker.Production);
+            _cookieView.UpdateStats(_baker.CurrentCookies, _baker.Production);
             _baker.Bake(delta);
         }
 
@@ -42,7 +43,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         
         private void ConnectCookieView()
         {
-            _cookieView.UpdateStats(_baker.TotalCookies, _baker.Production);
+            _cookieView.UpdateStats(_baker.CurrentCookies, _baker.Production);
             _cookieView.RegisterListener(() => _baker.Tap());
         }
 
@@ -52,9 +53,11 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             {
                 case BuildingUpdateRequest.Mode.Buy:
                     _baker.AddBuilding(request.building, request.amount);
+                    _baker.CurrentCookies -= request.cost;
                     break;
                 case BuildingUpdateRequest.Mode.Sell:
                     _baker.RemoveBuilding(request.building.name, request.amount);
+                    _baker.CurrentCookies += request.cost;
                     break;
             }
             _storeView.UpdateButtons();

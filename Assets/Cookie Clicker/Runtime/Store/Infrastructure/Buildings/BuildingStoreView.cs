@@ -42,7 +42,6 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
 
         private void ChangeMode(BuildingUpdateRequest.Mode mode, int groupAmount)
         {
-            Debug.Log($"Store mode: {mode}, {groupAmount}");
             foreach (var button in _buttons)
             {
                 button.ChangeMode(mode, groupAmount);

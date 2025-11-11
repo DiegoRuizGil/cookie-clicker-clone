@@ -15,6 +15,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         private Building _building;
         private BuildingUpdateRequest.Mode _currentMode;
         private int _groupAmount;
+        private float _cost;
         
         public event Action<BuildingUpdateRequest> OnButtonPressed = delegate { } ;
 
@@ -38,7 +39,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         public void UpdateTexts()
         {
             nameText.text = _building.name;
-            costText.text = GetCostText();
+            costText.text = _cost.ToString($"'x{_groupAmount}' #");
             amountText.text = _building.Amount.ToString();
         }
 
@@ -46,6 +47,12 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         {
             _currentMode = mode;
             _groupAmount = groupAmount;
+            _cost = _currentMode switch
+            {
+                BuildingUpdateRequest.Mode.Buy => _building.CostOf(_groupAmount),
+                BuildingUpdateRequest.Mode.Sell => _building.RefoundOf(_groupAmount),
+                _ => 0f
+            };
         }
 
         private void OnClick()
@@ -54,21 +61,10 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             {
                 building = _building,
                 amount = _groupAmount,
-                mode = _currentMode
+                mode = _currentMode,
+                cost = _cost
             };
             OnButtonPressed.Invoke(request);
-        }
-
-        private string GetCostText()
-        {
-            var amount = _currentMode switch
-            {
-                BuildingUpdateRequest.Mode.Buy => _building.CostOf(_groupAmount),
-                BuildingUpdateRequest.Mode.Sell => _building.RefoundOf(_groupAmount),
-                _ => 0f
-            };
-
-            return amount.ToString($"'{_groupAmount}x' #");
         }
     }
 }

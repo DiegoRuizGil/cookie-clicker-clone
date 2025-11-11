@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Farm
   m_EditorClassIdentifier: 
   buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
-  baseCPS: 10
-  baseCost: 5
+  baseCPS: 8
+  baseCost: 1100

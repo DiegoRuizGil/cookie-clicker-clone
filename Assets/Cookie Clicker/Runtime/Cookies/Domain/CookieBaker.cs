@@ -12,15 +12,32 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public float TotalCookies => HandMadeCookies + BakedCookies;
         public float HandMadeCookies { get; private set; }
         public float BakedCookies { get; private set; }
+        public float CurrentCookies
+        {
+            get => _currentCookies;
+            set => _currentCookies = Math.Max(value, 0);
+        }
+
+        private float _currentCookies;
 
         public Percentage ProductionMultiplier { get; set; } = Percentage.Zero();
         public readonly ProductionStat tapping = new ProductionStat(1);
         
         private readonly Dictionary<string, Building> buildings = new  Dictionary<string, Building>();
         
-        public void Bake(TimeSpan delta) => BakedCookies += Production * (float) delta.TotalSeconds;
-        public void Tap() => HandMadeCookies += (int) CookiePerTap;
-        
+        public void Bake(TimeSpan delta)
+        {
+            var cookies = Production * (float)delta.TotalSeconds;
+            BakedCookies += cookies;
+            CurrentCookies += cookies;
+        }
+
+        public void Tap()
+        {
+            HandMadeCookies += CookiePerTap;
+            CurrentCookies += CookiePerTap;
+        }
+
         public Building FindBuilding(string name) => buildings.GetValueOrDefault(name);
         public int OwnedBuildingsOf(string name) => buildings.TryGetValue(name, out var building) ? building.Amount : 0;
         public List<Building> GetBuildings() => buildings.Values.ToList();

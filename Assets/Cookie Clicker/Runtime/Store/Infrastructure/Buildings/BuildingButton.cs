@@ -12,16 +12,20 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private TextMeshProUGUI amountText;
 
+        public event Action<BuildingUpdateRequest> OnButtonPressed = delegate { } ;
+        
         private Building _building;
+        private Button _button;
+        
         private BuildingUpdateRequest.Mode _currentMode;
         private int _groupAmount;
         private float _cost;
         
-        public event Action<BuildingUpdateRequest> OnButtonPressed = delegate { } ;
 
         private void Awake()
         {
-            GetComponent<Button>().onClick.AddListener(OnClick);
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(OnClick);
         }
 
         private void Start()
@@ -42,6 +46,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             costText.text = _cost.ToString($"'x{_groupAmount}' #");
             amountText.text = _building.Amount.ToString();
         }
+
+        public void SetInteraction(float currentCookies) => _button.interactable = currentCookies >= _cost;
 
         public void ChangeMode(BuildingUpdateRequest.Mode mode, int groupAmount)
         {

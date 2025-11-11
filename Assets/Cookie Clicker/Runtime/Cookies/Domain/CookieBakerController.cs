@@ -30,15 +30,16 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
 
         public void Update(TimeSpan delta)
         {
-            _cookieView.UpdateStats(_baker.CurrentCookies, _baker.Production);
             _baker.Bake(delta);
+            
+            _cookieView.UpdateStats(_baker.CurrentCookies, _baker.Production);
+            _storeView.UpdateButtons(_baker.CurrentCookies);
         }
 
         private void ConnectStoreView()
         {
             _storeView.Setup(_baker.GetBuildings());
             _storeView.RegisterListener(UpdateBuilding);
-            _storeView.UpdateButtons();
         }
         
         private void ConnectCookieView()
@@ -60,7 +61,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
                     _baker.CurrentCookies += request.cost;
                     break;
             }
-            _storeView.UpdateButtons();
         }
     }
 }

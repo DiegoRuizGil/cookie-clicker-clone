@@ -7,6 +7,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
     {
         void Setup(List<Building> buildings);
         void RegisterListener(Action<BuildingUpdateRequest> callback);
-        void UpdateButtons();
+        void UpdateButtons(float currentCookies);
     }
 }

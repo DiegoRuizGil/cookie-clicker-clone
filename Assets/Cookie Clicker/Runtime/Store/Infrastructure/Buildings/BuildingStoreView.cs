@@ -34,10 +34,13 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
                 button.RegisterListener(callback);
         }
 
-        public void UpdateButtons()
+        public void UpdateButtons(float currentCookies)
         {
             foreach (var button in _buttons)
+            {
                 button.UpdateTexts();
+                button.SetInteraction(currentCookies);
+            }
         }
 
         private void ChangeMode(BuildingUpdateRequest.Mode mode, int groupAmount)

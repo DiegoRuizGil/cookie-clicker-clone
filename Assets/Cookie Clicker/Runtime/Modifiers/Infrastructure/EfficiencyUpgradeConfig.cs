@@ -17,8 +17,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 
         public override Upgrade Get()
         {
-            var upgrade = new EfficiencyUpgrade(buildingID.buildingName, efficiencyMult);
-            var condition = new BuildingCountCondition(buildingID.buildingName, buildingCountToUnlock);
+            var upgrade = new EfficiencyUpgrade(buildingID, efficiencyMult);
+            var condition = new BuildingCountCondition(buildingID, buildingCountToUnlock);
             
             upgrade.AddUnlockCondition(condition);
 

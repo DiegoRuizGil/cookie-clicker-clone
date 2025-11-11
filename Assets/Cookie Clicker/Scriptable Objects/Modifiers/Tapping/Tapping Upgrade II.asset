@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Tapping Upgrade II
   m_EditorClassIdentifier: 
   multiplier: 0.01
+  handMadeCookiesToUnlock: 100000

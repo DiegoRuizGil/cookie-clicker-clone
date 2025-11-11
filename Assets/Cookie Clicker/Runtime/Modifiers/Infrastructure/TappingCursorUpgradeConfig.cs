@@ -17,8 +17,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 
         public override Upgrade Get()
         {
-            var upgrade = new TappingCursorUpgrade(cursorID.buildingName, efficiencyMultiplier);
-            var condition = new BuildingCountCondition(cursorID.buildingName, cursorCountToUnlock);
+            var upgrade = new TappingCursorUpgrade(cursorID, efficiencyMultiplier);
+            var condition = new BuildingCountCondition(cursorID, cursorCountToUnlock);
             
             upgrade.AddUnlockCondition(condition);
 

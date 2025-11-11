@@ -10,6 +10,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings
         [SerializeField] private float baseCPS;
         [SerializeField, Min(0)] private int baseCost = 5;
 
-        public Building Get() => new Building(buildingID.buildingName, baseCPS, baseCost);
+        public Building Get() => new Building(buildingID, baseCPS, baseCost);
     }
 }

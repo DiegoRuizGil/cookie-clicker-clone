@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Global Production Upgrade III
   m_EditorClassIdentifier: 
   multiplier: 0.2
+  cookiesBakedToUnlock: 500000

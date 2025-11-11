@@ -17,3 +17,5 @@ MonoBehaviour:
   grandmaEfficiencyMultiplier: 2
   buildingMultiplier: 0.01
   grandmaGroupSize: 1
+  grandmaCountToUnlock: 1
+  buildingCountToUnlock: 15

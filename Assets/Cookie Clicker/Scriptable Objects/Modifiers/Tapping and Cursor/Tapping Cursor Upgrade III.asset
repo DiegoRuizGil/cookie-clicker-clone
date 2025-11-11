@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorID: {fileID: 11400000, guid: 5c2e1d3485cfbb74cb58e1c14f35dc04, type: 2}
   efficiencyMultiplier: 2
+  cursorCountToUnlock: 10

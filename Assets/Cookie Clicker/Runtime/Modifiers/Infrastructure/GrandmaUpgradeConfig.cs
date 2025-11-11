@@ -24,15 +24,15 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
         public override Upgrade Get()
         {
             var upgrade = new GrandmaUpgrade(
-                grandmaID.buildingName,
-                buildingID.buildingName,
+                grandmaID,
+                buildingID,
                 grandmaEfficiencyMultiplier,
                 Percentage.FromFraction(buildingMultiplier),
                 grandmaGroupSize);
             var conditions = new List<IUnlockCondition>
             {
-                new BuildingCountCondition(grandmaID.buildingName, grandmaCountToUnlock),
-                new BuildingCountCondition(buildingID.buildingName, buildingCountToUnlock)
+                new BuildingCountCondition(grandmaID, grandmaCountToUnlock),
+                new BuildingCountCondition(buildingID, buildingCountToUnlock)
             };
             
             upgrade.AddUnlockConditions(conditions);

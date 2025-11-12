@@ -37,6 +37,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             };
             
             upgrade.AddUnlockConditions(conditions);
+            upgrade.icon = icon;
             
             return upgrade;
         }

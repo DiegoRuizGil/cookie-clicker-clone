@@ -22,6 +22,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             var condition = new BuildingCountCondition(buildingID, buildingCountToUnlock);
             
             upgrade.AddUnlockCondition(condition);
+            upgrade.icon = icon;
 
             return upgrade;
         }

@@ -2,11 +2,14 @@
 using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Unlock_Conditions;
+using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades
 {
     public abstract class Upgrade
     {
+        public Sprite icon;
+        
         private readonly List<IUnlockCondition> _unlockConditions = new List<IUnlockCondition>();
         protected bool IsUnlocked;
         

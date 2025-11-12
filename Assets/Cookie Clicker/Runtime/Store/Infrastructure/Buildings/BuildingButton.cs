@@ -28,14 +28,10 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             _button.onClick.AddListener(OnClick);
         }
 
-        private void Start()
-        {
-            UpdateTexts();
-        }
-
         public void Init(Building building)
         {
             _building = building;
+            UpdateTexts();
         }
 
         public void RegisterListener(Action<BuildingUpdateRequest> callback) => OnButtonPressed += callback;

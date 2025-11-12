@@ -21,6 +21,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             var condition = new HandMadeCookiesCondition(handMadeCookiesToUnlock);
             
             upgrade.AddUnlockCondition(condition);
+            upgrade.icon = icon;
 
             return upgrade;
         }

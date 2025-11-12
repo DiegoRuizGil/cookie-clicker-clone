@@ -1,4 +1,5 @@
 ﻿using System;
+using Cookie_Clicker.Runtime.Builders;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using NUnit.Framework;
 
@@ -20,7 +21,7 @@ namespace Cookie_Clicker.Tests
         public void AddBuilding_BoostProduction()
         {
             var baker = new CookieBaker();
-            var building = new Building("cursor", 10);
+            var building = A.Building.WithName("Cursor").WithBaseCPS(10).Build();
 
             baker.AddBuilding(building);
             
@@ -31,7 +32,7 @@ namespace Cookie_Clicker.Tests
         public void PassTime_ProduceCookies()
         {
             var baker = new CookieBaker();
-            var building = new Building("cursor", 10);
+            var building = A.Building.WithName("Cursor").WithBaseCPS(10).Build();
             
             baker.AddBuilding(building);
             baker.Bake(TimeSpan.FromSeconds(1));

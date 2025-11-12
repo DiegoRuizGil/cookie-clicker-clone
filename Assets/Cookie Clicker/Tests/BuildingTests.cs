@@ -1,4 +1,4 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+﻿using Cookie_Clicker.Runtime.Builders;
 using NUnit.Framework;
 
 namespace Cookie_Clicker.Tests
@@ -8,7 +8,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void EmptyCase()
         {
-            var building = new Building("cursor", 1);
+            var building = A.Building.WithName("Cursor").WithBaseCPS(1).Build();
             
             Assert.That(building.Production, Is.EqualTo(0));
         }
@@ -17,7 +17,7 @@ namespace Cookie_Clicker.Tests
         public void BoostProduction_ByIncreasingBuildingQuantity()
         {
             var cps = 2;
-            var building = new Building("cursor", cps);
+            var building = A.Building.WithName("Cursor").WithBaseCPS(cps).Build();
 
             building.Amount += 2;
             

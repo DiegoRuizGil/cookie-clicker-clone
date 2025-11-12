@@ -20,7 +20,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         private const float CostIncrease = 1.15f;
         private const float RefoundRate = 0.25f;
 
-        public Building(string name, float baseCPS, int baseCost = 0)
+        public Building(string name, float baseCPS, int baseCost)
         {
             Assert.IsTrue(baseCPS >= 0);
 

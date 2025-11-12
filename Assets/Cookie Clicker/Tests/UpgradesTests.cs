@@ -1,5 +1,5 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
-using Cookie_Clicker.Runtime.Modifiers.Domain;
+﻿using Cookie_Clicker.Runtime.Builders;
+using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades;
 using NUnit.Framework;
 
@@ -12,7 +12,7 @@ namespace Cookie_Clicker.Tests
         {
             var upgrade = new EfficiencyUpgrade("cursor", 2.0f);
             var baker = new CookieBaker();
-            var building = new Building("cursor", 10);
+            var building = A.Building.WithName("cursor").WithBaseCPS(10).Build();
             baker.AddBuilding(building);
             
             upgrade.Apply(baker);
@@ -25,7 +25,7 @@ namespace Cookie_Clicker.Tests
         {
             var upgrade = new CookiesUpgrade(Percentage.FromPercentage(1f));
             var baker = new CookieBaker();
-            var building = new Building("cursor", 100);
+            var building = A.Building.WithName("cursor").WithBaseCPS(100).Build();
             baker.AddBuilding(building);
             
             upgrade.Apply(baker);
@@ -38,7 +38,7 @@ namespace Cookie_Clicker.Tests
         {
             var upgrade = new TappingCursorUpgrade("cursor", 2.0f);
             var baker = new CookieBaker();
-            var building = new Building("cursor", 10);
+            var building = A.Building.WithName("cursor").WithBaseCPS(10).Build();
             baker.AddBuilding(building);
             
             upgrade.Apply(baker);
@@ -52,8 +52,8 @@ namespace Cookie_Clicker.Tests
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
-            var grandma = new Building("grandma", 10);
-            var farm = new Building("farm", 100);
+            var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
+            var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
             baker.AddBuilding(grandma);
             baker.AddBuilding(farm);
             
@@ -68,8 +68,8 @@ namespace Cookie_Clicker.Tests
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
-            var grandma = new Building("grandma", 10);
-            var farm = new Building("farm", 100);
+            var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
+            var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
             baker.AddBuilding(grandma, 2);
             baker.AddBuilding(farm);
             
@@ -84,8 +84,8 @@ namespace Cookie_Clicker.Tests
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
-            var grandma = new Building("grandma", 10);
-            var farm = new Building("farm", 100);
+            var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
+            var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
             baker.AddBuilding(grandma, 6);
             baker.AddBuilding(farm);
             
@@ -100,8 +100,8 @@ namespace Cookie_Clicker.Tests
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
-            var grandma = new Building("grandma", 10);
-            var farm = new Building("farm", 100);
+            var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
+            var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
             baker.AddBuilding(grandma, 7);
             baker.AddBuilding(farm);
             
@@ -116,8 +116,8 @@ namespace Cookie_Clicker.Tests
         {
             var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
-            var grandma = new Building("grandma", 10);
-            var farm = new Building("farm", 100);
+            var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
+            var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
             baker.AddBuilding(grandma, 3);
             baker.AddBuilding(farm);
             
@@ -135,7 +135,7 @@ namespace Cookie_Clicker.Tests
         {
             var upgrade = new TappingUpgrade(Percentage.FromPercentage(1f));
             var baker = new CookieBaker();
-            var building = new Building("cursor", 100);
+            var building = A.Building.WithName("cursor").WithBaseCPS(100).Build();
             baker.AddBuilding(building);
             
             upgrade.Apply(baker);

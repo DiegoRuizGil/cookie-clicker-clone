@@ -1,19 +1,19 @@
 ﻿using Cookie_Clicker.Runtime.Cookies.Domain;
 
-namespace Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades
+namespace Cookie_Clicker.Runtime.Modifiers.Domain.Effects
 {
-    public class EfficiencyUpgrade : Upgrade
+    public class EfficiencyEffect : IUpgradeEffect
     {
         private readonly string _buildingName;
         private readonly float _multiplier;
         
-        public EfficiencyUpgrade(string buildingName, float multiplier)
+        public EfficiencyEffect(string buildingName, float multiplier)
         {
             _buildingName = buildingName;
             _multiplier = multiplier;
         }
         
-        public override void Apply(CookieBaker baker)
+        public void Apply(CookieBaker baker)
         {
             var building = baker.FindBuilding(_buildingName);
             if (building != null)

@@ -1,7 +1,8 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+﻿using Cookie_Clicker.Runtime.Builders;
+using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
+using Cookie_Clicker.Runtime.Modifiers.Domain.Effects;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Unlock_Conditions;
-using Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades;
 using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
@@ -17,11 +18,12 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 
         public override Upgrade Get()
         {
-            var upgrade = new TappingUpgrade(Percentage.FromFraction(multiplier));
+            var effect = new TappingEffect(Percentage.FromFraction(multiplier));
             var condition = new HandMadeCookiesCondition(handMadeCookiesToUnlock);
+            var upgrade = An.Upgrade.WithName(upgradeName).WithIcon(icon).WithCost(cost)
+                .WithEffect(effect).Build();
             
             upgrade.AddUnlockCondition(condition);
-            upgrade.icon = icon;
 
             return upgrade;
         }

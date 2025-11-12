@@ -1,16 +1,16 @@
 ﻿using Cookie_Clicker.Runtime.Builders;
 using Cookie_Clicker.Runtime.Cookies.Domain;
-using Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades;
+using Cookie_Clicker.Runtime.Modifiers.Domain.Effects;
 using NUnit.Framework;
 
 namespace Cookie_Clicker.Tests
 {
-    public class UpgradesTests
+    public class UpgradeEffectsTests
     {
         [Test]
         public void ApplyBuildingEfficiencyUpgrade()
         {
-            var upgrade = new EfficiencyUpgrade("cursor", 2.0f);
+            var upgrade = new EfficiencyEffect("cursor", 2.0f);
             var baker = new CookieBaker();
             var building = A.Building.WithName("cursor").WithBaseCPS(10).Build();
             baker.AddBuilding(building);
@@ -23,7 +23,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyGlobalProductionUpgrade()
         {
-            var upgrade = new CookiesUpgrade(Percentage.FromPercentage(1f));
+            var upgrade = new CookiesEffect(Percentage.FromPercentage(1f));
             var baker = new CookieBaker();
             var building = A.Building.WithName("cursor").WithBaseCPS(100).Build();
             baker.AddBuilding(building);
@@ -36,7 +36,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyTappingCursorUpgrade()
         {
-            var upgrade = new TappingCursorUpgrade("cursor", 2.0f);
+            var upgrade = new TappingCursorEffect("cursor", 2.0f);
             var baker = new CookieBaker();
             var building = A.Building.WithName("cursor").WithBaseCPS(10).Build();
             baker.AddBuilding(building);
@@ -50,7 +50,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
+            var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
@@ -66,7 +66,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
+            var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
@@ -82,7 +82,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
+            var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
@@ -98,7 +98,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
+            var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
@@ -114,7 +114,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void UpdateUpgrade_WhenAddingMoreGrandmas()
         {
-            var upgrade = new GrandmaUpgrade("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
+            var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
             var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
@@ -133,7 +133,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyTappingUpgrade()
         {
-            var upgrade = new TappingUpgrade(Percentage.FromPercentage(1f));
+            var upgrade = new TappingEffect(Percentage.FromPercentage(1f));
             var baker = new CookieBaker();
             var building = A.Building.WithName("cursor").WithBaseCPS(100).Build();
             baker.AddBuilding(building);
@@ -146,7 +146,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyTappingUpgrade_WithZeroCPS()
         {
-            var upgrade = new TappingUpgrade(Percentage.FromPercentage(1f));
+            var upgrade = new TappingEffect(Percentage.FromPercentage(1f));
             var baker = new CookieBaker();
             
             upgrade.Apply(baker);

@@ -1,19 +1,32 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Domain;
+using Cookie_Clicker.Runtime.Modifiers.Domain.Effects;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Unlock_Conditions;
 using UnityEngine;
 
-namespace Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades
+namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
-    public abstract class Upgrade
+    public class Upgrade
     {
-        public Sprite icon;
+        public readonly string name;
+        public readonly Sprite icon;
+        public readonly int cost;
+        
+        public bool IsUnlocked { get; private set; }
         
         private readonly List<IUnlockCondition> _unlockConditions = new List<IUnlockCondition>();
-        protected bool IsUnlocked;
+        private readonly IUpgradeEffect _effect;
         
-        public abstract void Apply(CookieBaker baker);
+        public Upgrade(string name, Sprite icon, int cost, IUpgradeEffect effect)
+        {
+            this.name = name;
+            this.icon = icon;
+            this.cost = cost;
+            _effect = effect;
+        }
+
+        public void Apply(CookieBaker baker) => _effect.Apply(baker);
 
         public void AddUnlockCondition(IUnlockCondition condition) => _unlockConditions.Add(condition);
         public void AddUnlockConditions(IList<IUnlockCondition> conditions) => _unlockConditions.AddRange(conditions);

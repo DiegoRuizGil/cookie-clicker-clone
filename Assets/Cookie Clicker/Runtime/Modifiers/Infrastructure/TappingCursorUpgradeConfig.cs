@@ -1,7 +1,8 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
+﻿using Cookie_Clicker.Runtime.Builders;
+using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
+using Cookie_Clicker.Runtime.Modifiers.Domain.Effects;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Unlock_Conditions;
-using Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades;
 using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
@@ -18,11 +19,12 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 
         public override Upgrade Get()
         {
-            var upgrade = new TappingCursorUpgrade(cursorID, efficiencyMultiplier);
+            var effect = new TappingCursorEffect(cursorID, efficiencyMultiplier);
             var condition = new BuildingCountCondition(cursorID, cursorCountToUnlock);
+            var upgrade = An.Upgrade.WithName(upgradeName).WithIcon(icon).WithCost(cost)
+                .WithEffect(effect).Build();
             
             upgrade.AddUnlockCondition(condition);
-            upgrade.icon = icon;
 
             return upgrade;
         }

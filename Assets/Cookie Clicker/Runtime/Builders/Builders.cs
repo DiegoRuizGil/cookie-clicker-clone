@@ -7,6 +7,6 @@
 
     public static class An
     {
-        
+        public static UpgradeBuilder Upgrade => new UpgradeBuilder();
     }
 }

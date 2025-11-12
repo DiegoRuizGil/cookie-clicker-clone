@@ -1,5 +1,5 @@
 ﻿using Cookie_Clicker.Runtime.Cookies.Domain;
-using Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades;
+using Cookie_Clicker.Runtime.Modifiers.Domain;
 using UnityEngine;
 using UnityEngine.UI;
 

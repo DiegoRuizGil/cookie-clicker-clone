@@ -1,8 +1,8 @@
 ﻿using Cookie_Clicker.Runtime.Cookies.Domain;
 
-namespace Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades
+namespace Cookie_Clicker.Runtime.Modifiers.Domain.Effects
 {
-    public class GrandmaUpgrade : Upgrade
+    public class GrandmaEffect : IUpgradeEffect
     {
         private readonly string _grandmaName;
         private readonly string _buildingName;
@@ -13,7 +13,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades
         private int _previousGrandmaAmount;
         private bool _grandmasUpgraded;
         
-        public GrandmaUpgrade(string grandmaName, string buildingName, float grandmaEfficiencyMultiplier, Percentage buildingMultiplier, int grandmaGroupSize)
+        public GrandmaEffect(string grandmaName, string buildingName, float grandmaEfficiencyMultiplier, Percentage buildingMultiplier, int grandmaGroupSize)
         {
             _grandmaName = grandmaName;
             _buildingName = buildingName;
@@ -24,7 +24,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades
             _grandmasUpgraded = false;
         }
         
-        public override void Apply(CookieBaker baker)
+        public void Apply(CookieBaker baker)
         {
             var grandma = baker.FindBuilding(_grandmaName);
             var building = baker.FindBuilding(_buildingName);

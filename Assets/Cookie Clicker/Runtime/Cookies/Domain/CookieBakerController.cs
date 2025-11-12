@@ -14,13 +14,13 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
     
     public class CookieBakerController
     {
-        private readonly CookieBaker _baker;
+        public CookieBaker Baker { get; }
         private readonly IBuildingStoreView _storeView;
         private readonly ICookieView _cookieView;
 
         public CookieBakerController(CookieBaker baker, IBuildingStoreView storeView, ICookieView cookieView)
         {
-            _baker = baker;
+            Baker = baker;
             _storeView = storeView;
             _cookieView = cookieView;
 
@@ -30,22 +30,22 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
 
         public void Update(TimeSpan delta)
         {
-            _baker.Bake(delta);
+            Baker.Bake(delta);
             
-            _cookieView.UpdateStats(_baker.CurrentCookies, _baker.Production);
-            _storeView.UpdateButtons(_baker.CurrentCookies);
+            _cookieView.UpdateStats(Baker.CurrentCookies, Baker.Production);
+            _storeView.UpdateButtons(Baker.CurrentCookies);
         }
 
         private void ConnectStoreView()
         {
-            _storeView.Setup(_baker.GetBuildings());
+            _storeView.Setup(Baker.GetBuildings());
             _storeView.RegisterListener(UpdateBuilding);
         }
         
         private void ConnectCookieView()
         {
-            _cookieView.UpdateStats(_baker.CurrentCookies, _baker.Production);
-            _cookieView.RegisterListener(() => _baker.Tap());
+            _cookieView.UpdateStats(Baker.CurrentCookies, Baker.Production);
+            _cookieView.RegisterListener(() => Baker.Tap());
         }
 
         private void UpdateBuilding(BuildingUpdateRequest request)
@@ -53,12 +53,12 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             switch (request.mode)
             {
                 case BuildingUpdateRequest.Mode.Buy:
-                    _baker.AddBuilding(request.building, request.amount);
-                    _baker.CurrentCookies -= request.cost;
+                    Baker.AddBuilding(request.building, request.amount);
+                    Baker.CurrentCookies -= request.cost;
                     break;
                 case BuildingUpdateRequest.Mode.Sell:
-                    _baker.RemoveBuilding(request.building.name, request.amount);
-                    _baker.CurrentCookies += request.cost;
+                    Baker.RemoveBuilding(request.building.name, request.amount);
+                    Baker.CurrentCookies += request.cost;
                     break;
             }
         }

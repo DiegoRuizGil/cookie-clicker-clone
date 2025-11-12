@@ -3,7 +3,7 @@ using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Unlock_Conditions;
 
-namespace Cookie_Clicker.Runtime.Modifiers.Domain
+namespace Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades
 {
     public abstract class Upgrade
     {

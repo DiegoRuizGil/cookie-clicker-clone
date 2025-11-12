@@ -12,6 +12,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         [SerializeField] private SerializableInterface<IBuildingStoreView> storeView;
         [SerializeField] private SerializableInterface<ICookieView> cookieView;
         [SerializeField] private List<BuildingConfig> buildingConfigs;
+
+        public CookieBaker Baker => _controller.Baker;
         
         private CookieBakerController _controller;
 

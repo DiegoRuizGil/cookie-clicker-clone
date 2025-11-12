@@ -1,5 +1,6 @@
 ﻿using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
+using Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades;
 using NUnit.Framework;
 
 namespace Cookie_Clicker.Tests

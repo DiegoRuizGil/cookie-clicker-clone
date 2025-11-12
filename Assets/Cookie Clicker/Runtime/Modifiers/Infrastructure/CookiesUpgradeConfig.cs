@@ -1,6 +1,7 @@
 ﻿using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Unlock_Conditions;
+using Cookie_Clicker.Runtime.Modifiers.Domain.Upgrades;
 using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure

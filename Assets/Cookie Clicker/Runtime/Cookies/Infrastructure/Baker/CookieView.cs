@@ -13,8 +13,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         
         public void UpdateStats(float totalCookies, float cps)
         {
-            totalCookiesText.text = totalCookies.ToString("# 'COOKIES'");
-            cpsText.text = cps.ToString("'per second:' #");
+            totalCookiesText.text = totalCookies.ToString("0 'COOKIES'");
+            cpsText.text = cps.ToString("'per second:' 0.00");
         }
 
         public void RegisterListener(Action callback) => cookie.OnClick += callback;

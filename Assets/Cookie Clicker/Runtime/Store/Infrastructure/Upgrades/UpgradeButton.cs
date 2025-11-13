@@ -1,4 +1,4 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+﻿using System;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +11,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
 
         private Button _button;
         private Upgrade _upgrade;
-        private CookieBaker _baker;
+
+        public event Action<Upgrade> OnButtonPressed = delegate { };
 
         private void Awake()
         {
@@ -19,18 +20,28 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
             _button.onClick.AddListener(OnClick);
         }
 
-        public void Init(Upgrade upgrade, CookieBaker baker)
+        public void Init(Upgrade upgrade)
         {
             _upgrade = upgrade;
-            _baker = baker;
-            
             icon.sprite = _upgrade.icon;
         }
+        
+        public void RegisterListener(Action<Upgrade> listener) => OnButtonPressed += listener;
+
+        public void SetInteraction(float currentCookies) => _button.interactable = currentCookies >= _upgrade.cost;
 
         private void OnClick()
         {
-            _upgrade.Apply(_baker);
+            OnButtonPressed.Invoke(_upgrade);
             Destroy(gameObject);
+        }
+
+        private void OnDestroy() => CleanUp();
+
+        private void CleanUp()
+        {
+            OnButtonPressed = null;
+            _button.onClick.RemoveAllListeners();
         }
     }
 }

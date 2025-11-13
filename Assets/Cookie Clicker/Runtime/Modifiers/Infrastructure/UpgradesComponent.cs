@@ -17,7 +17,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
         private void Awake()
         {
             var upgradesUnlocker = new UpgradesUnlocker(upgrades.Select(upgrade => upgrade.Get()).ToList(), bakery.Baker);
-            _controller = new UpgradeController(upgradesUnlocker, storeView.Instance);
+            _controller = new UpgradeController(upgradesUnlocker, bakery.Baker, storeView.Instance);
         }
 
         private void Update()

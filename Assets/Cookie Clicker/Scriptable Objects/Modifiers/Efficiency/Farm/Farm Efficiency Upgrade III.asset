@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd33f5af43ee4fe7b6acbe69203b3c3f, type: 3}
   m_Name: Farm Efficiency Upgrade III
   m_EditorClassIdentifier: 
+  upgradeName: Cookie trees
   icon: {fileID: 1845212703, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 100
   buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
   efficiencyMult: 2
   buildingCountToUnlock: 25

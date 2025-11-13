@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd33f5af43ee4fe7b6acbe69203b3c3f, type: 3}
   m_Name: Grandma Efficiency Upgrade III
   m_EditorClassIdentifier: 
+  upgradeName: Lubricated dentures
   icon: {fileID: 1351931457, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 100
   buildingID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
   efficiencyMult: 2
   buildingCountToUnlock: 25

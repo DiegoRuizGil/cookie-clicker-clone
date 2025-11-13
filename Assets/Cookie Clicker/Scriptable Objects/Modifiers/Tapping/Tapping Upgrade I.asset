@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c10227d9e8f4118b71c796779b00a02, type: 3}
   m_Name: Tapping Upgrade I
   m_EditorClassIdentifier: 
+  upgradeName: Plastic mouse
   icon: {fileID: 1722422991, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 100
   multiplier: 0.01
   handMadeCookiesToUnlock: 1000

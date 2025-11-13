@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3729ef42b64529a08723c545b6843b, type: 3}
   m_Name: Tapping Cursor Upgrade II
   m_EditorClassIdentifier: 
+  upgradeName: Carpal tunnel prevention cream
   icon: {fileID: 1388448345, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 0
   cursorID: {fileID: 11400000, guid: 5c2e1d3485cfbb74cb58e1c14f35dc04, type: 2}
   efficiencyMultiplier: 2
-  cursorCountToUnlock: 1
+  cursorCountToUnlock: 0

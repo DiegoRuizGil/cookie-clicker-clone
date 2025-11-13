@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2b57f7e96a4ea88162a25860105eff, type: 3}
   m_Name: Farm Grandma Upgrade
   m_EditorClassIdentifier: 
+  upgradeName: Farmer grandmas
   icon: {fileID: -1308168047, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 100
   grandmaID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
   buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
   grandmaEfficiencyMultiplier: 2

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4402f2926284439da4d5607ef6c18666, type: 3}
   m_Name: Global Production Upgrade II
   m_EditorClassIdentifier: 
+  upgradeName: Sugar cookies
   icon: {fileID: 722185524, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 100
   multiplier: 0.2
   cookiesBakedToUnlock: 250000

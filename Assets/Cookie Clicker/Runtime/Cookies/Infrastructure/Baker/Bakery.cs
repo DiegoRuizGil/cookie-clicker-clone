@@ -26,6 +26,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 
             _controller = A.CookieBakerController
                 .WithCookieBaker(baker)
+                .WithBuildings(buildingConfigs.Select(config => config.Get()).ToList())
                 .WithStoreView(storeView.Instance)
                 .WithCookieView(cookieView.Instance)
                 .Build();

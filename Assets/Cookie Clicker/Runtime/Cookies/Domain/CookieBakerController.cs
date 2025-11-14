@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
@@ -17,10 +18,12 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public CookieBaker Baker { get; }
         private readonly IBuildingStoreView _storeView;
         private readonly ICookieView _cookieView;
+        private readonly List<Building> _buildings;
 
-        public CookieBakerController(CookieBaker baker, IBuildingStoreView storeView, ICookieView cookieView)
+        public CookieBakerController(CookieBaker baker, List<Building> buildings, IBuildingStoreView storeView, ICookieView cookieView)
         {
             Baker = baker;
+            _buildings = buildings;
             _storeView = storeView;
             _cookieView = cookieView;
 

@@ -1,16 +1,24 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+﻿using System.Collections.Generic;
+using Cookie_Clicker.Runtime.Cookies.Domain;
 
 namespace Cookie_Clicker.Runtime.Builders
 {
     public class CookieBakerControllerBuilder : IBuilder<CookieBakerController>
     {
         private CookieBaker _baker;
+        private List<Building> _buildings;
         private IBuildingStoreView _storeView;
         private ICookieView _cookieView;
 
         public CookieBakerControllerBuilder WithCookieBaker(CookieBaker baker)
         {
             _baker = baker;
+            return this;
+        }
+
+        public CookieBakerControllerBuilder WithBuildings(IList<Building> buildings)
+        {
+            _buildings = new List<Building>(buildings);
             return this;
         }
 
@@ -28,7 +36,7 @@ namespace Cookie_Clicker.Runtime.Builders
         
         public CookieBakerController Build()
         {
-            return new CookieBakerController(_baker, _storeView, _cookieView);
+            return new CookieBakerController(_baker, _buildings, _storeView, _cookieView);
         }
     }
 }

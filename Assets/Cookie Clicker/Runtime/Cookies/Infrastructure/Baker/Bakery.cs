@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using Cookie_Clicker.Runtime.Builders;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEngine;
@@ -15,26 +13,27 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         [SerializeField] private SerializableInterface<ICookieView> cookieView;
         [SerializeField] private List<BuildingConfig> buildingConfigs;
 
-        public CookieBaker Baker => _controller.Baker;
+        public CookieBaker Baker { get; private set; }
         
-        private CookieBakerController _controller;
+        private CookieController _cookieController;
+        private BuildingsController _buildingsController;
 
         private void Awake()
         {
-            var baker = new CookieBaker();
-            baker.SetInitialBuildings(buildingConfigs.Select(config => config.Get()).ToList());
-
-            _controller = A.CookieBakerController
-                .WithCookieBaker(baker)
-                .WithBuildings(buildingConfigs.Select(config => config.Get()).ToList())
-                .WithStoreView(storeView.Instance)
-                .WithCookieView(cookieView.Instance)
-                .Build();
+            Baker = new CookieBaker();
+            Baker.SetInitialBuildings(buildingConfigs.Select(config => config.Get()).ToList());
+            
+            var progression = new BuildingsProgression(Baker.GetBuildings());
+            _buildingsController = new BuildingsController(Baker, progression, storeView.Instance);
+            _cookieController = new CookieController(Baker, cookieView.Instance);
         }
 
         private void Update()
         {
-            _controller.Update(TimeSpan.FromSeconds(Time.deltaTime));
+            Baker.Bake(TimeSpan.FromSeconds(Time.deltaTime));
+            
+            _buildingsController.Update();
+            _cookieController.Update();
         }
     }
 }

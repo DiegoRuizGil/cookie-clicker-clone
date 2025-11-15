@@ -3,7 +3,6 @@
     public static class A
     {
         public static BuildingBuilder Building => new BuildingBuilder();
-        public static CookieBakerControllerBuilder CookieBakerController => new CookieBakerControllerBuilder();
     }
 
     public static class An

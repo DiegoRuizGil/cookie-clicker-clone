@@ -36,6 +36,18 @@ namespace Cookie_Clicker.Tests
                 Assert.That(BuildingProgressData.Visibility.Hidden, Is.EqualTo(progression.buildings[i].visibility));
         }
 
+        [Test]
+        public void RevealSecondToLastBuilding()
+        {
+            var buildings = CreateBuildingsWithCost(2, new[] { 100, 200 });
+            var progression = new BuildingsProgression(buildings);
+            
+            progression.Update(100);
+            
+            Assert.That(BuildingProgressData.Visibility.Revealed, Is.EqualTo(progression.buildings[0].visibility));
+            Assert.That(BuildingProgressData.Visibility.NotRevealed, Is.EqualTo(progression.buildings[1].visibility));
+        }
+
         private List<Building> CreateBuildings(int amount)
         {
             var list = new List<Building>();

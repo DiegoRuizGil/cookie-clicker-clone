@@ -41,10 +41,15 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
 
         public void SetInteraction(float currentCookies, PurchaseMode.Type purchaseType)
         {
-            if (purchaseType == PurchaseMode.Type.Buy)
-                _button.interactable = currentCookies >= _buildingData.cost;
-            else if (purchaseType == PurchaseMode.Type.Sell)
-                _button.interactable = true;
+            switch (purchaseType)
+            {
+                case PurchaseMode.Type.Buy:
+                    _button.interactable = currentCookies >= _buildingData.cost;
+                    break;
+                case PurchaseMode.Type.Sell:
+                    _button.interactable = _buildingData.amount > 0;
+                    break;
+            }
         }
     }
 }

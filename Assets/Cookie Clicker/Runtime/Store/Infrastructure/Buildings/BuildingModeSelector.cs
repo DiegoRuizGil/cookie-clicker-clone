@@ -14,59 +14,57 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         [SerializeField] private Selectable amount1Button;
         [SerializeField] private Selectable amount10Button;
         [SerializeField] private Selectable amount100Button;
-
-        private BuildingUpdateRequest.Mode _mode;
-        private int _groupAmount;
-
-        public event Action<BuildingUpdateRequest.Mode, int> OnUpdated = delegate { };
-
+        
+        private PurchaseMode _mode;
+        
+        public event Action<PurchaseMode> OnUpdated = delegate { };
+        
         private void Start()
         {
             RegisterListeners();
             
             buyModeButton.Select();
             amount1Button.Select();
-            UpdateMode(BuildingUpdateRequest.Mode.Buy, 1);
+            UpdateMode(new PurchaseMode { type = PurchaseMode.Type.Buy, multiplier = 1});
         }
-
+        
         private void RegisterListeners()
         {
             buyModeButton.OnSelected += () =>
             {
                 sellModeButton.Deselect();
-                UpdateMode(BuildingUpdateRequest.Mode.Buy, _groupAmount);
+                UpdateMode(new PurchaseMode { type = PurchaseMode.Type.Buy, multiplier = _mode.multiplier});
             };
             sellModeButton.OnSelected += () =>
             {
                 buyModeButton.Deselect();
-                UpdateMode(BuildingUpdateRequest.Mode.Sell, _groupAmount);
+                UpdateMode(new PurchaseMode { type = PurchaseMode.Type.Sell, multiplier = _mode.multiplier});
             };
             
             amount1Button.OnSelected += () =>
             {
                 amount10Button.Deselect();
                 amount100Button.Deselect();
-                UpdateMode(_mode, 1);
+                UpdateMode(new PurchaseMode { type = _mode.type, multiplier = 1});
             };
             amount10Button.OnSelected += () =>
             {
                 amount1Button.Deselect();
                 amount100Button.Deselect();
-                UpdateMode(_mode, 10);
+                UpdateMode(new PurchaseMode { type = _mode.type, multiplier = 10});
             };
             amount100Button.OnSelected += () =>
             {
                 amount1Button.Deselect();
                 amount10Button.Deselect();
-                UpdateMode(_mode, 100);
+                UpdateMode(new PurchaseMode { type = _mode.type, multiplier = 100});
             };
         }
-
-        private void UpdateMode(BuildingUpdateRequest.Mode mode, int groupAmount)
+        
+        private void UpdateMode(PurchaseMode mode)
         {
             _mode = mode;
-            _groupAmount = groupAmount;
-            OnUpdated.Invoke(_mode, _groupAmount);
+            OnUpdated.Invoke(_mode);
         }
     }
 }

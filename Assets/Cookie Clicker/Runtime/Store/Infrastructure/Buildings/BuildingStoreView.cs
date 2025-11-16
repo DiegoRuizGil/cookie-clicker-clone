@@ -12,44 +12,43 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         
         private readonly List<BuildingButton> _buttons = new List<BuildingButton>();
 
-        private void Awake()
-        {
-            modeSelector.OnUpdated += ChangeMode;
-        }
-
         public void Setup(List<Building> buildings)
         {
             foreach (var building in buildings)
             {
                 var button = Instantiate(buildingButtonPrefab, transform);
-                button.Init(building);
+                button.Init(building.name);
                 
                 _buttons.Add(button);
             }
         }
 
-        public void RegisterListener(Action<BuildingUpdateRequest> callback)
+        public void UpdateButtonsInteraction(float currentCookies, PurchaseMode.Type purchaseType)
         {
             foreach (var button in _buttons)
-                button.RegisterListener(callback);
+                button.SetInteraction(currentCookies, purchaseType);
         }
 
-        public void UpdateButtons(float currentCookies)
+        public void UpdateButtonsData(List<BuildingData> buildingsData)
         {
-            foreach (var button in _buttons)
+            for (int i = 0; i < _buttons.Count; i++)
             {
-                button.UpdateTexts();
-                button.SetInteraction(currentCookies);
+                if (i < buildingsData.Count)
+                    _buttons[i].UpdateData(buildingsData[i]);
+                else
+                    _buttons[i].gameObject.SetActive(false);
             }
         }
 
-        private void ChangeMode(BuildingUpdateRequest.Mode mode, int groupAmount)
+        public void RegisterPurchasedModeListener(Action<PurchaseMode> listener)
+        {
+            modeSelector.OnUpdated += listener;
+        }
+
+        public void RegisterButtonClickListener(Action<string> listener)
         {
             foreach (var button in _buttons)
-            {
-                button.ChangeMode(mode, groupAmount);
-                button.UpdateTexts();
-            }
+                button.OnButtonPressed += listener;
         }
     }
 }

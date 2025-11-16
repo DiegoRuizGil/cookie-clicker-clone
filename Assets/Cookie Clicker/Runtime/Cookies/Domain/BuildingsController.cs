@@ -1,13 +1,21 @@
-﻿namespace Cookie_Clicker.Runtime.Cookies.Domain
+﻿using System;
+using System.Collections.Generic;
+
+namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
-    public struct BuildingUpdateRequest
+    public struct PurchaseMode
     {
-        public enum Mode { Buy, Sell }
-        
-        public Building building;
-        public int amount;
-        public Mode mode;
+        public enum Type { Buy, Sell }
+
+        public Type type;
+        public int multiplier;
+    }
+
+    public struct BuildingData
+    {
         public float cost;
+        public float multiplier;
+        public float amount;
     }
     
     public class BuildingsController
@@ -15,6 +23,8 @@
         private readonly CookieBaker _baker;
         private readonly BuildingsProgression _progression;
         private readonly IBuildingStoreView _view;
+        
+        private PurchaseMode _purchaseMode = new PurchaseMode { type = PurchaseMode.Type.Buy, multiplier = 1 };
 
         public BuildingsController(CookieBaker baker, BuildingsProgression progression, IBuildingStoreView view)
         {
@@ -27,28 +37,77 @@
 
         public void Update()
         {
-            _view.UpdateButtons(_baker.CurrentCookies);
+            if (_purchaseMode.type == PurchaseMode.Type.Buy)
+                _view.UpdateButtonsInteraction(_baker.CurrentCookies, _purchaseMode.type);
         }
 
         private void ConnectView()
         {
             _view.Setup(_baker.GetBuildings());
-            _view.RegisterListener(UpdateBuilding);
+            _view.UpdateButtonsData(GetBuildingsData());
+            _view.UpdateButtonsInteraction(_baker.CurrentCookies, _purchaseMode.type);
+            
+            _view.RegisterButtonClickListener(UpdateBuilding);
+            _view.RegisterPurchasedModeListener(UpdatePurchaseMode);
         }
         
-        private void UpdateBuilding(BuildingUpdateRequest request)
+        private void UpdateBuilding(string buildingName)
         {
-            switch (request.mode)
+            var cost = GetCost(buildingName);
+            switch (_purchaseMode.type)
             {
-                case BuildingUpdateRequest.Mode.Buy:
-                    _baker.AddBuilding(request.building, request.amount);
-                    _baker.CurrentCookies -= request.cost;
+                case PurchaseMode.Type.Buy:
+                    _baker.AddBuilding(buildingName, _purchaseMode.multiplier);
+                    _baker.CurrentCookies -= cost;
                     break;
-                case BuildingUpdateRequest.Mode.Sell:
-                    _baker.RemoveBuilding(request.building.name, request.amount);
-                    _baker.CurrentCookies += request.cost;
+                case PurchaseMode.Type.Sell:
+                    _baker.RemoveBuilding(buildingName, _purchaseMode.multiplier);
+                    _baker.CurrentCookies += cost;
                     break;
             }
+            
+            _view.UpdateButtonsData(GetBuildingsData());
+        }
+
+        private void UpdatePurchaseMode(PurchaseMode mode)
+        {
+            _purchaseMode = mode;
+            _view.UpdateButtonsData(GetBuildingsData());
+            _view.UpdateButtonsInteraction(_baker.CurrentCookies, _purchaseMode.type);
+        }
+
+        private List<BuildingData> GetBuildingsData()
+        {
+            var buildingsData = new List<BuildingData>();
+            foreach (var building in _baker.GetBuildings())
+                buildingsData.Add(GetBuildingInfo(building));
+            return buildingsData;
+        }
+        
+        private BuildingData GetBuildingInfo(Building building)
+        {
+            return new BuildingData
+            {
+                cost = GetCost(building),
+                multiplier = _purchaseMode.multiplier,
+                amount = building.Amount
+            };
+        }
+
+        private float GetCost(string buildingName)
+        {
+            var building = _baker.FindBuilding(buildingName);
+            return building == null ? 0f : GetCost(building);
+        }
+
+        private float GetCost(Building building)
+        {
+            return _purchaseMode.type switch
+            {
+                PurchaseMode.Type.Buy => building.CostOf(_purchaseMode.multiplier),
+                PurchaseMode.Type.Sell => building.RefoundOf(_purchaseMode.multiplier),
+                _ => 0f
+            };
         }
     }
 }

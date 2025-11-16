@@ -41,7 +41,15 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public Building FindBuilding(string name) => buildings.GetValueOrDefault(name);
         public int OwnedBuildingsOf(string name) => buildings.TryGetValue(name, out var building) ? building.Amount : 0;
         public List<Building> GetBuildings() => buildings.Values.ToList();
-
+        
+        public void AddBuilding(string buildingName, int amount = 1)
+        {
+            Assert.IsTrue(amount > 0);
+            
+            if (buildings.TryGetValue(buildingName, out var building))
+                building.Amount += amount;
+        }
+        
         public void AddBuilding(Building buildingToAdd, int amount = 1)
         {
             Assert.IsTrue(amount > 0);
@@ -58,7 +66,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
                 building.Amount -= amount;
         }
 
-        public void SetInitialBuildings(List<Building> initialBuildings)
+        public void SetInitialBuildings(IList<Building> initialBuildings)
         {
             foreach (var building in initialBuildings)
                 buildings[building.name] = building;

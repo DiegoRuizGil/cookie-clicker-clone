@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 3949
+  controlID: 25
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -46,10 +46,10 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 688
+    x: 600
     y: 79
-    width: 573
-    height: 497
+    width: 661
+    height: 505
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_RenderIMGUI: 1
   m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
-  m_VSyncEnabled: 0
+  m_VSyncEnabled: 1
   m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -94,7 +94,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -103,10 +103,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 573
-      height: 476
-    m_Scale: {x: 0.2984375, y: 0.2984375}
-    m_Translation: {x: 286.5, y: 238}
+      width: 661
+      height: 484
+    m_Scale: {x: 0.34427083, y: 0.34427083}
+    m_Translation: {x: 330.5, y: 241.99998}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -114,12 +114,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -960
-      y: -797.4869
+      y: -702.93494
       width: 1920
-      height: 1594.9738
+      height: 1405.8699
     m_MinimalGUI: 1
-  m_defaultScale: 0.2984375
-  m_LastWindowPixelSize: {x: 573, y: 497}
+  m_defaultScale: 0.34427083
+  m_LastWindowPixelSize: {x: 661, y: 505}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 3950
+  controlID: 26
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 3951
+  controlID: 27
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -199,11 +199,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1263
-    height: 523
+    height: 531
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 3952
+  controlID: 28
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -222,10 +222,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 688
-    height: 523
-  m_MinSize: {x: 201, y: 226}
-  m_MaxSize: {x: 4001, y: 4026}
+    width: 600
+    height: 531
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 7}
   m_Panes:
   - {fileID: 7}
@@ -255,8 +255,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 79
-    width: 687
-    height: 497
+    width: 599
+    height: 505
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -783,9 +783,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 1147.2158, y: 917.4931, z: 3.161116}
+    m_Target: {x: 754.3144, y: 506.69104, z: 0.11661103}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: 754.3144, y: 506.69104, z: 0.11661103}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -835,9 +835,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 366.29926
+    m_Target: 670.74927
     speed: 2
-    m_Value: 209.53818
+    m_Value: 670.74927
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -922,10 +922,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 688
+    x: 600
     y: 0
-    width: 575
-    height: 523
+    width: 663
+    height: 531
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 2}
@@ -951,13 +951,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 523
+    y: 531
     width: 1263
-    height: 410
+    height: 402
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 4018
+  controlID: 84
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -977,7 +977,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 749
-    height: 410
+    height: 402
   m_MinSize: {x: 101, y: 126}
   m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 12}
@@ -1008,9 +1008,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 602
+    y: 610
     width: 748
-    height: 384
+    height: 376
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1060,7 +1060,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -7074
+  m_LastSelectedObjectID: 44434
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1079,7 +1079,7 @@ MonoBehaviour:
     x: 749
     y: 0
     width: 514
-    height: 410
+    height: 402
   m_MinSize: {x: 232, y: 276}
   m_MaxSize: {x: 10002, y: 10026}
   m_ActualView: {fileID: 15}
@@ -1109,9 +1109,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 749
-    y: 602
+    y: 610
     width: 512
-    height: 384
+    height: 376
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1134,7 +1134,7 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Cookie Clicker/Prefabs/Store
+    - Assets/Cookie Clicker/Runtime/Cookies/Infrastructure/Baker
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1153,7 +1153,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 104}
     m_SelectedIDs: eeac0000
     m_LastClickedID: 44270
-    m_ExpandedIDs: ffffffff0000000040ac000042ac000044ac000046ac00004cac000050ac000052ac000054ac000056ac000058ac00005aac000064ac000066ac000068ac00006aac00006cac00006eac000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000009eac0000a0ac0000a2ac0000a4ac0000a6ac0000a8ac0000aaac0000acac0000aeac0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1179,10 +1179,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 182}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff0000000040ac000042ac000044ac00004cac00004eac000050ac000052ac000054ac00005cac00005eac000060ac000062ac00006eac000070ac000072ac0000e8ac0000eeac0000c2ae0000
+    m_ExpandedIDs: ffffffff000000009eac0000a0ac0000a2ac0000a4ac0000a6ac0000a8ac0000aaac0000acac0000aeac0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1257,10 +1257,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1263
     y: 0
-    width: 268
+    width: 234
     height: 933
-  m_MinSize: {x: 202, y: 226}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -1289,7 +1289,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1263
     y: 79
-    width: 266
+    width: 232
     height: 907
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1307,7 +1307,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 5ee4ffffc4e6ffffa8faffff14fbffff1efbffff20fbffff
+      m_ExpandedIDs: cae7ffffa0e8ffff72edffff20fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1324,7 +1324,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 6}
+        m_ClientGUIView: {fileID: 16}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1347,12 +1347,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1531
+    x: 1497
     y: 0
-    width: 389
+    width: 423
     height: 933
-  m_MinSize: {x: 276, y: 76}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -1380,9 +1380,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1531
+    x: 1497
     y: 79
-    width: 388
+    width: 422
     height: 907
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_TestListGUIs:
   - m_Window: {fileID: 20}
     runProgress:
-      RunGuid: e5379acc-b184-4fe2-ae5c-9800bc1d167f
+      RunGuid: 07c2ea59-b80a-49c9-ad96-0cf7187dd17e
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -1487,21 +1487,23 @@ MonoBehaviour:
         - testMode: 1
           testNames:
           - Cookie_Clicker.Tests.BuildingTests.EmptyCase
+          - Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
           - Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
           - Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
           - Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
+          - Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
           - Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
           - Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyBuildingEfficiencyUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGlobalProductionUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingCursorUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradesTests.UpdateUpgrade_WhenAddingMoreGrandmas
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade_WithZeroCPS
           groupNames: []
           categoryNames: []
           assemblyNames:
@@ -1974,7 +1976,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 20}
     runProgress:
-      RunGuid: e5379acc-b184-4fe2-ae5c-9800bc1d167f
+      RunGuid: 07c2ea59-b80a-49c9-ad96-0cf7187dd17e
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -1988,21 +1990,23 @@ MonoBehaviour:
         - testMode: 1
           testNames:
           - Cookie_Clicker.Tests.BuildingTests.EmptyCase
+          - Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
           - Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
           - Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
           - Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
+          - Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
           - Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
           - Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyBuildingEfficiencyUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGlobalProductionUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingCursorUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradesTests.UpdateUpgrade_WhenAddingMoreGrandmas
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade_WithZeroCPS
           groupNames: []
           categoryNames: []
           assemblyNames:
@@ -2074,7 +2078,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 20}
     runProgress:
-      RunGuid: e5379acc-b184-4fe2-ae5c-9800bc1d167f
+      RunGuid: 07c2ea59-b80a-49c9-ad96-0cf7187dd17e
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -2088,21 +2092,23 @@ MonoBehaviour:
         - testMode: 1
           testNames:
           - Cookie_Clicker.Tests.BuildingTests.EmptyCase
+          - Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
           - Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
           - Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
+          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
           - Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
+          - Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
           - Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
           - Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyBuildingEfficiencyUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGlobalProductionUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingCursorUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradesTests.UpdateUpgrade_WhenAddingMoreGrandmas
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade
-          - Cookie_Clicker.Tests.UpgradesTests.ApplyTappingUpgrade_WithZeroCPS
           groupNames: []
           categoryNames: []
           assemblyNames:

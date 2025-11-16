@@ -6,7 +6,10 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
     public interface IBuildingStoreView
     {
         void Setup(List<Building> buildings);
-        void RegisterListener(Action<BuildingUpdateRequest> callback);
-        void UpdateButtons(float currentCookies);
+        void UpdateButtonsData(List<BuildingData> buildingsData);
+        void UpdateButtonsInteraction(float currentCookies, PurchaseMode.Type purchaseType);
+
+        void RegisterPurchasedModeListener(Action<PurchaseMode> listener);
+        void RegisterButtonClickListener(Action<string> listener);
     }
 }

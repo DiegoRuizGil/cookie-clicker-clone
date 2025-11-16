@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using TMPro;
 using UnityEngine;
@@ -12,61 +13,38 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private TextMeshProUGUI amountText;
 
-        public event Action<BuildingUpdateRequest> OnButtonPressed = delegate { } ;
+        public event Action<string> OnButtonPressed = delegate { } ;
         
-        private Building _building;
         private Button _button;
-        
-        private BuildingUpdateRequest.Mode _currentMode;
-        private int _groupAmount;
-        private float _cost;
-        
+
+        private BuildingData _buildingData;
+        private string _buildingName;
 
         private void Awake()
         {
             _button = GetComponent<Button>();
-            _button.onClick.AddListener(OnClick);
+            _button.onClick.AddListener(() => OnButtonPressed.Invoke(_buildingName));
         }
 
-        public void Init(Building building)
+        public void Init(string buildingName)
         {
-            _building = building;
-            UpdateTexts();
+            _buildingName = buildingName;
+            nameText.text = _buildingName;
         }
 
-        public void RegisterListener(Action<BuildingUpdateRequest> callback) => OnButtonPressed += callback;
-
-        public void UpdateTexts()
+        public void UpdateData(BuildingData data)
         {
-            nameText.text = _building.name;
-            costText.text = _cost.ToString($"'x{_groupAmount}' #");
-            amountText.text = _building.Amount.ToString();
+            _buildingData = data;
+            costText.text = _buildingData.cost.ToString($"'x{data.multiplier}' #");
+            amountText.text = _buildingData.amount.ToString(CultureInfo.InvariantCulture);
         }
 
-        public void SetInteraction(float currentCookies) => _button.interactable = currentCookies >= _cost;
-
-        public void ChangeMode(BuildingUpdateRequest.Mode mode, int groupAmount)
+        public void SetInteraction(float currentCookies, PurchaseMode.Type purchaseType)
         {
-            _currentMode = mode;
-            _groupAmount = groupAmount;
-            _cost = _currentMode switch
-            {
-                BuildingUpdateRequest.Mode.Buy => _building.CostOf(_groupAmount),
-                BuildingUpdateRequest.Mode.Sell => _building.RefoundOf(_groupAmount),
-                _ => 0f
-            };
-        }
-
-        private void OnClick()
-        {
-            var request = new BuildingUpdateRequest
-            {
-                building = _building,
-                amount = _groupAmount,
-                mode = _currentMode,
-                cost = _cost
-            };
-            OnButtonPressed.Invoke(request);
+            if (purchaseType == PurchaseMode.Type.Buy)
+                _button.interactable = currentCookies >= _buildingData.cost;
+            else if (purchaseType == PurchaseMode.Type.Sell)
+                _button.interactable = true;
         }
     }
 }

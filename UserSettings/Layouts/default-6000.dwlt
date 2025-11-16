@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -1281,7 +1281,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 1
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/Cookie Clicker/Sprites
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1326,7 +1327,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 174}
+    scrollPos: {x: 0, y: 182}
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 000000009eac0000a0ac0000a2ac0000a4ac0000a6ac0000a8ac0000aaac0000acac0000aeac0000
@@ -1428,7 +1429,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 58f5ffff20fbffff
+      m_ExpandedIDs: 20fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1567,7 +1568,7 @@ MonoBehaviour:
   m_TestListGUIs:
   - m_Window: {fileID: 24}
     runProgress:
-      RunGuid: e812f834-c9a4-43b8-a94a-62069aba58c6
+      RunGuid: 37de5cbc-d1c5-47e0-ac60-d0a57dcba43c
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -1580,23 +1581,7 @@ MonoBehaviour:
         filters:
         - testMode: 1
           testNames:
-          - Cookie_Clicker.Tests.BuildingTests.EmptyCase
-          - Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
-          - Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
-          - Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
-          - Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
-          - Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
-          - Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
+          - Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
           groupNames: []
           categoryNames: []
           assemblyNames:
@@ -1612,7 +1597,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 1
+      Progress: 0.9999999
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:
@@ -2069,7 +2054,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 24}
     runProgress:
-      RunGuid: e812f834-c9a4-43b8-a94a-62069aba58c6
+      RunGuid: 37de5cbc-d1c5-47e0-ac60-d0a57dcba43c
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -2082,23 +2067,7 @@ MonoBehaviour:
         filters:
         - testMode: 1
           testNames:
-          - Cookie_Clicker.Tests.BuildingTests.EmptyCase
-          - Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
-          - Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
-          - Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
-          - Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
-          - Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
-          - Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
+          - Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
           groupNames: []
           categoryNames: []
           assemblyNames:
@@ -2114,7 +2083,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 1
+      Progress: 0.9999999
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:
@@ -2170,7 +2139,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 24}
     runProgress:
-      RunGuid: e812f834-c9a4-43b8-a94a-62069aba58c6
+      RunGuid: 37de5cbc-d1c5-47e0-ac60-d0a57dcba43c
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -2183,23 +2152,7 @@ MonoBehaviour:
         filters:
         - testMode: 1
           testNames:
-          - Cookie_Clicker.Tests.BuildingTests.EmptyCase
-          - Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
-          - Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
-          - Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
-          - Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
-          - Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
-          - Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
+          - Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
           groupNames: []
           categoryNames: []
           assemblyNames:
@@ -2215,7 +2168,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 1
+      Progress: 0.9999999
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 {
@@ -29,6 +30,22 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
                 AddCursor();
             if (Input.GetKeyDown(KeyCode.F2))
                 RemoveCursor();
+        }
+
+        public void AddCursors(int amount)
+        {
+            Assert.IsTrue(amount > 0);
+
+            for (int i = 0; i < amount; i++)
+                AddCursor();
+        }
+        
+        public void RemoveCursors(int amount)
+        {
+            Assert.IsTrue(amount > 0);
+
+            for (int i = 0; i < amount; i++)
+                AddCursor();
         }
 
         private void AddCursor()

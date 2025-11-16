@@ -602,6 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a86fa69fa349a2810e689bae48783c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorID: {fileID: 11400000, guid: 5c2e1d3485cfbb74cb58e1c14f35dc04, type: 2}
   storeView:
     obj: {fileID: 2007216134}
   cookieView:
@@ -931,6 +932,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4280817513999947892, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
+      propertyPath: cursorsController
+      value: 
+      objectReference: {fileID: 550294307}
     - target: {fileID: 4391594232026817842, guid: 98486456bb6cbb544a88142abb6fbb75, type: 3}
       propertyPath: m_Name
       value: Cookie Canvas

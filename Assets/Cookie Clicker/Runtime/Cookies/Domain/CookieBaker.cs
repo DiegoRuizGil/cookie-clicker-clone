@@ -18,12 +18,14 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             set => _currentCookies = Math.Max(value, 0);
         }
 
-        private float _currentCookies;
-
+        public event Action<Building, int> OnBuildingAmountChanged = delegate { };
+        
         public Percentage ProductionMultiplier { get; set; } = Percentage.Zero();
         public readonly ProductionStat tapping = new ProductionStat(1);
         
         private readonly Dictionary<string, Building> buildings = new  Dictionary<string, Building>();
+        
+        private float _currentCookies;
         
         public void Bake(TimeSpan delta)
         {
@@ -45,17 +47,26 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public void AddBuilding(string buildingName, int amount = 1)
         {
             Assert.IsTrue(amount > 0);
-            
-            if (buildings.TryGetValue(buildingName, out var building))
-                building.Amount += amount;
+
+            TryModifyBuildingAmount(buildingName, amount);
         }
 
         public void RemoveBuilding(string buildingName, int amount = 1)
         {
             Assert.IsTrue(amount > 0);
 
+            TryModifyBuildingAmount(buildingName, -amount);
+        }
+
+        private void TryModifyBuildingAmount(string buildingName, int amount)
+        {
             if (buildings.TryGetValue(buildingName, out var building))
-                building.Amount -= amount;
+            {
+                var previousAmount = building.Amount;
+                building.Amount += amount;
+                var delta = building.Amount - previousAmount;
+                OnBuildingAmountChanged.Invoke(building, delta);
+            }
         }
 
         public void SetBuildings(IList<Building> initialBuildings)

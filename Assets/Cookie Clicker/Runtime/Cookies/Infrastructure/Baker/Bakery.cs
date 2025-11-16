@@ -9,6 +9,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 {
     public class Bakery : MonoBehaviour
     {
+        [SerializeField] private BuildingID cursorID;
         [SerializeField] private SerializableInterface<IBuildingStoreView> storeView;
         [SerializeField] private SerializableInterface<ICookieView> cookieView;
         [SerializeField] private List<BuildingConfig> buildingConfigs;
@@ -25,7 +26,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             
             var progression = new BuildingsProgression(Baker.GetBuildings());
             _buildingsController = new BuildingsController(Baker, progression, storeView.Instance);
-            _cookieController = new CookieController(Baker, cookieView.Instance);
+            _cookieController = new CookieController(Baker, cookieView.Instance, cursorID);
         }
 
         private void Update()

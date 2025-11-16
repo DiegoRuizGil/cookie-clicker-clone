@@ -66,7 +66,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
                 building.Amount -= amount;
         }
 
-        public void SetInitialBuildings(IList<Building> initialBuildings)
+        public void SetBuildings(IList<Building> initialBuildings)
         {
             foreach (var building in initialBuildings)
                 buildings[building.name] = building;

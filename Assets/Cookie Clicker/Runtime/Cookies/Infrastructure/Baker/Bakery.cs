@@ -21,7 +21,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         private void Awake()
         {
             Baker = new CookieBaker();
-            Baker.SetInitialBuildings(buildingConfigs.Select(config => config.Get()).ToList());
+            Baker.SetBuildings(buildingConfigs.Select(config => config.Get()).ToList());
             
             var progression = new BuildingsProgression(Baker.GetBuildings());
             _buildingsController = new BuildingsController(Baker, progression, storeView.Instance);

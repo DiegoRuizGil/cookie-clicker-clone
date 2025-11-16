@@ -7,6 +7,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
     {
         void Setup(List<Building> buildings);
         void UpdateButtonsData(List<BuildingData> buildingsData);
+        void UpdateButtonData(string buildingName, BuildingData data);
         void UpdateButtonsInteraction(float currentCookies, PurchaseMode.Type purchaseType);
 
         void RegisterPurchasedModeListener(Action<PurchaseMode> listener);

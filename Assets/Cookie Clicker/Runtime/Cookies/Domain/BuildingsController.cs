@@ -65,7 +65,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
                     break;
             }
             
-            _view.UpdateButtonsData(GetBuildingsData());
+            _view.UpdateButtonData(buildingName, GetBuildingData(buildingName));
         }
 
         private void UpdatePurchaseMode(PurchaseMode mode)
@@ -79,11 +79,16 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         {
             var buildingsData = new List<BuildingData>();
             foreach (var building in _baker.GetBuildings())
-                buildingsData.Add(GetBuildingInfo(building));
+                buildingsData.Add(GetBuildingData(building));
             return buildingsData;
         }
+
+        private BuildingData GetBuildingData(string buildingName)
+        {
+            return GetBuildingData(_baker.FindBuilding(buildingName));
+        }
         
-        private BuildingData GetBuildingInfo(Building building)
+        private BuildingData GetBuildingData(Building building)
         {
             return new BuildingData
             {

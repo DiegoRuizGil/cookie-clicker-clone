@@ -18,18 +18,18 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         private Button _button;
 
         private BuildingData _buildingData;
-        private string _buildingName;
+        public string BuildingName { get; private set; }
 
         private void Awake()
         {
             _button = GetComponent<Button>();
-            _button.onClick.AddListener(() => OnButtonPressed.Invoke(_buildingName));
+            _button.onClick.AddListener(() => OnButtonPressed.Invoke(BuildingName));
         }
 
         public void Init(string buildingName)
         {
-            _buildingName = buildingName;
-            nameText.text = _buildingName;
+            BuildingName = buildingName;
+            nameText.text = BuildingName;
         }
 
         public void UpdateData(BuildingData data)

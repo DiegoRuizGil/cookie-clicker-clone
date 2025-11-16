@@ -40,6 +40,13 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             }
         }
 
+        public void UpdateButtonData(string buildingName, BuildingData data)
+        {
+            var button = _buttons.Find(b => b.BuildingName == buildingName);
+            if (button != null)
+                button.UpdateData(data);
+        }
+
         public void RegisterPurchasedModeListener(Action<PurchaseMode> listener)
         {
             modeSelector.OnUpdated += listener;

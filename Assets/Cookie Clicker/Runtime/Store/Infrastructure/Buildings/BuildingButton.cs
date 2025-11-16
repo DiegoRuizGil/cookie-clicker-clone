@@ -17,8 +17,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         
         private Button _button;
 
-        private BuildingData _buildingData;
         public string BuildingName { get; private set; }
+        private BuildingData _buildingData;
 
         private void Awake()
         {
@@ -36,7 +36,26 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         {
             _buildingData = data;
             costText.text = _buildingData.cost.ToString($"'x{data.multiplier}' #");
-            amountText.text = _buildingData.amount.ToString(CultureInfo.InvariantCulture);
+            amountText.text = _buildingData.amount.ToString("#");
+        }
+
+        public void UpdateVisibility(BuildingVisibility visibility)
+        {
+            switch (visibility)
+            {
+                case BuildingVisibility.Hidden:
+                    gameObject.SetActive(false);
+                    break;
+                case BuildingVisibility.NotRevealed:
+                    gameObject.SetActive(true);
+                    _button.interactable = false;
+                    nameText.text = "???";
+                    break;
+                case BuildingVisibility.Revealed:
+                    gameObject.SetActive(true);
+                    nameText.text = BuildingName;
+                    break;
+            }
         }
 
         public void SetInteraction(float currentCookies, PurchaseMode.Type purchaseType)

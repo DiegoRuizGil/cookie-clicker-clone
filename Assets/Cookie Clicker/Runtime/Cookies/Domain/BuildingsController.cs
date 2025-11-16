@@ -32,10 +32,12 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             _view = view;
             
             ConnectView();
+            ConnectToProgression();
         }
 
         public void Update()
         {
+            _progression.Update(_baker.TotalCookies);
             if (_purchaseMode.type == PurchaseMode.Type.Buy)
                 _view.UpdateButtonsInteraction(_baker.CurrentCookies, _purchaseMode.type);
         }
@@ -48,6 +50,14 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             
             _view.RegisterButtonClickListener(UpdateBuilding);
             _view.RegisterPurchasedModeListener(UpdatePurchaseMode);
+        }
+
+        private void ConnectToProgression()
+        {
+            _progression.OnBuildingVisibilityChanged +=
+                data => _view.UpdateVisibility(data.building.name, data.visibility);
+            
+            _progression.Init();
         }
         
         private void UpdateBuilding(string buildingName)

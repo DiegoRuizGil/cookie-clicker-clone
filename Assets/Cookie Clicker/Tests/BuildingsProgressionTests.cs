@@ -13,11 +13,13 @@ namespace Cookie_Clicker.Tests
             var buildings = CreateBuildings(5);
             var progression = new BuildingsProgression(buildings);
             
-            Assert.That(BuildingProgressData.Visibility.NotRevealed, Is.EqualTo(progression.buildings[0].visibility));
-            Assert.That(BuildingProgressData.Visibility.NotRevealed, Is.EqualTo(progression.buildings[1].visibility));
+            progression.Init();
+            
+            Assert.That(BuildingVisibility.NotRevealed, Is.EqualTo(progression.buildings[0].visibility));
+            Assert.That(BuildingVisibility.NotRevealed, Is.EqualTo(progression.buildings[1].visibility));
             
             for(int i = 2; i < 5; i++)
-                Assert.That(BuildingProgressData.Visibility.Hidden, Is.EqualTo(progression.buildings[i].visibility));
+                Assert.That(BuildingVisibility.Hidden, Is.EqualTo(progression.buildings[i].visibility));
         }
 
         [Test]
@@ -25,15 +27,16 @@ namespace Cookie_Clicker.Tests
         {
             var buildings = CreateBuildingsWithCost(5, new [] { 100, 200, 300, 400, 500 });
             var progression = new BuildingsProgression(buildings);
+            progression.Init();
 
             progression.Update(100);
             
-            Assert.That(BuildingProgressData.Visibility.Revealed, Is.EqualTo(progression.buildings[0].visibility));
-            Assert.That(BuildingProgressData.Visibility.NotRevealed, Is.EqualTo(progression.buildings[1].visibility));
-            Assert.That(BuildingProgressData.Visibility.NotRevealed, Is.EqualTo(progression.buildings[2].visibility));
+            Assert.That(BuildingVisibility.Revealed, Is.EqualTo(progression.buildings[0].visibility));
+            Assert.That(BuildingVisibility.NotRevealed, Is.EqualTo(progression.buildings[1].visibility));
+            Assert.That(BuildingVisibility.NotRevealed, Is.EqualTo(progression.buildings[2].visibility));
             
             for(int i = 3; i < 5; i++)
-                Assert.That(BuildingProgressData.Visibility.Hidden, Is.EqualTo(progression.buildings[i].visibility));
+                Assert.That(BuildingVisibility.Hidden, Is.EqualTo(progression.buildings[i].visibility));
         }
 
         [Test]
@@ -41,11 +44,12 @@ namespace Cookie_Clicker.Tests
         {
             var buildings = CreateBuildingsWithCost(2, new[] { 100, 200 });
             var progression = new BuildingsProgression(buildings);
+            progression.Init();
             
             progression.Update(100);
             
-            Assert.That(BuildingProgressData.Visibility.Revealed, Is.EqualTo(progression.buildings[0].visibility));
-            Assert.That(BuildingProgressData.Visibility.NotRevealed, Is.EqualTo(progression.buildings[1].visibility));
+            Assert.That(BuildingVisibility.Revealed, Is.EqualTo(progression.buildings[0].visibility));
+            Assert.That(BuildingVisibility.NotRevealed, Is.EqualTo(progression.buildings[1].visibility));
         }
         
         [Test]
@@ -53,12 +57,13 @@ namespace Cookie_Clicker.Tests
         {
             var buildings = CreateBuildingsWithCost(2, new[] { 100, 200 });
             var progression = new BuildingsProgression(buildings);
+            progression.Init();
             
             progression.Update(100);
             progression.Update(200);
             
-            Assert.That(BuildingProgressData.Visibility.Revealed, Is.EqualTo(progression.buildings[0].visibility));
-            Assert.That(BuildingProgressData.Visibility.Revealed, Is.EqualTo(progression.buildings[1].visibility));
+            Assert.That(BuildingVisibility.Revealed, Is.EqualTo(progression.buildings[0].visibility));
+            Assert.That(BuildingVisibility.Revealed, Is.EqualTo(progression.buildings[1].visibility));
         }
 
         private List<Building> CreateBuildings(int amount)

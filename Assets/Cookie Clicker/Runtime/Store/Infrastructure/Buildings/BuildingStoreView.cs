@@ -18,15 +18,10 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             {
                 var button = Instantiate(buildingButtonPrefab, transform);
                 button.Init(building.name);
+                button.gameObject.SetActive(false);
                 
                 _buttons.Add(button);
             }
-        }
-
-        public void UpdateButtonsInteraction(float currentCookies, PurchaseMode.Type purchaseType)
-        {
-            foreach (var button in _buttons)
-                button.SetInteraction(currentCookies, purchaseType);
         }
 
         public void UpdateButtonsData(List<BuildingData> buildingsData)
@@ -43,8 +38,21 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         public void UpdateButtonData(string buildingName, BuildingData data)
         {
             var button = _buttons.Find(b => b.BuildingName == buildingName);
-            if (button != null)
+            if (button)
                 button.UpdateData(data);
+        }
+        
+        public void UpdateButtonsInteraction(float currentCookies, PurchaseMode.Type purchaseType)
+        {
+            foreach (var button in _buttons)
+                button.SetInteraction(currentCookies, purchaseType);
+        }
+
+        public void UpdateVisibility(string buildingName, BuildingVisibility visibility)
+        {
+            var button = _buttons.Find(b => b.BuildingName == buildingName);
+            if (button)
+                button.UpdateVisibility(visibility);
         }
 
         public void RegisterPurchasedModeListener(Action<PurchaseMode> listener)

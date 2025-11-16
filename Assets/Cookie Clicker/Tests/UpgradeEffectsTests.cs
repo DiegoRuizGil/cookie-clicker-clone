@@ -11,9 +11,10 @@ namespace Cookie_Clicker.Tests
         public void ApplyBuildingEfficiencyUpgrade()
         {
             var upgrade = new EfficiencyEffect("cursor", 2.0f);
-            var baker = new CookieBaker();
             var building = A.Building.WithName("cursor").WithBaseCPS(10).Build();
-            baker.AddBuilding(building);
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { building });
+            baker.AddBuilding(building.name);
             
             upgrade.Apply(baker);
             
@@ -24,9 +25,10 @@ namespace Cookie_Clicker.Tests
         public void ApplyGlobalProductionUpgrade()
         {
             var upgrade = new CookiesEffect(Percentage.FromPercentage(1f));
-            var baker = new CookieBaker();
             var building = A.Building.WithName("cursor").WithBaseCPS(100).Build();
-            baker.AddBuilding(building);
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { building });
+            baker.AddBuilding(building.name);
             
             upgrade.Apply(baker);
             
@@ -37,9 +39,10 @@ namespace Cookie_Clicker.Tests
         public void ApplyTappingCursorUpgrade()
         {
             var upgrade = new TappingCursorEffect("cursor", 2.0f);
-            var baker = new CookieBaker();
             var building = A.Building.WithName("cursor").WithBaseCPS(10).Build();
-            baker.AddBuilding(building);
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { building });
+            baker.AddBuilding(building.name);
             
             upgrade.Apply(baker);
             
@@ -51,11 +54,12 @@ namespace Cookie_Clicker.Tests
         public void TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied()
         {
             var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
-            var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
-            baker.AddBuilding(grandma);
-            baker.AddBuilding(farm);
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { grandma, farm });
+            baker.AddBuilding(grandma.name);
+            baker.AddBuilding(farm.name);
             
             upgrade.Apply(baker);
             
@@ -67,11 +71,12 @@ namespace Cookie_Clicker.Tests
         public void ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied()
         {
             var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
-            var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
-            baker.AddBuilding(grandma, 2);
-            baker.AddBuilding(farm);
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { grandma, farm });
+            baker.AddBuilding(grandma.name, 2);
+            baker.AddBuilding(farm.name);
             
             upgrade.Apply(baker);
             
@@ -83,11 +88,12 @@ namespace Cookie_Clicker.Tests
         public void ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes()
         {
             var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
-            var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
-            baker.AddBuilding(grandma, 6);
-            baker.AddBuilding(farm);
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { grandma, farm });
+            baker.AddBuilding(grandma.name, 6);
+            baker.AddBuilding(farm.name);
             
             upgrade.Apply(baker);
             
@@ -99,11 +105,12 @@ namespace Cookie_Clicker.Tests
         public void ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes()
         {
             var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
-            var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
-            baker.AddBuilding(grandma, 7);
-            baker.AddBuilding(farm);
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { grandma, farm });
+            baker.AddBuilding(grandma.name, 7);
+            baker.AddBuilding(farm.name);
             
             upgrade.Apply(baker);
             
@@ -115,14 +122,15 @@ namespace Cookie_Clicker.Tests
         public void UpdateUpgrade_WhenAddingMoreGrandmas()
         {
             var upgrade = new GrandmaEffect("grandma", "farm", 2.0f, Percentage.FromPercentage(1), 2);
-            var baker = new CookieBaker();
             var grandma = A.Building.WithName("grandma").WithBaseCPS(10).Build();
             var farm = A.Building.WithName("farm").WithBaseCPS(100).Build();
-            baker.AddBuilding(grandma, 3);
-            baker.AddBuilding(farm);
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { grandma, farm });
+            baker.AddBuilding(grandma.name, 3);
+            baker.AddBuilding(farm.name);
             
             upgrade.Apply(baker);
-            baker.AddBuilding(grandma);
+            baker.AddBuilding(grandma.name);
             
             upgrade.Apply(baker);
             
@@ -134,9 +142,10 @@ namespace Cookie_Clicker.Tests
         public void ApplyTappingUpgrade()
         {
             var upgrade = new TappingEffect(Percentage.FromPercentage(1f));
-            var baker = new CookieBaker();
             var building = A.Building.WithName("cursor").WithBaseCPS(100).Build();
-            baker.AddBuilding(building);
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { building });
+            baker.AddBuilding(building.name);
             
             upgrade.Apply(baker);
             

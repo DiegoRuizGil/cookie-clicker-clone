@@ -49,14 +49,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             if (buildings.TryGetValue(buildingName, out var building))
                 building.Amount += amount;
         }
-        
-        public void AddBuilding(Building buildingToAdd, int amount = 1)
-        {
-            Assert.IsTrue(amount > 0);
-            
-            buildings.TryAdd(buildingToAdd.name, buildingToAdd);
-            buildingToAdd.Amount += amount;
-        }
 
         public void RemoveBuilding(string buildingName, int amount = 1)
         {

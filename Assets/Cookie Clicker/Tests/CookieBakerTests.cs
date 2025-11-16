@@ -20,10 +20,11 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void AddBuilding_BoostProduction()
         {
-            var baker = new CookieBaker();
             var building = A.Building.WithName("Cursor").WithBaseCPS(10).Build();
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { building });
 
-            baker.AddBuilding(building);
+            baker.AddBuilding(building.name);
             
             Assert.That(baker.Production, Is.EqualTo(10));
         }
@@ -31,10 +32,11 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void PassTime_ProduceCookies()
         {
-            var baker = new CookieBaker();
             var building = A.Building.WithName("Cursor").WithBaseCPS(10).Build();
+            var baker = new CookieBaker();
+            baker.SetBuildings(new [] { building });
             
-            baker.AddBuilding(building);
+            baker.AddBuilding(building.name);
             baker.Bake(TimeSpan.FromSeconds(1));
             
             Assert.That(baker.TotalCookies, Is.EqualTo(10));

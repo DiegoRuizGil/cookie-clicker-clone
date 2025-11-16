@@ -12,6 +12,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         [SerializeField] private float radius = 150;
         [SerializeField] private float offsetBetweenCircles = 20;
         [SerializeField] private int cursorsPerCircle = 50;
+        [SerializeField] private float spinSpeed = 10f;
         
         private readonly Stack<RectTransform> _cursors = new  Stack<RectTransform>();
         
@@ -21,7 +22,13 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 
         private void Update()
         {
+            Spin();
             DebugInputs();
+        }
+
+        private void Spin()
+        {
+            transform.Rotate(Vector3.forward, spinSpeed * Time.deltaTime);
         }
 
         private void DebugInputs()
@@ -56,6 +63,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             
             var cursor = Instantiate(cursorPrefab, transform);
             cursor.anchoredPosition = pos;
+            cursor.transform.up = (transform.position - cursor.transform.position).normalized;
             _cursors.Push(cursor);
             
             _currentCursor++;

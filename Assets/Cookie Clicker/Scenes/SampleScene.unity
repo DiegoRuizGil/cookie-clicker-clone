@@ -428,7 +428,8 @@ MonoBehaviour:
   cursorPrefab: {fileID: 7066550308273822816, guid: 825db6e3e8618d549b50ce37872025b1, type: 3}
   radius: 200
   offsetBetweenCircles: 50
-  cursorsPerCircle: 30
+  cursorsPerCircle: 50
+  spinSpeed: 15
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

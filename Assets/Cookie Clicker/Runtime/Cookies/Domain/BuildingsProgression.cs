@@ -3,36 +3,36 @@ using NUnit.Framework;
 
 namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
-    public enum BuildingRevealState
+    public class BuildingProgressData
     {
-        Hidden, NotRevealed, Revealed
-    }
-    
-    public class BuildingProgressInfo
-    {
-        public Building Building { get; }
-        public BuildingRevealState State { get; set; }
-
-        public BuildingProgressInfo(Building building)
+        public enum Visibility
         {
-            Building = building;
-            State = BuildingRevealState.Hidden;
+            Hidden, NotRevealed, Revealed
+        }
+        
+        public readonly Building building;
+        public Visibility visibility;
+
+        public BuildingProgressData(Building building)
+        {
+            this.building = building;
+            visibility = Visibility.Hidden;
         }
     }
     
     public class BuildingsProgression
     {
-        public readonly List<BuildingProgressInfo> buildings = new List<BuildingProgressInfo>();
+        public readonly List<BuildingProgressData> buildings = new List<BuildingProgressData>();
 
         public BuildingsProgression(IList<Building> buildings)
         {
             Assert.IsTrue(buildings.Count >= 2);
             
             foreach (var building in buildings)
-                this.buildings.Add(new BuildingProgressInfo(building));
+                this.buildings.Add(new BuildingProgressData(building));
             
-            this.buildings[0].State = BuildingRevealState.NotRevealed;
-            this.buildings[1].State = BuildingRevealState.NotRevealed;
+            this.buildings[0].visibility = BuildingProgressData.Visibility.NotRevealed;
+            this.buildings[1].visibility = BuildingProgressData.Visibility.NotRevealed;
         }
     }
 }

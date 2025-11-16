@@ -13,11 +13,11 @@ namespace Cookie_Clicker.Tests
             var buildings = CreateBuildings(5);
             var progression = new BuildingsProgression(buildings);
             
-            Assert.That(BuildingRevealState.NotRevealed, Is.EqualTo(progression.buildings[0].State));
-            Assert.That(BuildingRevealState.NotRevealed, Is.EqualTo(progression.buildings[1].State));
+            Assert.That(BuildingProgressData.Visibility.NotRevealed, Is.EqualTo(progression.buildings[0].visibility));
+            Assert.That(BuildingProgressData.Visibility.NotRevealed, Is.EqualTo(progression.buildings[1].visibility));
             
             for(int i = 2; i < 5; i++)
-                Assert.That(BuildingRevealState.Hidden, Is.EqualTo(progression.buildings[i].State));
+                Assert.That(BuildingProgressData.Visibility.Hidden, Is.EqualTo(progression.buildings[i].visibility));
         }
 
         private List<Building> CreateBuildings(int amount)

@@ -53,16 +53,15 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         
         private void UpdateBuilding(string buildingName)
         {
-            var cost = GetCost(buildingName);
             switch (_purchaseMode.type)
             {
                 case PurchaseMode.Type.Buy:
                     _baker.AddBuilding(buildingName, _purchaseMode.multiplier);
-                    _baker.CurrentCookies -= cost;
+                    _baker.CurrentCookies -= GetCost(buildingName);
                     break;
                 case PurchaseMode.Type.Sell:
                     _baker.RemoveBuilding(buildingName, _purchaseMode.multiplier);
-                    _baker.CurrentCookies += cost;
+                    _baker.CurrentCookies += GetCost(buildingName);
                     break;
             }
             

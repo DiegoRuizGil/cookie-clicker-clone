@@ -37,7 +37,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
 
         public float RefoundOf(int amountToSell)
         {
-            return _baseCost * RefoundRate * (MathF.Pow(CostIncrease, amountToSell) - 1) / (CostIncrease - 1) * MathF.Pow(CostIncrease, Math.Max(_amount - amountToSell, 0));
+            var clampAmountToSell = Math.Clamp(amountToSell, 0, _amount);
+            return _baseCost * RefoundRate * (MathF.Pow(CostIncrease, clampAmountToSell) - 1) / (CostIncrease - 1) * MathF.Pow(CostIncrease, clampAmountToSell);
         }
     }
 }

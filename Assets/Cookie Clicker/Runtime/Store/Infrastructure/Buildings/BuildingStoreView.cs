@@ -65,5 +65,14 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             foreach (var button in _buttons)
                 button.OnButtonPressed += listener;
         }
+
+        public void RegisterButtonHoverListeners(Action<string> onEnter, Action onExit)
+        {
+            foreach (var button in _buttons)
+            {
+                button.OnHoverEnter += onEnter;
+                button.OnHoverExit += onExit;
+            }
+        }
     }
 }

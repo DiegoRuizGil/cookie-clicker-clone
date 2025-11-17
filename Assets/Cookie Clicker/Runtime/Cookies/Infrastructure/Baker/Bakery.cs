@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cookie_Clicker.Runtime.Contracts.Tooltip;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         [SerializeField] private BuildingID cursorID;
         [SerializeField] private SerializableInterface<IBuildingStoreView> storeView;
         [SerializeField] private SerializableInterface<ICookieView> cookieView;
+        [SerializeField] private SerializableInterface<ITooltipView> tooltipView;
         [SerializeField] private List<BuildingConfig> buildingConfigs;
 
         public CookieBaker Baker { get; private set; }
@@ -25,7 +27,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             Baker.SetBuildings(buildingConfigs.Select(config => config.Get()).ToList());
             
             var progression = new BuildingsProgression(Baker.GetBuildings());
-            _buildingsController = new BuildingsController(Baker, progression, storeView.Instance);
+            _buildingsController = new BuildingsController(Baker, progression, storeView.Instance, tooltipView.Instance);
             _cookieController = new CookieController(Baker, cookieView.Instance, cursorID);
         }
 

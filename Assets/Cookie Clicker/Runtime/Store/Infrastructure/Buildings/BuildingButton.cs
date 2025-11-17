@@ -3,17 +3,20 @@ using System.Globalization;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
 {
-    public class BuildingButton : MonoBehaviour
+    public class BuildingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private TextMeshProUGUI amountText;
 
         public event Action<string> OnButtonPressed = delegate { } ;
+        public event Action<string> OnHoverEnter = delegate { } ;
+        public event Action OnHoverExit = delegate { } ;
         
         private Button _button;
 
@@ -25,6 +28,9 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             _button = GetComponent<Button>();
             _button.onClick.AddListener(() => OnButtonPressed.Invoke(BuildingName));
         }
+        
+        public void OnPointerEnter(PointerEventData eventData) => OnHoverEnter.Invoke(BuildingName);
+        public void OnPointerExit(PointerEventData eventData) => OnHoverExit.Invoke();
 
         public void Init(string buildingName)
         {

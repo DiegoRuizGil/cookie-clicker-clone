@@ -1,3 +1,4 @@
 ﻿{
-  "name": "CookieClicker.Cookies.Domain"
+  "name": "CookieClicker.Cookies.Domain",
+  "references":[ "GUID:74cd6fc981ca439db2e7f96ede412cf2" ]
 }

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Cookie_Clicker.Runtime.Contracts.Tooltip;
+using UnityEngine.Assertions;
 
 namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
@@ -22,14 +24,18 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         private readonly CookieBaker _baker;
         private readonly BuildingsProgression _progression;
         private readonly IBuildingStoreView _view;
+        private readonly ITooltipView _tooltipView;
         
         private PurchaseMode _purchaseMode = new PurchaseMode { type = PurchaseMode.Type.Buy, multiplier = 1 };
 
-        public BuildingsController(CookieBaker baker, BuildingsProgression progression, IBuildingStoreView view)
+        private string _hoverBuildingName = null;
+        
+        public BuildingsController(CookieBaker baker, BuildingsProgression progression, IBuildingStoreView view, ITooltipView tooltipView)
         {
             _baker = baker;
             _progression = progression;
             _view = view;
+            _tooltipView = tooltipView;
             
             ConnectView();
             ConnectToProgression();
@@ -40,6 +46,9 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             _progression.Update(_baker.TotalCookies);
             if (_purchaseMode.type == PurchaseMode.Type.Buy)
                 _view.UpdateButtonsInteraction(_baker.CurrentCookies, _purchaseMode.type);
+
+            if (!string.IsNullOrEmpty(_hoverBuildingName))
+                RefreshHoveredTooltip();
         }
 
         private void ConnectView()
@@ -50,6 +59,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             
             _view.RegisterButtonClickListener(UpdateBuilding);
             _view.RegisterPurchasedModeListener(UpdatePurchaseMode);
+            
+            _view.RegisterButtonHoverListeners(OnBuildingHoverEnter, OnBuildingHoverExit);
         }
 
         private void ConnectToProgression()
@@ -82,6 +93,44 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             _purchaseMode = mode;
             _view.UpdateButtonsData(GetBuildingsData());
             _view.UpdateButtonsInteraction(_baker.CurrentCookies, _purchaseMode.type);
+        }
+
+        private void OnBuildingHoverEnter(string buildingName)
+        {
+            _hoverBuildingName = buildingName;
+            ShowTooltipFor(buildingName);
+        }
+
+        private void OnBuildingHoverExit()
+        {
+            _hoverBuildingName = null;
+            _tooltipView.Hide();
+        }
+        
+        private void RefreshHoveredTooltip()
+        {
+            Assert.IsFalse(string.IsNullOrEmpty(_hoverBuildingName));
+            
+            ShowTooltipFor(_hoverBuildingName);
+        }
+
+        private void ShowTooltipFor(string buildingName)
+        {
+            var building = _baker.FindBuilding(buildingName);
+            if (building == null) return;
+
+            var data = new BuildingTooltipData
+            {
+                icon = building.icon,
+                name = building.name,
+                amount = building.Amount,
+                cost = GetCost(building),
+                cpsPer = building.cps.Value,
+                totalProduction = building.Production,
+                totalBaked = building.TotalBaked
+            };
+            
+            _tooltipView.Show(data);
         }
 
         private List<BuildingData> GetBuildingsData()

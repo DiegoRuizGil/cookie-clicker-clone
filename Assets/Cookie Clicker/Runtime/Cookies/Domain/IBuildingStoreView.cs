@@ -13,5 +13,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
 
         void RegisterPurchasedModeListener(Action<PurchaseMode> listener);
         void RegisterButtonClickListener(Action<string> listener);
+        void RegisterButtonHoverListeners(Action<string> onEnter, Action onExit);
     }
 }

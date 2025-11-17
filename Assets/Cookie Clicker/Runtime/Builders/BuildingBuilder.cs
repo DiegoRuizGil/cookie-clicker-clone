@@ -1,4 +1,5 @@
 ﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Builders
 {
@@ -7,6 +8,8 @@ namespace Cookie_Clicker.Runtime.Builders
         private string _name;
         private float _baseCPS;
         private int _baseCost;
+        private Sprite _icon;
+        private string _description;
 
         public BuildingBuilder WithName(string name)
         {
@@ -25,10 +28,22 @@ namespace Cookie_Clicker.Runtime.Builders
             _baseCost = baseCost;
             return this;
         }
+
+        public BuildingBuilder WithIcon(Sprite icon)
+        {
+            _icon = icon;
+            return this;
+        }
+
+        public BuildingBuilder WithDescription(string description)
+        {
+            _description = description;
+            return this;
+        }
         
         public Building Build()
         {
-            var building = new Building(_name, _baseCPS, _baseCost);
+            var building = new Building(_name, _baseCPS, _baseCost, _icon, _description);
             return building;
         }
 

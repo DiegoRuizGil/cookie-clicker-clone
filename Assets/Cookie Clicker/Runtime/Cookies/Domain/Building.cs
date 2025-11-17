@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace Cookie_Clicker.Runtime.Cookies.Domain
@@ -15,20 +16,24 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public readonly string name;
         public readonly int baseCost;
         public readonly ProductionStat cps;
+        public readonly Sprite icon;
+        public readonly string description;
         public float TotalBaked { get; private set; }
 
         private int _amount;
         private const float CostIncrease = 1.15f;
         private const float RefoundRate = 0.25f;
 
-        public Building(string name, float baseCPS, int baseCost)
+        public Building(string name, float baseCPS, int baseCost, Sprite icon, string description)
         {
             Assert.IsTrue(baseCPS >= 0);
 
             this.name = name;
-            _amount = 0;
             cps = new ProductionStat(baseCPS);
+            this.icon = icon;
+            this.description = description;
             this.baseCost = baseCost;
+            _amount = 0;
         }
 
         public float Bake(TimeSpan deltaTime)

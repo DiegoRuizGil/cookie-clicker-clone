@@ -15,6 +15,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public readonly string name;
         public readonly int baseCost;
         public readonly ProductionStat cps;
+        public float TotalBaked { get; private set; }
 
         private int _amount;
         private const float CostIncrease = 1.15f;
@@ -28,6 +29,13 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             _amount = 0;
             cps = new ProductionStat(baseCPS);
             this.baseCost = baseCost;
+        }
+
+        public float Bake(TimeSpan deltaTime)
+        {
+            var cookies = Production * (float)deltaTime.TotalSeconds;
+            TotalBaked += cookies;
+            return cookies;
         }
 
         public float CostOf(int amountToBuy)

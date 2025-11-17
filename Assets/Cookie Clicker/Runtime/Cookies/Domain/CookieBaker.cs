@@ -27,9 +27,9 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         
         private float _currentCookies;
         
-        public void Bake(TimeSpan delta)
+        public void Bake(TimeSpan deltaTime)
         {
-            var cookies = Production * (float)delta.TotalSeconds;
+            var cookies = buildings.Values.ToList().Sum(b => b.Bake(deltaTime));
             BakedCookies += cookies;
             CurrentCookies += cookies;
         }

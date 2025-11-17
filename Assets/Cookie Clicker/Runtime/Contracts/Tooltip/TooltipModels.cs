@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltip
+namespace Cookie_Clicker.Runtime.Contracts.Tooltip
 {
     public struct BuildingTooltipData
     {

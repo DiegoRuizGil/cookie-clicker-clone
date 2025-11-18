@@ -9,7 +9,7 @@ namespace Cookie_Clicker.Runtime.Builders
         private float _baseCPS;
         private int _baseCost;
         private Sprite _icon;
-        private string _description;
+        private Sprite _iconSilhouette;
 
         public BuildingBuilder WithName(string name)
         {
@@ -35,15 +35,15 @@ namespace Cookie_Clicker.Runtime.Builders
             return this;
         }
 
-        public BuildingBuilder WithDescription(string description)
+        public BuildingBuilder WithIconSilhouette(Sprite silhouette)
         {
-            _description = description;
+            _iconSilhouette = silhouette;
             return this;
         }
         
         public Building Build()
         {
-            var building = new Building(_name, _baseCPS, _baseCost, _icon, _description);
+            var building = new Building(_name, _baseCPS, _baseCost, _icon, _iconSilhouette);
             return building;
         }
 

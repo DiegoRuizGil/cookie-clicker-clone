@@ -176,7 +176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_3
+      name: mine_1
       rect:
         serializedVersion: 2
         x: 144
@@ -198,7 +198,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_4
+      name: factory_1
       rect:
         serializedVersion: 2
         x: 192
@@ -440,7 +440,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_15
+      name: bank_1
       rect:
         serializedVersion: 2
         x: 720
@@ -462,7 +462,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_16
+      name: temple_1
       rect:
         serializedVersion: 2
         x: 768
@@ -770,7 +770,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_30
+      name: mine_2
       rect:
         serializedVersion: 2
         x: 144
@@ -792,7 +792,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_31
+      name: factory_2
       rect:
         serializedVersion: 2
         x: 192
@@ -1034,7 +1034,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_42
+      name: bank_2
       rect:
         serializedVersion: 2
         x: 720
@@ -1056,7 +1056,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_43
+      name: temple_2
       rect:
         serializedVersion: 2
         x: 768
@@ -1562,7 +1562,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_66
+      name: mine_3
       rect:
         serializedVersion: 2
         x: 144
@@ -1584,7 +1584,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_67
+      name: factory_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1826,7 +1826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_78
+      name: bank_3
       rect:
         serializedVersion: 2
         x: 720
@@ -1848,7 +1848,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_79
+      name: temple_3
       rect:
         serializedVersion: 2
         x: 768
@@ -9746,7 +9746,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_438
+      name: cursor_4
       rect:
         serializedVersion: 2
         x: 0
@@ -9768,7 +9768,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_439
+      name: grandma_4
       rect:
         serializedVersion: 2
         x: 48
@@ -9790,7 +9790,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_440
+      name: farm_4
       rect:
         serializedVersion: 2
         x: 96
@@ -9812,7 +9812,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_441
+      name: mine_4
       rect:
         serializedVersion: 2
         x: 144
@@ -9834,7 +9834,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_442
+      name: factory_4
       rect:
         serializedVersion: 2
         x: 192
@@ -10076,7 +10076,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_453
+      name: bank_4
       rect:
         serializedVersion: 2
         x: 720
@@ -10098,7 +10098,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_454
+      name: temple_4
       rect:
         serializedVersion: 2
         x: 768
@@ -10538,7 +10538,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_474
+      name: cursor_5
       rect:
         serializedVersion: 2
         x: 0
@@ -10560,7 +10560,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_475
+      name: grandma_5
       rect:
         serializedVersion: 2
         x: 48
@@ -10582,7 +10582,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_476
+      name: farm_5
       rect:
         serializedVersion: 2
         x: 96
@@ -10604,7 +10604,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_477
+      name: mine_5
       rect:
         serializedVersion: 2
         x: 144
@@ -10626,7 +10626,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_478
+      name: factory_5
       rect:
         serializedVersion: 2
         x: 192
@@ -10868,7 +10868,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_489
+      name: bank_5
       rect:
         serializedVersion: 2
         x: 720
@@ -10890,7 +10890,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_490
+      name: temple_5
       rect:
         serializedVersion: 2
         x: 768
@@ -28385,7 +28385,6 @@ TextureImporter:
       Icons_147: 915993422
       Icons_148: -167368571
       Icons_149: 660261864
-      Icons_15: -192702999
       Icons_150: -1993089133
       Icons_151: 1793205793
       Icons_152: 1977170408
@@ -28396,7 +28395,6 @@ TextureImporter:
       Icons_157: -9179350
       Icons_158: -1240709365
       Icons_159: -217202692
-      Icons_16: -1685384535
       Icons_160: 767185968
       Icons_161: 287410967
       Icons_162: -1999291916
@@ -28547,8 +28545,6 @@ TextureImporter:
       Icons_297: 363230656
       Icons_298: 1900262184
       Icons_299: 1160633700
-      Icons_3: 981936477
-      Icons_30: 1093243780
       Icons_300: 1965635885
       Icons_301: 153164319
       Icons_302: 2099356542
@@ -28559,7 +28555,6 @@ TextureImporter:
       Icons_307: 1975122952
       Icons_308: 489906766
       Icons_309: -2022498289
-      Icons_31: -792402701
       Icons_310: -1117606386
       Icons_311: 2123221530
       Icons_312: -2134429984
@@ -28656,7 +28651,6 @@ TextureImporter:
       Icons_397: 1889019231
       Icons_398: 1699353729
       Icons_399: -164176127
-      Icons_4: 817075317
       Icons_40: -1370139863
       Icons_400: -1230494851
       Icons_401: 531460153
@@ -28679,7 +28673,6 @@ TextureImporter:
       Icons_417: 1232037914
       Icons_418: -381203872
       Icons_419: 1067285630
-      Icons_42: 1098114658
       Icons_420: -322369002
       Icons_421: -1449210573
       Icons_422: -2066204067
@@ -28690,7 +28683,6 @@ TextureImporter:
       Icons_427: -408517079
       Icons_428: -668291159
       Icons_429: 315309013
-      Icons_43: -1591410884
       Icons_430: -1474251639
       Icons_431: 276944846
       Icons_432: -134150812
@@ -28699,12 +28691,7 @@ TextureImporter:
       Icons_435: 924861611
       Icons_436: 336117723
       Icons_437: -1917602593
-      Icons_438: 1757750580
-      Icons_439: -1955569050
       Icons_44: 504020089
-      Icons_440: 1477836643
-      Icons_441: 945434041
-      Icons_442: 303493415
       Icons_443: -1123082435
       Icons_444: 607963626
       Icons_445: -630915908
@@ -28716,8 +28703,6 @@ TextureImporter:
       Icons_450: 835823327
       Icons_451: -347873030
       Icons_452: -536205385
-      Icons_453: -2071130081
-      Icons_454: 959118146
       Icons_455: 1343704353
       Icons_456: -1912605708
       Icons_457: 2960746
@@ -28739,11 +28724,6 @@ TextureImporter:
       Icons_471: 1174944569
       Icons_472: 504260311
       Icons_473: -172442113
-      Icons_474: 1998447319
-      Icons_475: 2020246044
-      Icons_476: -204964566
-      Icons_477: -158137488
-      Icons_478: -1930420083
       Icons_479: -537386537
       Icons_48: 1428333549
       Icons_480: 1580597212
@@ -28755,9 +28735,7 @@ TextureImporter:
       Icons_486: -1260261155
       Icons_487: 193891737
       Icons_488: 1183984042
-      Icons_489: -1138539207
       Icons_49: 1211634924
-      Icons_490: -1821327985
       Icons_491: -1513017278
       Icons_492: 1497880482
       Icons_493: -373234308
@@ -28942,7 +28920,6 @@ TextureImporter:
       Icons_657: -1150224134
       Icons_658: 1574525218
       Icons_659: -1771209399
-      Icons_66: 1974099656
       Icons_660: -1022091811
       Icons_661: 559687688
       Icons_662: 1404147651
@@ -28953,7 +28930,6 @@ TextureImporter:
       Icons_667: 1379165200
       Icons_668: 2117694661
       Icons_669: -125960238
-      Icons_67: -87471350
       Icons_670: 69750520
       Icons_671: -1465464713
       Icons_672: -1048351402
@@ -29074,7 +29050,6 @@ TextureImporter:
       Icons_777: -787561687
       Icons_778: -1421958444
       Icons_779: -1351623432
-      Icons_78: -662056226
       Icons_780: -1010936441
       Icons_781: -161449710
       Icons_782: 313156495
@@ -29085,7 +29060,6 @@ TextureImporter:
       Icons_787: -1897186314
       Icons_788: 2082980321
       Icons_789: -1023552054
-      Icons_79: 2006188235
       Icons_790: 2116036131
       Icons_791: -1799789059
       Icons_792: 224087964
@@ -29317,22 +29291,48 @@ TextureImporter:
       Icons_997: -2049987149
       Icons_998: 1361156039
       Icons_999: -275227120
+      bank_1: -192702999
+      bank_2: 1098114658
+      bank_3: -662056226
+      bank_4: -2071130081
+      bank_5: -1138539207
       cookie_1: 2014083973
       cookie_2: 722185524
       cookie_3: 1966353496
       cursor_1: -1227484587
       cursor_2: 1388448345
       cursor_3: 1940947209
+      cursor_4: 1757750580
+      cursor_5: 1998447319
+      factory_1: 817075317
+      factory_2: -792402701
+      factory_3: -87471350
+      factory_4: 303493415
+      factory_5: -1930420083
+      farm_4: 1477836643
+      farm_5: -204964566
       farm_efficiency_1: 713507728
       farm_efficiency_2: 1666484251
       farm_efficiency_3: 1845212703
       grandma: -1308168047
+      grandma_4: -1955569050
+      grandma_5: 2020246044
       grandma_efficiency_1: 1648066076
       grandma_efficiency_2: 1386002991
       grandma_efficiency_3: 1351931457
+      mine_1: 981936477
+      mine_2: 1093243780
+      mine_3: 1974099656
+      mine_4: 945434041
+      mine_5: -158137488
       tapping_1: 1722422991
       tapping_2: -1398151470
       tapping_3: 1331788245
+      temple_1: -1685384535
+      temple_2: -1591410884
+      temple_3: 2006188235
+      temple_4: 959118146
+      temple_5: -1821327985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

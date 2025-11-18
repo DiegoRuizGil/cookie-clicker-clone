@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621ebe26618d432392bb8ea854bd25c3, type: 3}
-  m_Name: Farm
+  m_Script: {fileID: 11500000, guid: 26ecf1640aef46f3a22ff5842cb8ec95, type: 3}
+  m_Name: 6 - TempleID
   m_EditorClassIdentifier: 
-  buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
-  baseCPS: 8
-  baseCost: 1100
+  buildingName: Temple

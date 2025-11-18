@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621ebe26618d432392bb8ea854bd25c3, type: 3}
-  m_Name: Cursor
+  m_Script: {fileID: 11500000, guid: 26ecf1640aef46f3a22ff5842cb8ec95, type: 3}
+  m_Name: 0 - CursorID
   m_EditorClassIdentifier: 
-  buildingID: {fileID: 11400000, guid: 5c2e1d3485cfbb74cb58e1c14f35dc04, type: 2}
-  baseCPS: 0.1
-  baseCost: 15
+  buildingName: Cursor

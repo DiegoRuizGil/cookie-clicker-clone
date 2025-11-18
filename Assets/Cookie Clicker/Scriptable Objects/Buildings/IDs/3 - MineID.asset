@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26ecf1640aef46f3a22ff5842cb8ec95, type: 3}
-  m_Name: GrandmaID
+  m_Name: 3 - MineID
   m_EditorClassIdentifier: 
-  buildingName: Grandma
+  buildingName: Mine

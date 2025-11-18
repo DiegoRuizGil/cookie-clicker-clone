@@ -17,21 +17,21 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         public readonly int baseCost;
         public readonly ProductionStat cps;
         public readonly Sprite icon;
-        public readonly string description;
+        public readonly Sprite iconSilhouette;
         public float TotalBaked { get; private set; }
 
         private int _amount;
         private const float CostIncrease = 1.15f;
         private const float RefoundRate = 0.25f;
 
-        public Building(string name, float baseCPS, int baseCost, Sprite icon, string description)
+        public Building(string name, float baseCPS, int baseCost, Sprite icon, Sprite iconSilhouette)
         {
             Assert.IsTrue(baseCPS >= 0);
 
             this.name = name;
             cps = new ProductionStat(baseCPS);
             this.icon = icon;
-            this.description = description;
+            this.iconSilhouette = iconSilhouette;
             this.baseCost = baseCost;
             _amount = 0;
         }

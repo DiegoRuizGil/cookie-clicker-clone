@@ -11,7 +11,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings
         [SerializeField] private float baseCPS;
         [SerializeField, Min(0)] private int baseCost = 5;
         [SerializeField] private Sprite icon;
-        [SerializeField, TextArea] private string description;
+        [SerializeField] private Sprite silhouette;
 
         public Building Get()
         {
@@ -19,7 +19,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings
                 .WithBaseCPS(baseCPS)
                 .WithBaseCost(baseCost)
                 .WithIcon(icon)
-                .WithDescription(description);
+                .WithIconSilhouette(silhouette);
         }
     }
 }

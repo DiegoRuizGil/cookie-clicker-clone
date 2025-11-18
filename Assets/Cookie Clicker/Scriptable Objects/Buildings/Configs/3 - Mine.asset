@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621ebe26618d432392bb8ea854bd25c3, type: 3}
-  m_Name: Grandma
+  m_Name: 3 - Mine
   m_EditorClassIdentifier: 
-  buildingID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
-  baseCPS: 1
-  baseCost: 100
+  buildingID: {fileID: 11400000, guid: d869cdd7c7a88c64c9c8364b6e09d44f, type: 2}
+  baseCPS: 47
+  baseCost: 12000
+  icon: {fileID: -1670876848, guid: 64b329764615d664ea16fcd240872649, type: 3}
+  silhouette: {fileID: -2129130868, guid: 64b329764615d664ea16fcd240872649, type: 3}

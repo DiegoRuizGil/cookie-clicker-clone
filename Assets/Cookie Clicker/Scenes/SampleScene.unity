@@ -608,10 +608,16 @@ MonoBehaviour:
     obj: {fileID: 2007216134}
   cookieView:
     obj: {fileID: 2028626380}
+  tooltipView:
+    obj: {fileID: 0}
   buildingConfigs:
   - {fileID: 11400000, guid: fc290f51cd6041e449521839ac381f87, type: 2}
   - {fileID: 11400000, guid: 24e13721e0764884dbaf694b35e9b02c, type: 2}
   - {fileID: 11400000, guid: 850a1ae33ef4ce64db948fde6bb4c55d, type: 2}
+  - {fileID: 11400000, guid: a1aed452a9d98e142b0864c5fa0b9049, type: 2}
+  - {fileID: 11400000, guid: 6f99e7c2a3553ba44ba5a63c17334818, type: 2}
+  - {fileID: 11400000, guid: c906aadb3cb02644aa6d0b67f9a71492, type: 2}
+  - {fileID: 11400000, guid: 2b82917769e004143bb801ce667a467c, type: 2}
 --- !u!4 &1456343771
 Transform:
   m_ObjectHideFlags: 0

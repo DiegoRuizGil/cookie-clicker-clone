@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cookie_Clicker.Runtime.Contracts.Tooltip;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEngine;
@@ -13,7 +12,6 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         [SerializeField] private BuildingID cursorID;
         [SerializeField] private SerializableInterface<IBuildingStoreView> storeView;
         [SerializeField] private SerializableInterface<ICookieView> cookieView;
-        [SerializeField] private SerializableInterface<ITooltipView> tooltipView;
         [SerializeField] private List<BuildingConfig> buildingConfigs;
 
         public CookieBaker Baker { get; private set; }

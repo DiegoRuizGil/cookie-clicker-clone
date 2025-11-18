@@ -1,5 +1,6 @@
 ﻿using System;
 using Cookie_Clicker.Runtime.Cookies.Domain;
+using Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
 {
-    public class BuildingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class BuildingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
     {
         [SerializeField] private Image icon;
         [SerializeField] private TextMeshProUGUI nameText;
@@ -15,11 +16,11 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         [SerializeField] private TextMeshProUGUI amountText;
 
         public event Action<string> OnButtonPressed = delegate { };
-        public event Action<string> OnHoverEnter = delegate { };
-        public event Action OnHoverExit = delegate { };
         
         private Button _button;
 
+        [HideInInspector] public float tooltipXPos;
+        [HideInInspector] public BuildingTooltip buildingTooltip;
         public string BuildingName => _displayData.name;
         private BuildingDisplayData _displayData;
 
@@ -29,14 +30,28 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             _button.onClick.AddListener(() => OnButtonPressed.Invoke(BuildingName));
         }
         
-        public void OnPointerEnter(PointerEventData eventData) => OnHoverEnter.Invoke(BuildingName);
-        public void OnPointerExit(PointerEventData eventData) => OnHoverExit.Invoke();
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            buildingTooltip.Show(_displayData, Vector2.zero);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            buildingTooltip.Hide();
+        }
+        
+        public void OnPointerMove(PointerEventData eventData)
+        {
+            Debug.Log("moving");
+        }
 
         public void UpdateData(BuildingDisplayData displayData)
         {
             _displayData = displayData;
             costText.text = _displayData.cost.ToString($"'x{displayData.purchaseMult}' #");
             amountText.text = _displayData.amount.ToString("#");
+            
+            buildingTooltip.UpdateData(displayData);
         }
 
         public void UpdateVisibility(BuildingVisibility visibility)

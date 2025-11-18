@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cookie_Clicker.Runtime.Cookies.Domain;
+using Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips;
 using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
@@ -9,6 +10,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
     {
         [SerializeField] private BuildingModeSelector modeSelector;
         [SerializeField] private BuildingButton buildingButtonPrefab;
+        [SerializeField] private RectTransform leftLimit;
+        [SerializeField] private BuildingTooltip buildingTooltip;
         
         private readonly List<BuildingButton> _buttons = new List<BuildingButton>();
 
@@ -17,6 +20,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             foreach (var data in displayDataList)
             {
                 var button = Instantiate(buildingButtonPrefab, transform);
+                button.buildingTooltip = buildingTooltip;
                 button.UpdateData(data);
                 button.gameObject.SetActive(false);
                 

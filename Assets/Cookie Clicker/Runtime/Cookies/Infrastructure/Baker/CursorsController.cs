@@ -52,7 +52,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             Assert.IsTrue(amount > 0);
 
             for (int i = 0; i < amount; i++)
-                AddCursor();
+                RemoveCursor();
         }
 
         private void AddCursor()

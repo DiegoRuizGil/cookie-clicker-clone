@@ -10,18 +10,18 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
     {
         [SerializeField] private BuildingModeSelector modeSelector;
         [SerializeField] private BuildingButton buildingButtonPrefab;
-        [SerializeField] private RectTransform leftLimit;
         [SerializeField] private BuildingTooltip buildingTooltip;
         
         private readonly List<BuildingButton> _buttons = new List<BuildingButton>();
 
         public void Setup(List<BuildingDisplayData> displayDataList)
         {
+            var rt = GetComponent<RectTransform>();
+            var minXPos = rt.TransformPoint(new Vector3(rt.rect.xMin, 0, 0)).x;
             foreach (var data in displayDataList)
             {
                 var button = Instantiate(buildingButtonPrefab, transform);
-                button.buildingTooltip = buildingTooltip;
-                button.UpdateData(data);
+                button.Init(data, buildingTooltip, minXPos);
                 button.gameObject.SetActive(false);
                 
                 _buttons.Add(button);

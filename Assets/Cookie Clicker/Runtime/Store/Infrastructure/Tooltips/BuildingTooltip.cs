@@ -14,17 +14,18 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
         [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private TextMeshProUGUI cpsText;
         [SerializeField] private TextMeshProUGUI productionText;
-        
 
+        private Vector2 _offset;
+        
         private void Awake()
         {
-            Hide();
+            _offset = new Vector2(rectTransform.rect.width / 2, rectTransform.rect.height * 1 / 4);
         }
 
         public void Show(BuildingDisplayData data, Vector2 position)
         {
             UpdateData(data);
-            rectTransform.anchoredPosition = position;
+            UpdatePosition(position);
             gameObject.SetActive(true);
         }
 
@@ -36,6 +37,11 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
             costText.text = data.cost.ToString("#");
             cpsText.text = $"each cursor produces <color=white>{data.cpsPer:F2} cookies</color> per second";
             productionText.text = $"{data.amount} cursors produces <color=white>{data.totalProduction:F2} cookies</color> per second";
+        }
+
+        public void UpdatePosition(Vector2 position)
+        {
+            rectTransform.position = position - _offset;
         }
 
         public void Hide()

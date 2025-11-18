@@ -430,6 +430,41 @@ MonoBehaviour:
   offsetBetweenCircles: 50
   cursorsPerCircle: 50
   spinSpeed: 15
+--- !u!1 &583311439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 583311440}
+  m_Layer: 5
+  m_Name: Left Limit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &583311440
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583311439}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 805473481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1472.1, y: -100}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &805473481 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2303022920411992740, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
@@ -1033,6 +1068,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2303022920411992740, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 583311440}
     - targetCorrespondingSourceObject: {fileID: 2303022920411992740, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1019166783}

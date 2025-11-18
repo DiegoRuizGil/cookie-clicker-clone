@@ -19,8 +19,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         
         private Button _button;
 
-        [HideInInspector] public float tooltipXPos;
-        [HideInInspector] public BuildingTooltip buildingTooltip;
+        private float _tooltipXPos;
+        private BuildingTooltip _tooltip;
         public string BuildingName => _displayData.name;
         private BuildingDisplayData _displayData;
 
@@ -29,20 +29,12 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             _button = GetComponent<Button>();
             _button.onClick.AddListener(() => OnButtonPressed.Invoke(BuildingName));
         }
-        
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            buildingTooltip.Show(_displayData, Vector2.zero);
-        }
 
-        public void OnPointerExit(PointerEventData eventData)
+        public void Init(BuildingDisplayData displayData, BuildingTooltip tooltip, float tooltipXPos)
         {
-            buildingTooltip.Hide();
-        }
-        
-        public void OnPointerMove(PointerEventData eventData)
-        {
-            Debug.Log("moving");
+            _tooltip = tooltip;
+            _tooltipXPos = tooltipXPos;
+            UpdateData(displayData);
         }
 
         public void UpdateData(BuildingDisplayData displayData)
@@ -51,7 +43,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             costText.text = _displayData.cost.ToString($"'x{displayData.purchaseMult}' #");
             amountText.text = _displayData.amount.ToString("#");
             
-            buildingTooltip.UpdateData(displayData);
+            _tooltip.UpdateData(displayData);
         }
 
         public void UpdateVisibility(BuildingVisibility visibility)
@@ -86,6 +78,21 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
                     _button.interactable = _displayData.amount > 0;
                     break;
             }
+        }
+        
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            _tooltip.Show(_displayData, new Vector2(_tooltipXPos, Input.mousePosition.y));
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            _tooltip.Hide();
+        }
+        
+        public void OnPointerMove(PointerEventData eventData)
+        {
+            _tooltip.UpdatePosition(new Vector2(_tooltipXPos, Input.mousePosition.y));
         }
     }
 }

@@ -12,19 +12,19 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         
         private readonly List<BuildingButton> _buttons = new List<BuildingButton>();
 
-        public void Setup(List<Building> buildings)
+        public void Setup(List<BuildingDisplayData> displayDataList)
         {
-            foreach (var building in buildings)
+            foreach (var data in displayDataList)
             {
                 var button = Instantiate(buildingButtonPrefab, transform);
-                button.Init(building.name);
+                button.UpdateData(data);
                 button.gameObject.SetActive(false);
                 
                 _buttons.Add(button);
             }
         }
 
-        public void UpdateButtonsData(List<BuildingData> buildingsData)
+        public void UpdateButtonsData(List<BuildingDisplayData> buildingsData)
         {
             for (int i = 0; i < _buttons.Count; i++)
             {
@@ -35,11 +35,11 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             }
         }
 
-        public void UpdateButtonData(string buildingName, BuildingData data)
+        public void UpdateButtonData(string buildingName, BuildingDisplayData displayData)
         {
             var button = _buttons.Find(b => b.BuildingName == buildingName);
             if (button)
-                button.UpdateData(data);
+                button.UpdateData(displayData);
         }
         
         public void UpdateButtonsInteraction(float currentCookies, PurchaseMode.Type purchaseType)
@@ -64,15 +64,6 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         {
             foreach (var button in _buttons)
                 button.OnButtonPressed += listener;
-        }
-
-        public void RegisterButtonHoverListeners(Action<string> onEnter, Action onExit)
-        {
-            foreach (var button in _buttons)
-            {
-                button.OnHoverEnter += onEnter;
-                button.OnHoverExit += onExit;
-            }
         }
     }
 }

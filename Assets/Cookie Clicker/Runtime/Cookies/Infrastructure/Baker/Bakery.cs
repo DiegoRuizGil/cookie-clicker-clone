@@ -27,7 +27,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             Baker.SetBuildings(buildingConfigs.Select(config => config.Get()).ToList());
             
             var progression = new BuildingsProgression(Baker.GetBuildings());
-            _buildingsController = new BuildingsController(Baker, progression, storeView.Instance, tooltipView.Instance);
+            _buildingsController = new BuildingsController(Baker, progression, storeView.Instance);
             _cookieController = new CookieController(Baker, cookieView.Instance, cursorID);
         }
 

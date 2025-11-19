@@ -1,4 +1,6 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Cookie_Clicker.Runtime.Cookies.Domain;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
@@ -20,16 +22,21 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             _unlocker.CheckUnlocks();
             
             if (_unlocker.NewUnlocksInLastCheck)
-                _storeView.AddUpgrades(_unlocker.LastUpgradesUnlocked, OnUpgradePurchased);
+                _storeView.AddUpgrades(GetDisplayDataList(_unlocker.LastUpgradesUnlocked), OnUpgradePurchased);
             _storeView.UpdateButtons(_baker.CurrentCookies);
         }
 
-        private void OnUpgradePurchased(Upgrade upgrade)
+        private void OnUpgradePurchased(string upgradeName)
         {
-            var u = _unlocker.FindUnlockedUpgrade(upgrade.name);
-            u?.Apply(_baker);
+            var upgrade = _unlocker.FindUnlockedUpgrade(upgradeName);
+            upgrade?.Apply(_baker);
         }
 
+        private List<UpgradeDisplayData> GetDisplayDataList(List<Upgrade> upgrades)
+        {
+            return upgrades.Select(GetDisplayData).ToList();
+        }
+        
         private UpgradeDisplayData GetDisplayData(Upgrade upgrade)
         {
             return new UpgradeDisplayData

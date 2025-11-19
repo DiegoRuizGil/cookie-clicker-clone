@@ -9,10 +9,10 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
     {
         [SerializeField] private Image icon;
 
+        public event Action<string> OnButtonPressed = delegate { };
+        
         private Button _button;
-        private Upgrade _upgrade;
-
-        public event Action<Upgrade> OnButtonPressed = delegate { };
+        private UpgradeDisplayData _displayData;
 
         private void Awake()
         {
@@ -20,19 +20,19 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
             _button.onClick.AddListener(OnClick);
         }
 
-        public void Init(Upgrade upgrade)
+        public void Init(UpgradeDisplayData displayData)
         {
-            _upgrade = upgrade;
-            icon.sprite = _upgrade.icon;
+            _displayData = displayData;
+            icon.sprite = _displayData.icon;
         }
         
-        public void RegisterListener(Action<Upgrade> listener) => OnButtonPressed += listener;
+        public void RegisterListener(Action<string> listener) => OnButtonPressed += listener;
 
-        public void SetInteraction(float currentCookies) => _button.interactable = currentCookies >= _upgrade.cost;
+        public void SetInteraction(float currentCookies) => _button.interactable = currentCookies >= _displayData.cost;
 
         private void OnClick()
         {
-            OnButtonPressed.Invoke(_upgrade);
+            OnButtonPressed.Invoke(_displayData.name);
             Destroy(gameObject);
         }
 

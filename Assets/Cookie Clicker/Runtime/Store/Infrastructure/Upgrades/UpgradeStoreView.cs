@@ -11,7 +11,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
         
         public List<UpgradeButton> _buttons = new List<UpgradeButton>();
         
-        public void AddUpgrades(IList<Upgrade> upgrades, Action<Upgrade> listener)
+        public void AddUpgrades(IList<UpgradeDisplayData> upgrades, Action<string> listener)
         {
             foreach (var upgrade in upgrades)
             {

@@ -5,7 +5,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
 {
     public interface IUpgradeStoreView
     {
-        void AddUpgrades(IList<Upgrade> upgrades, Action<Upgrade> listener);
+        void AddUpgrades(IList<UpgradeDisplayData> upgrades, Action<string> listener);
         void UpdateButtons(float currentCookies);
     }
 }

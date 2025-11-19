@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Lubricated dentures
   icon: {fileID: 1351931457, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
   cost: 50000
+  description: Grandmas are <color=white>twice</color> as efficient.
   buildingID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
   efficiencyMult: 2
   buildingCountToUnlock: 25

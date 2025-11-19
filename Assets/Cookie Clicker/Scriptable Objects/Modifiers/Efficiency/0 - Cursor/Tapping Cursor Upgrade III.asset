@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Ambidextrous
   icon: {fileID: 1940947209, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
   cost: 10000
+  description: The mouse and cursors are <color=white>twice</color> as efficient.
   cursorID: {fileID: 11400000, guid: 5c2e1d3485cfbb74cb58e1c14f35dc04, type: 2}
   efficiencyMultiplier: 2
   cursorCountToUnlock: 10

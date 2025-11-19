@@ -15,6 +15,7 @@ MonoBehaviour:
   upgradeName: Genetically-modified cookies
   icon: {fileID: 1845212703, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
   cost: 55000000
+  description: Farms are <color=white>twice</color> as efficient.
   buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
   efficiencyMult: 2
   buildingCountToUnlock: 50

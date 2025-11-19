@@ -15,6 +15,10 @@ MonoBehaviour:
   upgradeName: Farmer grandmas
   icon: {fileID: -1308168047, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
   cost: 100
+  description: 'Grandmas are <color=white>twice</color> as efficient.
+
+    Farms
+    gain <color=white>+1% CpS</color> per grandma.'
   grandmaID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
   buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
   grandmaEfficiencyMultiplier: 2

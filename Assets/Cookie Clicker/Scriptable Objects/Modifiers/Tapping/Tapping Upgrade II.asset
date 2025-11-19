@@ -15,5 +15,6 @@ MonoBehaviour:
   upgradeName: Iron mouse
   icon: {fileID: -1398151470, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
   cost: 100
+  description: Clicking gains <color=white>+1% of your CpS</color>.
   multiplier: 0.01
   handMadeCookiesToUnlock: 100000

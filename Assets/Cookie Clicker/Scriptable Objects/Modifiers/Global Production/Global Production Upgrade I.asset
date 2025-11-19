@@ -15,5 +15,6 @@ MonoBehaviour:
   upgradeName: Plain cookies
   icon: {fileID: 2014083973, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
   cost: 100
+  description: Cookie production multiplier <color=white>+1%</color>.
   multiplier: 0.2
   cookiesBakedToUnlock: 50000

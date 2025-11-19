@@ -56,12 +56,12 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             switch (_purchaseMode.type)
             {
                 case PurchaseMode.Type.Buy:
-                    _baker.AddBuilding(buildingName, _purchaseMode.multiplier);
                     _baker.CurrentCookies -= GetCost(buildingName);
+                    _baker.AddBuilding(buildingName, _purchaseMode.multiplier);
                     break;
                 case PurchaseMode.Type.Sell:
-                    _baker.RemoveBuilding(buildingName, _purchaseMode.multiplier);
                     _baker.CurrentCookies += GetCost(buildingName);
+                    _baker.RemoveBuilding(buildingName, _purchaseMode.multiplier);
                     break;
             }
             

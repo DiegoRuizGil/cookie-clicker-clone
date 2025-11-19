@@ -24,6 +24,10 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             _storeView.UpdateButtons(_baker.CurrentCookies);
         }
 
-        private void OnUpgradePurchased(Upgrade upgrade) => upgrade.Apply(_baker);
+        private void OnUpgradePurchased(Upgrade upgrade)
+        {
+            var u = _unlocker.FindUnlockedUpgrade(upgrade.name);
+            u?.Apply(_baker);
+        }
     }
 }

@@ -20,6 +20,11 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             _baker = baker;
         }
 
+        public Upgrade FindUnlockedUpgrade(string upgradeName)
+        {
+            return _unlockedUpgrades.Find(upgrade => upgrade.name == upgradeName);
+        }
+        
         public void CheckUnlocks()
         {
             LastUpgradesUnlocked = GetUnlockedUpgrades();

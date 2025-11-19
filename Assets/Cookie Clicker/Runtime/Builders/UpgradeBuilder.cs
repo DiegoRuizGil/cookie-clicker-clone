@@ -10,6 +10,7 @@ namespace Cookie_Clicker.Runtime.Builders
         private string _name;
         private Sprite _icon;
         private int _cost;
+        private string _description;
         private IUpgradeEffect _effect;
 
         public UpgradeBuilder WithName(string name)
@@ -30,6 +31,12 @@ namespace Cookie_Clicker.Runtime.Builders
             return this;
         }
 
+        public UpgradeBuilder WithDescription(string description)
+        {
+            _description = description;
+            return this;
+        }
+        
         public UpgradeBuilder WithEffect(IUpgradeEffect effect)
         {
             _effect = effect;
@@ -40,7 +47,7 @@ namespace Cookie_Clicker.Runtime.Builders
         {
             Assert.IsNotNull(_effect);
             
-            return new Upgrade(_name, _icon, _cost, _effect);
+            return new Upgrade(_name, _icon, _cost, _description, _effect);
         }
     }
 }

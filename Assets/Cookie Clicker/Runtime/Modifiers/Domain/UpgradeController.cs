@@ -29,5 +29,16 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
             var u = _unlocker.FindUnlockedUpgrade(upgrade.name);
             u?.Apply(_baker);
         }
+
+        private UpgradeDisplayData GetDisplayData(Upgrade upgrade)
+        {
+            return new UpgradeDisplayData
+            {
+                name = upgrade.name,
+                icon = upgrade.icon,
+                cost = upgrade.cost,
+                description = upgrade.description
+            };
+        }
     }
 }

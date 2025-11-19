@@ -21,7 +21,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             var effect = new CookiesEffect(Percentage.FromFraction(multiplier));
             var condition = new CookiesBakedCondition(cookiesBakedToUnlock);
             var upgrade = An.Upgrade.WithName(upgradeName).WithIcon(icon).WithCost(cost)
-                .WithEffect(effect).Build();
+                .WithDescription(description).WithEffect(effect).Build();
 
             upgrade.AddUnlockCondition(condition);
             

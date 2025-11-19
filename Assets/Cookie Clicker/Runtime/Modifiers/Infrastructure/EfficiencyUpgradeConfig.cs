@@ -22,7 +22,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             var effect = new EfficiencyEffect(buildingID, efficiencyMult);
             var condition = new BuildingCountCondition(buildingID, buildingCountToUnlock);
             var upgrade = An.Upgrade.WithName(upgradeName).WithIcon(icon).WithCost(cost)
-                .WithEffect(effect).Build();
+                .WithDescription(description).WithEffect(effect).Build();
             
             upgrade.AddUnlockCondition(condition);
 

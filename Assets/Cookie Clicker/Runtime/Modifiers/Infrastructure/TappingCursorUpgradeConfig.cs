@@ -22,7 +22,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             var effect = new TappingCursorEffect(cursorID, efficiencyMultiplier);
             var condition = new BuildingCountCondition(cursorID, cursorCountToUnlock);
             var upgrade = An.Upgrade.WithName(upgradeName).WithIcon(icon).WithCost(cost)
-                .WithEffect(effect).Build();
+                .WithDescription(description).WithEffect(effect).Build();
             
             upgrade.AddUnlockCondition(condition);
 

@@ -21,7 +21,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             var effect = new TappingEffect(Percentage.FromFraction(multiplier));
             var condition = new HandMadeCookiesCondition(handMadeCookiesToUnlock);
             var upgrade = An.Upgrade.WithName(upgradeName).WithIcon(icon).WithCost(cost)
-                .WithEffect(effect).Build();
+                .WithDescription(description).WithEffect(effect).Build();
             
             upgrade.AddUnlockCondition(condition);
 

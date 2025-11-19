@@ -9,6 +9,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
         [SerializeField] protected string upgradeName;
         [SerializeField] protected Sprite icon;
         [SerializeField] protected int cost;
+        [SerializeField, TextArea] protected string description;
         
         public abstract Upgrade Get();
     }

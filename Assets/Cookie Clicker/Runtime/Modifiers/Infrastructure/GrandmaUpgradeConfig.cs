@@ -37,7 +37,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
                 new BuildingCountCondition(buildingID, buildingCountToUnlock)
             };
             var upgrade = An.Upgrade.WithName(upgradeName).WithIcon(icon).WithCost(cost)
-                .WithEffect(effect).Build();
+                .WithDescription(description).WithEffect(effect).Build();
             
             upgrade.AddUnlockConditions(conditions);
             

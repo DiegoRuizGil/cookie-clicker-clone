@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
+using Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips;
 using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
@@ -8,15 +9,24 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
     public class UpgradeStoreView : MonoBehaviour, IUpgradeStoreView
     {
         [SerializeField] private UpgradeButton upgradeButtonPrefab;
+        [SerializeField] private UpgradeTooltip upgradeTooltip;
         
-        public List<UpgradeButton> _buttons = new List<UpgradeButton>();
+        private readonly List<UpgradeButton> _buttons = new List<UpgradeButton>();
+
+        private float _minXPos;
         
-        public void AddUpgrades(IList<UpgradeDisplayData> upgrades, Action<string> listener)
+        private void Awake()
         {
-            foreach (var upgrade in upgrades)
+            var rt = GetComponent<RectTransform>();
+            _minXPos = rt.TransformPoint(new Vector3(rt.rect.xMin, 0, 0)).x;
+        }
+
+        public void AddUpgrades(IList<UpgradeDisplayData> displayDataList, Action<string> listener)
+        {
+            foreach (var data in displayDataList)
             {
                 var button = Instantiate(upgradeButtonPrefab, transform);
-                button.Init(upgrade);
+                button.Init(data, upgradeTooltip, _minXPos);
                 button.RegisterListener(listener);
                 button.OnButtonPressed += _ => _buttons.Remove(button);
                 

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wizard tower
+  m_text: <color=green>Wizard tower
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 39cf09e27da986f4abeac0812b330578, type: 2}
   m_sharedMaterial: {fileID: -8466008109032365361, guid: 39cf09e27da986f4abeac0812b330578, type: 2}

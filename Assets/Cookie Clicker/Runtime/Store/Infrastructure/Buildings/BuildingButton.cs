@@ -50,7 +50,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         {
             _displayData = displayData;
             amountText.text = _displayData.amount.ToString("#");
-            costText.text = _displayData.cost.ToString($"'x{_displayData.purchaseMult}' #");
+            costText.text = _displayData.cost.ToString(_displayData.purchaseMult <= 1 ? "#" : $"'x{_displayData.purchaseMult}' #");
             
             _tooltip.UpdateData(displayData);
         }

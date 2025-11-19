@@ -40,8 +40,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         public void UpdateData(BuildingDisplayData displayData)
         {
             _displayData = displayData;
-            costText.text = _displayData.cost.ToString($"'x{displayData.purchaseMult}' #");
             amountText.text = _displayData.amount.ToString("#");
+            SetCostText();
             
             _tooltip.UpdateData(displayData);
         }
@@ -69,15 +69,19 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
 
         public void SetInteraction(float currentCookies, PurchaseMode.Type purchaseType)
         {
-            switch (purchaseType)
+            _button.interactable = purchaseType switch
             {
-                case PurchaseMode.Type.Buy:
-                    _button.interactable = currentCookies >= _displayData.cost;
-                    break;
-                case PurchaseMode.Type.Sell:
-                    _button.interactable = _displayData.amount > 0;
-                    break;
-            }
+                PurchaseMode.Type.Buy => currentCookies >= _displayData.cost,
+                PurchaseMode.Type.Sell => _displayData.amount > 0,
+                _ => _button.interactable
+            };
+            SetCostText();
+        }
+
+        private void SetCostText()
+        {
+            var cost = _displayData.cost.ToString($"'x{_displayData.purchaseMult}' #");
+            costText.text = TextUtils.SetInteractionTextColor(cost, _button.interactable);
         }
         
         public void OnPointerEnter(PointerEventData eventData)

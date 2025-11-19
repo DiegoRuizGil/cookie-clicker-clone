@@ -37,7 +37,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
         {
             icon.sprite = data.icon;
             SetText(nameText, data.name);
-            costText.text = data.cost.ToString("#");
+            costText.text = data.cost.ToString("<color=green>#</color>");
             SetText(descriptionText, data.description);
         }
 

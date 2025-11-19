@@ -36,17 +36,19 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
         private void UpdateData(UpgradeDisplayData data)
         {
             icon.sprite = data.icon;
-            SetText(nameText, data.name);
-            costText.text = data.cost.ToString("<color=green>#</color>");
-            SetText(descriptionText, data.description);
+            SetTextAndSize(nameText, data.name);
+            costText.text = data.cost.ToString("#");
+            SetTextAndSize(descriptionText, data.description);
         }
 
-        public void UpdatePosition(Vector2 position)
+        public void UpdateCostTextColor(bool canPurchase) => costText.color = canPurchase ? Color.green : Color.red;
+
+        private void UpdatePosition(Vector2 position)
         {
             rectTransform.position = position - _offset;
         }
 
-        private void SetText(TextMeshProUGUI textMesh, string text)
+        private void SetTextAndSize(TextMeshProUGUI textMesh, string text)
         {
             textMesh.text = text;
             textMesh.ForceMeshUpdate();

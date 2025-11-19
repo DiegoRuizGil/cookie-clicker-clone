@@ -18,16 +18,25 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         public event Action<string> OnButtonPressed = delegate { };
         
         private Button _button;
+        private bool CanPurchase => _button.interactable;
 
         private float _tooltipXPos;
         private BuildingTooltip _tooltip;
         public string BuildingName => _displayData.name;
         private BuildingDisplayData _displayData;
 
+        private bool _showingTooltip;
+
         private void Awake()
         {
             _button = GetComponent<Button>();
             _button.onClick.AddListener(() => OnButtonPressed.Invoke(BuildingName));
+        }
+
+        private void Update()
+        {
+            if (_showingTooltip)
+                _tooltip.UpdateCostTextColor(CanPurchase);
         }
 
         public void Init(BuildingDisplayData displayData, BuildingTooltip tooltip, float tooltipXPos)
@@ -41,7 +50,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         {
             _displayData = displayData;
             amountText.text = _displayData.amount.ToString("#");
-            SetCostText();
+            costText.text = _displayData.cost.ToString($"'x{_displayData.purchaseMult}' #");
             
             _tooltip.UpdateData(displayData);
         }
@@ -75,23 +84,21 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
                 PurchaseMode.Type.Sell => _displayData.amount > 0,
                 _ => _button.interactable
             };
-            SetCostText();
+            SetCostTextColor();
         }
 
-        private void SetCostText()
-        {
-            var cost = _displayData.cost.ToString($"'x{_displayData.purchaseMult}' #");
-            costText.text = TextUtils.SetInteractionTextColor(cost, _button.interactable);
-        }
-        
+        private void SetCostTextColor() => costText.color = CanPurchase ? Color.green : Color.red;
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             _tooltip.Show(_displayData, new Vector2(_tooltipXPos, Input.mousePosition.y));
+            _showingTooltip = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             _tooltip.Hide();
+            _showingTooltip = false;
         }
         
         public void OnPointerMove(PointerEventData eventData)

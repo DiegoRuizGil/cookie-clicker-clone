@@ -33,7 +33,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
         {
             icon.sprite = data.icon;
             nameText.text = data.name;
-            amountText.text = data.amount.ToString("'Owned:' #");
+            amountText.text = $"Owned: {data.amount}";
             costText.text = data.cost.ToString("#");
             cpsText.text = $"each cursor produces <color=white>{data.cpsPer:F2} cookies</color> per second";
             productionText.text = $"{data.amount} cursors produces <color=white>{data.totalProduction:F2} cookies</color> per second";
@@ -43,6 +43,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
         {
             rectTransform.position = position - _offset;
         }
+
+        public void UpdateCostTextColor(bool canPurchase) => costText.color = canPurchase ? Color.green : Color.red;
 
         public void Hide()
         {

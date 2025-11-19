@@ -14,16 +14,25 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
         public event Action<string> OnButtonPressed = delegate { };
         
         private Button _button;
+        private bool CanPurchase => _button.interactable;
         
         private UpgradeDisplayData _displayData;
         
         private float _tooltipXPos;
         private UpgradeTooltip _tooltip;
 
+        private bool _showingTooltip;
+
         private void Awake()
         {
             _button = GetComponent<Button>();
             _button.onClick.AddListener(OnClick);
+        }
+
+        private void Update()
+        {
+            if (_showingTooltip)
+                _tooltip.UpdateCostTextColor(CanPurchase);
         }
 
         public void Init(UpgradeDisplayData displayData, UpgradeTooltip tooltip, float tooltipXPos)
@@ -56,11 +65,13 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
         public void OnPointerEnter(PointerEventData eventData)
         {
             _tooltip.Show(_displayData, new Vector2(_tooltipXPos, transform.position.y));
+            _showingTooltip = true;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             _tooltip.Hide();
+            _showingTooltip = false;
         }
     }
 }

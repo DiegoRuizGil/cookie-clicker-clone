@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
 {
-    public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+    public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Image icon;
 
@@ -55,17 +55,12 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _tooltip.Show(_displayData, new Vector2(_tooltipXPos, Input.mousePosition.y));
+            _tooltip.Show(_displayData, new Vector2(_tooltipXPos, transform.position.y));
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             _tooltip.Hide();
-        }
-        
-        public void OnPointerMove(PointerEventData eventData)
-        {
-            _tooltip.UpdatePosition(new Vector2(_tooltipXPos, Input.mousePosition.y));
         }
     }
 }

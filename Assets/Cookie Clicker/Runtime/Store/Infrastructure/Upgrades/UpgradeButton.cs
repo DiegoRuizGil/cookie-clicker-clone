@@ -64,7 +64,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _tooltip.Show(_displayData, new Vector2(_tooltipXPos, transform.position.y));
+            _tooltip.Show(_displayData, new Vector2(_tooltipXPos, transform.position.y + 15));
             _showingTooltip = true;
         }
 

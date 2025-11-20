@@ -20,7 +20,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             var minXPos = rt.TransformPoint(new Vector3(rt.rect.xMin, 0, 0)).x;
             foreach (var data in displayDataList)
             {
-                var button = Instantiate(buildingButtonPrefab, transform.parent);
+                var button = Instantiate(buildingButtonPrefab, transform);
                 button.Init(data, buildingTooltip, minXPos);
                 button.gameObject.SetActive(false);
                 

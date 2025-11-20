@@ -15,14 +15,9 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
 
         private Vector2 _offset;
         
-        private void Awake()
-        {
-            _offset = new Vector2(rectTransform.rect.width / 2, rectTransform.rect.height * 1 / 4);
-            Hide();
-        }
-        
         public void Show(UpgradeDisplayData data, Vector2 position)
         {
+            _offset = new Vector2(rectTransform.rect.width / 2, rectTransform.rect.height * 1 / 4);
             UpdateData(data);
             UpdatePosition(position);
             gameObject.SetActive(true);

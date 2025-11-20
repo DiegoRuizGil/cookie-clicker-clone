@@ -1,4 +1,6 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+﻿using System;
+using System.Collections;
+using Cookie_Clicker.Runtime.Cookies.Domain;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,14 +18,10 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
         [SerializeField] private TextMeshProUGUI productionText;
 
         private Vector2 _offset;
-        
-        private void Awake()
-        {
-            _offset = new Vector2(rectTransform.rect.width / 2, rectTransform.rect.height * 1 / 4);
-        }
 
         public void Show(BuildingDisplayData data, Vector2 position)
         {
+            _offset = new Vector2(rectTransform.sizeDelta.x / 2, rectTransform.sizeDelta.y * 1 / 4);
             UpdateData(data);
             UpdatePosition(position);
             gameObject.SetActive(true);

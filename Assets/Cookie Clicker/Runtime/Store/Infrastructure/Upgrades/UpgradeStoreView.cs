@@ -10,6 +10,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
     {
         [SerializeField] private UpgradeButton upgradeButtonPrefab;
         [SerializeField] private UpgradeTooltip upgradeTooltip;
+        [SerializeField] private Transform content;
         
         private readonly List<UpgradeButton> _buttons = new List<UpgradeButton>();
 
@@ -25,7 +26,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
         {
             foreach (var data in displayDataList)
             {
-                var button = Instantiate(upgradeButtonPrefab, transform);
+                var button = Instantiate(upgradeButtonPrefab, content);
                 button.Init(data, upgradeTooltip, _minXPos);
                 button.RegisterListener(listener);
                 button.OnButtonPressed += _ => _buttons.Remove(button);

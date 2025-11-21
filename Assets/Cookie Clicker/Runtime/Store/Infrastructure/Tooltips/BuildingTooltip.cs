@@ -49,7 +49,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
                 BuildingVisibility.Unlocked => $"each cursor produces <color=white>{data.cpsPer:F2} cookies</color> per second",
                 _ => "..."
             };
-            productionText.text = cpsText.text = data.visibility switch
+            productionText.text = data.visibility switch
             {
                 BuildingVisibility.Unlocked => $"{data.amount} cursors produces <color=white>{data.totalProduction:F2} cookies</color> per second",
                 _ => "..."

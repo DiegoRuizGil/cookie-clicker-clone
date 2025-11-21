@@ -14,6 +14,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private TextMeshProUGUI amountText;
+        [SerializeField] private GameObject disablePanel;
 
         public event Action<string> OnButtonPressed = delegate { };
         
@@ -44,6 +45,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             _tooltip = tooltip;
             _tooltipXPos = tooltipXPos;
             UpdateData(displayData);
+            
+            disablePanel.SetActive(!_button.interactable);
         }
 
         public void UpdateData(BuildingDisplayData displayData)
@@ -87,6 +90,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
                 PurchaseMode.Type.Sell => _displayData.amount > 0,
                 _ => _button.interactable
             };
+            disablePanel.SetActive(!_button.interactable);
             SetCostTextColor();
         }
 

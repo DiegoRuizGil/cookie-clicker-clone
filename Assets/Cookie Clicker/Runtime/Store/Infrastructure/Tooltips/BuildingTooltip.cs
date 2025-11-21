@@ -10,6 +10,9 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
     public class BuildingTooltip : MonoBehaviour
     {
         [SerializeField] private RectTransform rectTransform;
+        [SerializeField] private Sprite defaultSprite;
+        
+        [Header("UI elements")]
         [SerializeField] private Image icon;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI amountText;
@@ -29,12 +32,28 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
 
         public void UpdateData(BuildingDisplayData data)
         {
-            icon.sprite = data.icon;
-            nameText.text = data.name;
+            icon.sprite = data.visibility switch
+            {
+                BuildingVisibility.Unlocked => data.icon,
+                _ => defaultSprite
+            };
+            nameText.text = data.visibility switch
+            {
+                BuildingVisibility.Unlocked => data.name,
+                _ => "???"
+            };
             amountText.text = $"Owned: {data.amount}";
             costText.text = data.cost.ToString("#");
-            cpsText.text = $"each cursor produces <color=white>{data.cpsPer:F2} cookies</color> per second";
-            productionText.text = $"{data.amount} cursors produces <color=white>{data.totalProduction:F2} cookies</color> per second";
+            cpsText.text = data.visibility switch
+            {
+                BuildingVisibility.Unlocked => $"each cursor produces <color=white>{data.cpsPer:F2} cookies</color> per second",
+                _ => "..."
+            };
+            productionText.text = cpsText.text = data.visibility switch
+            {
+                BuildingVisibility.Unlocked => $"{data.amount} cursors produces <color=white>{data.totalProduction:F2} cookies</color> per second",
+                _ => "..."
+            };
         }
 
         public void UpdatePosition(Vector2 position)

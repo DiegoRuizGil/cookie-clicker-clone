@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1227484587, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  m_Sprite: {fileID: -152998979, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 1250652207555508172}
+  defaultSprite: {fileID: -152998979, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
   icon: {fileID: 4048150186430557902}
   nameText: {fileID: 1506086878562366831}
   amountText: {fileID: 6496550442092628258}

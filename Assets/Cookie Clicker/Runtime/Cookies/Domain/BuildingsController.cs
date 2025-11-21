@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
@@ -92,6 +93,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
         {
             return new BuildingDisplayData
             {
+                visibility = _progression.GetVisibility(building.name),
                 name = building.name,
                 icon = building.icon,
                 silhouette = building.iconSilhouette,

@@ -57,18 +57,19 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
 
         public void UpdateVisibility(BuildingVisibility visibility)
         {
+            _displayData.visibility = visibility;
             switch (visibility)
             {
                 case BuildingVisibility.Hidden:
                     gameObject.SetActive(false);
                     break;
-                case BuildingVisibility.NotRevealed:
+                case BuildingVisibility.Locked:
                     gameObject.SetActive(true);
                     _button.interactable = false;
                     nameText.text = "???";
                     icon.sprite = _displayData.silhouette;
                     break;
-                case BuildingVisibility.Revealed:
+                case BuildingVisibility.Unlocked:
                     gameObject.SetActive(true);
                     nameText.text = _displayData.name;
                     icon.sprite = _displayData.icon;

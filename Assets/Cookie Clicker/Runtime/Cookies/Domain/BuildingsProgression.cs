@@ -8,7 +8,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
 {
     public enum BuildingVisibility
     {
-        Hidden, NotRevealed, Revealed
+        Hidden, Locked, Unlocked
     }
 
     public class BuildingProgressData
@@ -25,7 +25,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
 
     public class BuildingsProgression
     {
-        public readonly List<BuildingProgressData> buildings = new List<BuildingProgressData>();
+        public readonly List<BuildingProgressData> buildingsData = new List<BuildingProgressData>();
 
         public event Action<BuildingProgressData> OnBuildingVisibilityChanged = delegate { };
         
@@ -34,7 +34,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             Assert.IsTrue(buildings.Count >= 2);
             
             foreach (var building in buildings)
-                this.buildings.Add(new BuildingProgressData(building));
+                buildingsData.Add(new BuildingProgressData(building));
         }
 
         public void Init()
@@ -48,30 +48,35 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain
             EnsureNotRevealedSlots();
         }
 
+        public BuildingVisibility GetVisibility(string buildingName)
+        {
+            return buildingsData.Find(data => data.building.name == buildingName).visibility;
+        }
+
         private void TryRevealNext(float totalCookies)
         {
-            var candidate = buildings
-                .Where(b => b.visibility == BuildingVisibility.NotRevealed)
+            var candidate = buildingsData
+                .Where(b => b.visibility == BuildingVisibility.Locked)
                 .FirstOrDefault(b => b.building.baseCost <= totalCookies);
 
             if (candidate != null)
             {
-                candidate.visibility = BuildingVisibility.Revealed;
+                candidate.visibility = BuildingVisibility.Unlocked;
                 OnBuildingVisibilityChanged.Invoke(candidate);
             }
         }
 
         private void EnsureNotRevealedSlots()
         {
-            int notRevealedCount = buildings.Count(b => b.visibility == BuildingVisibility.NotRevealed);
+            int notRevealedCount = buildingsData.Count(b => b.visibility == BuildingVisibility.Locked);
 
             while (notRevealedCount < 2)
             {
-                var nextHidden = buildings.FirstOrDefault(b => b.visibility == BuildingVisibility.Hidden);
+                var nextHidden = buildingsData.FirstOrDefault(b => b.visibility == BuildingVisibility.Hidden);
                 if (nextHidden == null)
                     break;
                 
-                nextHidden.visibility = BuildingVisibility.NotRevealed;
+                nextHidden.visibility = BuildingVisibility.Locked;
                 OnBuildingVisibilityChanged.Invoke(nextHidden);
                 notRevealedCount++;
             }

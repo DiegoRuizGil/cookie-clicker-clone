@@ -8,6 +8,9 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 {
     public class ClickableCookie : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
+        [Header("Dependencies")]
+        [SerializeField] private TapText tapTextPrefab;
+        
         [Header("Scale Tween Settings")]
         [SerializeField] private float scaleTweenEndScale = 1.15f;
         [SerializeField] private float scaleTweenDuration = 0.1f;
@@ -39,6 +42,10 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
                 clickTweenDuration,
                 clickTweenVibrato,
                 clickTweenElasticity);
+            
+            var tapText = Instantiate(tapTextPrefab, Input.mousePosition, Quaternion.identity);
+            tapText.transform.SetParent(transform.parent);
+            tapText.Init(10);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

@@ -28,42 +28,43 @@
 * 
 *****/
 #endregion License and Information
+
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-[System.Serializable]
-public class SerializableInterface<T> where T : class
+namespace Cookie_Clicker.Runtime.CustomAttributes
 {
-    [SerializeField]
-    private Object obj;
-    private T m_Instance = null;
-    public T Instance { get => GetInstance(); set => SetInstance(value); }
-    public T GetInstance()
+    [System.Serializable]
+    public class SerializableInterface<T> where T : class
     {
-        if (m_Instance == null || (object)m_Instance != obj)
+        [SerializeField]
+        private Object obj;
+        private T m_Instance = null;
+        public T Instance { get => GetInstance(); set => SetInstance(value); }
+        public T GetInstance()
         {
-            if (obj == null)
-                SetInstance(null);
-            else if (obj is T inst)
-                m_Instance = inst;
-            else if (obj is GameObject go && go.TryGetComponent<T>(out inst))
-                m_Instance = inst;
-            else
-                SetInstance(null);
+            if (m_Instance == null || (object)m_Instance != obj)
+            {
+                if (obj == null)
+                    SetInstance(null);
+                else if (obj is T inst)
+                    m_Instance = inst;
+                else if (obj is GameObject go && go.TryGetComponent<T>(out inst))
+                    m_Instance = inst;
+                else
+                    SetInstance(null);
+            }
+            return m_Instance;
         }
-        return m_Instance;
+        void SetInstance(T aInstance)
+        {
+            m_Instance = aInstance;
+            obj = m_Instance as Object;
+        }
     }
-    void SetInstance(T aInstance)
-    {
-        m_Instance = aInstance;
-        obj = m_Instance as Object;
-    }
-}
 
 #if UNITY_EDITOR
-namespace B83.EditorPropertyDrawers
-{
-    using System.Collections.Generic;
-    using UnityEditor;
     [CustomPropertyDrawer(typeof(SerializableInterface<>), true)]
     public class SerializableInterfacePropertyDrawer : PropertyDrawer
     {
@@ -121,5 +122,6 @@ namespace B83.EditorPropertyDrawers
             }
         }
     }
-}
+
 #endif
+}

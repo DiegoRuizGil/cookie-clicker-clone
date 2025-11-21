@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cookie_Clicker.Runtime.Cookies.Domain
+namespace Cookie_Clicker.Runtime.Cookies.Domain.Baker
 {
     public interface ICookieView
     {

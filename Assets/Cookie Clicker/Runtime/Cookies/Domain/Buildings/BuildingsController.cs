@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
+using Cookie_Clicker.Runtime.Cookies.Domain.Baker;
 
-namespace Cookie_Clicker.Runtime.Cookies.Domain
+namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
 {
     public struct PurchaseMode
     {

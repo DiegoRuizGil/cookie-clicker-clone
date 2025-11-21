@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cookie_Clicker.Runtime.Cookies.Domain.Buildings;
 using UnityEngine.Assertions;
 
-namespace Cookie_Clicker.Runtime.Cookies.Domain
+namespace Cookie_Clicker.Runtime.Cookies.Domain.Baker
 {
     public class CookieBaker
     {

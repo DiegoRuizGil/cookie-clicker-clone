@@ -1,5 +1,6 @@
 ﻿using System;
 using Cookie_Clicker.Runtime.Cookies.Domain;
+using Cookie_Clicker.Runtime.Cookies.Domain.Buildings;
 using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings

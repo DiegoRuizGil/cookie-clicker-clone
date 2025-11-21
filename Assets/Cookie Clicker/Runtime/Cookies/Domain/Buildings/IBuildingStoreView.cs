@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cookie_Clicker.Runtime.Cookies.Domain
+namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
 {
     public interface IBuildingStoreView
     {

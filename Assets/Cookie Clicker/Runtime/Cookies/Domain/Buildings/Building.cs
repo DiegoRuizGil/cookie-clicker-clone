@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Cookie_Clicker.Runtime.Cookies.Domain
+namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
 {
     public class Building
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Cookie_Clicker.Runtime.Cookies.Domain
+namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
 {
     public struct BuildingDisplayData
     {

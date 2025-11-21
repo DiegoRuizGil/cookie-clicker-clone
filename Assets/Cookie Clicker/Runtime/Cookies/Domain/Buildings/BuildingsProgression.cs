@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using UnityEngine;
 
-namespace Cookie_Clicker.Runtime.Cookies.Domain
+namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
 {
     public enum BuildingVisibility
     {

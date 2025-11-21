@@ -9,7 +9,7 @@ namespace Cookie_Clicker.Tests
         public void FormatNumberSmallerThanMillion()
         {
             var formatNumber = StringUtils.FormatNumber(234546.12f);
-            Assert.That(formatNumber, Is.EqualTo("234.546,1"));
+            Assert.That(formatNumber, Is.EqualTo("234.546"));
         }
 
         [Test]

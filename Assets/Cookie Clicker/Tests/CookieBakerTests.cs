@@ -1,6 +1,7 @@
 ﻿using System;
 using Cookie_Clicker.Runtime.Builders;
 using Cookie_Clicker.Runtime.Cookies.Domain;
+using Cookie_Clicker.Runtime.Cookies.Domain.Baker;
 using NUnit.Framework;
 
 namespace Cookie_Clicker.Tests

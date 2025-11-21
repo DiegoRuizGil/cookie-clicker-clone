@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker;
+using Cookie_Clicker.Runtime.CustomAttributes;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
 using UnityEngine;
 

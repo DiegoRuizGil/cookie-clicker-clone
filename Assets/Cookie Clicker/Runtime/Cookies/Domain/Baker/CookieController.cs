@@ -1,6 +1,7 @@
 ﻿using System;
+using Cookie_Clicker.Runtime.Cookies.Domain.Buildings;
 
-namespace Cookie_Clicker.Runtime.Cookies.Domain
+namespace Cookie_Clicker.Runtime.Cookies.Domain.Baker
 {
     public class CookieController
     {

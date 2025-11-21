@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 306}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 124684
+  controlID: 15
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 124685
+  controlID: 16
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 124686
+  controlID: 17
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 124687
+  controlID: 18
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -216,7 +216,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 415
+    width: 579
     height: 533
   m_MinSize: {x: 201, y: 226}
   m_MaxSize: {x: 4001, y: 4026}
@@ -241,9 +241,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 415
+    x: 579
     y: 0
-    width: 787
+    width: 623
     height: 533
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 124728
+  controlID: 90
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -405,9 +405,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 416
+    x: 580
     y: 24
-    width: 785
+    width: 621
     height: 507
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -450,7 +450,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
+    m_HSlider: 1
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
@@ -462,23 +462,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 785
+      width: 621
       height: 486
-    m_Scale: {x: 0.40885416, y: 0.4088542}
-    m_Translation: {x: 392.5, y: 243}
+    m_Scale: {x: 0.3234375, y: 0.3234375}
+    m_Translation: {x: 310.49997, y: 243}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -960
-      y: -594.34393
-      width: 1920
-      height: 1188.6879
+      x: -959.9999
+      y: -751.3043
+      width: 1919.9999
+      height: 1502.6086
     m_MinimalGUI: 1
-  m_defaultScale: 0.40885416
-  m_LastWindowPixelSize: {x: 785, y: 507}
+  m_defaultScale: 0.3234375
+  m_LastWindowPixelSize: {x: 621, y: 507}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -508,7 +508,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 24
-    width: 414
+    width: 578
     height: 507
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1036,9 +1036,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 1110.487, y: 506.83945, z: -2.341135}
+    m_Target: {x: 1685, y: 540, z: 0}
     speed: 2
-    m_Value: {x: 1110.487, y: 506.83945, z: -2.341135}
+    m_Value: {x: 1685, y: 540, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1088,9 +1088,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 870.4167
+    m_Target: 588.9185
     speed: 2
-    m_Value: 870.4167
+    m_Value: 588.9185
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1147,8 +1147,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 79
-    width: 609
-    height: 505
+    width: 628
+    height: 507
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1234,7 +1234,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -90764
+  m_LastSelectedObjectID: -1628
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1282,7 +1282,7 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Cookie Clicker/Prefabs/Store
+    - Assets/Cookie Clicker/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1301,7 +1301,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 104}
     m_SelectedIDs: eeac0000
     m_LastClickedID: 44270
-    m_ExpandedIDs: 00000000acae0000aeae0000b0ae0000b2ae0000b4ae0000b6ae0000b8ae0000baae0000bcae0000beae0000c0ae0000c2ae0000c4ae0000
+    m_ExpandedIDs: 00000000f0ae0000f2ae0000f4ae0000f6ae0000f8ae0000faae0000fcae0000feae000000af000002af000004af000006af000008af00000aaf00000caf00000eaf000010af0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1327,10 +1327,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 524}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000acae0000aeae0000b0ae0000b2ae0000b4ae0000b6ae0000b8ae0000baae0000bcae0000beae0000c0ae0000c2ae0000c4ae0000
+    m_ExpandedIDs: 00000000f0ae0000f2ae0000f4ae0000f6ae0000f8ae0000faae0000fcae0000feae000000af000002af000004af000006af000008af00000aaf00000caf00000eaf000010af0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1429,7 +1429,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ecaafcffeaaefcff860cfeff627ffeff8a83feffdc9cfeffee9ffeff4ab1feff64b1feff78b1feffdeb2feffaa11ffff2617ffff3c17ffff5017ffff7a4cffffa654ffffe266ffffca6effffc07dffffd67dffffea7dffff02faffff0afaffffbafaffffc2faffff20fbffffeca900004caa0000920c0100b8140100f4140100521501004416010062160100b216010016170100201701002e170100b8170100
+      m_ExpandedIDs: 52baffff9abaffff9ac3ffffacd1ffffacd5ffff6ce0ffff3ae1fffface6ffff0aeaffff7eefffff20fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1446,7 +1446,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 9}
+        m_ClientGUIView: {fileID: 14}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1525,9 +1525,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Test Runner\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1497
+    x: 1522
     y: 79
-    width: 422
+    width: 397
     height: 907
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1541,7 +1541,7 @@ MonoBehaviour:
     m_ContainerData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 1575
+    ID: 434
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_TestListGUIs:
   - m_Window: {fileID: 24}
     runProgress:
-      RunGuid: 815f5a67-63f3-4d01-8237-17c8d7293cc0
+      RunGuid: 3d6d39a5-f41b-441d-9455-9268457e5752
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -1581,31 +1581,10 @@ MonoBehaviour:
         filters:
         - testMode: 1
           testNames:
-          - Cookie_Clicker.Tests.BuildingTests.EmptyCase
-          - Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
-          - Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
-          - Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
-          - Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
-          - Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.RevealNextBuilding
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.RevealSecondToLastBuilding
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.RevealLastBuilding
-          - Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
+          - Cookie_Clicker.Tests.StringUtilsTests
           groupNames: []
           categoryNames: []
-          assemblyNames:
-          - Tests
+          assemblyNames: []
         runSynchronously: 0
         playerHeartbeatTimeout: 600
         orderedTestNames: []
@@ -1617,7 +1596,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 1
+      Progress: 0.9999999
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:
@@ -1626,7 +1605,7 @@ MonoBehaviour:
       name: cookie_clicker
       fullName: cookie_clicker
       resultStatus: 1
-      duration: 0.0260064
+      duration: 0.015469
       messages: 
       output: 
       stacktrace: 
@@ -1637,12 +1616,12 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
-    - id: 1027
+    - id: 1031
       uniqueId: '[Tests.dll][suite]'
       name: Tests.dll
       fullName: C:/Unity/Projects/cookie_clicker/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.0260064
+      duration: 0.015469
       messages: 
       output: 
       stacktrace: 
@@ -1651,14 +1630,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1034
+      parentId: 1000
       parentUniqueId: '[cookie_clicker][suite]'
-    - id: 1028
+    - id: 1032
       uniqueId: 'Tests.dll/[Cookie_Clicker][suite]'
       name: Cookie_Clicker
       fullName: Cookie_Clicker
       resultStatus: 1
-      duration: 0.0260064
+      duration: 0.015469
       messages: 
       output: 
       stacktrace: 
@@ -1667,14 +1646,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1027
+      parentId: 1031
       parentUniqueId: '[Tests.dll][suite]'
-    - id: 1029
+    - id: 1033
       uniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
       name: Tests
       fullName: Cookie_Clicker.Tests
       resultStatus: 1
-      duration: 0.0260064
+      duration: 0.015469
       messages: 
       output: 
       stacktrace: 
@@ -1683,14 +1662,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1028
+      parentId: 1032
       parentUniqueId: 'Tests.dll/[Cookie_Clicker][suite]'
     - id: 1001
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.BuildingsProgressionTests][suite]'
       name: BuildingsProgressionTests
       fullName: Cookie_Clicker.Tests.BuildingsProgressionTests
       resultStatus: 1
-      duration: 0.0191327
+      duration: 0.0003068
       messages: 
       output: 
       stacktrace: 
@@ -1699,14 +1678,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1029
+      parentId: 1033
       parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
     - id: 1002
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/BuildingsProgressionTests/[Tests][Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase]'
       name: EmptyCase
       fullName: Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
       resultStatus: 1
-      duration: 0.0178778
+      duration: 0.0001064
       messages: 
       output: 
       stacktrace: 
@@ -1723,7 +1702,7 @@ MonoBehaviour:
       name: RevealLastBuilding
       fullName: Cookie_Clicker.Tests.BuildingsProgressionTests.RevealLastBuilding
       resultStatus: 1
-      duration: 0.0007732
+      duration: 0.0000622
       messages: 
       output: 
       stacktrace: 
@@ -1740,7 +1719,7 @@ MonoBehaviour:
       name: RevealNextBuilding
       fullName: Cookie_Clicker.Tests.BuildingsProgressionTests.RevealNextBuilding
       resultStatus: 1
-      duration: 0.000288
+      duration: 0.0000786
       messages: 
       output: 
       stacktrace: 
@@ -1757,7 +1736,7 @@ MonoBehaviour:
       name: RevealSecondToLastBuilding
       fullName: Cookie_Clicker.Tests.BuildingsProgressionTests.RevealSecondToLastBuilding
       resultStatus: 1
-      duration: 0.0001937
+      duration: 0.0000596
       messages: 
       output: 
       stacktrace: 
@@ -1774,7 +1753,7 @@ MonoBehaviour:
       name: BuildingTests
       fullName: Cookie_Clicker.Tests.BuildingTests
       resultStatus: 1
-      duration: 0.0013979999
+      duration: 0.0001182
       messages: 
       output: 
       stacktrace: 
@@ -1783,14 +1762,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1029
+      parentId: 1033
       parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
     - id: 1003
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/BuildingTests/[Tests][Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity]'
       name: BoostProduction_ByIncreasingBuildingQuantity
       fullName: Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
       resultStatus: 1
-      duration: 0.0012462
+      duration: 0.0000706
       messages: 
       output: 
       stacktrace: 
@@ -1807,7 +1786,7 @@ MonoBehaviour:
       name: EmptyCase
       fullName: Cookie_Clicker.Tests.BuildingTests.EmptyCase
       resultStatus: 1
-      duration: 0.0001518
+      duration: 0.0000476
       messages: 
       output: 
       stacktrace: 
@@ -1824,7 +1803,7 @@ MonoBehaviour:
       name: CookieBakerTests
       fullName: Cookie_Clicker.Tests.CookieBakerTests
       resultStatus: 1
-      duration: 0.0020283
+      duration: 0.000218
       messages: 
       output: 
       stacktrace: 
@@ -1833,14 +1812,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1029
+      parentId: 1033
       parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
     - id: 1006
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/CookieBakerTests/[Tests][Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction]'
       name: AddBuilding_BoostProduction
       fullName: Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
       resultStatus: 1
-      duration: 0.0012374
+      duration: 0.000074
       messages: 
       output: 
       stacktrace: 
@@ -1857,7 +1836,7 @@ MonoBehaviour:
       name: EmptyCase
       fullName: Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
       resultStatus: 1
-      duration: 0.000302
+      duration: 0.0000523
       messages: 
       output: 
       stacktrace: 
@@ -1874,7 +1853,7 @@ MonoBehaviour:
       name: PassTime_ProduceCookies
       fullName: Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
       resultStatus: 1
-      duration: 0.0001907
+      duration: 0.0000475
       messages: 
       output: 
       stacktrace: 
@@ -1891,7 +1870,7 @@ MonoBehaviour:
       name: ProduceCookiesByTapping
       fullName: Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
       resultStatus: 1
-      duration: 0.0002982
+      duration: 0.0000442
       messages: 
       output: 
       stacktrace: 
@@ -1908,7 +1887,7 @@ MonoBehaviour:
       name: PercentageTests
       fullName: Cookie_Clicker.Tests.PercentageTests
       resultStatus: 1
-      duration: 0.0002097
+      duration: 0.0000686
       messages: 
       output: 
       stacktrace: 
@@ -1917,14 +1896,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1029
+      parentId: 1033
       parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
     - id: 1010
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/PercentageTests/[Tests][Cookie_Clicker.Tests.PercentageTests.ApplyPercentage]'
       name: ApplyPercentage
       fullName: Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
       resultStatus: 1
-      duration: 0.0002097
+      duration: 0.0000686
       messages: 
       output: 
       stacktrace: 
@@ -1937,11 +1916,11 @@ MonoBehaviour:
       parentId: 1009
       parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.PercentageTests][suite]'
     - id: 1016
-      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.UpgradeEffectsTests][suite]'
-      name: UpgradeEffectsTests
-      fullName: Cookie_Clicker.Tests.UpgradeEffectsTests
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.StringUtilsTests][suite]'
+      name: StringUtilsTests
+      fullName: Cookie_Clicker.Tests.StringUtilsTests
       resultStatus: 1
-      duration: 0.0032377
+      duration: 0.0142201
       messages: 
       output: 
       stacktrace: 
@@ -1950,14 +1929,81 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1029
+      parentId: 1033
+      parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
+    - id: 1019
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/StringUtilsTests/[Tests][Cookie_Clicker.Tests.StringUtilsTests.FormatBillion]'
+      name: FormatBillion
+      fullName: Cookie_Clicker.Tests.StringUtilsTests.FormatBillion
+      resultStatus: 1
+      duration: 0.0137569
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.StringUtilsTests][suite]'
+    - id: 1018
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/StringUtilsTests/[Tests][Cookie_Clicker.Tests.StringUtilsTests.FormatMillion]'
+      name: FormatMillion
+      fullName: Cookie_Clicker.Tests.StringUtilsTests.FormatMillion
+      resultStatus: 1
+      duration: 0.0001483
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.StringUtilsTests][suite]'
+    - id: 1017
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/StringUtilsTests/[Tests][Cookie_Clicker.Tests.StringUtilsTests.FormatNumberSmallerThanMillion]'
+      name: FormatNumberSmallerThanMillion
+      fullName: Cookie_Clicker.Tests.StringUtilsTests.FormatNumberSmallerThanMillion
+      resultStatus: 1
+      duration: 0.0003149
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1016
+      parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.StringUtilsTests][suite]'
+    - id: 1020
+      uniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.UpgradeEffectsTests][suite]'
+      name: UpgradeEffectsTests
+      fullName: Cookie_Clicker.Tests.UpgradeEffectsTests
+      resultStatus: 1
+      duration: 0.0005373
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1033
       parentUniqueId: 'Tests.dll/Cookie_Clicker/[Tests][suite]'
     - id: 1014
       uniqueId: 'Tests.dll/Cookie_Clicker/Tests/UpgradeEffectsTests/[Tests][Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade]'
       name: ApplyBuildingEfficiencyUpgrade
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
       resultStatus: 1
-      duration: 0.0005287
+      duration: 0.0000749
       messages: 
       output: 
       stacktrace: 
@@ -1974,7 +2020,7 @@ MonoBehaviour:
       name: ApplyGlobalProductionUpgrade
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
       resultStatus: 1
-      duration: 0.0003056
+      duration: 0.0000538
       messages: 
       output: 
       stacktrace: 
@@ -1991,7 +2037,7 @@ MonoBehaviour:
       name: ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
       resultStatus: 1
-      duration: 0.0006106
+      duration: 0.000052
       messages: 
       output: 
       stacktrace: 
@@ -2008,7 +2054,7 @@ MonoBehaviour:
       name: ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
       resultStatus: 1
-      duration: 0.0002633
+      duration: 0.0000471
       messages: 
       output: 
       stacktrace: 
@@ -2025,7 +2071,7 @@ MonoBehaviour:
       name: ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
       resultStatus: 1
-      duration: 0.0002503
+      duration: 0.0000775
       messages: 
       output: 
       stacktrace: 
@@ -2042,7 +2088,7 @@ MonoBehaviour:
       name: ApplyTappingCursorUpgrade
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
       resultStatus: 1
-      duration: 0.0003209
+      duration: 0.0000486
       messages: 
       output: 
       stacktrace: 
@@ -2059,7 +2105,7 @@ MonoBehaviour:
       name: ApplyTappingUpgrade
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
       resultStatus: 1
-      duration: 0.0002477
+      duration: 0.0000449
       messages: 
       output: 
       stacktrace: 
@@ -2076,7 +2122,7 @@ MonoBehaviour:
       name: ApplyTappingUpgrade_WithZeroCPS
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
       resultStatus: 1
-      duration: 0.0002065
+      duration: 0.0000392
       messages: 
       output: 
       stacktrace: 
@@ -2093,7 +2139,7 @@ MonoBehaviour:
       name: TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
       resultStatus: 1
-      duration: 0.0002478
+      duration: 0.0000441
       messages: 
       output: 
       stacktrace: 
@@ -2110,7 +2156,7 @@ MonoBehaviour:
       name: UpdateUpgrade_WhenAddingMoreGrandmas
       fullName: Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
       resultStatus: 1
-      duration: 0.0002563
+      duration: 0.0000552
       messages: 
       output: 
       stacktrace: 
@@ -2122,13 +2168,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1013
       parentUniqueId: 'Tests.dll/Cookie_Clicker/Tests/[Tests][Cookie_Clicker.Tests.UpgradeEffectsTests][suite]'
-    m_ResultText: cookie_clicker (21 tests) (0,026s)
+    m_ResultText: StringUtilsTests (3 tests) (0,014s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: be023237
-      m_LastClickedID: 926024382
-      m_ExpandedIDs: 847cc090e557abf7c40c25fff734d124be02323704c9ce3a7f39a645ced0154bc0228363ffffff7f
+      m_SelectedIDs: faffc3f1
+      m_LastClickedID: -238813190
+      m_ExpandedIDs: 847cc090faffc3f1e557abf7c40c25fff734d124be02323704c9ce3a7f39a645ced0154bc0228363ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2158,7 +2204,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 24}
     runProgress:
-      RunGuid: 815f5a67-63f3-4d01-8237-17c8d7293cc0
+      RunGuid: 3d6d39a5-f41b-441d-9455-9268457e5752
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -2171,31 +2217,10 @@ MonoBehaviour:
         filters:
         - testMode: 1
           testNames:
-          - Cookie_Clicker.Tests.BuildingTests.EmptyCase
-          - Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
-          - Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
-          - Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
-          - Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
-          - Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.RevealNextBuilding
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.RevealSecondToLastBuilding
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.RevealLastBuilding
-          - Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
+          - Cookie_Clicker.Tests.StringUtilsTests
           groupNames: []
           categoryNames: []
-          assemblyNames:
-          - Tests
+          assemblyNames: []
         runSynchronously: 0
         playerHeartbeatTimeout: 600
         orderedTestNames: []
@@ -2207,7 +2232,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 1
+      Progress: 0.9999999
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:
@@ -2263,7 +2288,7 @@ MonoBehaviour:
     m_SelectedOption: 0
   - m_Window: {fileID: 24}
     runProgress:
-      RunGuid: 815f5a67-63f3-4d01-8237-17c8d7293cc0
+      RunGuid: 3d6d39a5-f41b-441d-9455-9268457e5752
       ExecutionSettings:
         m_TargetPlatform: 0
         m_HasTargetPlatform: 0
@@ -2276,31 +2301,10 @@ MonoBehaviour:
         filters:
         - testMode: 1
           testNames:
-          - Cookie_Clicker.Tests.BuildingTests.EmptyCase
-          - Cookie_Clicker.Tests.PercentageTests.ApplyPercentage
-          - Cookie_Clicker.Tests.BuildingTests.BoostProduction_ByIncreasingBuildingQuantity
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyBuildingEfficiencyUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGlobalProductionUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingCursorUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.TryToApplyGrandmaUpgrade_OnlyOneGrandma_NoUpgradeApplied
-          - Cookie_Clicker.Tests.CookieBakerTests.EmptyCase
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_TwoGrandmas_UpgradeApplied
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SixGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyGrandmaUpgrade_SevenGrandmas_UpgradeBuildingThreeTimes
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.UpdateUpgrade_WhenAddingMoreGrandmas
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade
-          - Cookie_Clicker.Tests.UpgradeEffectsTests.ApplyTappingUpgrade_WithZeroCPS
-          - Cookie_Clicker.Tests.CookieBakerTests.AddBuilding_BoostProduction
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.EmptyCase
-          - Cookie_Clicker.Tests.CookieBakerTests.PassTime_ProduceCookies
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.RevealNextBuilding
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.RevealSecondToLastBuilding
-          - Cookie_Clicker.Tests.BuildingsProgressionTests.RevealLastBuilding
-          - Cookie_Clicker.Tests.CookieBakerTests.ProduceCookiesByTapping
+          - Cookie_Clicker.Tests.StringUtilsTests
           groupNames: []
           categoryNames: []
-          assemblyNames:
-          - Tests
+          assemblyNames: []
         runSynchronously: 0
         playerHeartbeatTimeout: 600
         orderedTestNames: []
@@ -2312,7 +2316,7 @@ MonoBehaviour:
           disableNestedEnumeratorBugfix: 0
         randomOrderSeed: 0
       HasFinished: 1
-      Progress: 1
+      Progress: 0.9999999
       CurrentStepName: Unlock Reload Assemblies
       CurrentStageName: 
     m_NewResultList:

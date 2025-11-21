@@ -1,4 +1,5 @@
-﻿using Cookie_Clicker.Runtime.Modifiers.Domain;
+﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+using Cookie_Clicker.Runtime.Modifiers.Domain;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,7 +33,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
         {
             icon.sprite = data.icon;
             SetTextAndSize(nameText, data.name);
-            costText.text = data.cost.ToString("#");
+            costText.text = StringUtils.FormatNumber(data.cost);
             SetTextAndSize(descriptionText, data.description);
         }
 

@@ -14,8 +14,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         
         public void UpdateStats(float totalCookies, float cps)
         {
-            totalCookiesText.text = totalCookies.ToString("0 'COOKIES'");
-            cpsText.text = cps.ToString("'per second:' 0.00");
+            totalCookiesText.text = $"{StringUtils.FormatNumber(totalCookies)}\nCOOKIES";
+            cpsText.text = $"per second: {StringUtils.FormatNumber(cps, true)}";
         }
 
         public void AddCursors(int amount) => cursorsController.AddCursors(amount);

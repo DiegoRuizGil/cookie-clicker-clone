@@ -43,15 +43,15 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
                 _ => "???"
             };
             amountText.text = $"Owned: {data.amount}";
-            costText.text = data.cost.ToString("#");
+            costText.text = StringUtils.FormatNumber(data.cost);
             cpsText.text = data.visibility switch
             {
-                BuildingVisibility.Unlocked => $"each cursor produces <color=white>{data.cpsPer:F2} cookies</color> per second",
+                BuildingVisibility.Unlocked => $"each cursor produces <color=white>{StringUtils.FormatNumber(data.cpsPer)} cookies</color> per second",
                 _ => "..."
             };
             productionText.text = data.visibility switch
             {
-                BuildingVisibility.Unlocked => $"{data.amount} cursors produces <color=white>{data.totalProduction:F2} cookies</color> per second",
+                BuildingVisibility.Unlocked => $"{data.amount} cursors produces <color=white>{StringUtils.FormatNumber(data.totalProduction)} cookies</color> per second",
                 _ => "..."
             };
         }

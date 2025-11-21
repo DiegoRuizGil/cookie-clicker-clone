@@ -2,14 +2,17 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Pool;
 using UnityEngine.UI;
 
 namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 {
     public class ClickableCookie : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        [Header("Dependencies")]
+        [Header("Pool Settings")]
         [SerializeField] private TapText tapTextPrefab;
+        [SerializeField] private int defaultPoolCapacity = 40;
+        [SerializeField] private int maxPoolCapacity = 50;
         
         [Header("Scale Tween Settings")]
         [SerializeField] private float scaleTweenEndScale = 1.15f;
@@ -24,12 +27,21 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         
         public event Action OnClick = () => { };
 
+        private ObjectPool<TapText> _tapTextPool;
+        
         private Tween _scaleTween;
         private Tween _clickTween;
         
         private void Awake()
         {
             GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
+
+            _tapTextPool = new ObjectPool<TapText>(
+                () => Instantiate(tapTextPrefab, transform.parent),
+                tapText => tapText.gameObject.SetActive(true),
+                tapText => tapText.gameObject.SetActive(false),
+                tapText => Destroy(tapText.gameObject), 
+                false, defaultPoolCapacity, maxPoolCapacity);
         }
 
         public void Tap(float cookiesAmount)
@@ -41,9 +53,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
                 clickTweenVibrato,
                 clickTweenElasticity);
             
-            var tapText = Instantiate(tapTextPrefab, Input.mousePosition, Quaternion.identity);
-            tapText.transform.SetParent(transform.parent);
-            tapText.Init(cookiesAmount);
+            _tapTextPool.Get().Init(cookiesAmount, Input.mousePosition, KillTapText);
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -62,5 +72,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             _scaleTween?.Kill();
             _scaleTween = transform.DOScale(1f, scaleTweenDuration).SetEase(scaleTweenEase);
         }
+
+        private void KillTapText(TapText tapText) => _tapTextPool.Release(tapText);
     }
 }

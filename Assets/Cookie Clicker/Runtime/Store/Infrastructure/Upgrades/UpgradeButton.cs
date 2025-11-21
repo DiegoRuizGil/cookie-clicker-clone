@@ -10,6 +10,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
     public class UpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Image icon;
+        [SerializeField] private GameObject disablePanel;
 
         public event Action<string> OnButtonPressed = delegate { };
         
@@ -42,11 +43,17 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
 
             _tooltip = tooltip;
             _tooltipXPos = tooltipXPos;
+            
+            disablePanel.SetActive(!_button.interactable);
         }
         
         public void RegisterListener(Action<string> listener) => OnButtonPressed += listener;
 
-        public void SetInteraction(float currentCookies) => _button.interactable = currentCookies >= _displayData.cost;
+        public void SetInteraction(float currentCookies)
+        {
+            _button.interactable = currentCookies >= _displayData.cost;
+            disablePanel.SetActive(!_button.interactable);
+        }
 
         private void OnClick()
         {

@@ -29,7 +29,10 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         private void OnUpgradePurchased(string upgradeName)
         {
             var upgrade = _unlocker.FindUnlockedUpgrade(upgradeName);
-            upgrade?.Apply(_baker);
+            if (upgrade == null) return;
+            
+            upgrade.Apply(_baker);
+            _baker.CurrentCookies -= upgrade.cost;
         }
 
         private List<UpgradeDisplayData> GetDisplayDataList(List<Upgrade> upgrades)

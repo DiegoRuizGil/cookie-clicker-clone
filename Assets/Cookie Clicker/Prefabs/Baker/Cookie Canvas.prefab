@@ -389,9 +389,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030c6ad247094774a81e22fc2e3f87a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tweenEndScale: 1.05
-  tweenDuration: 0.1
-  tweenEase: 30
+  scaleTweenEndScale: 1.05
+  scaleTweenDuration: 0.1
+  scaleTweenEase: 30
+  clickTweenPunch: 0.1
+  clickTweenDuration: 0.1
+  clickTweenVibrato: 10
+  clickTweenElasticity: 10
 --- !u!1 &4391594232026817842
 GameObject:
   m_ObjectHideFlags: 0

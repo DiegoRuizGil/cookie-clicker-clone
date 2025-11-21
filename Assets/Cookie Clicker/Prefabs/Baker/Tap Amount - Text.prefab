@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f460c5df593244859a3a71d05fc18ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 100
-  duration: 4
+  distance: 50
+  duration: 3
 --- !u!223 &6480536657748690601
 Canvas:
   m_ObjectHideFlags: 0

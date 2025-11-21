@@ -389,6 +389,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030c6ad247094774a81e22fc2e3f87a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tapTextPrefab: {fileID: 868481316676693918, guid: dfdaf5c78c7201742915b95a4a15d413, type: 3}
+  defaultPoolCapacity: 20
+  maxPoolCapacity: 30
   scaleTweenEndScale: 1.05
   scaleTweenDuration: 0.1
   scaleTweenEase: 30

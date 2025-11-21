@@ -32,10 +32,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
         }
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void Tap(float cookiesAmount)
         {
-            OnClick.Invoke();
-            
             _clickTween?.Kill();
             _clickTween = transform.DOPunchScale(
                 new Vector3(clickTweenPunch, clickTweenPunch, 0f),
@@ -45,7 +43,12 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             
             var tapText = Instantiate(tapTextPrefab, Input.mousePosition, Quaternion.identity);
             tapText.transform.SetParent(transform.parent);
-            tapText.Init(10);
+            tapText.Init(cookiesAmount);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            OnClick.Invoke();
         }
 
         public void OnPointerEnter(PointerEventData eventData)

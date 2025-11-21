@@ -27,9 +27,15 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Baker
         private void ConnectView()
         {
             _view.UpdateStats(_baker.CurrentCookies, _baker.Production);
-            _view.RegisterTapListener(() => _baker.Tap());
+            _view.RegisterTapListener(OnCookieTap);
         }
-        
+
+        private void OnCookieTap()
+        {
+            _baker.Tap();
+            _view.Tap(_baker.CookiePerTap);
+        }
+
         private void HandleCursors(Building building, int amount)
         {
             if (building.name != _cursorBuildingName) return;

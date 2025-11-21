@@ -21,6 +21,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 
         public void AddCursors(int amount) => cursorsController.AddCursors(amount);
         public void RemoveCursors(int amount) => cursorsController.RemoveCursors(amount);
+        public void Tap(float cookiesAmount) => cookie.Tap(cookiesAmount);
 
         public void RegisterTapListener(Action listener) => cookie.OnClick += listener;
     }

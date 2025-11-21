@@ -7,6 +7,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Baker
         void UpdateStats(float totalCookies, float cps);
         void AddCursors(int amount);
         void RemoveCursors(int amount);
+        void Tap(float cookiesAmount);
         
         void RegisterTapListener(Action listener);
     }

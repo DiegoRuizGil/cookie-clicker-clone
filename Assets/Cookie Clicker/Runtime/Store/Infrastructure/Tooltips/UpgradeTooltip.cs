@@ -1,4 +1,5 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
+﻿using System;
+using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
 using TMPro;
 using UnityEngine;
@@ -15,7 +16,9 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
         [SerializeField] private TextMeshProUGUI descriptionText;
 
         private Vector2 _offset;
-        
+
+        private void Awake() => Hide();
+
         public void Show(UpgradeDisplayData data, Vector2 position)
         {
             _offset = new Vector2(rectTransform.rect.width / 2, rectTransform.rect.height * 1 / 4);
@@ -41,7 +44,9 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
 
         private void UpdatePosition(Vector2 position)
         {
-            rectTransform.position = position - _offset;
+            var newPos = rectTransform.position;
+            newPos.y = position.y - _offset.y;
+            rectTransform.position = newPos;
         }
 
         private void SetTextAndSize(TextMeshProUGUI textMesh, string text)

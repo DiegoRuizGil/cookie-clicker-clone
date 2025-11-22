@@ -23,6 +23,8 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
 
         private Vector2 _offset;
 
+        private void Awake() => Hide();
+
         public void Show(BuildingDisplayData data, Vector2 position)
         {
             _offset = new Vector2(rectTransform.sizeDelta.x / 2, rectTransform.sizeDelta.y * 1 / 4);
@@ -59,7 +61,9 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Tooltips
 
         public void UpdatePosition(Vector2 position)
         {
-            rectTransform.position = position - _offset;
+            var newPos = rectTransform.position;
+            newPos.y = position.y - _offset.y;
+            rectTransform.position = newPos;
         }
 
         public void UpdateCostTextColor(bool canPurchase) => costText.color = canPurchase ? Color.green : Color.red;

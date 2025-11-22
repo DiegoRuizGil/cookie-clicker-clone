@@ -58,6 +58,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
         private void OnClick()
         {
             OnButtonPressed.Invoke(_displayData.name);
+            _tooltip.Hide();
             Destroy(gameObject);
         }
 

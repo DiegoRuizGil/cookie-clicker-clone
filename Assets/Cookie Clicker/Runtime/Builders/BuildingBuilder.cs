@@ -6,8 +6,8 @@ namespace Cookie_Clicker.Runtime.Builders
     public class BuildingBuilder : IBuilder<Building>
     {
         private string _name;
-        private float _baseCPS;
-        private int _baseCost;
+        private double _baseCPS;
+        private double _baseCost;
         private Sprite _icon;
         private Sprite _iconSilhouette;
 
@@ -17,13 +17,13 @@ namespace Cookie_Clicker.Runtime.Builders
             return this;
         }
 
-        public BuildingBuilder WithBaseCPS(float baseCPS)
+        public BuildingBuilder WithBaseCPS(double baseCPS)
         {
             _baseCPS = baseCPS;
             return this;
         }
 
-        public BuildingBuilder WithBaseCost(int baseCost)
+        public BuildingBuilder WithBaseCost(double baseCost)
         {
             _baseCost = baseCost;
             return this;

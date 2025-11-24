@@ -12,7 +12,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
     {
         public readonly string name;
         public readonly Sprite icon;
-        public readonly int cost;
+        public readonly double cost;
         public readonly string description;
         
         public bool IsUnlocked { get; private set; }
@@ -20,7 +20,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
         private readonly List<IUnlockCondition> _unlockConditions = new List<IUnlockCondition>();
         private readonly IUpgradeEffect _effect;
         
-        public Upgrade(string name, Sprite icon, int cost, string description, IUpgradeEffect effect)
+        public Upgrade(string name, Sprite icon, double cost, string description, IUpgradeEffect effect)
         {
             this.name = name;
             this.icon = icon;

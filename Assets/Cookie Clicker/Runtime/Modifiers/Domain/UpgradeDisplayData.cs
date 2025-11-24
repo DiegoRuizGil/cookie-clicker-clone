@@ -6,7 +6,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Domain
     {
         public string name;
         public Sprite icon;
-        public float cost;
+        public double cost;
         public string description;
     }
 }

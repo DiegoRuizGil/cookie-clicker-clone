@@ -44,7 +44,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
                 false, defaultPoolCapacity, maxPoolCapacity);
         }
 
-        public void Tap(float cookiesAmount)
+        public void Tap(double cookiesAmount)
         {
             _clickTween?.Kill();
             _clickTween = transform.DOPunchScale(

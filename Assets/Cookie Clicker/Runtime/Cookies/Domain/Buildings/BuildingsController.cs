@@ -105,13 +105,13 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
             };
         }
 
-        private float GetCost(string buildingName)
+        private double GetCost(string buildingName)
         {
             var building = _baker.FindBuilding(buildingName);
             return building == null ? 0f : GetCost(building);
         }
 
-        private float GetCost(Building building)
+        private double GetCost(Building building)
         {
             return _purchaseMode.type switch
             {

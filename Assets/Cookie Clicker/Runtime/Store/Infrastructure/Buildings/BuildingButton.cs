@@ -83,7 +83,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Buildings
             }
         }
 
-        public void SetInteraction(float currentCookies, PurchaseMode.Type purchaseType)
+        public void SetInteraction(double currentCookies, PurchaseMode.Type purchaseType)
         {
             _button.interactable = purchaseType switch
             {

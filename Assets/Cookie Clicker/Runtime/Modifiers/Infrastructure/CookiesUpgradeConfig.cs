@@ -14,7 +14,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
         [SerializeField, Range(0, 1)] private float multiplier = 0.2f;
 
         [Header("Unlock Condition Settings")]
-        [SerializeField] private int cookiesBakedToUnlock;
+        [SerializeField] private double cookiesBakedToUnlock;
 
         public override Upgrade Get()
         {

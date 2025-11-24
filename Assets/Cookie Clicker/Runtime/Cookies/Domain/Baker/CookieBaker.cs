@@ -8,12 +8,12 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Baker
 {
     public class CookieBaker
     {
-        public float Production => buildings.Values.Sum(b => b.Production) * (1 + ProductionMultiplier);
-        public float CookiePerTap => tapping.Base * tapping.Efficiency + (Production * tapping.Multiplier);
-        public float TotalCookies => HandMadeCookies + BakedCookies;
-        public float HandMadeCookies { get; private set; }
-        public float BakedCookies { get; private set; }
-        public float CurrentCookies
+        public double Production => buildings.Values.Sum(b => b.Production) * (1 + ProductionMultiplier);
+        public double CookiePerTap => tapping.Base * tapping.Efficiency + (Production * tapping.Multiplier);
+        public double TotalCookies => HandMadeCookies + BakedCookies;
+        public double HandMadeCookies { get; private set; }
+        public double BakedCookies { get; private set; }
+        public double CurrentCookies
         {
             get => _currentCookies;
             set => _currentCookies = Math.Max(value, 0);
@@ -26,7 +26,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Baker
         
         private readonly Dictionary<string, Building> buildings = new  Dictionary<string, Building>();
         
-        private float _currentCookies;
+        private double _currentCookies;
         
         public void Bake(TimeSpan deltaTime)
         {

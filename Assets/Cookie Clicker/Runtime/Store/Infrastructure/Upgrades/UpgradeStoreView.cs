@@ -34,7 +34,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
             }
         }
 
-        public void UpdateButtons(float currentCookies)
+        public void UpdateButtons(double currentCookies)
         {
             foreach (var button in _buttons)
                 button.SetInteraction(currentCookies);

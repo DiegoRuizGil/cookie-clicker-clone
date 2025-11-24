@@ -9,7 +9,7 @@ namespace Cookie_Clicker.Runtime.Builders
     {
         private string _name;
         private Sprite _icon;
-        private int _cost;
+        private double _cost;
         private string _description;
         private IUpgradeEffect _effect;
 
@@ -25,7 +25,7 @@ namespace Cookie_Clicker.Runtime.Builders
             return this;
         }
 
-        public UpgradeBuilder WithCost(int cost)
+        public UpgradeBuilder WithCost(double cost)
         {
             _cost = cost;
             return this;

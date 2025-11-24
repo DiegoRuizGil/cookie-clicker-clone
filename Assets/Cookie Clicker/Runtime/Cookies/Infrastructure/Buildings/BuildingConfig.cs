@@ -9,8 +9,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings
     public class BuildingConfig : ScriptableObject
     {
         [SerializeField] private BuildingID buildingID;
-        [SerializeField] private float baseCPS;
-        [SerializeField, Min(0)] private int baseCost = 5;
+        [SerializeField] private double baseCPS;
+        [SerializeField, Min(0)] private double baseCost;
         [SerializeField] private Sprite icon;
         [SerializeField] private Sprite silhouette;
 

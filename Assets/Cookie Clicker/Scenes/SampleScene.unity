@@ -939,6 +939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Store Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2719745952873798401, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3047982075871818678, guid: fc725887d7ab85b4c8027b48c56f57ea, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

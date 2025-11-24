@@ -33,7 +33,7 @@ namespace Cookie_Clicker.Tests
             
             upgrade.Apply(baker);
             
-            Assert.That(baker.Production, Is.EqualTo(101));
+            Assert.That(baker.Production, Is.EqualTo(101).Within(0.001));
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace Cookie_Clicker.Tests
             upgrade.Apply(baker);
             
             Assert.That(grandma.Production, Is.EqualTo(40));
-            Assert.That(farm.Production, Is.EqualTo(101));
+            Assert.That(farm.Production, Is.EqualTo(101).Within(0.001));
         }
 
         [Test]
@@ -99,7 +99,7 @@ namespace Cookie_Clicker.Tests
             upgrade.Apply(baker);
             
             Assert.That(grandma.Production, Is.EqualTo(120));
-            Assert.That(farm.Production, Is.EqualTo(103));
+            Assert.That(farm.Production, Is.EqualTo(103).Within(0.001));
         }
 
         [Test]
@@ -116,7 +116,7 @@ namespace Cookie_Clicker.Tests
             upgrade.Apply(baker);
             
             Assert.That(grandma.Production, Is.EqualTo(140));
-            Assert.That(farm.Production, Is.EqualTo(103));
+            Assert.That(farm.Production, Is.EqualTo(103).Within(0.001));
         }
 
         [Test]
@@ -136,7 +136,7 @@ namespace Cookie_Clicker.Tests
             upgrade.Apply(baker);
             
             Assert.That(grandma.Production, Is.EqualTo(80));
-            Assert.That(farm.Production, Is.EqualTo(102));
+            Assert.That(farm.Production, Is.EqualTo(102).Within(0.001));
         }
 
         [Test]
@@ -150,7 +150,7 @@ namespace Cookie_Clicker.Tests
             
             upgrade.Apply(baker);
             
-            Assert.That(baker.CookiePerTap, Is.EqualTo(2f));
+            Assert.That(baker.CookiePerTap, Is.EqualTo(2f).Within(0.001));
         }
 
         [Test]

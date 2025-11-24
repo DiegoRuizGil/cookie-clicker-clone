@@ -13,7 +13,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
         [SerializeField] private TextMeshProUGUI totalCookiesText;
         [SerializeField] private TextMeshProUGUI cpsText;
         
-        public void UpdateStats(float totalCookies, float cps)
+        public void UpdateStats(double totalCookies, double cps)
         {
             totalCookiesText.text = $"{StringUtils.FormatNumber(totalCookies)}\nCOOKIES";
             cpsText.text = $"per second: {StringUtils.FormatNumber(cps, true)}";
@@ -21,7 +21,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
 
         public void AddCursors(int amount) => cursorsController.AddCursors(amount);
         public void RemoveCursors(int amount) => cursorsController.RemoveCursors(amount);
-        public void Tap(float cookiesAmount) => cookie.Tap(cookiesAmount);
+        public void Tap(double cookiesAmount) => cookie.Tap(cookiesAmount);
 
         public void RegisterTapListener(Action listener) => cookie.OnClick += listener;
     }

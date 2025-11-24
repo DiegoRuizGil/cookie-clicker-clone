@@ -6,7 +6,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
 {
     public class Building
     {
-        public float Production => cps.Value * Amount;
+        public double Production => cps.Value * Amount;
         public int Amount
         {
             get => _amount;
@@ -14,17 +14,17 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
         }
         
         public readonly string name;
-        public readonly int baseCost;
+        public readonly double baseCost;
         public readonly ProductionStat cps;
         public readonly Sprite icon;
         public readonly Sprite iconSilhouette;
-        public float TotalBaked { get; private set; }
+        public double TotalBaked { get; private set; }
 
         private int _amount;
         private const float CostIncrease = 1.15f;
         private const float RefoundRate = 0.25f;
 
-        public Building(string name, float baseCPS, int baseCost, Sprite icon, Sprite iconSilhouette)
+        public Building(string name, double baseCPS, double baseCost, Sprite icon, Sprite iconSilhouette)
         {
             Assert.IsTrue(baseCPS >= 0);
 
@@ -36,19 +36,19 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
             _amount = 0;
         }
 
-        public float Bake(TimeSpan deltaTime)
+        public double Bake(TimeSpan deltaTime)
         {
-            var cookies = Production * (float)deltaTime.TotalSeconds;
+            var cookies = Production * deltaTime.TotalSeconds;
             TotalBaked += cookies;
             return cookies;
         }
 
-        public float CostOf(int amountToBuy)
+        public double CostOf(int amountToBuy)
         {
             return baseCost * (MathF.Pow(CostIncrease, amountToBuy) - 1) / (CostIncrease - 1) * MathF.Pow(CostIncrease, _amount);
         }
 
-        public float RefoundOf(int amountToSell)
+        public double RefoundOf(int amountToSell)
         {
             var clampAmountToSell = Math.Clamp(amountToSell, 0, _amount);
             return baseCost * RefoundRate * (MathF.Pow(CostIncrease, clampAmountToSell) - 1) / (CostIncrease - 1) * MathF.Pow(CostIncrease, clampAmountToSell);

@@ -49,7 +49,7 @@ namespace Cookie_Clicker.Runtime.Store.Infrastructure.Upgrades
         
         public void RegisterListener(Action<string> listener) => OnButtonPressed += listener;
 
-        public void SetInteraction(float currentCookies)
+        public void SetInteraction(double currentCookies)
         {
             _button.interactable = currentCookies >= _displayData.cost;
             disablePanel.SetActive(!_button.interactable);

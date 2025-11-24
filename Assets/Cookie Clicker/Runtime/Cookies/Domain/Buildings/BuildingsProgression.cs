@@ -41,7 +41,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
             EnsureNotRevealedSlots();
         }
 
-        public void Update(float totalCookies)
+        public void Update(double totalCookies)
         {
             TryRevealNext(totalCookies);
             EnsureNotRevealedSlots();
@@ -52,7 +52,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
             return buildingsData.Find(data => data.building.name == buildingName).visibility;
         }
 
-        private void TryRevealNext(float totalCookies)
+        private void TryRevealNext(double totalCookies)
         {
             var candidate = buildingsData
                 .Where(b => b.visibility == BuildingVisibility.Locked)

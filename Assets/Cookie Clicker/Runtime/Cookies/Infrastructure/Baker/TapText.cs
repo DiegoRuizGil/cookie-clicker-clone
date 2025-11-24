@@ -21,7 +21,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             _text = GetComponent<TextMeshProUGUI>();
         }
 
-        public void Init(float amount, Vector3 position, Action<TapText> killAction)
+        public void Init(double amount, Vector3 position, Action<TapText> killAction)
         {
             transform.position = position;
             KillAction = killAction;

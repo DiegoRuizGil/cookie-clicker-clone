@@ -1,13 +1,12 @@
-﻿using Cookie_Clicker.Runtime.Cookies.Domain;
-using Cookie_Clicker.Runtime.Cookies.Domain.Baker;
+﻿using Cookie_Clicker.Runtime.Cookies.Domain.Baker;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain.Unlock_Conditions
 {
     public class HandMadeCookiesCondition : IUnlockCondition
     {
-        private readonly int _requiredCookies;
+        private readonly double _requiredCookies;
         
-        public HandMadeCookiesCondition(int requiredCookies)
+        public HandMadeCookiesCondition(double requiredCookies)
         {
             _requiredCookies = requiredCookies;
         }

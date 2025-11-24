@@ -8,10 +8,10 @@ namespace Cookie_Clicker.Runtime.Cookies.Domain.Buildings
         public string name;
         public Sprite icon;
         public Sprite silhouette;
-        public float amount;
-        public float cost;
+        public int amount;
+        public double cost;
         public float purchaseMult;
-        public float cpsPer;
-        public float totalProduction;
+        public double cpsPer;
+        public double totalProduction;
     }
 }

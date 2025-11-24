@@ -2,13 +2,13 @@
 {
     public class ProductionStat
     {
-        public float Value => Base * Efficiency * (1 + Multiplier);
+        public double Value => Base * Efficiency * (1 + Multiplier);
         
-        public float Base { get; }
+        public double Base { get; }
         public float Efficiency { get; private set; }
         public Percentage Multiplier { get; private set; }
         
-        public ProductionStat(float baseCPS)
+        public ProductionStat(double baseCPS)
         {
             Base = baseCPS;
             Efficiency = 1.0f;

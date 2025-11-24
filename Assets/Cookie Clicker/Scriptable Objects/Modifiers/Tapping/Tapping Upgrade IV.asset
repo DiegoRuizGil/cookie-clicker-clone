@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c10227d9e8f4118b71c796779b00a02, type: 3}
-  m_Name: Tapping Upgrade II
+  m_Name: Tapping Upgrade IV
   m_EditorClassIdentifier: 
-  upgradeName: Iron mouse
-  icon: {fileID: -1398151470, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
-  cost: 5000000
+  upgradeName: Adamantium mouse
+  icon: {fileID: 1650399626, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 50000000000
   description: Clicking gains <color=white>+1% of your CpS</color>.
   multiplier: 0.01
-  handMadeCookiesToUnlock: 100000
+  handMadeCookiesToUnlock: 1000000000

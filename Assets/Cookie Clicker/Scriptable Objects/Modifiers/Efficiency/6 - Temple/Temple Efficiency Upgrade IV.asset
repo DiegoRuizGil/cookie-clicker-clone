@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd33f5af43ee4fe7b6acbe69203b3c3f, type: 3}
-  m_Name: Farm Efficiency Upgrade I
+  m_Name: Temple Efficiency Upgrade IV
   m_EditorClassIdentifier: 
-  upgradeName: Cheap hoes
-  icon: {fileID: 713507728, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
-  cost: 11000
-  description: Farms are <color=white>twice</color> as efficient.
-  buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
+  upgradeName: Sun festival
+  icon: {fileID: 959118146, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 1000000000000
+  description: Temples are <color=white>twice</color> as efficient.
+  buildingID: {fileID: 11400000, guid: b90f63949b0b33548b73757fbebfb499, type: 2}
   efficiencyMult: 2
-  buildingCountToUnlock: 1
+  buildingCountToUnlock: 50

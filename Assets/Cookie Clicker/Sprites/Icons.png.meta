@@ -2310,7 +2310,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cookie_2
+      name: peanut_butter_cookie
       rect:
         serializedVersion: 2
         x: 48
@@ -2332,7 +2332,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cookie_3
+      name: plain_cookie
       rect:
         serializedVersion: 2
         x: 96
@@ -2398,7 +2398,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_104
+      name: oatmeal_raisin_cookie
       rect:
         serializedVersion: 2
         x: 240
@@ -2442,7 +2442,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_106
+      name: sugar_cookie
       rect:
         serializedVersion: 2
         x: 336
@@ -9988,7 +9988,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Icons_449
+      name: tapping_4
       rect:
         serializedVersion: 2
         x: 528
@@ -28106,7 +28106,6 @@ TextureImporter:
       Icons_1037: 1172787746
       Icons_1038: 155779691
       Icons_1039: -2118917624
-      Icons_104: -62328137
       Icons_1040: 2047731232
       Icons_1041: -325010387
       Icons_1042: -937281262
@@ -28128,7 +28127,6 @@ TextureImporter:
       Icons_1057: -2095256407
       Icons_1058: -1202062751
       Icons_1059: -310347326
-      Icons_106: 21553866
       Icons_1060: -2063205403
       Icons_1061: 759621390
       Icons_1062: -2016135365
@@ -28697,7 +28695,6 @@ TextureImporter:
       Icons_446: -829526073
       Icons_447: -1731655575
       Icons_448: -35197399
-      Icons_449: 1650399626
       Icons_45: 764219603
       Icons_450: 835823327
       Icons_451: -347873030
@@ -29296,8 +29293,6 @@ TextureImporter:
       bank_4: -2071130081
       bank_5: -1138539207
       cookie_1: 2014083973
-      cookie_2: 722185524
-      cookie_3: 1966353496
       cursor_1: -1227484587
       cursor_2: 1388448345
       cursor_3: 1940947209
@@ -29324,10 +29319,15 @@ TextureImporter:
       mine_3: 1974099656
       mine_4: 945434041
       mine_5: -158137488
+      oatmeal_raisin_cookie: -62328137
+      peanut_butter_cookie: 722185524
+      plain_cookie: 1966353496
       question_mark: -152998979
+      sugar_cookie: 21553866
       tapping_1: 1722422991
       tapping_2: -1398151470
       tapping_3: 1331788245
+      tapping_4: 1650399626
       temple_1: -1685384535
       temple_2: -1591410884
       temple_3: 2006188235

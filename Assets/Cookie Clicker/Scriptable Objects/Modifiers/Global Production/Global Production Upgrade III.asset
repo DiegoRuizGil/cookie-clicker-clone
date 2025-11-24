@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Global Production Upgrade III
   m_EditorClassIdentifier: 
   upgradeName: Oatmeal raisin cookies
-  icon: {fileID: 1966353496, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
-  cost: 100
+  icon: {fileID: -62328137, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 10000000
   description: Cookie production multiplier <color=white>+1%</color>.
   multiplier: 0.2
   cookiesBakedToUnlock: 500000

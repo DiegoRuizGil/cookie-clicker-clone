@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca2b57f7e96a4ea88162a25860105eff, type: 3}
-  m_Name: Farm Grandma Upgrade
+  m_Name: Bank Grandma Upgrade
   m_EditorClassIdentifier: 
-  upgradeName: Farmer grandmas
+  upgradeName: Banker grandmas
   icon: {fileID: -1308168047, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
-  cost: 55000
+  cost: 70000000000
   description: 'Grandmas are <color=white>twice</color> as efficient.
 
-    Farms
-    gain <color=white>+1% CpS</color> per grandma.'
+    Banks
+    gain <color=white>+1% CpS</color> per 4 grandmas.'
   grandmaID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
-  buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
+  buildingID: {fileID: 11400000, guid: f3f2916f233a65a4aafb2dd7f21e2632, type: 2}
   grandmaEfficiencyMultiplier: 2
   buildingMultiplier: 0.01
-  grandmaGroupSize: 1
+  grandmaGroupSize: 4
   grandmaCountToUnlock: 1
   buildingCountToUnlock: 15

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca2b57f7e96a4ea88162a25860105eff, type: 3}
-  m_Name: Farm Grandma Upgrade
+  m_Name: Temple Grandma Upgrade
   m_EditorClassIdentifier: 
-  upgradeName: Farmer grandmas
+  upgradeName: Priestess grandmas
   icon: {fileID: -1308168047, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
-  cost: 55000
+  cost: 1000000000
   description: 'Grandmas are <color=white>twice</color> as efficient.
 
-    Farms
-    gain <color=white>+1% CpS</color> per grandma.'
+    Temples
+    gain <color=white>+1% CpS</color> per 5 grandmas.'
   grandmaID: {fileID: 11400000, guid: 4ae4d388bdbd1564497971a43e13efa5, type: 2}
-  buildingID: {fileID: 11400000, guid: 7dc398d56871c6748a1e75b3488457c9, type: 2}
+  buildingID: {fileID: 11400000, guid: b90f63949b0b33548b73757fbebfb499, type: 2}
   grandmaEfficiencyMultiplier: 2
   buildingMultiplier: 0.01
-  grandmaGroupSize: 1
+  grandmaGroupSize: 5
   grandmaCountToUnlock: 1
   buildingCountToUnlock: 15

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Ultimadrill
   icon: {fileID: 945434041, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
-  cost: 6000000
+  cost: 600000000
   description: Mines are <color=white>twice</color> as efficient.
   buildingID: {fileID: 11400000, guid: d869cdd7c7a88c64c9c8364b6e09d44f, type: 2}
   efficiencyMult: 2

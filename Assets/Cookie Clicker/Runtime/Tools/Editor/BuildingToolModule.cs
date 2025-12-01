@@ -1,4 +1,8 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Codice.Client.BaseCommands.CheckIn.CodeReview;
+using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,6 +18,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         
         private readonly EditorWindow _window;
         private readonly string _folderPath;
+
+        private List<BuildingConfig> _currentBuildings;
         
         public BuildingToolModule(EditorWindow window, string folderPath)
         {
@@ -24,6 +30,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             _currentID = new  BuildingIDWrapper();
 
             ResetCurrentObjects();
+
+            _currentBuildings = SearchBuildings();
         }
         
         public void DrawList()
@@ -31,7 +39,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             using var scroll = new EditorGUILayout.ScrollViewScope(_buildingListScrollPos, EditorStyles.helpBox, GUILayout.MaxWidth(150));
             _buildingListScrollPos = scroll.scrollPosition;
                 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < _currentBuildings.Count; i++)
             {
                 Rect rowRect = GUILayoutUtility.GetRect(0, 20, GUILayout.ExpandWidth(true));
                 
@@ -41,7 +49,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                     : (i % 2 == 0) ? ToolUtils.DarkColor1 : ToolUtils.DarkColor2;
                 EditorGUI.DrawRect(rowRect, bgColor);
                     
-                GUI.Label(new Rect(rowRect.x + 5, rowRect.y, rowRect.width, rowRect.height), $"Building - {i}");
+                GUI.Label(new Rect(rowRect.x + 5, rowRect.y, rowRect.width, rowRect.height), _currentBuildings[i].buildingID);
 
                 if (Event.current.type == EventType.MouseDown && rowRect.Contains(Event.current.mousePosition))
                 {
@@ -78,6 +86,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
+
+                _currentBuildings = SearchBuildings();
             }
             
             EditorGUILayout.EndVertical();
@@ -87,6 +97,16 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         {
             _currentConfig.Reset();
             _currentID.Reset();
+        }
+
+        private List<BuildingConfig> SearchBuildings()
+        {
+            var guids = AssetDatabase.FindAssets($"t:{nameof(BuildingConfig)}", new[] { _folderPath });
+            var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
+            var buildings = paths.Select(AssetDatabase.LoadAssetAtPath<BuildingConfig>)
+                .Where(config => config.buildingID).ToList();
+            
+            return buildings;
         }
     }
 }

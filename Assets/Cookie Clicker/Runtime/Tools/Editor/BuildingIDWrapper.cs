@@ -16,9 +16,11 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             Reset();
         }
 
-        public void Reset()
+        public void Reset() => Set(ScriptableObject.CreateInstance<BuildingID>());
+
+        public void Set(BuildingID id)
         {
-            ID = ScriptableObject.CreateInstance<BuildingID>();
+            ID = id;
 
             SO = new SerializedObject(ID);
             PropName = SO.FindProperty("buildingName");

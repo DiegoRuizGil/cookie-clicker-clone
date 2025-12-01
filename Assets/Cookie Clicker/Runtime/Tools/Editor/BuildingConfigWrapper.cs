@@ -20,9 +20,11 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             Reset();
         }
 
-        public void Reset()
+        public void Reset() => Set(ScriptableObject.CreateInstance<BuildingConfig>());
+
+        public void Set(BuildingConfig config)
         {
-            Config = ScriptableObject.CreateInstance<BuildingConfig>();
+            Config = config;
 
             SO = new SerializedObject(Config);
             PropID = SO.FindProperty("buildingID");

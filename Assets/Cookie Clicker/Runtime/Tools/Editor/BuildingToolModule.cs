@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Codice.Client.BaseCommands.CheckIn.CodeReview;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEditor;
 using UnityEngine;
@@ -31,7 +30,9 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
             ResetCurrentObjects();
 
-            _currentBuildings = SearchBuildings();
+            _currentBuildings = FindBuildings();
+            
+            SelectFromList(_selectedIndex);
         }
         
         public void DrawList()
@@ -53,7 +54,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
                 if (Event.current.type == EventType.MouseDown && rowRect.Contains(Event.current.mousePosition))
                 {
-                    _selectedIndex = i;
+                    SelectFromList(i);
                     _window.Repaint();
                 }
             }
@@ -87,7 +88,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
 
-                _currentBuildings = SearchBuildings();
+                _currentBuildings = FindBuildings();
             }
             
             EditorGUILayout.EndVertical();
@@ -99,7 +100,15 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             _currentID.Reset();
         }
 
-        private List<BuildingConfig> SearchBuildings()
+        private void SelectFromList(int index)
+        {
+            _selectedIndex = index;
+            
+            _currentConfig.Set(_currentBuildings[index]);
+            _currentID.Set(_currentBuildings[index].buildingID);
+        }
+
+        private List<BuildingConfig> FindBuildings()
         {
             var guids = AssetDatabase.FindAssets($"t:{nameof(BuildingConfig)}", new[] { _folderPath });
             var paths = guids.Select(AssetDatabase.GUIDToAssetPath);

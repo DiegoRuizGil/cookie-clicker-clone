@@ -25,6 +25,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         private SerializedProperty _propIcon;
         private SerializedProperty _propSilhouette;
 
+        private Vector2 _buildingListScrollPos;
+        private int _selectedIndex;
+
+        private readonly Color _dark1 = new Color(0.25f, 0.25f, 0.25f);
+        private readonly Color _dark2 = new Color(0.3f, 0.3f, 0.3f);
+        private readonly Color _selectionColor = new Color(0.192f, 0.301f, 0.474f);
+
         private void OnEnable()
         {
             _so = new SerializedObject(this);
@@ -38,14 +45,54 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
         private void OnGUI()
         {
-            _so.Update();
+            GUILayout.BeginArea(new Rect(10, 10, position.width - 20, position.height - 20));
+            
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                DrawBuildingList();
+                DrawBuildingCreation();
+            }
+            
+            GUILayout.EndArea();
+        }
 
+        private void DrawBuildingList()
+        {
+            using var scroll = new EditorGUILayout.ScrollViewScope(_buildingListScrollPos, EditorStyles.helpBox, GUILayout.MaxWidth(150));
+            _buildingListScrollPos = scroll.scrollPosition;
+                
+            for (int i = 0; i < 100; i++)
+            {
+                Rect rowRect = GUILayoutUtility.GetRect(0, 20, GUILayout.ExpandWidth(true));
+                
+                bool isSelected = i == _selectedIndex;
+                Color bgColor = isSelected
+                    ? _selectionColor
+                    : (i % 2 == 0) ? _dark1 : _dark2;
+                EditorGUI.DrawRect(rowRect, bgColor);
+                    
+                GUI.Label(new Rect(rowRect.x + 5, rowRect.y, rowRect.width, rowRect.height), $"Building - {i}");
+
+                if (Event.current.type == EventType.MouseDown && rowRect.Contains(Event.current.mousePosition))
+                {
+                    _selectedIndex = i;
+                    Repaint();
+                }
+            }
+        }
+
+        private void DrawBuildingCreation()
+        {
+            EditorGUILayout.BeginVertical();
+            
+            _so.Update();
             EditorGUILayout.PropertyField(_propFolderPath);
             EditorGUILayout.PropertyField(_propBuildingName);
             EditorGUILayout.PropertyField(_propBaseCPS);
             EditorGUILayout.PropertyField(_propBaseCost);
-            EditorGUILayout.PropertyField(_propIcon);
-            EditorGUILayout.PropertyField(_propSilhouette);
+            _propIcon.objectReferenceValue = EditorGUILayout.ObjectField("Icon", _propIcon.objectReferenceValue, typeof(Sprite), false);
+            _propSilhouette.objectReferenceValue = EditorGUILayout.ObjectField("Silhouette", _propSilhouette.objectReferenceValue, typeof(Sprite), false);
+            _so.ApplyModifiedProperties();
 
             if (GUILayout.Button("Create Asset"))
             {
@@ -61,7 +108,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 AssetDatabase.Refresh();
             }
             
-            _so.ApplyModifiedProperties();
+            EditorGUILayout.EndVertical();
         }
 
         private BuildingID CreateID()

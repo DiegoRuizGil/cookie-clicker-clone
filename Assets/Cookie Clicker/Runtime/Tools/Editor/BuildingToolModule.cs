@@ -37,6 +37,11 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         
         public void DrawList()
         {
+            EditorGUILayout.BeginVertical();
+
+            if (GUILayout.Button("New Building", GUILayout.MaxWidth(150)))
+                CreateNewBuilding();
+            
             using var scroll = new EditorGUILayout.ScrollViewScope(_buildingListScrollPos, EditorStyles.helpBox, GUILayout.MaxWidth(150));
             _buildingListScrollPos = scroll.scrollPosition;
                 
@@ -58,6 +63,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                     _window.Repaint();
                 }
             }
+            
+            EditorGUILayout.EndVertical();
         }
 
         public void DrawEditor()
@@ -75,8 +82,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             _currentConfig.PropSilhouette.objectReferenceValue = EditorGUILayout.ObjectField("Silhouette", _currentConfig.PropSilhouette.objectReferenceValue, typeof(Sprite), false);
             _currentConfig.PropID.objectReferenceValue = _currentID.ID;
             _currentConfig.SO.ApplyModifiedProperties();
-
-            if (GUILayout.Button("Create/Update"))
+            
+            if (GUILayout.Button("Update"))
             {
                 string name = _currentID.ID;
                 var idPath = Path.Combine(_folderPath, name + "ID.asset");
@@ -89,6 +96,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 AssetDatabase.Refresh();
 
                 _currentBuildings = FindBuildings();
+                SelectFromList(_selectedIndex);
             }
             
             EditorGUILayout.EndVertical();
@@ -102,10 +110,19 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
         private void SelectFromList(int index)
         {
+            if (index < 0)
+                index = _currentBuildings.Count - 1;
             _selectedIndex = index;
             
             _currentConfig.Set(_currentBuildings[index]);
             _currentID.Set(_currentBuildings[index].buildingID);
+        }
+
+        private void DeselectFromList()
+        {
+            _selectedIndex = -1;
+            
+            ResetCurrentObjects();
         }
 
         private List<BuildingConfig> FindBuildings()
@@ -116,6 +133,33 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 .Where(config => config.buildingID).ToList();
             
             return buildings;
+        }
+
+        private void CreateNewBuilding()
+        {
+            DeselectFromList();
+            
+            _currentID.SO.Update();
+            _currentID.PropName.stringValue = "New Building";
+            _currentID.SO.ApplyModifiedProperties();
+            _currentConfig.SO.Update();
+            _currentConfig.PropIcon.objectReferenceValue = ToolUtils.LoadIcon("default-icon");
+            _currentConfig.PropSilhouette.objectReferenceValue = ToolUtils.LoadIcon("default-icon");
+            _currentConfig.PropID.objectReferenceValue = _currentID.ID;
+            _currentConfig.SO.ApplyModifiedProperties();
+            
+            string name = _currentID.ID;
+            var idPath = Path.Combine(_folderPath, name + "ID.asset");
+            var configPath = Path.Combine(_folderPath, name + ".asset");
+                
+            AssetDatabase.CreateAsset(_currentID.ID, idPath);
+            AssetDatabase.CreateAsset(_currentConfig.Config, configPath);
+                
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            _currentBuildings = FindBuildings();
+            SelectFromList(_currentBuildings.IndexOf(_currentConfig.Config));
         }
     }
 }

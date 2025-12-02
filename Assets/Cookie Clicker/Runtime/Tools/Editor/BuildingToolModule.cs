@@ -39,10 +39,10 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         {
             EditorGUILayout.BeginVertical();
 
-            if (GUILayout.Button("New Building", GUILayout.MaxWidth(150)))
+            if (GUILayout.Button("New Building", GUILayout.MaxWidth(200)))
                 CreateNewBuilding();
             
-            using var scroll = new EditorGUILayout.ScrollViewScope(_buildingListScrollPos, EditorStyles.helpBox, GUILayout.MaxWidth(150));
+            using var scroll = new EditorGUILayout.ScrollViewScope(_buildingListScrollPos, EditorStyles.helpBox, GUILayout.MaxWidth(200));
             _buildingListScrollPos = scroll.scrollPosition;
                 
             for (int i = 0; i < _currentBuildings.Count; i++)

@@ -26,6 +26,12 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 _buildingModule.DrawList();
                 _buildingModule.DrawEditor();
             }
+
+            if (Event.current.type == EventType.MouseDown)
+            {
+                GUI.FocusControl(null);
+                Repaint();
+            }
             
             GUILayout.EndArea();
         }

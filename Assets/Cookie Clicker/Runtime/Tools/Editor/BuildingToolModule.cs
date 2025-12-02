@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEditor;
 using UnityEngine;
@@ -53,32 +54,37 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         
         private void DrawList()
         {
-            EditorGUILayout.BeginVertical();
+            EditorGUILayout.BeginVertical(GUILayout.MaxWidth(200));
 
-            if (GUILayout.Button("New Building", GUILayout.MaxWidth(200)))
+            if (GUILayout.Button("New Building"))
                 CreateNewBuilding();
-            
-            using var scroll = new EditorGUILayout.ScrollViewScope(_buildingListScrollPos, EditorStyles.helpBox, GUILayout.MaxWidth(200));
-            _buildingListScrollPos = scroll.scrollPosition;
-                
-            for (int i = 0; i < _currentBuildings.Count; i++)
-            {
-                Rect rowRect = GUILayoutUtility.GetRect(0, 20, GUILayout.ExpandWidth(true));
-                
-                bool isSelected = i == _selectedIndex;
-                Color bgColor = isSelected
-                    ? ToolUtils.SelectedColor
-                    : (i % 2 == 0) ? ToolUtils.DarkColor1 : ToolUtils.DarkColor2;
-                EditorGUI.DrawRect(rowRect, bgColor);
-                    
-                GUI.Label(new Rect(rowRect.x + 5, rowRect.y, rowRect.width, rowRect.height), _currentBuildings[i].buildingID);
 
-                if (Event.current.type == EventType.MouseDown && rowRect.Contains(Event.current.mousePosition))
+            using (var scroll = new EditorGUILayout.ScrollViewScope(_buildingListScrollPos, EditorStyles.helpBox))
+            {
+                _buildingListScrollPos = scroll.scrollPosition;
+                
+                for (int i = 0; i < _currentBuildings.Count; i++)
                 {
-                    SelectFromList(i);
-                    _window.Repaint();
+                    Rect rowRect = GUILayoutUtility.GetRect(0, 20, GUILayout.ExpandWidth(true));
+                
+                    bool isSelected = i == _selectedIndex;
+                    Color bgColor = isSelected
+                        ? ToolUtils.SelectedColor
+                        : (i % 2 == 0) ? ToolUtils.DarkColor1 : ToolUtils.DarkColor2;
+                    EditorGUI.DrawRect(rowRect, bgColor);
+                    
+                    GUI.Label(new Rect(rowRect.x + 5, rowRect.y, rowRect.width, rowRect.height), _currentBuildings[i].buildingID);
+
+                    if (Event.current.type == EventType.MouseDown && rowRect.Contains(Event.current.mousePosition))
+                    {
+                        SelectFromList(i);
+                        _window.Repaint();
+                    }
                 }
             }
+
+            if (GUILayout.Button("Load in Scene"))
+                LoadBuildingsInScene();
             
             EditorGUILayout.EndVertical();
         }
@@ -214,6 +220,21 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             _bufferSilhouette = (Sprite)_currentConfig.PropSilhouette.objectReferenceValue;
 
             _hasPendingChanges = false;
+        }
+
+        private void LoadBuildingsInScene()
+        {
+            var bakery = Object.FindFirstObjectByType<Bakery>(FindObjectsInactive.Include);
+
+            if (!bakery)
+            {
+                Debug.LogWarning("Couldn't find Bakery object in scene");
+                return;
+            }
+            
+            Undo.RecordObject(bakery, "Load Buildings");
+            bakery.LoadBuildings(FindBuildings());
+            EditorUtility.SetDirty(bakery);
         }
     }
 }

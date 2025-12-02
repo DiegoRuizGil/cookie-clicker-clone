@@ -83,22 +83,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             _currentConfig.PropID.objectReferenceValue = _currentID.ID;
             _currentConfig.SO.ApplyModifiedProperties();
             
-            if (GUILayout.Button("Update"))
-            {
-                string name = _currentID.ID;
-                var idPath = Path.Combine(_folderPath, name + "ID.asset");
-                var configPath = Path.Combine(_folderPath, name + ".asset");
-                
-                AssetDatabase.CreateAsset(_currentID.ID, idPath);
-                AssetDatabase.CreateAsset(_currentConfig.Config, configPath);
-                
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-
-                _currentBuildings = FindBuildings();
-                SelectFromList(_selectedIndex);
-            }
-            
             EditorGUILayout.EndVertical();
         }
 

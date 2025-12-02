@@ -27,6 +27,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         
         private readonly EditorWindow _window;
         private readonly string _folderPath;
+
+        private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
         
         public BuildingToolModule(EditorWindow window, string folderPath)
         {
@@ -65,15 +67,24 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 
                 for (int i = 0; i < _currentBuildings.Count; i++)
                 {
-                    Rect rowRect = GUILayoutUtility.GetRect(0, 20, GUILayout.ExpandWidth(true));
+                    var rowRect = GUILayoutUtility.GetRect(0, 20, GUILayout.ExpandWidth(true));
                 
-                    bool isSelected = i == _selectedIndex;
-                    Color bgColor = isSelected
+                    var isSelected = i == _selectedIndex;
+                    var bgColor = isSelected
                         ? ToolUtils.SelectedColor
                         : (i % 2 == 0) ? ToolUtils.DarkColor1 : ToolUtils.DarkColor2;
                     EditorGUI.DrawRect(rowRect, bgColor);
                     
-                    GUI.Label(new Rect(rowRect.x + 5, rowRect.y, rowRect.width, rowRect.height), _currentBuildings[i].buildingID);
+                    GUI.Label(new Rect(rowRect.x + 5, rowRect.y, rowRect.width - 30, rowRect.height), _currentBuildings[i].buildingID);
+
+                    var iconRect = new Rect(rowRect.xMax - 20, rowRect.y + 2, 16, 16);
+
+                    if (GUI.Button(iconRect, TrashIcon, GUIStyle.none))
+                    {
+                        Debug.Log($"Delete {_currentBuildings[i].buildingID}");
+                        DeleteBuilding(_currentBuildings[i]);
+                        break;
+                    }
 
                     if (Event.current.type == EventType.MouseDown && rowRect.Contains(Event.current.mousePosition))
                     {
@@ -209,6 +220,28 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         {
             GUI.FocusControl(null);
             SetBuffersValues();
+        }
+
+        private void DeleteBuilding(BuildingConfig config)
+        {
+            if (!EditorUtility.DisplayDialog(
+                    "Delete Building",
+                    $"Are you sure you want to delete '{(string)config.buildingID}'?",
+                    "Delete", "Cancel")) return;
+
+            var configPath = AssetDatabase.GetAssetPath(config);
+            var idPAth = AssetDatabase.GetAssetPath(config.buildingID);
+            
+            AssetDatabase.DeleteAsset(configPath);
+            if (!string.IsNullOrEmpty(idPAth))
+                AssetDatabase.DeleteAsset(idPAth);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            
+            _currentBuildings = FindBuildings();
+            DeselectFromList();
+            _window.Repaint();
         }
 
         private void SetBuffersValues()

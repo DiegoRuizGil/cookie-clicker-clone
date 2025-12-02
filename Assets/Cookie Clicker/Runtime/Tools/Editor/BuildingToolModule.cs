@@ -11,14 +11,21 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
     {
         private readonly BuildingConfigWrapper _currentConfig;
         private readonly BuildingIDWrapper _currentID;
+
+        private string _bufferName;
+        private float _bufferBaseCps;
+        private float _bufferBaseCost;
+        private Sprite _bufferIcon;
+        private Sprite _bufferSilhouette;
+        private bool _hasPendingChanges;
         
         private Vector2 _buildingListScrollPos;
         private int _selectedIndex;
         
+        private List<BuildingConfig> _currentBuildings;
+        
         private readonly EditorWindow _window;
         private readonly string _folderPath;
-
-        private List<BuildingConfig> _currentBuildings;
         
         public BuildingToolModule(EditorWindow window, string folderPath)
         {
@@ -34,8 +41,17 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             
             SelectFromList(_selectedIndex);
         }
+
+        public void OnGUI()
+        {
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                DrawList();
+                DrawEditor();
+            }
+        }
         
-        public void DrawList()
+        private void DrawList()
         {
             EditorGUILayout.BeginVertical();
 
@@ -67,21 +83,32 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             EditorGUILayout.EndVertical();
         }
 
-        public void DrawEditor()
+        private void DrawEditor()
         {
             EditorGUILayout.BeginVertical();
             
-            _currentID.SO.Update();
-            EditorGUILayout.PropertyField(_currentID.PropName);
-            _currentID.SO.ApplyModifiedProperties();
+            EditorGUI.BeginChangeCheck();
             
-            _currentConfig.SO.Update();
-            EditorGUILayout.PropertyField(_currentConfig.PropBaseCps);
-            EditorGUILayout.PropertyField(_currentConfig.PropBaseCost);
-            _currentConfig.PropIcon.objectReferenceValue = EditorGUILayout.ObjectField("Icon", _currentConfig.PropIcon.objectReferenceValue, typeof(Sprite), false);
-            _currentConfig.PropSilhouette.objectReferenceValue = EditorGUILayout.ObjectField("Silhouette", _currentConfig.PropSilhouette.objectReferenceValue, typeof(Sprite), false);
-            _currentConfig.PropID.objectReferenceValue = _currentID.ID;
-            _currentConfig.SO.ApplyModifiedProperties();
+            GUI.SetNextControlName("Name");
+            _bufferName = EditorGUILayout.TextField("Name", _bufferName);
+            _bufferBaseCps = EditorGUILayout.FloatField("Base CPS", _bufferBaseCps);
+            _bufferBaseCost = EditorGUILayout.FloatField("Base Cost", _bufferBaseCost);
+            _bufferIcon = (Sprite)EditorGUILayout.ObjectField("Icon", _bufferIcon, typeof(Sprite), false);
+            _bufferSilhouette = (Sprite)EditorGUILayout.ObjectField("Silhouette", _bufferSilhouette, typeof(Sprite), false);
+            
+            if (EditorGUI.EndChangeCheck())
+                _hasPendingChanges = true;
+            
+            EditorGUILayout.Space(10);
+
+            using (new EditorGUI.DisabledScope(!_hasPendingChanges))
+            {
+                if (GUILayout.Button("Apply"))
+                    ApplyChanges();
+
+                if (GUILayout.Button("Revert"))
+                    RevertChanges();
+            }
             
             EditorGUILayout.EndVertical();
         }
@@ -100,6 +127,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             
             _currentConfig.Set(_currentBuildings[index]);
             _currentID.Set(_currentBuildings[index].buildingID);
+
+            SetBuffersValues();
         }
 
         private void DeselectFromList()
@@ -144,6 +173,47 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
             _currentBuildings = FindBuildings();
             SelectFromList(_currentBuildings.IndexOf(_currentConfig.Config));
+            
+            GUI.FocusControl("Name");
+        }
+
+        private void ApplyChanges()
+        {
+            _currentID.SO.Update();
+            _currentID.PropName.stringValue = _bufferName;
+            _currentID.SO.ApplyModifiedProperties();
+            
+            _currentConfig.SO.Update();
+            _currentConfig.PropBaseCps.floatValue = _bufferBaseCps;
+            _currentConfig.PropBaseCost.floatValue = _bufferBaseCost;
+            _currentConfig.PropIcon.objectReferenceValue = _bufferIcon;
+            _currentConfig.PropSilhouette.objectReferenceValue = _bufferSilhouette;
+            _currentConfig.SO.ApplyModifiedProperties();
+
+            AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(_currentID.ID), _bufferName + "ID");
+            AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(_currentConfig.Config), _bufferName);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            
+            _hasPendingChanges = false;
+        }
+
+        private void RevertChanges()
+        {
+            GUI.FocusControl(null);
+            SetBuffersValues();
+        }
+
+        private void SetBuffersValues()
+        {
+            _bufferName = _currentID.PropName.stringValue;
+            _bufferBaseCps = _currentConfig.PropBaseCps.floatValue;
+            _bufferBaseCost = _currentConfig.PropBaseCost.floatValue;
+            _bufferIcon = (Sprite)_currentConfig.PropIcon.objectReferenceValue;
+            _bufferSilhouette = (Sprite)_currentConfig.PropSilhouette.objectReferenceValue;
+
+            _hasPendingChanges = false;
         }
     }
 }

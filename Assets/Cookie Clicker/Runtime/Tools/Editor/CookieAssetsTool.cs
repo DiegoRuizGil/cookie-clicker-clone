@@ -21,11 +21,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         {
             GUILayout.BeginArea(new Rect(10, 10, position.width - 20, position.height - 20));
             
-            using (new EditorGUILayout.HorizontalScope())
-            {
-                _buildingModule.DrawList();
-                _buildingModule.DrawEditor();
-            }
+            _buildingModule.OnGUI();
 
             if (Event.current.type == EventType.MouseDown)
             {

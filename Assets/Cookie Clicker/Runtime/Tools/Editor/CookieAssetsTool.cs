@@ -19,7 +19,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
         private void OnGUI()
         {
-            GUILayout.BeginArea(new Rect(10, 10, position.width - 20, position.height - 20));
+            GUILayout.BeginArea(new Rect(0, 0, position.width, position.height - 20));
             
             _buildingModule.OnGUI();
 

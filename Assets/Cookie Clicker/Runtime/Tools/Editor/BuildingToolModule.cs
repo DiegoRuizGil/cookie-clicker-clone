@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Cookie_Clicker.Runtime.Tools.Editor
 {
@@ -22,6 +24,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         
         private Vector2 _buildingListScrollPos;
         private int _selectedIndex;
+
+        private string _searchText;
         
         private List<BuildingConfig> _currentBuildings;
         
@@ -29,6 +33,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         private readonly string _folderPath;
 
         private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
+        private static readonly GUIContent PlusIcon = EditorGUIUtility.IconContent("Toolbar Plus");
         
         public BuildingToolModule(EditorWindow window, string folderPath)
         {
@@ -40,7 +45,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
             ResetCurrentObjects();
 
-            _currentBuildings = FindBuildings();
+            _currentBuildings = FindAllBuildings();
             
             SelectFromList(_selectedIndex);
         }
@@ -58,8 +63,19 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         {
             EditorGUILayout.BeginVertical(GUILayout.MaxWidth(200));
 
-            if (GUILayout.Button("New Building"))
+            EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
+            
+            if (GUILayout.Button(PlusIcon, EditorStyles.toolbarButton, GUILayout.Width(25)))
                 CreateNewBuilding();
+
+            using (var changeCheck = new EditorGUI.ChangeCheckScope())
+            {
+                _searchText = GUILayout.TextField(_searchText, GUI.skin.FindStyle("ToolbarSearchTextField"));
+                if (changeCheck.changed)
+                    _currentBuildings = FindBuildingsByText(_searchText);
+            }
+            
+            EditorGUILayout.EndHorizontal();
 
             using (var scroll = new EditorGUILayout.ScrollViewScope(_buildingListScrollPos, EditorStyles.helpBox))
             {
@@ -81,7 +97,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
                     if (GUI.Button(iconRect, TrashIcon, GUIStyle.none))
                     {
-                        Debug.Log($"Delete {_currentBuildings[i].buildingID}");
                         DeleteBuilding(_currentBuildings[i]);
                         break;
                     }
@@ -155,7 +170,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             ResetCurrentObjects();
         }
 
-        private List<BuildingConfig> FindBuildings()
+        private List<BuildingConfig> FindAllBuildings()
         {
             var guids = AssetDatabase.FindAssets($"t:{nameof(BuildingConfig)}", new[] { _folderPath });
             var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
@@ -163,6 +178,15 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 .Where(config => config.buildingID).ToList();
             
             return buildings;
+        }
+
+        private List<BuildingConfig> FindBuildingsByText(string text)
+        {
+            return FindAllBuildings().Where(config =>
+            {
+                var name = ((string)config.buildingID).ToLower();
+                return name.Contains(text.ToLower());
+            }).ToList();
         }
 
         private void CreateNewBuilding()
@@ -188,7 +212,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            _currentBuildings = FindBuildings();
+            _currentBuildings = FindAllBuildings();
             SelectFromList(_currentBuildings.IndexOf(_currentConfig.Config));
             
             GUI.FocusControl("Name");
@@ -239,7 +263,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             
-            _currentBuildings = FindBuildings();
+            _currentBuildings = FindAllBuildings();
             DeselectFromList();
             _window.Repaint();
         }
@@ -266,7 +290,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             }
             
             Undo.RecordObject(bakery, "Load Buildings");
-            bakery.LoadBuildings(FindBuildings());
+            bakery.LoadBuildings(FindAllBuildings());
             EditorUtility.SetDirty(bakery);
         }
     }

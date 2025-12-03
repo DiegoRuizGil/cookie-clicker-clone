@@ -14,6 +14,8 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings
         [SerializeField] private Sprite icon;
         [SerializeField] private Sprite silhouette;
 
+        public double BaseCost => baseCost;
+        
         public Building Get()
         {
             return A.Building.WithName(buildingID)

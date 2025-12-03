@@ -175,7 +175,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             var guids = AssetDatabase.FindAssets($"t:{nameof(BuildingConfig)}", new[] { _folderPath });
             var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
             var buildings = paths.Select(AssetDatabase.LoadAssetAtPath<BuildingConfig>)
-                .Where(config => config.buildingID).ToList();
+                .Where(config => config.buildingID).OrderBy(config => config.BaseCost).ToList();
             
             return buildings;
         }
@@ -238,6 +238,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             AssetDatabase.Refresh();
             
             _hasPendingChanges = false;
+            _currentBuildings = FindAllBuildings();
         }
 
         private void RevertChanges()

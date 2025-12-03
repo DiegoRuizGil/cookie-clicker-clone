@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Cookie_Clicker.Runtime.Tools.Editor
+namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 {
     public class BuildingIDWrapper
     {

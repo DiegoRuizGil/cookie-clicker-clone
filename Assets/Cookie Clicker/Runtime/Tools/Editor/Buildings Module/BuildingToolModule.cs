@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker;
@@ -8,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Cookie_Clicker.Runtime.Tools.Editor
+namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 {
     public class BuildingToolModule
     {

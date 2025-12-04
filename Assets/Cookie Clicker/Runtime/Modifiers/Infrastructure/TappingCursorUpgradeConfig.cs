@@ -10,6 +10,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
     [CreateAssetMenu(menuName = "Upgrades/Tappnig and Cursor")]
     public class TappingCursorUpgradeConfig : BaseUpgradeConfig
     {
+        public override UpgradeType Type => UpgradeType.Cursor;
+        
         [Header("Upgrade Settings")]
         [SerializeField] private BuildingID cursorID;
         [SerializeField] private float efficiencyMultiplier = 2;

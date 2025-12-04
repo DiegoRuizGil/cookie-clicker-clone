@@ -10,6 +10,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
     [CreateAssetMenu(menuName = "Upgrades/Efficiency")]
     public class EfficiencyUpgradeConfig : BaseUpgradeConfig
     {
+        public override UpgradeType Type => UpgradeType.Tiered;
+        
         [Header("Upgrade Settings")]
         [SerializeField] private BuildingID buildingID;
         [SerializeField] private float efficiencyMult = 2;

@@ -12,6 +12,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
     [CreateAssetMenu(menuName = "Upgrades/Grandma")]
     public class GrandmaUpgradeConfig : BaseUpgradeConfig
     {
+        public override UpgradeType Type => UpgradeType.Grandma;
+        
         [Header("Upgrade Settings")]
         [SerializeField] private BuildingID grandmaID;
         [SerializeField] private BuildingID buildingID;

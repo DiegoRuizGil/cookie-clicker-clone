@@ -6,11 +6,6 @@ using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 {
-    public enum UpgradeType
-    {
-        Tiered, Cursor, Grandma, Clicking, Cookies
-    }
-    
     public class UpgradeToolModule
     {
         private string _searchText;

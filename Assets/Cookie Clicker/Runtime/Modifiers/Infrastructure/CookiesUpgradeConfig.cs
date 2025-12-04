@@ -10,6 +10,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
     [CreateAssetMenu(menuName = "Upgrades/Global Production")]
     public class CookiesUpgradeConfig : BaseUpgradeConfig
     {
+        public override UpgradeType Type => UpgradeType.Cookies;
+        
         [Header("Effect Settings")]
         [SerializeField, Range(0, 1)] private float multiplier = 0.2f;
 

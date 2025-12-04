@@ -1,4 +1,5 @@
 ﻿using Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module;
+using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,13 +17,15 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
         private const string FolderPath = "Assets/Cookie Clicker/Data";
 
-        private BuildingToolModule _buildingModule;
+        private BuildingToolModule _buildingsModule;
+        private UpgradeToolModule _upgradesModule;
         
         private ToolSection _currentToolSection = ToolSection.Buildings;
 
         private void OnEnable()
         {
-            _buildingModule = new BuildingToolModule(this, FolderPath);
+            _buildingsModule = new BuildingToolModule(this, FolderPath);
+            _upgradesModule = new UpgradeToolModule(this, FolderPath);
         }
 
         private void OnGUI()
@@ -35,9 +38,10 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 case ToolSection.Settings:
                     break;
                 case ToolSection.Buildings:
-                    _buildingModule.OnGUI();
+                    _buildingsModule.OnGUI();
                     break;
                 case ToolSection.Upgrades:
+                    _upgradesModule.OnGUI();
                     break;
             }
             

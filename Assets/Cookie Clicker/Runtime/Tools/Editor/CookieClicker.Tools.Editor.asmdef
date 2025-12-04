@@ -2,7 +2,8 @@
     "name": "CookieClicker.Tools.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:473763cd4a10462194e45ae4ed2e4474"
+        "GUID:473763cd4a10462194e45ae4ed2e4474",
+        "GUID:a7877b84a20941dfb4f0920344c82f59"
     ],
     "includePlatforms": [
         "Editor"

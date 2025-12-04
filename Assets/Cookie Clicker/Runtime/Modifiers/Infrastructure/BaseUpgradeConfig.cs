@@ -11,6 +11,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
         [SerializeField] protected double cost;
         [SerializeField, TextArea] protected string description;
         
+        public string Name => upgradeName;
+        
         public abstract Upgrade Get();
     }
 }

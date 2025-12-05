@@ -46,34 +46,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             }
         }
 
-        private void InitUpgradesCreationMenu()
-        {
-            _upgradesCreationMenu = new GenericMenu();
-            foreach (var type in Enum.GetValues(typeof(UpgradeType)))
-            {
-                var content = new GUIContent(type + " upgrade");
-                _upgradesCreationMenu.AddItem(content, false, () => CreateNewUpgrade((UpgradeType) type));
-            }
-        }
-
-        private void CreateNewUpgrade(UpgradeType type)
-        {
-            _upgradesDrawer.SetDefaultOfType(type);
-
-            var name = _upgradesDrawer.CurrentUpgrade.PropName.stringValue;
-            var path = Path.Combine(_folderPath, name + ".asset");
-            
-            AssetDatabase.CreateAsset(_upgradesDrawer.CurrentUpgrade.Value, path);
-            
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-
-            _currentUpgrades = FindAllUpgrades();
-            SelectFromList(_currentUpgrades.IndexOf(_upgradesDrawer.CurrentUpgrade.Value));
-            
-            GUI.FocusControl("Name");
-        }
-
         private void DrawList()
         {
             EditorGUILayout.BeginVertical(GUILayout.MaxWidth(200));
@@ -105,15 +77,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
                     if (GUI.Button(iconRect, TrashIcon, GUIStyle.none))
                     {
-                        // DeleteBuilding(_currentUpgrades[i]);
-                        Debug.Log($"Deleting {_currentUpgrades[i].Name}");
+                        DeleteUpgrade(_currentUpgrades[i]);
                         break;
                     }
 
                     if (Event.current.type == EventType.MouseDown && rowRect.Contains(Event.current.mousePosition))
                     {
                         SelectFromList(i);
-                        // _selectedIndex = i;
                         _window.Repaint();
                     }
                 }
@@ -125,6 +95,52 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         private void DrawEditor()
         {
             _upgradesDrawer.Draw();
+        }
+
+        private void InitUpgradesCreationMenu()
+        {
+            _upgradesCreationMenu = new GenericMenu();
+            foreach (var type in Enum.GetValues(typeof(UpgradeType)))
+            {
+                var content = new GUIContent(type + " upgrade");
+                _upgradesCreationMenu.AddItem(content, false, () => CreateNewUpgrade((UpgradeType) type));
+            }
+        }
+
+        private void CreateNewUpgrade(UpgradeType type)
+        {
+            _upgradesDrawer.SetDefaultOfType(type);
+
+            var name = _upgradesDrawer.CurrentUpgrade.PropName.stringValue;
+            var path = Path.Combine(_folderPath, name + ".asset");
+            
+            AssetDatabase.CreateAsset(_upgradesDrawer.CurrentUpgrade.Value, path);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            _currentUpgrades = FindAllUpgrades();
+            SelectFromList(_currentUpgrades.IndexOf(_upgradesDrawer.CurrentUpgrade.Value));
+            
+            GUI.FocusControl("Name");
+        }
+
+        private void DeleteUpgrade(BaseUpgradeConfig upgrade)
+        {
+            if (!EditorUtility.DisplayDialog(
+                    "Delete Upgrade",
+                    $"Are you sure you want to delete '{upgrade.Name}'?",
+                    "Delete", "Cancel")) return;
+
+            var path = AssetDatabase.GetAssetPath(upgrade);
+            AssetDatabase.DeleteAsset(path);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            
+            _currentUpgrades = FindAllUpgrades();
+            _selectedIndex = 0;
+            _window.Repaint();
         }
 
         private List<BaseUpgradeConfig> FindAllUpgrades()

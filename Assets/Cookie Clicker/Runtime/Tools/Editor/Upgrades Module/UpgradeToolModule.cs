@@ -6,6 +6,7 @@ using Cookie_Clicker.Runtime.Modifiers.Infrastructure;
 using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers;
 using UnityEditor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 {
@@ -89,6 +90,9 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
                 }
             }
             
+            if (GUILayout.Button("Load in Scene"))
+                LoadUpgradesInScene();
+            
             EditorGUILayout.EndVertical();
         }
 
@@ -157,6 +161,21 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             _selectedIndex = index;
             
             _upgradesDrawer.SetUpgrade(_currentUpgrades[index]);
+        }
+        
+        private void LoadUpgradesInScene()
+        {
+            var upgradesComponent = Object.FindFirstObjectByType<UpgradesComponent>(FindObjectsInactive.Include);
+
+            if (!upgradesComponent)
+            {
+                Debug.LogWarning("Couldn't find upgrades component");
+                return;
+            }
+            
+            Undo.RecordObject(upgradesComponent, "Load Upgrades");
+            upgradesComponent.LoadUpgrades(FindAllUpgrades());
+            EditorUtility.SetDirty(upgradesComponent);
         }
     }
 }

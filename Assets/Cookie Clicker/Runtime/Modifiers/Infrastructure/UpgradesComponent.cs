@@ -25,5 +25,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
         {
             _controller.Update();
         }
+
+        public void LoadUpgrades(List<BaseUpgradeConfig> upgrades) => this.upgrades = upgrades;
     }
 }

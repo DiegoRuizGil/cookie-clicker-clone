@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Cookie_Clicker.Runtime.Modifiers.Infrastructure;
+using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         private readonly EditorWindow _window;
         private readonly string _folderPath;
         private readonly GenericMenu _upgradesMenu;
+        private readonly UpgradeEditorDrawer _upgradesDrawer;
         
         private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
         private static readonly GUIContent PlusIcon = EditorGUIUtility.IconContent("Toolbar Plus More");
@@ -25,6 +27,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         {
             _window = window;
             _folderPath = folderPath;
+            _upgradesDrawer = new UpgradeEditorDrawer();
             
             _currentUpgrades = FindAllUpgrades();
             
@@ -34,6 +37,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             _upgradesMenu.AddItem(new GUIContent(nameof(UpgradeType.Grandma) + " upgrade"), false, () => Debug.Log("Grandma upgrade"));
             _upgradesMenu.AddItem(new GUIContent(nameof(UpgradeType.Clicking) + " upgrade"), false, () => Debug.Log("Clicking upgrade"));
             _upgradesMenu.AddItem(new GUIContent(nameof(UpgradeType.Cookies) + " upgrade"), false, () => Debug.Log("Cookies upgrade"));
+            
+            SelectFromList(_selectedIndex);
         }
 
         public void OnGUI()
@@ -83,8 +88,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
                     if (Event.current.type == EventType.MouseDown && rowRect.Contains(Event.current.mousePosition))
                     {
-                        // SelectFromList(i);
-                        _selectedIndex = i;
+                        SelectFromList(i);
+                        // _selectedIndex = i;
                         _window.Repaint();
                     }
                 }
@@ -95,7 +100,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
         private void DrawEditor()
         {
-            
+            _upgradesDrawer.Draw();
         }
 
         private List<BaseUpgradeConfig> FindAllUpgrades()
@@ -105,6 +110,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             var upgrades = paths.Select(AssetDatabase.LoadAssetAtPath<BaseUpgradeConfig>).ToList();
 
             return upgrades;
+        }
+
+        private void SelectFromList(int index)
+        {
+            _selectedIndex = index;
+            
+            _upgradesDrawer.SetUpgrade(_currentUpgrades[index]);
         }
     }
 }

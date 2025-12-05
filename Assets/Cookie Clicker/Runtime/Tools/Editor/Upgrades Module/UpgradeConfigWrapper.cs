@@ -12,7 +12,9 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         public SerializedProperty PropDescription { get; private set; }
 
         private BaseUpgradeConfig _config;
+        
         public UpgradeType Type => _config.Type;
+        public BaseUpgradeConfig Value => _config;
         
         public void Set(BaseUpgradeConfig config)
         {

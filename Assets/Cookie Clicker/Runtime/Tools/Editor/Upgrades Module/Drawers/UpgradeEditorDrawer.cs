@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using Cookie_Clicker.Runtime.Modifiers.Infrastructure;
 using UnityEditor;
+using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers
 {
     public class UpgradeEditorDrawer
     {
-        private readonly UpgradeConfigWrapper _currentUpgrade = new UpgradeConfigWrapper();
+        public UpgradeConfigWrapper CurrentUpgrade { get; } = new UpgradeConfigWrapper();
         
         private readonly GeneralFieldsDrawer _generalFieldsDrawer = new GeneralFieldsDrawer();
 
@@ -24,22 +25,41 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers
             EditorGUILayout.BeginVertical();
             
             _generalFieldsDrawer.Draw();
-            _specificFieldsDrawers[_currentUpgrade.Type].Draw();
+            _specificFieldsDrawers[CurrentUpgrade.Type].Draw();
             
             EditorGUILayout.EndVertical();
         }
 
         public void SetUpgrade(BaseUpgradeConfig upgrade)
         {
-            _currentUpgrade.Set(upgrade);
+            CurrentUpgrade.Set(upgrade);
 
             SetBufferValues();
         }
 
+        public void SetDefaultOfType(UpgradeType type)
+        {
+            BaseUpgradeConfig upgrade = type switch
+            {
+                UpgradeType.Tiered => ScriptableObject.CreateInstance<EfficiencyUpgradeConfig>(),
+                UpgradeType.Cursor => ScriptableObject.CreateInstance<TappingCursorUpgradeConfig>(),
+                UpgradeType.Grandma => ScriptableObject.CreateInstance<GrandmaUpgradeConfig>(),
+                UpgradeType.Clicking => ScriptableObject.CreateInstance<TappingUpgradeConfig>(),
+                UpgradeType.Cookies => ScriptableObject.CreateInstance<CookiesUpgradeConfig>(),
+                _ => ScriptableObject.CreateInstance<EfficiencyUpgradeConfig>(),
+            };
+            
+            CurrentUpgrade.Set(upgrade);
+            
+            CurrentUpgrade.SO.Update();
+            CurrentUpgrade.PropName.stringValue = $"New {type} Upgrade";
+            CurrentUpgrade.SO.ApplyModifiedProperties();
+        }
+
         private void SetBufferValues()
         {
-            _generalFieldsDrawer.SetBufferValues(_currentUpgrade);
-            _specificFieldsDrawers[_currentUpgrade.Type].SetBufferValues(_currentUpgrade);
+            _generalFieldsDrawer.SetBufferValues(CurrentUpgrade);
+            _specificFieldsDrawers[CurrentUpgrade.Type].SetBufferValues(CurrentUpgrade);
         }
     }
 }

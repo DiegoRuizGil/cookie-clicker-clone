@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Cookie_Clicker.Runtime.Modifiers.Infrastructure;
 using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers;
@@ -17,7 +19,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         
         private readonly EditorWindow _window;
         private readonly string _folderPath;
-        private readonly GenericMenu _upgradesMenu;
+        private GenericMenu _upgradesCreationMenu;
         private readonly UpgradeEditorDrawer _upgradesDrawer;
         
         private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
@@ -29,14 +31,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             _folderPath = folderPath;
             _upgradesDrawer = new UpgradeEditorDrawer();
             
+            InitUpgradesCreationMenu();
             _currentUpgrades = FindAllUpgrades();
-            
-            _upgradesMenu = new GenericMenu();
-            _upgradesMenu.AddItem(new GUIContent(nameof(UpgradeType.Tiered) + " upgrade"), false, () => Debug.Log("Tiered upgrade"));
-            _upgradesMenu.AddItem(new GUIContent(nameof(UpgradeType.Cursor) + " upgrade"), false, () => Debug.Log("Cursor upgrade"));
-            _upgradesMenu.AddItem(new GUIContent(nameof(UpgradeType.Grandma) + " upgrade"), false, () => Debug.Log("Grandma upgrade"));
-            _upgradesMenu.AddItem(new GUIContent(nameof(UpgradeType.Clicking) + " upgrade"), false, () => Debug.Log("Clicking upgrade"));
-            _upgradesMenu.AddItem(new GUIContent(nameof(UpgradeType.Cookies) + " upgrade"), false, () => Debug.Log("Cookies upgrade"));
             
             SelectFromList(_selectedIndex);
         }
@@ -50,13 +46,41 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             }
         }
 
+        private void InitUpgradesCreationMenu()
+        {
+            _upgradesCreationMenu = new GenericMenu();
+            foreach (var type in Enum.GetValues(typeof(UpgradeType)))
+            {
+                var content = new GUIContent(type + " upgrade");
+                _upgradesCreationMenu.AddItem(content, false, () => CreateNewUpgrade((UpgradeType) type));
+            }
+        }
+
+        private void CreateNewUpgrade(UpgradeType type)
+        {
+            _upgradesDrawer.SetDefaultOfType(type);
+
+            var name = _upgradesDrawer.CurrentUpgrade.PropName.stringValue;
+            var path = Path.Combine(_folderPath, name + ".asset");
+            
+            AssetDatabase.CreateAsset(_upgradesDrawer.CurrentUpgrade.Value, path);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            _currentUpgrades = FindAllUpgrades();
+            SelectFromList(_currentUpgrades.IndexOf(_upgradesDrawer.CurrentUpgrade.Value));
+            
+            GUI.FocusControl("Name");
+        }
+
         private void DrawList()
         {
             EditorGUILayout.BeginVertical(GUILayout.MaxWidth(200));
             
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
             if (GUILayout.Button(PlusIcon, EditorStyles.toolbarButton, GUILayout.Width(25)))
-                _upgradesMenu.ShowAsContext();
+                _upgradesCreationMenu.ShowAsContext();
             
             _searchText = GUILayout.TextField(_searchText, GUI.skin.FindStyle("ToolbarSearchTextField"));
             EditorGUILayout.EndHorizontal();

@@ -132,11 +132,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
                     $"Are you sure you want to delete '{upgrade.Name}'?",
                     "Delete", "Cancel")) return;
 
-            var path = AssetDatabase.GetAssetPath(upgrade);
-            AssetDatabase.DeleteAsset(path);
-            
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            _upgradeRepository.DeleteAsset(upgrade);
             
             _currentUpgrades = FindAllUpgrades();
             _selectedIndex = 0;

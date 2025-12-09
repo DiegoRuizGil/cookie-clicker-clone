@@ -30,13 +30,15 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         
         private readonly EditorWindow _window;
         private readonly string _folderPath;
+        private readonly BuildingRepository _buildingRepository;
 
         private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
         private static readonly GUIContent PlusIcon = EditorGUIUtility.IconContent("Toolbar Plus");
         
-        public BuildingToolModule(EditorWindow window, string folderPath)
+        public BuildingToolModule(EditorWindow window, BuildingRepository repository, string folderPath)
         {
             _window = window;
+            _buildingRepository = repository;
             _folderPath = folderPath;
             
             _currentConfig = new  BuildingConfigWrapper();
@@ -44,7 +46,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
             ResetCurrentObjects();
 
-            _currentBuildings = FindAllBuildings();
+            _currentBuildings = _buildingRepository.FindAll();
             
             SelectFromList(_selectedIndex);
         }
@@ -71,7 +73,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             {
                 _searchText = GUILayout.TextField(_searchText, GUI.skin.FindStyle("ToolbarSearchTextField"));
                 if (changeCheck.changed)
-                    _currentBuildings = FindBuildingsByText(_searchText);
+                    _currentBuildings = _buildingRepository.FindByName(_searchText);
             }
             
             EditorGUILayout.EndHorizontal();
@@ -169,25 +171,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             ResetCurrentObjects();
         }
 
-        private List<BuildingConfig> FindAllBuildings()
-        {
-            var guids = AssetDatabase.FindAssets($"t:{nameof(BuildingConfig)}", new[] { _folderPath });
-            var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
-            var buildings = paths.Select(AssetDatabase.LoadAssetAtPath<BuildingConfig>)
-                .Where(config => config.buildingID).OrderBy(config => config.BaseCost).ToList();
-            
-            return buildings;
-        }
-
-        private List<BuildingConfig> FindBuildingsByText(string text)
-        {
-            return FindAllBuildings().Where(config =>
-            {
-                var name = ((string)config.buildingID).ToLower();
-                return name.Contains(text.ToLower());
-            }).ToList();
-        }
-
         private void CreateNewBuilding()
         {
             DeselectFromList();
@@ -211,7 +194,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            _currentBuildings = FindAllBuildings();
+            _currentBuildings = _buildingRepository.FindAll();
             SelectFromList(_currentBuildings.IndexOf(_currentConfig.Config));
             
             GUI.FocusControl("Name");
@@ -237,7 +220,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             AssetDatabase.Refresh();
             
             _hasPendingChanges = false;
-            _currentBuildings = FindAllBuildings();
+            _currentBuildings = _buildingRepository.FindAll();
         }
 
         private void RevertChanges()
@@ -263,7 +246,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             
-            _currentBuildings = FindAllBuildings();
+            _currentBuildings = _buildingRepository.FindAll();
             DeselectFromList();
             _window.Repaint();
         }
@@ -290,7 +273,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             }
             
             Undo.RecordObject(bakery, "Load Buildings");
-            bakery.LoadBuildings(FindAllBuildings());
+            bakery.LoadBuildings(_buildingRepository.FindAll());
             EditorUtility.SetDirty(bakery);
         }
     }

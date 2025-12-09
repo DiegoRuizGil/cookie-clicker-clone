@@ -62,11 +62,18 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
         public List<BuildingConfig> FindByName(string text)
         {
-            return FindAll().Where(config =>
-            {
-                var name = ((string)config.buildingID).ToLower();
-                return name.Contains(text.ToLower());
-            }).ToList();
+            var guids = AssetDatabase.FindAssets($"t:{nameof(BuildingConfig)}", new[] { _folderPath });
+            var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
+            var buildings = paths.Select(AssetDatabase.LoadAssetAtPath<BuildingConfig>)
+                .Where(config => config.buildingID)
+                .Where(config =>
+                {
+                    var name = ((string)config.buildingID).ToLower();
+                    return name.Contains(text.ToLower());
+                })
+                .OrderBy(config => config.BaseCost).ToList();
+            
+            return buildings;
         }
     }
 }

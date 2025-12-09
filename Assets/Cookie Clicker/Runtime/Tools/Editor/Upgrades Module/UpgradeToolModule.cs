@@ -19,16 +19,18 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         private List<BaseUpgradeConfig> _currentUpgrades = new List<BaseUpgradeConfig>();
         
         private readonly EditorWindow _window;
+        private readonly UpgradeRepository _upgradeRepository;
         private readonly string _folderPath;
-        private GenericMenu _upgradesCreationMenu;
         private readonly UpgradeEditorDrawer _upgradesDrawer;
-        
+        private GenericMenu _upgradesCreationMenu;
+
         private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
         private static readonly GUIContent PlusIcon = EditorGUIUtility.IconContent("Toolbar Plus More");
 
-        public UpgradeToolModule(EditorWindow window, string folderPath)
+        public UpgradeToolModule(EditorWindow window, UpgradeRepository repository, string folderPath)
         {
             _window = window;
+            _upgradeRepository = repository;
             _folderPath = folderPath;
             _upgradesDrawer = new UpgradeEditorDrawer();
             
@@ -115,13 +117,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         {
             _upgradesDrawer.SetDefaultOfType(type);
 
-            var name = _upgradesDrawer.CurrentUpgrade.PropName.stringValue;
-            var path = Path.Combine(_folderPath, name + ".asset");
-            
-            AssetDatabase.CreateAsset(_upgradesDrawer.CurrentUpgrade.Value, path);
-            
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            _upgradeRepository.CreateAsset(_upgradesDrawer.CurrentUpgrade.Value);
 
             _currentUpgrades = FindAllUpgrades();
             SelectFromList(_currentUpgrades.IndexOf(_upgradesDrawer.CurrentUpgrade.Value));

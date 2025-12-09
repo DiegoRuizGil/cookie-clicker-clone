@@ -52,8 +52,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
             if (GUILayout.Button(PlusIcon, EditorStyles.toolbarButton, GUILayout.Width(25)))
                 _upgradesCreationMenu.ShowAsContext();
-            
-            _searchText = GUILayout.TextField(_searchText, GUI.skin.FindStyle("ToolbarSearchTextField"));
+
+            using (var changeCheck = new EditorGUI.ChangeCheckScope())
+            {
+                _searchText = GUILayout.TextField(_searchText, GUI.skin.FindStyle("ToolbarSearchTextField"));
+                if (changeCheck.changed)
+                    _currentUpgrades = _upgradeRepository.FindByName(_searchText);
+            }
             EditorGUILayout.EndHorizontal();
             
             using (var scroll = new EditorGUILayout.ScrollViewScope(_scrollPos, EditorStyles.helpBox))

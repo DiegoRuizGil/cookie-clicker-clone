@@ -51,5 +51,19 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
             return upgrades;
         }
+
+        public List<BaseUpgradeConfig> FindByName(string text)
+        {
+            var guids = AssetDatabase.FindAssets($"t:{nameof(BaseUpgradeConfig)}", new[] { _folderPath });
+            var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
+            var upgrades = paths.Select(AssetDatabase.LoadAssetAtPath<BaseUpgradeConfig>)
+                .Where(upgrade =>
+                {
+                    var name = upgrade.Name.ToLower();
+                    return name.Contains(text.ToLower());
+                }).ToList();
+
+            return upgrades;
+        }
     }
 }

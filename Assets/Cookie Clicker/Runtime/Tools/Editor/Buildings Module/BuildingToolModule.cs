@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEditor;
@@ -29,17 +27,15 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         private List<BuildingConfig> _currentBuildings;
         
         private readonly EditorWindow _window;
-        private readonly string _folderPath;
         private readonly BuildingRepository _buildingRepository;
 
         private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
         private static readonly GUIContent PlusIcon = EditorGUIUtility.IconContent("Toolbar Plus");
         
-        public BuildingToolModule(EditorWindow window, BuildingRepository repository, string folderPath)
+        public BuildingToolModule(EditorWindow window, BuildingRepository repository)
         {
             _window = window;
             _buildingRepository = repository;
-            _folderPath = folderPath;
             
             _currentConfig = new  BuildingConfigWrapper();
             _currentID = new  BuildingIDWrapper();

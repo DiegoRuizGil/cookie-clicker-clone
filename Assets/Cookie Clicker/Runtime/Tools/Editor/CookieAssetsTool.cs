@@ -24,8 +24,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
         private void OnEnable()
         {
-            _buildingsModule = new BuildingToolModule(this, new BuildingRepository(FolderPath), FolderPath);
-            _upgradesModule = new UpgradeToolModule(this, new UpgradeRepository(FolderPath), FolderPath);
+            _buildingsModule = new BuildingToolModule(this, new BuildingRepository(FolderPath));
+            _upgradesModule = new UpgradeToolModule(this, new UpgradeRepository(FolderPath));
         }
 
         private void OnGUI()

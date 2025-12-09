@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Cookie_Clicker.Runtime.Modifiers.Infrastructure;
 using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers;
 using UnityEditor;
@@ -20,18 +18,16 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         
         private readonly EditorWindow _window;
         private readonly UpgradeRepository _upgradeRepository;
-        private readonly string _folderPath;
         private readonly UpgradeEditorDrawer _upgradesDrawer;
         private GenericMenu _upgradesCreationMenu;
 
         private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
         private static readonly GUIContent PlusIcon = EditorGUIUtility.IconContent("Toolbar Plus More");
 
-        public UpgradeToolModule(EditorWindow window, UpgradeRepository repository, string folderPath)
+        public UpgradeToolModule(EditorWindow window, UpgradeRepository repository)
         {
             _window = window;
             _upgradeRepository = repository;
-            _folderPath = folderPath;
             _upgradesDrawer = new UpgradeEditorDrawer();
             
             InitUpgradesCreationMenu();

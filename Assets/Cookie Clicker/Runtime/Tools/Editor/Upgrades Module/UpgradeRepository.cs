@@ -23,5 +23,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
+        
+        public void RenameAsset(BaseUpgradeConfig upgrade, string name)
+        {
+            AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(upgrade), name);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
     }
 }

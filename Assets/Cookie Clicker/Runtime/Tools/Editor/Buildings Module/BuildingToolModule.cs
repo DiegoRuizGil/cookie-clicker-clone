@@ -184,15 +184,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             _currentConfig.PropID.objectReferenceValue = _currentID.ID;
             _currentConfig.SO.ApplyModifiedProperties();
             
-            string name = _currentID.ID;
-            var idPath = Path.Combine(_folderPath, name + "ID.asset");
-            var configPath = Path.Combine(_folderPath, name + ".asset");
-                
-            AssetDatabase.CreateAsset(_currentID.ID, idPath);
-            AssetDatabase.CreateAsset(_currentConfig.Config, configPath);
-                
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            _buildingRepository.CreateAsset(_currentConfig.Config);
 
             _currentBuildings = _buildingRepository.FindAll();
             SelectFromList(_currentBuildings.IndexOf(_currentConfig.Config));
@@ -202,6 +194,9 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
         private void ApplyChanges()
         {
+            if (_bufferName != _currentID.ID)
+                _buildingRepository.RenameAsset(_currentConfig.Config, _bufferName);
+            
             _currentID.SO.Update();
             _currentID.PropName.stringValue = _bufferName;
             _currentID.SO.ApplyModifiedProperties();
@@ -212,12 +207,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             _currentConfig.PropIcon.objectReferenceValue = _bufferIcon;
             _currentConfig.PropSilhouette.objectReferenceValue = _bufferSilhouette;
             _currentConfig.SO.ApplyModifiedProperties();
-
-            AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(_currentID.ID), _bufferName + "ID");
-            AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(_currentConfig.Config), _bufferName);
-            
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
             
             _hasPendingChanges = false;
             _currentBuildings = _buildingRepository.FindAll();
@@ -236,7 +225,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
                     $"Are you sure you want to delete '{(string)config.buildingID}'?",
                     "Delete", "Cancel")) return;
 
-            _buildingRepository.Delete(config);
+            _buildingRepository.DeleteAsset(config);
             
             _currentBuildings = _buildingRepository.FindAll();
             DeselectFromList();

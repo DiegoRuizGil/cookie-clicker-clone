@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using UnityEditor;
@@ -12,6 +13,41 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         public BuildingRepository(string folderPath)
         {
             _folderPath = folderPath;
+        }
+
+        public void CreateAsset(BuildingConfig building)
+        {
+            string name = building.buildingID;
+            var idPath = Path.Combine(_folderPath, name + "ID.asset");
+            var buildingPath = Path.Combine(_folderPath, name + ".asset");
+                
+            AssetDatabase.CreateAsset(building.buildingID, idPath);
+            AssetDatabase.CreateAsset(building, buildingPath);
+                
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        public void RenameAsset(BuildingConfig building, string name)
+        {
+            AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(building.buildingID), name + "ID");
+            AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(building), name);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        public void DeleteAsset(BuildingConfig building)
+        {
+            var buildingPath = AssetDatabase.GetAssetPath(building);
+            var idPAth = AssetDatabase.GetAssetPath(building.buildingID);
+            
+            AssetDatabase.DeleteAsset(buildingPath);
+            if (!string.IsNullOrEmpty(idPAth))
+                AssetDatabase.DeleteAsset(idPAth);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
 
         public List<BuildingConfig> FindAll()
@@ -31,19 +67,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
                 var name = ((string)config.buildingID).ToLower();
                 return name.Contains(text.ToLower());
             }).ToList();
-        }
-
-        public void Delete(BuildingConfig building)
-        {
-            var buildingPath = AssetDatabase.GetAssetPath(building);
-            var idPAth = AssetDatabase.GetAssetPath(building.buildingID);
-            
-            AssetDatabase.DeleteAsset(buildingPath);
-            if (!string.IsNullOrEmpty(idPAth))
-                AssetDatabase.DeleteAsset(idPAth);
-            
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
         }
     }
 }

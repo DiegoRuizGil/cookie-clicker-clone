@@ -35,7 +35,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             _upgradesDrawer = new UpgradeEditorDrawer();
             
             InitUpgradesCreationMenu();
-            _currentUpgrades = FindAllUpgrades();
+            _currentUpgrades = _upgradeRepository.FindAll();
             
             SelectFromList(_selectedIndex);
         }
@@ -119,7 +119,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
             _upgradeRepository.CreateAsset(_upgradesDrawer.CurrentUpgrade.Value);
 
-            _currentUpgrades = FindAllUpgrades();
+            _currentUpgrades = _upgradeRepository.FindAll();
             SelectFromList(_currentUpgrades.IndexOf(_upgradesDrawer.CurrentUpgrade.Value));
             
             GUI.FocusControl("Name");
@@ -134,18 +134,9 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
             _upgradeRepository.DeleteAsset(upgrade);
             
-            _currentUpgrades = FindAllUpgrades();
+            _currentUpgrades = _upgradeRepository.FindAll();
             _selectedIndex = 0;
             _window.Repaint();
-        }
-
-        private List<BaseUpgradeConfig> FindAllUpgrades()
-        {
-            var guids = AssetDatabase.FindAssets($"t:{nameof(BaseUpgradeConfig)}", new[] { _folderPath });
-            var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
-            var upgrades = paths.Select(AssetDatabase.LoadAssetAtPath<BaseUpgradeConfig>).ToList();
-
-            return upgrades;
         }
 
         private void SelectFromList(int index)
@@ -166,7 +157,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             }
             
             Undo.RecordObject(upgradesComponent, "Load Upgrades");
-            upgradesComponent.LoadUpgrades(FindAllUpgrades());
+            upgradesComponent.LoadUpgrades(_upgradeRepository.FindAll());
             EditorUtility.SetDirty(upgradesComponent);
         }
     }

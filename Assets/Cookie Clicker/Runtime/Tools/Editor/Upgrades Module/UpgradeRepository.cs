@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Cookie_Clicker.Runtime.Modifiers.Infrastructure;
 using UnityEditor;
 
@@ -39,6 +41,15 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+        }
+
+        public List<BaseUpgradeConfig> FindAll()
+        {
+            var guids = AssetDatabase.FindAssets($"t:{nameof(BaseUpgradeConfig)}", new[] { _folderPath });
+            var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
+            var upgrades = paths.Select(AssetDatabase.LoadAssetAtPath<BaseUpgradeConfig>).ToList();
+
+            return upgrades;
         }
     }
 }

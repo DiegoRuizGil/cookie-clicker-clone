@@ -32,5 +32,18 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
                 return name.Contains(text.ToLower());
             }).ToList();
         }
+
+        public void Delete(BuildingConfig building)
+        {
+            var buildingPath = AssetDatabase.GetAssetPath(building);
+            var idPAth = AssetDatabase.GetAssetPath(building.buildingID);
+            
+            AssetDatabase.DeleteAsset(buildingPath);
+            if (!string.IsNullOrEmpty(idPAth))
+                AssetDatabase.DeleteAsset(idPAth);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
     }
 }

@@ -236,15 +236,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
                     $"Are you sure you want to delete '{(string)config.buildingID}'?",
                     "Delete", "Cancel")) return;
 
-            var configPath = AssetDatabase.GetAssetPath(config);
-            var idPAth = AssetDatabase.GetAssetPath(config.buildingID);
-            
-            AssetDatabase.DeleteAsset(configPath);
-            if (!string.IsNullOrEmpty(idPAth))
-                AssetDatabase.DeleteAsset(idPAth);
-            
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            _buildingRepository.Delete(config);
             
             _currentBuildings = _buildingRepository.FindAll();
             DeselectFromList();

@@ -33,12 +33,15 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers
 
         public void ApplyChanges(UpgradeConfigWrapper wrapper)
         {
-            
-        }
-
-        public void RevertChanges(UpgradeConfigWrapper wrapper)
-        {
-            
+            wrapper.SO.Update();
+            wrapper.SO.FindProperty("grandmaID").objectReferenceValue = _bufferGrandmaID;
+            wrapper.SO.FindProperty("buildingID").objectReferenceValue = _bufferBuildingID;
+            wrapper.SO.FindProperty("grandmaEfficiencyMultiplier").floatValue = _bufferGrandmaEffMult;
+            wrapper.SO.FindProperty("buildingMultiplier").floatValue = _bufferBuildingMult;
+            wrapper.SO.FindProperty("grandmaGroupSize").intValue = _bufferGrandmaGroupSize;
+            wrapper.SO.FindProperty("grandmaCountToUnlock").intValue = _bufferGrandmaCountToUnlock;
+            wrapper.SO.FindProperty("buildingCountToUnlock").intValue = _bufferBuildingCountToUnlock;
+            wrapper.SO.ApplyModifiedProperties();
         }
 
         public void SetBufferValues(UpgradeConfigWrapper wrapper)

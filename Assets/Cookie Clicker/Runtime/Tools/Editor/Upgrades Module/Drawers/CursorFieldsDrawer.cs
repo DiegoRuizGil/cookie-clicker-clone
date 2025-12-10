@@ -24,10 +24,11 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers
 
         public void ApplyChanges(UpgradeConfigWrapper wrapper)
         {
-        }
-
-        public void RevertChanges(UpgradeConfigWrapper wrapper)
-        {
+            wrapper.SO.Update();
+            wrapper.SO.FindProperty("cursorID").objectReferenceValue = _bufferCursorID;
+            wrapper.SO.FindProperty("efficiencyMultiplier").floatValue = _bufferEfficiencyMult;
+            wrapper.SO.FindProperty("cursorCountToUnlock").intValue = _bufferCursorCountToUnlock;
+            wrapper.SO.ApplyModifiedProperties();
         }
 
         public void SetBufferValues(UpgradeConfigWrapper wrapper)

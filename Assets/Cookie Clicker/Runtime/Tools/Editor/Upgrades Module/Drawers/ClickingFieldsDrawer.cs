@@ -22,12 +22,10 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers
 
         public void ApplyChanges(UpgradeConfigWrapper wrapper)
         {
-            
-        }
-
-        public void RevertChanges(UpgradeConfigWrapper wrapper)
-        {
-            
+            wrapper.SO.Update();
+            wrapper.SO.FindProperty("multiplier").floatValue = _bufferMultiplier;
+            wrapper.SO.FindProperty("handMadeCookiesToUnlock").doubleValue = _bufferHandMadeCookiesToUnlock;
+            wrapper.SO.ApplyModifiedProperties();
         }
 
         public void SetBufferValues(UpgradeConfigWrapper wrapper)

@@ -52,6 +52,16 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             return upgrades;
         }
 
+        public List<BaseUpgradeConfig> FindAllValid()
+        {
+            var guids = AssetDatabase.FindAssets($"t:{nameof(BaseUpgradeConfig)}", new[] { _folderPath });
+            var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
+            var upgrades = paths.Select(AssetDatabase.LoadAssetAtPath<BaseUpgradeConfig>)
+                .Where(upgrade => upgrade.IsValid()).ToList();
+
+            return upgrades;
+        }
+
         public List<BaseUpgradeConfig> FindByName(string text)
         {
             var guids = AssetDatabase.FindAssets($"t:{nameof(BaseUpgradeConfig)}", new[] { _folderPath });

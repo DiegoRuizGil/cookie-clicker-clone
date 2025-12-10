@@ -21,6 +21,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         
         private Vector2 _buildingListScrollPos;
         private int _selectedIndex;
+        private bool Deselected => _selectedIndex < 0;
 
         private string _searchText;
         
@@ -113,6 +114,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
         private void DrawEditor()
         {
+            if (Deselected) return;
+            
             EditorGUILayout.BeginVertical();
             
             EditorGUI.BeginChangeCheck();
@@ -168,7 +171,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
         private void CreateNewBuilding()
         {
-            DeselectFromList();
+            ResetCurrentObjects();
             
             _currentID.SO.Update();
             _currentID.PropName.stringValue = "New Building";

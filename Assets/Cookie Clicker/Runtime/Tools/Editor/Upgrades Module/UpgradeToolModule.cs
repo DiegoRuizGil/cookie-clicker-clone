@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cookie_Clicker.Runtime.Modifiers.Infrastructure;
 using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers;
 using UnityEditor;
@@ -14,6 +15,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
         private Vector2 _scrollPos;
         private int _selectedIndex;
+        private bool Deselected => _selectedIndex < 0;
         private List<BaseUpgradeConfig> _currentUpgrades;
         
         private readonly EditorWindow _window;
@@ -109,6 +111,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
         private void DrawEditor()
         {
+            if (Deselected) return;
+            
             _upgradesDrawer.Draw();
         }
 
@@ -144,7 +148,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             _upgradeRepository.DeleteAsset(upgrade);
             
             UpdateList();
-            _selectedIndex = 0;
+            DeselectFromList();
             _window.Repaint();
         }
 
@@ -153,6 +157,11 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             _selectedIndex = index;
             
             _upgradesDrawer.SetUpgrade(_currentUpgrades[index]);
+        }
+
+        private void DeselectFromList()
+        {
+            _selectedIndex = -1;
         }
         
         private void LoadUpgradesInScene()
@@ -166,7 +175,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             }
             
             Undo.RecordObject(upgradesComponent, "Load Upgrades");
-            upgradesComponent.LoadUpgrades(_upgradeRepository.FindAll());
+            upgradesComponent.LoadUpgrades(_upgradeRepository.FindAllValid());
             EditorUtility.SetDirty(upgradesComponent);
         }
     }

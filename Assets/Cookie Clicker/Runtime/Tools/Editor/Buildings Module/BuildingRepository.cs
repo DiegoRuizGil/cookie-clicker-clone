@@ -2,17 +2,21 @@
 using System.IO;
 using System.Linq;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
+using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module;
 using UnityEditor;
+using UnityEngine;
 
 namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 {
     public class BuildingRepository
     {
         private readonly string _folderPath;
+        private readonly UpgradeRepository _upgradeRepository;
 
-        public BuildingRepository(string folderPath)
+        public BuildingRepository(string folderPath, UpgradeRepository upgradeRepository)
         {
             _folderPath = folderPath;
+            _upgradeRepository = upgradeRepository;
         }
 
         public void CreateAsset(BuildingConfig building)
@@ -39,6 +43,10 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
         public void DeleteAsset(BuildingConfig building)
         {
+            var associatedUpgrades = _upgradeRepository.FindByBuilding(building.buildingID);
+            foreach (var upgrade in associatedUpgrades)
+                _upgradeRepository.DeleteAsset(upgrade);
+            
             var buildingPath = AssetDatabase.GetAssetPath(building);
             var idPAth = AssetDatabase.GetAssetPath(building.buildingID);
             

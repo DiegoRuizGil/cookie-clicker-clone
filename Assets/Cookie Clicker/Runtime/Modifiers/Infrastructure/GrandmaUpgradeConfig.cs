@@ -45,5 +45,16 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             
             return upgrade;
         }
+        
+        public override List<string> GetAssociatedBuildingIDs()
+        {
+            var buildings = new List<string>();
+            if (grandmaID)
+                buildings.Add(grandmaID);
+            if (buildingID)
+                buildings.Add(buildingID);
+            
+            return buildings;
+        }
     }
 }

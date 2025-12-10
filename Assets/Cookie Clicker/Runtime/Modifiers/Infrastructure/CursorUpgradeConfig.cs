@@ -1,4 +1,5 @@
-﻿using Cookie_Clicker.Runtime.Builders;
+﻿using System.Collections.Generic;
+using Cookie_Clicker.Runtime.Builders;
 using Cookie_Clicker.Runtime.Cookies.Infrastructure.Buildings;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Effects;
@@ -29,6 +30,15 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             upgrade.AddUnlockCondition(condition);
 
             return upgrade;
+        }
+        
+        public override List<string> GetAssociatedBuildingIDs()
+        {
+            var buildings = new List<string>();
+            if (cursorID)
+                buildings.Add(cursorID);
+            
+            return buildings;
         }
     }
 }

@@ -130,7 +130,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         {
             if (!EditorUtility.DisplayDialog(
                     "Delete Upgrade",
-                    $"Are you sure you want to delete '{upgrade.Name}'?",
+                    $"Are you sure you want to delete '{upgrade.Name}'?\n\nThis action cannot be undone.",
                     "Delete", "Cancel")) return;
 
             _upgradeRepository.DeleteAsset(upgrade);

@@ -1,4 +1,5 @@
-﻿using Cookie_Clicker.Runtime.Builders;
+﻿using System.Collections.Generic;
+using Cookie_Clicker.Runtime.Builders;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Effects;
@@ -29,5 +30,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             
             return upgrade;
         }
+        
+        public override List<string> GetAssociatedBuildingIDs() => new List<string>();
     }
 }

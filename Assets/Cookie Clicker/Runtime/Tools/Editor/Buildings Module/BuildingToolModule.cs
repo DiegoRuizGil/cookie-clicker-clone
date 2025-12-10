@@ -218,7 +218,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         {
             if (!EditorUtility.DisplayDialog(
                     "Delete Building",
-                    $"Are you sure you want to delete '{(string)config.buildingID}'?",
+                    $"Are you sure you want to delete '{(string)config.buildingID}'? All associated upgrades will also be deleted.\n\nThis action cannot be undone.",
                     "Delete", "Cancel")) return;
 
             _buildingRepository.DeleteAsset(config);

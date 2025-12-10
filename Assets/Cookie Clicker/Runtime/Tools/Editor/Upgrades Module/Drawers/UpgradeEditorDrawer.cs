@@ -64,12 +64,12 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers
         {
             BaseUpgradeConfig upgrade = type switch
             {
-                UpgradeType.Tiered => ScriptableObject.CreateInstance<EfficiencyUpgradeConfig>(),
-                UpgradeType.Cursor => ScriptableObject.CreateInstance<TappingCursorUpgradeConfig>(),
+                UpgradeType.Tiered => ScriptableObject.CreateInstance<TieredUpgradeConfig>(),
+                UpgradeType.Cursor => ScriptableObject.CreateInstance<CursorUpgradeConfig>(),
                 UpgradeType.Grandma => ScriptableObject.CreateInstance<GrandmaUpgradeConfig>(),
-                UpgradeType.Clicking => ScriptableObject.CreateInstance<TappingUpgradeConfig>(),
+                UpgradeType.Clicking => ScriptableObject.CreateInstance<ClickingUpgradeConfig>(),
                 UpgradeType.Cookies => ScriptableObject.CreateInstance<CookiesUpgradeConfig>(),
-                _ => ScriptableObject.CreateInstance<EfficiencyUpgradeConfig>(),
+                _ => ScriptableObject.CreateInstance<TieredUpgradeConfig>(),
             };
             
             CurrentUpgrade.Set(upgrade);

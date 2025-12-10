@@ -11,7 +11,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyBuildingEfficiencyUpgrade()
         {
-            var upgrade = new EfficiencyEffect("cursor", 2.0f);
+            var upgrade = new TieredEffect("cursor", 2.0f);
             var building = A.Building.WithName("cursor").WithBaseCPS(10).Build();
             var baker = new CookieBaker();
             baker.SetBuildings(new [] { building });
@@ -39,7 +39,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyTappingCursorUpgrade()
         {
-            var upgrade = new TappingCursorEffect("cursor", 2.0f);
+            var upgrade = new CursorEffect("cursor", 2.0f);
             var building = A.Building.WithName("cursor").WithBaseCPS(10).Build();
             var baker = new CookieBaker();
             baker.SetBuildings(new [] { building });
@@ -142,7 +142,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyTappingUpgrade()
         {
-            var upgrade = new TappingEffect(Percentage.FromPercentage(1f));
+            var upgrade = new ClickingEffect(Percentage.FromPercentage(1f));
             var building = A.Building.WithName("cursor").WithBaseCPS(100).Build();
             var baker = new CookieBaker();
             baker.SetBuildings(new [] { building });
@@ -156,7 +156,7 @@ namespace Cookie_Clicker.Tests
         [Test]
         public void ApplyTappingUpgrade_WithZeroCPS()
         {
-            var upgrade = new TappingEffect(Percentage.FromPercentage(1f));
+            var upgrade = new ClickingEffect(Percentage.FromPercentage(1f));
             var baker = new CookieBaker();
             
             upgrade.Apply(baker);

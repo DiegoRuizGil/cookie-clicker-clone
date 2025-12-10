@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 {
     [CreateAssetMenu(menuName = "Upgrades/Tappnig and Cursor")]
-    public class TappingCursorUpgradeConfig : BaseUpgradeConfig
+    public class CursorUpgradeConfig : BaseUpgradeConfig
     {
         public override UpgradeType Type => UpgradeType.Cursor;
         
@@ -21,7 +21,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 
         public override Upgrade Get()
         {
-            var effect = new TappingCursorEffect(cursorID, efficiencyMultiplier);
+            var effect = new CursorEffect(cursorID, efficiencyMultiplier);
             var condition = new BuildingCountCondition(cursorID, cursorCountToUnlock);
             var upgrade = An.Upgrade.WithName(upgradeName).WithIcon(icon).WithCost(cost)
                 .WithDescription(description).WithEffect(effect).Build();

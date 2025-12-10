@@ -3,12 +3,12 @@ using Cookie_Clicker.Runtime.Cookies.Domain.Baker;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain.Effects
 {
-    public class TappingCursorEffect : IUpgradeEffect
+    public class CursorEffect : IUpgradeEffect
     {
         private readonly string _cursorName;
         private readonly float _efficiencyMultiplier;
         
-        public TappingCursorEffect(string cursorName, float efficiencyMultiplier)
+        public CursorEffect(string cursorName, float efficiencyMultiplier)
         {
             _cursorName = cursorName;
             _efficiencyMultiplier = efficiencyMultiplier;

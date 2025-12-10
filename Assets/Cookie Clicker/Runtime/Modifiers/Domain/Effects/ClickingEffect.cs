@@ -3,11 +3,11 @@ using Cookie_Clicker.Runtime.Cookies.Domain.Baker;
 
 namespace Cookie_Clicker.Runtime.Modifiers.Domain.Effects
 {
-    public class TappingEffect : IUpgradeEffect
+    public class ClickingEffect : IUpgradeEffect
     {
         private readonly Percentage _multiplier;
         
-        public TappingEffect(Percentage multiplier)
+        public ClickingEffect(Percentage multiplier)
         {
             _multiplier = multiplier;
         }

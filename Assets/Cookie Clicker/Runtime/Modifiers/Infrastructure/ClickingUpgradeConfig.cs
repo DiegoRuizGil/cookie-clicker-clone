@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 {
     [CreateAssetMenu(menuName = "Upgrades/Tapping")]
-    public class TappingUpgradeConfig : BaseUpgradeConfig
+    public class ClickingUpgradeConfig : BaseUpgradeConfig
     {
         public override UpgradeType Type => UpgradeType.Clicking;
         
@@ -20,7 +20,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
 
         public override Upgrade Get()
         {
-            var effect = new TappingEffect(Percentage.FromFraction(multiplier));
+            var effect = new ClickingEffect(Percentage.FromFraction(multiplier));
             var condition = new HandMadeCookiesCondition(handMadeCookiesToUnlock);
             var upgrade = An.Upgrade.WithName(upgradeName).WithIcon(icon).WithCost(cost)
                 .WithDescription(description).WithEffect(effect).Build();

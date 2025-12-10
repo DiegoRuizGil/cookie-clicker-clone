@@ -28,7 +28,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         {
             _window = window;
             _upgradeRepository = repository;
-            _upgradesDrawer = new UpgradeEditorDrawer();
+            _upgradesDrawer = new UpgradeEditorDrawer(repository);
             
             InitUpgradesCreationMenu();
             _currentUpgrades = _upgradeRepository.FindAll();

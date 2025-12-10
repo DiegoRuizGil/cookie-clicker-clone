@@ -11,6 +11,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers
         private string _bufferDescription = "";
         
         private Vector2 _descriptionScroll;
+
+        public bool needsToBeRenamed;
         
         public void Draw()
         {
@@ -27,12 +29,14 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers
 
         public void ApplyChanges(UpgradeConfigWrapper wrapper)
         {
+            needsToBeRenamed = wrapper.PropName.stringValue != _bufferName;
             
-        }
-
-        public void RevertChanges(UpgradeConfigWrapper wrapper)
-        {
-            
+            wrapper.SO.Update();
+            wrapper.PropName.stringValue = _bufferName;
+            wrapper.PropIcon.objectReferenceValue = _bufferIcon;
+            wrapper.PropCost.doubleValue = _bufferCost;
+            wrapper.PropDescription.stringValue = _bufferDescription;
+            wrapper.SO.ApplyModifiedProperties();
         }
 
         public void SetBufferValues(UpgradeConfigWrapper wrapper)

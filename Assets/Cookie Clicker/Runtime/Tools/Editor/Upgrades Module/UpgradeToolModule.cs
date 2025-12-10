@@ -75,10 +75,19 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
                     EditorGUI.DrawRect(rowRect, bgColor);
                     
                     GUI.Label(new Rect(rowRect.x + 5, rowRect.y, rowRect.width - 30, rowRect.height), _currentUpgrades[i].Name);
-
-                    var iconRect = new Rect(rowRect.xMax - 20, rowRect.y + 2, 16, 16);
-
-                    if (GUI.Button(iconRect, ToolUtils.TrashIcon, GUIStyle.none))
+                    
+                    if (!_currentUpgrades[i].IsValid())
+                    {
+                        var warningRect = new Rect(rowRect.xMax - 40, rowRect.y + 2, 16, 16);
+                        var warningContent = new GUIContent(ToolUtils.WarningIcon)
+                        {
+                            tooltip = "This upgrade has no building assigned!"
+                        };
+                        GUI.Label(warningRect, warningContent, GUIStyle.none);
+                    }
+                    
+                    var deleteRect = new Rect(rowRect.xMax - 20, rowRect.y + 2, 16, 16);
+                    if (GUI.Button(deleteRect, ToolUtils.TrashIcon, GUIStyle.none))
                     {
                         DeleteUpgrade(_currentUpgrades[i]);
                         break;

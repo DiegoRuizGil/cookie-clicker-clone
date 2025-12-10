@@ -32,5 +32,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
         }
         
         public override List<string> GetAssociatedBuildingIDs() => new List<string>();
+        
+        public override bool IsValid() => true;
     }
 }

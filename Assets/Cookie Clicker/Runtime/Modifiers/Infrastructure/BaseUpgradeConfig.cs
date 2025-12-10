@@ -22,5 +22,6 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
         
         public abstract Upgrade Get();
         public abstract List<string> GetAssociatedBuildingIDs();
+        public abstract bool IsValid();
     }
 }

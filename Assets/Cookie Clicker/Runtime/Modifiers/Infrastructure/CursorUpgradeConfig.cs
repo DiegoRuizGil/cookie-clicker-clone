@@ -40,5 +40,7 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             
             return buildings;
         }
+        
+        public override bool IsValid() => cursorID != null;
     }
 }

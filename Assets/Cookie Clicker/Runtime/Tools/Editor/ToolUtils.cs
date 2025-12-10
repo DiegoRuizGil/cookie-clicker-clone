@@ -13,6 +13,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         public static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
         public static readonly GUIContent PlusIcon = EditorGUIUtility.IconContent("Toolbar Plus");
         public static readonly GUIContent PlusMoreIcon = EditorGUIUtility.IconContent("Toolbar Plus More");
+        public static readonly GUIContent WarningIcon = EditorGUIUtility.IconContent("Warning");
 
         private static readonly string DefaultAssetsPath = "Assets/Cookie Clicker/Editor/DefaultAssets";
 
@@ -21,5 +22,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             var path = Path.Combine(DefaultAssetsPath, "Icons", $"{icon}.png");
             return AssetDatabase.LoadAssetAtPath<Sprite>(path);
         }
+        
+        
     }
 }

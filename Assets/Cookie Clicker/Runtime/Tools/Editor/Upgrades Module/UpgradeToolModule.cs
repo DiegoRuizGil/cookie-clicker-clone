@@ -12,11 +12,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
     public class UpgradeToolModule
     {
         private string _searchText;
-
+        
         private Vector2 _scrollPos;
         private int _selectedIndex;
         private bool Deselected => _selectedIndex < 0;
         private List<BaseUpgradeConfig> _currentUpgrades;
+
+        private bool _hasPendingChanges;
         
         private readonly EditorWindow _window;
         private readonly UpgradeRepository _upgradeRepository;
@@ -27,7 +29,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         {
             _window = window;
             _upgradeRepository = repository;
-            _upgradesDrawer = new UpgradeEditorDrawer(repository);
+            _upgradesDrawer = new UpgradeEditorDrawer();
             
             InitUpgradesCreationMenu();
             _currentUpgrades = _upgradeRepository.FindAll();
@@ -112,8 +114,25 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         private void DrawEditor()
         {
             if (Deselected) return;
+
+            EditorGUILayout.BeginVertical();
             
+            EditorGUI.BeginChangeCheck();
             _upgradesDrawer.Draw();
+            if (EditorGUI.EndChangeCheck())
+                _hasPendingChanges = true;
+            
+            EditorGUILayout.Space(10);
+
+            using (new EditorGUI.DisabledScope(!_hasPendingChanges))
+            {
+                if (GUILayout.Button("Apply"))
+                    ApplyChanges();
+                if (GUILayout.Button("Revert"))
+                    RevertChanges();
+            }
+            
+            EditorGUILayout.EndVertical();
         }
 
         private void InitUpgradesCreationMenu()
@@ -152,11 +171,39 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             _window.Repaint();
         }
 
+        private void ApplyChanges()
+        {
+            _upgradesDrawer.ApplyChanges();
+
+            if (_upgradesDrawer.NeedsToBeRenamed)
+            {
+                _upgradeRepository.RenameAsset(_upgradesDrawer.CurrentUpgrade.Value, _upgradesDrawer.CurrentUpgrade.Value.Name);
+                _upgradesDrawer.NeedsToBeRenamed = false;
+            }
+            
+            _hasPendingChanges = false;
+            UpdateList();
+            SelectFromList(_currentUpgrades.IndexOf(_upgradesDrawer.CurrentUpgrade.Value));
+        }
+
+        private void RevertChanges()
+        {
+            _upgradesDrawer.RevertChanges();
+            _hasPendingChanges = false;
+        }
+        
+        private void SetBufferValues()
+        {
+            _upgradesDrawer.SetBufferValues();
+            _hasPendingChanges = false;
+        }
+
         private void SelectFromList(int index)
         {
             _selectedIndex = index;
             
-            _upgradesDrawer.SetUpgrade(_currentUpgrades[index]);
+            _upgradesDrawer.CurrentUpgrade.Set(_currentUpgrades[index]);
+            SetBufferValues();
         }
 
         private void DeselectFromList()

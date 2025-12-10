@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Codice.Client.BaseCommands;
 using Cookie_Clicker.Runtime.Modifiers.Infrastructure;
 using UnityEditor;
 
@@ -47,7 +48,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         {
             var guids = AssetDatabase.FindAssets($"t:{nameof(BaseUpgradeConfig)}", new[] { _folderPath });
             var paths = guids.Select(AssetDatabase.GUIDToAssetPath);
-            var upgrades = paths.Select(AssetDatabase.LoadAssetAtPath<BaseUpgradeConfig>).ToList();
+            var upgrades = paths.Select(AssetDatabase.LoadAssetAtPath<BaseUpgradeConfig>)
+                .OrderBy(upgrade => upgrade.Cost).ToList();
 
             return upgrades;
         }

@@ -208,6 +208,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             
             _hasPendingChanges = false;
             UpdateList();
+            SelectFromList(_currentBuildings.IndexOf(_currentConfig.Config));
         }
 
         private void RevertChanges()

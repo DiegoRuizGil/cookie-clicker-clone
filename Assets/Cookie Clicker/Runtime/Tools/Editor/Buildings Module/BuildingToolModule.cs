@@ -55,7 +55,9 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
                 DrawEditor();
             }
         }
-        
+
+        public void UpdateList() => _currentBuildings = _buildingRepository.FindAll();
+
         private void DrawList()
         {
             EditorGUILayout.BeginVertical(GUILayout.MaxWidth(200));
@@ -182,7 +184,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             
             _buildingRepository.CreateAsset(_currentConfig.Config);
 
-            _currentBuildings = _buildingRepository.FindAll();
+            UpdateList();
             SelectFromList(_currentBuildings.IndexOf(_currentConfig.Config));
             
             GUI.FocusControl("Name");
@@ -205,7 +207,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             _currentConfig.SO.ApplyModifiedProperties();
             
             _hasPendingChanges = false;
-            _currentBuildings = _buildingRepository.FindAll();
+            UpdateList();
         }
 
         private void RevertChanges()
@@ -223,7 +225,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
             _buildingRepository.DeleteAsset(config);
             
-            _currentBuildings = _buildingRepository.FindAll();
+            UpdateList();
             DeselectFromList();
             _window.Repaint();
         }

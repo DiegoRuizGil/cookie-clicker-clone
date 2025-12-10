@@ -85,7 +85,10 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers
             _specificFieldsDrawers[CurrentUpgrade.Type].ApplyChanges(CurrentUpgrade);
 
             if (_generalFieldsDrawer.needsToBeRenamed)
+            {
                 _upgradeRepository.RenameAsset(CurrentUpgrade.Value, CurrentUpgrade.Value.Name);
+                _generalFieldsDrawer.needsToBeRenamed = false;
+            }
             
             _hasPendingChanges = false;
         }

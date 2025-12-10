@@ -60,7 +60,24 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             var tabs = new string[] { "Settings", "Buildings", "Upgrades" };
             
             GUILayout.BeginHorizontal(EditorStyles.toolbar);
-            _currentToolSection = (ToolSection)GUILayout.Toolbar((int)_currentToolSection, tabs, GUILayout.ExpandWidth(true));
+            using (var changeCheck = new EditorGUI.ChangeCheckScope())
+            {
+                _currentToolSection = (ToolSection)GUILayout.Toolbar((int)_currentToolSection, tabs, GUILayout.ExpandWidth(true));
+                if (changeCheck.changed)
+                {
+                    switch (_currentToolSection)
+                    {
+                        case ToolSection.Settings:
+                            break;
+                        case ToolSection.Buildings:
+                            _buildingsModule.UpdateList();
+                            break;
+                        case ToolSection.Upgrades:
+                            _upgradesModule.UpdateList();
+                            break;
+                    }
+                }
+            }
             GUILayout.EndHorizontal();
         }
     }

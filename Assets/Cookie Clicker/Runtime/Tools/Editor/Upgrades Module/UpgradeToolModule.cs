@@ -14,7 +14,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
         private Vector2 _scrollPos;
         private int _selectedIndex;
-        private List<BaseUpgradeConfig> _currentUpgrades = new List<BaseUpgradeConfig>();
+        private List<BaseUpgradeConfig> _currentUpgrades;
         
         private readonly EditorWindow _window;
         private readonly UpgradeRepository _upgradeRepository;
@@ -44,6 +44,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
                 DrawEditor();
             }
         }
+        
+        public void UpdateList() => _currentUpgrades = _upgradeRepository.FindAll();
 
         private void DrawList()
         {
@@ -120,7 +122,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
             _upgradeRepository.CreateAsset(_upgradesDrawer.CurrentUpgrade.Value);
 
-            _currentUpgrades = _upgradeRepository.FindAll();
+            UpdateList();
             SelectFromList(_currentUpgrades.IndexOf(_upgradesDrawer.CurrentUpgrade.Value));
             
             GUI.FocusControl("Name");
@@ -135,7 +137,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
             _upgradeRepository.DeleteAsset(upgrade);
             
-            _currentUpgrades = _upgradeRepository.FindAll();
+            UpdateList();
             _selectedIndex = 0;
             _window.Repaint();
         }

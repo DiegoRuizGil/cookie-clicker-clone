@@ -29,9 +29,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         private readonly EditorWindow _window;
         private readonly BuildingRepository _buildingRepository;
 
-        private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
-        private static readonly GUIContent PlusIcon = EditorGUIUtility.IconContent("Toolbar Plus");
-        
         public BuildingToolModule(EditorWindow window, BuildingRepository repository)
         {
             _window = window;
@@ -64,7 +61,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
             
-            if (GUILayout.Button(PlusIcon, EditorStyles.toolbarButton, GUILayout.Width(25)))
+            if (GUILayout.Button(ToolUtils.PlusIcon, EditorStyles.toolbarButton, GUILayout.Width(25)))
                 CreateNewBuilding();
 
             using (var changeCheck = new EditorGUI.ChangeCheckScope())
@@ -94,7 +91,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
                     var iconRect = new Rect(rowRect.xMax - 20, rowRect.y + 2, 16, 16);
 
-                    if (GUI.Button(iconRect, TrashIcon, GUIStyle.none))
+                    if (GUI.Button(iconRect, ToolUtils.TrashIcon, GUIStyle.none))
                     {
                         DeleteBuilding(_currentBuildings[i]);
                         break;

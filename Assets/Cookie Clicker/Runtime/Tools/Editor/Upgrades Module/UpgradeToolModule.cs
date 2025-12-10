@@ -21,9 +21,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         private readonly UpgradeEditorDrawer _upgradesDrawer;
         private GenericMenu _upgradesCreationMenu;
 
-        private static readonly GUIContent TrashIcon = EditorGUIUtility.IconContent("TreeEditor.Trash");
-        private static readonly GUIContent PlusIcon = EditorGUIUtility.IconContent("Toolbar Plus More");
-
         public UpgradeToolModule(EditorWindow window, UpgradeRepository repository)
         {
             _window = window;
@@ -52,7 +49,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             EditorGUILayout.BeginVertical(GUILayout.MaxWidth(200));
             
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
-            if (GUILayout.Button(PlusIcon, EditorStyles.toolbarButton, GUILayout.Width(25)))
+            if (GUILayout.Button(ToolUtils.PlusMoreIcon, EditorStyles.toolbarButton, GUILayout.Width(25)))
                 _upgradesCreationMenu.ShowAsContext();
 
             using (var changeCheck = new EditorGUI.ChangeCheckScope())
@@ -81,7 +78,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
                     var iconRect = new Rect(rowRect.xMax - 20, rowRect.y + 2, 16, 16);
 
-                    if (GUI.Button(iconRect, TrashIcon, GUIStyle.none))
+                    if (GUI.Button(iconRect, ToolUtils.TrashIcon, GUIStyle.none))
                     {
                         DeleteUpgrade(_currentUpgrades[i]);
                         break;

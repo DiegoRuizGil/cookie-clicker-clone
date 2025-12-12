@@ -1,4 +1,5 @@
-﻿using Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module;
+﻿using System.Linq;
+using Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module;
 using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module;
 using UnityEditor;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             var upgradeRepository = new UpgradeRepository(FolderPath);
             var buildingRepository = new BuildingRepository(FolderPath, upgradeRepository);
             
-            _upgradesModule = new UpgradeToolModule(this, upgradeRepository);
+            _upgradesModule = new UpgradeToolModule(this, upgradeRepository, buildingRepository.FindAll().Select(b => (string)b.buildingID).ToList());
             _buildingsModule = new BuildingToolModule(this, buildingRepository);
         }
 

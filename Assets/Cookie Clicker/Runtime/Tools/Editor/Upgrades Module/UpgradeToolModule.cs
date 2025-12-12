@@ -23,23 +23,31 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         private readonly EditorWindow _window;
         private readonly UpgradeRepository _upgradeRepository;
         private readonly UpgradeEditorDrawer _upgradesDrawer;
-        private readonly SelectPopup<UpgradeType> _upgradesFilter;
+        private readonly SelectPopup<UpgradeType> _typeFilter;
+        private readonly SelectPopup<string> _buildingFilter;
         private GenericMenu _upgradesCreationMenu;
         
         private List<UpgradeType> _selectedTypes = new List<UpgradeType>();
+        private List<string> _selectedBuildings = new List<string>();
 
-        public UpgradeToolModule(EditorWindow window, UpgradeRepository repository)
+        public UpgradeToolModule(EditorWindow window, UpgradeRepository repository, List<string> buildingsName)
         {
             _window = window;
             _upgradeRepository = repository;
             _upgradesDrawer = new UpgradeEditorDrawer();
 
-            _upgradesFilter = new SelectPopup<UpgradeType>(
+            _typeFilter = new SelectPopup<UpgradeType>(
                 Enum.GetValues(typeof(UpgradeType)).Cast<UpgradeType>().ToList(),
                 Enum.GetValues(typeof(UpgradeType)).Cast<UpgradeType>().ToList(),
                 newValue =>
                 {
                     _selectedTypes =  newValue;
+                    SearchUpgrades();
+                });
+            _buildingFilter = new SelectPopup<string>(
+                buildingsName, buildingsName, newValue =>
+                {
+                    _selectedBuildings = newValue;
                     SearchUpgrades();
                 });
             
@@ -76,7 +84,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             }
             EditorGUILayout.EndHorizontal();
             
-            _upgradesFilter.Draw("Type");
+            _typeFilter.Draw("Type");
+            _buildingFilter.Draw("Building");
             
             using (var scroll = new EditorGUILayout.ScrollViewScope(_scrollPos, EditorStyles.helpBox))
             {
@@ -168,6 +177,9 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
             if (_selectedTypes.Count > 0)
                 upgrades = upgrades.Where(u => _selectedTypes.Contains(u.Type)).ToList();
+
+            if (_selectedBuildings.Count == 1)
+                upgrades = upgrades.Where(u => u.GetAssociatedBuildingIDs().Any(b => _selectedBuildings.Contains(b))).ToList();
 
             _currentUpgrades = upgrades;
         }

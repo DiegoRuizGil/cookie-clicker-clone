@@ -23,13 +23,25 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         private readonly EditorWindow _window;
         private readonly UpgradeRepository _upgradeRepository;
         private readonly UpgradeEditorDrawer _upgradesDrawer;
+        private readonly SelectPopup<UpgradeType> _upgradesFilter;
         private GenericMenu _upgradesCreationMenu;
+        
+        private List<UpgradeType> _selectedTypes = new List<UpgradeType>();
 
         public UpgradeToolModule(EditorWindow window, UpgradeRepository repository)
         {
             _window = window;
             _upgradeRepository = repository;
             _upgradesDrawer = new UpgradeEditorDrawer();
+
+            _upgradesFilter = new SelectPopup<UpgradeType>(
+                Enum.GetValues(typeof(UpgradeType)).Cast<UpgradeType>().ToList(),
+                Enum.GetValues(typeof(UpgradeType)).Cast<UpgradeType>().ToList(),
+                newValue =>
+                {
+                    _selectedTypes =  newValue;
+                    SearchUpgrades();
+                });
             
             InitUpgradesCreationMenu();
             _currentUpgrades = _upgradeRepository.FindAll();
@@ -60,9 +72,11 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             {
                 _searchText = GUILayout.TextField(_searchText, GUI.skin.FindStyle("ToolbarSearchTextField"));
                 if (changeCheck.changed)
-                    _currentUpgrades = _upgradeRepository.FindByName(_searchText);
+                    SearchUpgrades();
             }
             EditorGUILayout.EndHorizontal();
+            
+            _upgradesFilter.Draw("Type");
             
             using (var scroll = new EditorGUILayout.ScrollViewScope(_scrollPos, EditorStyles.helpBox))
             {
@@ -143,6 +157,19 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
                 var content = new GUIContent(type + " upgrade");
                 _upgradesCreationMenu.AddItem(content, false, () => CreateNewUpgrade((UpgradeType) type));
             }
+        }
+
+        private void SearchUpgrades()
+        {
+            var upgrades = _upgradeRepository.FindAll();
+
+            if (!string.IsNullOrEmpty(_searchText))
+                upgrades = upgrades.Where(u => u.Name.ToLower().Contains(_searchText.ToLower())).ToList();
+
+            if (_selectedTypes.Count > 0)
+                upgrades = upgrades.Where(u => _selectedTypes.Contains(u.Type)).ToList();
+
+            _currentUpgrades = upgrades;
         }
 
         private void CreateNewUpgrade(UpgradeType type)

@@ -39,10 +39,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             _currentID = new  BuildingIDWrapper();
 
             ResetCurrentObjects();
-
-            _currentBuildings = _buildingRepository.FindAll();
-            
-            SelectFromList(_selectedIndex);
+            InitList();
         }
 
         public void OnGUI()
@@ -55,6 +52,16 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         }
 
         public void UpdateList() => _currentBuildings = _buildingRepository.FindAll();
+
+        private void InitList()
+        {
+            _currentBuildings = _buildingRepository.FindAll();
+
+            if (_currentBuildings.Count == 0)
+                DeselectFromList();
+            else
+                SelectFromList(_selectedIndex);
+        }
 
         private void DrawList()
         {

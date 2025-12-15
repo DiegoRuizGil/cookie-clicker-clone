@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module;
 using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module;
 using UnityEditor;
@@ -10,13 +11,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
     {
         private enum ToolSection
         {
-            Settings, Buildings, Upgrades
+            Buildings, Upgrades
         }
         
         [MenuItem("Tools/Cookie Assets")]
         public static void OpenWindow() => GetWindow<CookieAssetsTool>("Cookie Assets");
 
-        private const string FolderPath = "Assets/Cookie Clicker/Data";
+        private const string BasePath = "Assets/Cookie Clicker/Data";
 
         private BuildingToolModule _buildingsModule;
         private UpgradeToolModule _upgradesModule;
@@ -25,11 +26,25 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
         private void OnEnable()
         {
-            var upgradeRepository = new UpgradeRepository(FolderPath);
-            var buildingRepository = new BuildingRepository(FolderPath, upgradeRepository);
+            var upgradesPath = Path.Combine(BasePath, "Upgrades");
+            var buildingsPath = Path.Combine(BasePath, "Buildings");
+            
+            CreateFolders(upgradesPath, buildingsPath);
+            
+            var upgradeRepository = new UpgradeRepository(upgradesPath);
+            var buildingRepository = new BuildingRepository(buildingsPath, upgradeRepository);
             
             _upgradesModule = new UpgradeToolModule(this, upgradeRepository, buildingRepository.FindAll().Select(b => (string)b.buildingID).ToList());
             _buildingsModule = new BuildingToolModule(this, buildingRepository);
+        }
+
+        private void CreateFolders(params string[] paths)
+        {
+            foreach (var path in paths)
+            {
+                // if (!AssetDatabase.IsValidFolder(path))
+                //     AssetDatabase.CreateFolder(path);
+            }
         }
 
         private void OnGUI()
@@ -39,8 +54,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
             switch (_currentToolSection)
             {
-                case ToolSection.Settings:
-                    break;
                 case ToolSection.Buildings:
                     _buildingsModule.OnGUI();
                     break;
@@ -58,7 +71,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
         private void DrawTabs()
         {
-            var tabs = new string[] { "Settings", "Buildings", "Upgrades" };
+            var tabs = new string[] { "Buildings", "Upgrades" };
             
             GUILayout.BeginHorizontal(EditorStyles.toolbar);
             using (var changeCheck = new EditorGUI.ChangeCheckScope())
@@ -68,8 +81,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 {
                     switch (_currentToolSection)
                     {
-                        case ToolSection.Settings:
-                            break;
                         case ToolSection.Buildings:
                             _buildingsModule.UpdateList();
                             break;

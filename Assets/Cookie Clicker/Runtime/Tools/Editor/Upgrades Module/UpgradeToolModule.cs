@@ -241,6 +241,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         {
             _selectedIndex = index;
             
+            // var upgrade = index < _currentUpgrades.Count ? _currentUpgrades[index] : null;
+            if (index >= _currentUpgrades.Count) return;
             _upgradesDrawer.CurrentUpgrade.Set(_currentUpgrades[index]);
             SetBufferValues();
         }

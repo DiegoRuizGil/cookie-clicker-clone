@@ -52,9 +52,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
                 });
             
             InitUpgradesCreationMenu();
-            _currentUpgrades = _upgradeRepository.FindAll();
-            
-            SelectFromList(_selectedIndex);
+            InitList();
         }
 
         public void OnGUI()
@@ -65,8 +63,18 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
                 DrawEditor();
             }
         }
-        
+
         public void UpdateList() => _currentUpgrades = _upgradeRepository.FindAll();
+
+        private void InitList()
+        {
+            _currentUpgrades = _upgradeRepository.FindAll();
+
+            if (_currentUpgrades.Count == 0)
+                DeselectFromList();
+            else
+                SelectFromList(_selectedIndex);
+        }
 
         private void DrawList()
         {

@@ -26,8 +26,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
         private void OnEnable()
         {
-            var upgradesPath = Path.Combine(BasePath, "Upgrades");
-            var buildingsPath = Path.Combine(BasePath, "Buildings");
+            var upgradesPath = $"{BasePath}/Upgrades";
+            var buildingsPath = $"{BasePath}/Buildings";
             
             CreateFolders(upgradesPath, buildingsPath);
             
@@ -41,9 +41,26 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         private void CreateFolders(params string[] paths)
         {
             foreach (var path in paths)
+                EnsureFolderExists(path);
+            
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        private void EnsureFolderExists(string path)
+        {
+            if (AssetDatabase.IsValidFolder(path)) return;
+
+            var parts = path.Split('/');
+            string currentPath = parts[0];
+            
+            for (var i = 1; i < parts.Length; i++)
             {
-                // if (!AssetDatabase.IsValidFolder(path))
-                //     AssetDatabase.CreateFolder(path);
+                var nextPath = $"{currentPath}/{parts[i]}";
+                if (!AssetDatabase.IsValidFolder(nextPath))
+                    AssetDatabase.CreateFolder(currentPath, parts[i]);
+
+                currentPath = nextPath;
             }
         }
 

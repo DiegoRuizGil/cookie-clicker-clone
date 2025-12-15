@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd33f5af43ee4fe7b6acbe69203b3c3f, type: 3}
+  m_Name: Delicious blessing
+  m_EditorClassIdentifier: 
+  upgradeName: Delicious blessing
+  icon: {fileID: 2006188235, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 10000000000
+  description: Temples are <color=white>twice</color> as efficient.
+  buildingID: {fileID: 11400000, guid: b035401cfb670b34a84af5fd1f5eff2f, type: 2}
+  efficiencyMult: 2
+  buildingCountToUnlock: 25

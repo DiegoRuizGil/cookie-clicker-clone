@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2b57f7e96a4ea88162a25860105eff, type: 3}
+  m_Name: Priestess grandmas
+  m_EditorClassIdentifier: 
+  upgradeName: Priestess grandmas
+  icon: {fileID: -1308168047, guid: f0f69f2ca8e970e4fbeadee4cdad60a6, type: 3}
+  cost: 1000000000
+  description: 'Grandmas are <color=white>twice</color> as efficient.
+
+    Temples
+    gain <color=white>+1% CpS</color> per 5 grandmas.'
+  grandmaID: {fileID: 11400000, guid: ad8d37e8c2be21f478546ec050c9af13, type: 2}
+  buildingID: {fileID: 11400000, guid: b035401cfb670b34a84af5fd1f5eff2f, type: 2}
+  grandmaEfficiencyMultiplier: 2
+  buildingMultiplier: 0.01
+  grandmaGroupSize: 5
+  grandmaCountToUnlock: 1
+  buildingCountToUnlock: 15

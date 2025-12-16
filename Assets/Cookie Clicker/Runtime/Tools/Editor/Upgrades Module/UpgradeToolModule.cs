@@ -189,10 +189,15 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
             using (new EditorGUI.DisabledScope(!_hasPendingChanges))
             {
-                if (GUILayout.Button("Apply"))
-                    ApplyChanges();
-                if (GUILayout.Button("Revert"))
+                EditorGUILayout.BeginHorizontal();
+                
+                GUILayout.FlexibleSpace();
+
+                if (GUILayout.Button("Revert", GUILayout.ExpandWidth(false)))
                     RevertChanges();
+                if (GUILayout.Button("Apply", GUILayout.ExpandWidth(false)))
+                    ApplyChanges();
+                EditorGUILayout.EndHorizontal();
             }
             
             EditorGUILayout.EndVertical();

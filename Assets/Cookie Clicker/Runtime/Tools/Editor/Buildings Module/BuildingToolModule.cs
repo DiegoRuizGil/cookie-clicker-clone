@@ -51,7 +51,15 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             }
         }
 
-        public void SearchBuildings() => _currentBuildings = _currentBuildings = _buildingRepository.FindByName(_searchText);
+        public void SearchBuildings()
+        {
+            _currentBuildings = _currentBuildings = _buildingRepository.FindByName(_searchText);
+            
+            if (_currentBuildings.Count == 0)
+                DeselectFromList();
+            else
+                SelectFromList(0);
+        }
 
         private void InitList()
         {

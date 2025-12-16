@@ -81,6 +81,11 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
                 upgrades = upgrades.Where(u => u.GetAssociatedBuildingIDs().Any(b => _selectedBuildings.Contains(b))).ToList();
 
             _currentUpgrades = upgrades;
+            
+            if (_currentUpgrades.Count == 0)
+                DeselectFromList();
+            else
+                SelectFromList(0);
         }
 
         public void UpdateBuildingsNameList()

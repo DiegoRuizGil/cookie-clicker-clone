@@ -12,6 +12,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
     [CreateAssetMenu(menuName = "Upgrades/Grandma")]
     public class GrandmaUpgradeConfig : BaseUpgradeConfig
     {
+        public override UpgradeType Type => UpgradeType.Grandma;
+        
         [Header("Upgrade Settings")]
         [SerializeField] private BuildingID grandmaID;
         [SerializeField] private BuildingID buildingID;
@@ -43,5 +45,18 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             
             return upgrade;
         }
+        
+        public override List<string> GetAssociatedBuildingIDs()
+        {
+            var buildings = new List<string>();
+            if (grandmaID)
+                buildings.Add(grandmaID);
+            if (buildingID)
+                buildings.Add(buildingID);
+            
+            return buildings;
+        }
+        
+        public override bool IsValid() => grandmaID != null && buildingID != null;
     }
 }

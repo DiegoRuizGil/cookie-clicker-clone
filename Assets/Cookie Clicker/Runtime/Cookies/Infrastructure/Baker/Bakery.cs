@@ -38,5 +38,7 @@ namespace Cookie_Clicker.Runtime.Cookies.Infrastructure.Baker
             _buildingsController.Update();
             _cookieController.Update();
         }
+
+        public void LoadBuildings(List<BuildingConfig> buildings) => buildingConfigs = buildings;
     }
 }

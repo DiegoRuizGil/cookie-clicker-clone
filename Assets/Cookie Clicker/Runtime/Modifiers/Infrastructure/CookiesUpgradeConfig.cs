@@ -1,4 +1,5 @@
-﻿using Cookie_Clicker.Runtime.Builders;
+﻿using System.Collections.Generic;
+using Cookie_Clicker.Runtime.Builders;
 using Cookie_Clicker.Runtime.Cookies.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain;
 using Cookie_Clicker.Runtime.Modifiers.Domain.Effects;
@@ -10,6 +11,8 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
     [CreateAssetMenu(menuName = "Upgrades/Global Production")]
     public class CookiesUpgradeConfig : BaseUpgradeConfig
     {
+        public override UpgradeType Type => UpgradeType.Cookies;
+        
         [Header("Effect Settings")]
         [SerializeField, Range(0, 1)] private float multiplier = 0.2f;
 
@@ -27,5 +30,9 @@ namespace Cookie_Clicker.Runtime.Modifiers.Infrastructure
             
             return upgrade;
         }
+        
+        public override List<string> GetAssociatedBuildingIDs() => new List<string>();
+        
+        public override bool IsValid() => true;
     }
 }

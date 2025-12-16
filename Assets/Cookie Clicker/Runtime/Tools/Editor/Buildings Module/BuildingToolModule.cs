@@ -131,39 +131,44 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
         private void DrawEditor()
         {
-            if (Deselected) return;
-            
-            _drawerScrollPos =  EditorGUILayout.BeginScrollView(_drawerScrollPos);
-            EditorGUILayout.BeginVertical();
-            
-            EditorGUI.BeginChangeCheck();
-            GUI.SetNextControlName("Name");
-            _bufferName = EditorGUILayout.TextField("Name", _bufferName);
-            _bufferBaseCps = EditorGUILayout.FloatField("Base CPS", _bufferBaseCps);
-            _bufferBaseCost = EditorGUILayout.FloatField("Base Cost", _bufferBaseCost);
-            _bufferIcon = (Sprite)EditorGUILayout.ObjectField("Icon", _bufferIcon, typeof(Sprite), false);
-            _bufferSilhouette = (Sprite)EditorGUILayout.ObjectField("Silhouette", _bufferSilhouette, typeof(Sprite), false);
-            if (EditorGUI.EndChangeCheck())
-                _hasPendingChanges = true;
-            
-            EditorGUILayout.Space(10);
-
-            using (new EditorGUI.DisabledScope(!_hasPendingChanges))
+            using (new EditorGUILayout.VerticalScope())
             {
-                EditorGUILayout.BeginHorizontal();
+                var toolBarRect = GUILayoutUtility.GetRect(0f, 20f, GUILayout.ExpandWidth(true));
+                GUI.Box(toolBarRect, GUIContent.none, EditorStyles.toolbar);
+                GUILayout.Space(5);
                 
-                GUILayout.FlexibleSpace();
+                if (Deselected) return;
                 
-                if (GUILayout.Button("Revert", GUILayout.ExpandWidth(false)))
-                    RevertChanges();
-                if (GUILayout.Button("Apply", GUILayout.ExpandWidth(false)))
-                    ApplyChanges();
-                
-                EditorGUILayout.EndHorizontal();
-            }
+                _drawerScrollPos =  EditorGUILayout.BeginScrollView(_drawerScrollPos);
             
-            EditorGUILayout.EndVertical();
-            EditorGUILayout.EndScrollView();
+                EditorGUI.BeginChangeCheck();
+                GUI.SetNextControlName("Name");
+                _bufferName = EditorGUILayout.TextField("Name", _bufferName);
+                _bufferBaseCps = EditorGUILayout.FloatField("Base CPS", _bufferBaseCps);
+                _bufferBaseCost = EditorGUILayout.FloatField("Base Cost", _bufferBaseCost);
+                _bufferIcon = (Sprite)EditorGUILayout.ObjectField("Icon", _bufferIcon, typeof(Sprite), false);
+                _bufferSilhouette = (Sprite)EditorGUILayout.ObjectField("Silhouette", _bufferSilhouette, typeof(Sprite), false);
+                if (EditorGUI.EndChangeCheck())
+                    _hasPendingChanges = true;
+            
+                EditorGUILayout.Space(10);
+
+                using (new EditorGUI.DisabledScope(!_hasPendingChanges))
+                {
+                    EditorGUILayout.BeginHorizontal();
+                
+                    GUILayout.FlexibleSpace();
+                
+                    if (GUILayout.Button("Revert", GUILayout.ExpandWidth(false)))
+                        RevertChanges();
+                    if (GUILayout.Button("Apply", GUILayout.ExpandWidth(false)))
+                        ApplyChanges();
+                
+                    EditorGUILayout.EndHorizontal();
+                }
+            
+                EditorGUILayout.EndScrollView();
+            }
         }
 
         private void ResetCurrentObjects()

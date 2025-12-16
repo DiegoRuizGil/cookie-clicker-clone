@@ -175,33 +175,38 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
         private void DrawEditor()
         {
-            if (Deselected) return;
-
-            _drawerScrollPos =  EditorGUILayout.BeginScrollView(_drawerScrollPos);
-            EditorGUILayout.BeginVertical();
-            
-            EditorGUI.BeginChangeCheck();
-            _upgradesDrawer.Draw();
-            if (EditorGUI.EndChangeCheck())
-                _hasPendingChanges = true;
-            
-            EditorGUILayout.Space(10);
-
-            using (new EditorGUI.DisabledScope(!_hasPendingChanges))
+            using (new EditorGUILayout.VerticalScope())
             {
-                EditorGUILayout.BeginHorizontal();
+                var toolBarRect = GUILayoutUtility.GetRect(0f, 20f, GUILayout.ExpandWidth(true));
+                GUI.Box(toolBarRect, GUIContent.none, EditorStyles.toolbar);
+                GUILayout.Space(5);
                 
-                GUILayout.FlexibleSpace();
+                if (Deselected) return;
 
-                if (GUILayout.Button("Revert", GUILayout.ExpandWidth(false)))
-                    RevertChanges();
-                if (GUILayout.Button("Apply", GUILayout.ExpandWidth(false)))
-                    ApplyChanges();
-                EditorGUILayout.EndHorizontal();
-            }
+                _drawerScrollPos =  EditorGUILayout.BeginScrollView(_drawerScrollPos);
             
-            EditorGUILayout.EndVertical();
-            EditorGUILayout.EndScrollView();
+                EditorGUI.BeginChangeCheck();
+                _upgradesDrawer.Draw();
+                if (EditorGUI.EndChangeCheck())
+                    _hasPendingChanges = true;
+            
+                EditorGUILayout.Space(10);
+
+                using (new EditorGUI.DisabledScope(!_hasPendingChanges))
+                {
+                    EditorGUILayout.BeginHorizontal();
+                
+                    GUILayout.FlexibleSpace();
+
+                    if (GUILayout.Button("Revert", GUILayout.ExpandWidth(false)))
+                        RevertChanges();
+                    if (GUILayout.Button("Apply", GUILayout.ExpandWidth(false)))
+                        ApplyChanges();
+                    EditorGUILayout.EndHorizontal();
+                }
+            
+                EditorGUILayout.EndScrollView();
+            }
         }
 
         private void InitUpgradesCreationMenu()

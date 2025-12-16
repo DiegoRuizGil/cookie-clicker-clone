@@ -13,8 +13,10 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
     public class UpgradeToolModule
     {
         private string _searchText = "";
+
+        private Vector2 _drawerScrollPos;
         
-        private Vector2 _scrollPos;
+        private Vector2 _listScrollPos;
         private int _selectedIndex;
         private bool Deselected => _selectedIndex < 0;
         private List<BaseUpgradeConfig> _currentUpgrades;
@@ -124,9 +126,9 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             _typeFilter.Draw("Type");
             _buildingFilter.Draw("Building");
             
-            using (var scroll = new EditorGUILayout.ScrollViewScope(_scrollPos, EditorStyles.helpBox))
+            using (var scroll = new EditorGUILayout.ScrollViewScope(_listScrollPos, EditorStyles.helpBox))
             {
-                _scrollPos = scroll.scrollPosition;
+                _listScrollPos = scroll.scrollPosition;
                 
                 for (int i = 0; i < _currentUpgrades.Count; i++)
                 {
@@ -175,6 +177,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         {
             if (Deselected) return;
 
+            _drawerScrollPos =  EditorGUILayout.BeginScrollView(_drawerScrollPos);
             EditorGUILayout.BeginVertical();
             
             EditorGUI.BeginChangeCheck();
@@ -193,6 +196,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             }
             
             EditorGUILayout.EndVertical();
+            EditorGUILayout.EndScrollView();
         }
 
         private void InitUpgradesCreationMenu()

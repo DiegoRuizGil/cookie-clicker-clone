@@ -64,7 +64,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 
         private void OnGUI()
         {
-            
             DrawTabs();
 
             switch (_currentToolSection)

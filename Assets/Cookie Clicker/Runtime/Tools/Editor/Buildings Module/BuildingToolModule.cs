@@ -18,6 +18,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         private Sprite _bufferIcon;
         private Sprite _bufferSilhouette;
         private bool _hasPendingChanges;
+
+        private Vector2 _drawerScrollPos;
         
         private Vector2 _buildingListScrollPos;
         private int _selectedIndex;
@@ -131,17 +133,16 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         {
             if (Deselected) return;
             
+            _drawerScrollPos =  EditorGUILayout.BeginScrollView(_drawerScrollPos);
             EditorGUILayout.BeginVertical();
             
             EditorGUI.BeginChangeCheck();
-            
             GUI.SetNextControlName("Name");
             _bufferName = EditorGUILayout.TextField("Name", _bufferName);
             _bufferBaseCps = EditorGUILayout.FloatField("Base CPS", _bufferBaseCps);
             _bufferBaseCost = EditorGUILayout.FloatField("Base Cost", _bufferBaseCost);
             _bufferIcon = (Sprite)EditorGUILayout.ObjectField("Icon", _bufferIcon, typeof(Sprite), false);
             _bufferSilhouette = (Sprite)EditorGUILayout.ObjectField("Silhouette", _bufferSilhouette, typeof(Sprite), false);
-            
             if (EditorGUI.EndChangeCheck())
                 _hasPendingChanges = true;
             
@@ -157,6 +158,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             }
             
             EditorGUILayout.EndVertical();
+            EditorGUILayout.EndScrollView();
         }
 
         private void ResetCurrentObjects()

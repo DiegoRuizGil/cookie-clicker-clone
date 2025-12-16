@@ -66,6 +66,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         {
             DrawTabs();
 
+            EditorGUILayout.BeginVertical();
+            
             switch (_currentToolSection)
             {
                 case ToolSection.Buildings:
@@ -75,6 +77,9 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                     _upgradesModule.OnGUI();
                     break;
             }
+            
+            GUILayout.Space(5);
+            EditorGUILayout.EndVertical();
             
             if (Event.current.type == EventType.MouseDown)
             {

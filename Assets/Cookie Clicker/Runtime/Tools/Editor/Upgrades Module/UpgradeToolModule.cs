@@ -11,7 +11,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 {
     public class UpgradeToolModule
     {
-        private string _searchText;
+        private string _searchText = "";
         
         private Vector2 _scrollPos;
         private int _selectedIndex;
@@ -64,7 +64,21 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             }
         }
 
-        public void UpdateList() => _currentUpgrades = _upgradeRepository.FindAll();
+        public void SearchUpgrades()
+        {
+            var upgrades = _upgradeRepository.FindAll();
+
+            if (!string.IsNullOrEmpty(_searchText))
+                upgrades = upgrades.Where(u => u.Name.ToLower().Contains(_searchText.ToLower())).ToList();
+
+            if (_selectedTypes.Count > 0)
+                upgrades = upgrades.Where(u => _selectedTypes.Contains(u.Type)).ToList();
+
+            if (_selectedBuildings.Count == 1)
+                upgrades = upgrades.Where(u => u.GetAssociatedBuildingIDs().Any(b => _selectedBuildings.Contains(b))).ToList();
+
+            _currentUpgrades = upgrades;
+        }
 
         private void InitList()
         {
@@ -176,29 +190,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             }
         }
 
-        private void SearchUpgrades()
-        {
-            var upgrades = _upgradeRepository.FindAll();
-
-            if (!string.IsNullOrEmpty(_searchText))
-                upgrades = upgrades.Where(u => u.Name.ToLower().Contains(_searchText.ToLower())).ToList();
-
-            if (_selectedTypes.Count > 0)
-                upgrades = upgrades.Where(u => _selectedTypes.Contains(u.Type)).ToList();
-
-            if (_selectedBuildings.Count == 1)
-                upgrades = upgrades.Where(u => u.GetAssociatedBuildingIDs().Any(b => _selectedBuildings.Contains(b))).ToList();
-
-            _currentUpgrades = upgrades;
-        }
-
         private void CreateNewUpgrade(UpgradeType type)
         {
             _upgradesDrawer.SetDefaultOfType(type);
 
             _upgradeRepository.CreateAsset(_upgradesDrawer.CurrentUpgrade.Value);
 
-            UpdateList();
+            SearchUpgrades();
             SelectFromList(_currentUpgrades.IndexOf(_upgradesDrawer.CurrentUpgrade.Value));
             
             GUI.FocusControl("Name");
@@ -213,7 +211,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
 
             _upgradeRepository.DeleteAsset(upgrade);
             
-            UpdateList();
+            SearchUpgrades();
             DeselectFromList();
             _window.Repaint();
         }
@@ -229,7 +227,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             }
             
             _hasPendingChanges = false;
-            UpdateList();
+            SearchUpgrades();
             SelectFromList(_currentUpgrades.IndexOf(_upgradesDrawer.CurrentUpgrade.Value));
         }
 

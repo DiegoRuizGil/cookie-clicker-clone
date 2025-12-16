@@ -23,7 +23,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
         private int _selectedIndex;
         private bool Deselected => _selectedIndex < 0;
 
-        private string _searchText;
+        private string _searchText = "";
         
         private List<BuildingConfig> _currentBuildings;
         
@@ -51,7 +51,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             }
         }
 
-        public void UpdateList() => _currentBuildings = _buildingRepository.FindAll();
+        public void SearchBuildings() => _currentBuildings = _currentBuildings = _buildingRepository.FindByName(_searchText);
 
         private void InitList()
         {
@@ -191,7 +191,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             
             _buildingRepository.CreateAsset(_currentConfig.Config);
 
-            UpdateList();
+            SearchBuildings();
             SelectFromList(_currentBuildings.IndexOf(_currentConfig.Config));
             
             GUI.FocusControl("Name");
@@ -214,7 +214,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
             _currentConfig.SO.ApplyModifiedProperties();
             
             _hasPendingChanges = false;
-            UpdateList();
+            SearchBuildings();
             SelectFromList(_currentBuildings.IndexOf(_currentConfig.Config));
         }
 
@@ -233,7 +233,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module
 
             _buildingRepository.DeleteAsset(config);
             
-            UpdateList();
+            SearchBuildings();
             DeselectFromList();
             _window.Repaint();
         }

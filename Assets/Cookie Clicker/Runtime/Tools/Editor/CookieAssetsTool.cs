@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module;
 using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module;
 using UnityEditor;
@@ -28,7 +27,6 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         {
             var upgradesPath = $"{BasePath}/Upgrades";
             var buildingsPath = $"{BasePath}/Buildings";
-            
             CreateFolders(upgradesPath, buildingsPath);
             
             var upgradeRepository = new UpgradeRepository(upgradesPath);
@@ -99,10 +97,10 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                     switch (_currentToolSection)
                     {
                         case ToolSection.Buildings:
-                            _buildingsModule.UpdateList();
+                            _buildingsModule.SearchBuildings();
                             break;
                         case ToolSection.Upgrades:
-                            _upgradesModule.UpdateList();
+                            _upgradesModule.SearchUpgrades();
                             break;
                     }
                 }

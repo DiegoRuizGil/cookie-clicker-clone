@@ -22,7 +22,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
         private UpgradeToolModule _upgradesModule;
         
         private ToolSection _currentToolSection = ToolSection.Buildings;
-
+        
         private void OnEnable()
         {
             var upgradesPath = $"{BasePath}/Upgrades";
@@ -32,7 +32,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
             var upgradeRepository = new UpgradeRepository(upgradesPath);
             var buildingRepository = new BuildingRepository(buildingsPath, upgradeRepository);
             
-            _upgradesModule = new UpgradeToolModule(this, upgradeRepository, buildingRepository.FindAll().Select(b => (string)b.buildingID).ToList());
+            _upgradesModule = new UpgradeToolModule(this, upgradeRepository, buildingRepository);
             _buildingsModule = new BuildingToolModule(this, buildingRepository);
         }
 
@@ -100,6 +100,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                             _buildingsModule.SearchBuildings();
                             break;
                         case ToolSection.Upgrades:
+                            _upgradesModule.UpdateBuildingsNameList();
                             _upgradesModule.SearchUpgrades();
                             break;
                     }

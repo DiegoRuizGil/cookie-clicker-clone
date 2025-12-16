@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cookie_Clicker.Runtime.Modifiers.Infrastructure;
+using Cookie_Clicker.Runtime.Tools.Editor.Buildings_Module;
 using Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module.Drawers;
 using UnityEditor;
 using UnityEngine;
@@ -22,6 +23,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         
         private readonly EditorWindow _window;
         private readonly UpgradeRepository _upgradeRepository;
+        private readonly BuildingRepository _buildingRepository;
         private readonly UpgradeEditorDrawer _upgradesDrawer;
         private readonly SelectPopup<UpgradeType> _typeFilter;
         private readonly SelectPopup<string> _buildingFilter;
@@ -30,10 +32,11 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
         private List<UpgradeType> _selectedTypes = new List<UpgradeType>();
         private List<string> _selectedBuildings = new List<string>();
 
-        public UpgradeToolModule(EditorWindow window, UpgradeRepository repository, List<string> buildingsName)
+        public UpgradeToolModule(EditorWindow window, UpgradeRepository upgradeRepository, BuildingRepository buildingRepository)
         {
             _window = window;
-            _upgradeRepository = repository;
+            _upgradeRepository = upgradeRepository;
+            _buildingRepository = buildingRepository;
             _upgradesDrawer = new UpgradeEditorDrawer();
 
             _typeFilter = new SelectPopup<UpgradeType>(
@@ -45,7 +48,7 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
                     SearchUpgrades();
                 });
             _buildingFilter = new SelectPopup<string>(
-                buildingsName, buildingsName, newValue =>
+                GetBuildingsName(), GetBuildingsName(), newValue =>
                 {
                     _selectedBuildings = newValue;
                     SearchUpgrades();
@@ -80,6 +83,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor.Upgrades_Module
             _currentUpgrades = upgrades;
         }
 
+        public void UpdateBuildingsNameList()
+        {
+            _buildingFilter.SetOptions(GetBuildingsName());
+        }
+
+        private List<string> GetBuildingsName() => _buildingRepository.FindAll().Select(b => (string)b.buildingID).ToList();
+        
         private void InitList()
         {
             _currentUpgrades = _upgradeRepository.FindAll();

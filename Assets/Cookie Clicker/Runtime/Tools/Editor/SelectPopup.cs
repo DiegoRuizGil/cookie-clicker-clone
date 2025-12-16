@@ -8,8 +8,8 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
 {
     public class SelectPopup<T>
     {
-        private readonly List<T> _options;
-        private readonly HashSet<T> _selected;
+        private List<T> _options;
+        private HashSet<T> _selected;
         private readonly Action<List<T>> _onChange;
         
         public SelectPopup(List<T> options, List<T> initialValues, Action<List<T>> onChange)
@@ -53,6 +53,13 @@ namespace Cookie_Clicker.Runtime.Tools.Editor
                 menu.ShowAsContext();
             }
             EditorGUILayout.EndHorizontal();
+        }
+
+        public void SetOptions(List<T> options)
+        {
+            _options = options;
+            _selected = new HashSet<T>(options);
+            _onChange.Invoke(new List<T>(_selected));
         }
 
         private string GetSelectorLabel()
